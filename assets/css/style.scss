@@ -19,14 +19,15 @@ strong {
   color: #444;
 }
 
-.content-right {
+section {
   width: auto;
   float: none;
 }
 
-.header-left {
+header {
   width: auto;
   float: none;
+  position: static;
 }
 
 @media screen {
