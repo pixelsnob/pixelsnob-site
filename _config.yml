@@ -1,0 +1,15 @@
+theme: jekyll-theme-minimal
+
+plugins:
+  - jekyll-relative-links
+
+relative_links:
+  enabled: true
+  collections: true
+
+include:
+  - when-one-soccer-team-owns-a-park.md
+  - survey.md
+
+
+  
