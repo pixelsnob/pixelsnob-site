@@ -11,8 +11,6 @@
   }
 }
 
-
-
 @media screen {
   body, html {
     color: #666;
@@ -21,9 +19,13 @@
   strong {
     color: #444;
   }
+  
   section {
     width: auto;
     float: none;
+    &.site-content {
+      padding-top: 20px;
+    }
   }
 
   header {
@@ -34,9 +36,12 @@
       padding-bottom: 12px;
       margin: 0;
     }
-    padding-bottom: 40px;
     border-bottom: 1px solid #444;
+    &.site-header {
+      padding-bottom: 20px;
+    }
   }
+  
   p, li {
     font-size: 1.3rem;
   }
