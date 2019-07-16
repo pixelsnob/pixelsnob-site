@@ -20,12 +20,13 @@ strong {
 }
 
 .content-right {
-  width: 600px;
-  
+  width: auto;
+  float: none;
 }
 
 .header-left {
-  width: 220px;
+  width: auto;
+  float: none;
 }
 
 @media screen {
