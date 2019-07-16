@@ -1,5 +1,5 @@
 
-# What do you think of Osornio Park?
+## What do you think of Osornio Park?
 
 The City of La Habra has requested feedback from residents on how potential Prop 68 grant money could be used to improve our parks. The City has chosen four locations for potential consideration, and one of them is Osornio Park.
 
@@ -7,7 +7,7 @@ This **private, informal** survey, **not affiliated with the City of La Habra**,
 
 You may remain anonymous if you choose. You do not have to answer every question.
 
-## Questionnaire
+### Questionnaire
 
 1. I go to Osornio Park
    - Once a week or more
