@@ -1,5 +1,6 @@
-# When One Soccer Team "Owns" a Park
-## A look at what's been going on at Osornio Park over the last 10 years
+## When One Soccer Team "Owns" a Park
+
+A look at what's been going on at Osornio Park over the last 10 years
 
 Luis A. Echeverria<br/>
 July 14, 2019
