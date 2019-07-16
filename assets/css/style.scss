@@ -19,10 +19,14 @@ strong {
   color: #444;
 }
 
-/*section {
-  width: auto;
+.content-right {
+  width: 60vw;
   float: none;
-}*/
+}
+
+.header-right {
+  width: 20vw;
+}
 
 @media screen {
   p, li {
