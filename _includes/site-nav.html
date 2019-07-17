@@ -1,9 +1,9 @@
 <nav class="site-nav">
   <ul>
-    {% unless page.exclude %}
-      {% for page in site.pages %}
+    {% for page in site.pages %}
+      {% unless page.exclude %}
         <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-      {% endfor %}
-    {% endunless %}
+      {% endunless %}
+    {% endfor %}
   </ul>
 </nav>
