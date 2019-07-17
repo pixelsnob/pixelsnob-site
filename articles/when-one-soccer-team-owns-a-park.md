@@ -3,8 +3,6 @@ title: When one soccer team "owns" a park
 category: article
 ---
 
-## {{ page.title }}
-
 A look at what's been going on at Osornio Park over the last 10 years
 
 Luis A. Echeverria<br/>
