@@ -1,6 +1,7 @@
 ---
 layout: home
 title: Luis A. Echeverria's Blog
+exclude: true
 ---
 
 Hello! My name is Luis Echeverria, and I'm a web developer with professional experience seeking steady employment, preferably on a remote team.
