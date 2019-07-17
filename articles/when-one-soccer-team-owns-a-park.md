@@ -3,7 +3,7 @@ title: When one soccer team "owns" a park
 category: article
 ---
 
-## {{ title }}
+## {{ page.title }}
 
 A look at what's been going on at Osornio Park over the last 10 years
 
