@@ -19,9 +19,7 @@ Shortly after that, the Pumas soccer team started having practices and games the
 
 The practices would sometimes be at night, so the City brought out portable lights, the kind used for construction work, every time they had a night practice. The lights would be really bright, and would shine right at the front of the houses on the east side of Hacienda Road.
 
-Osornio Park had and still has only two parking spots, so people would park on Sansinena Road. I have talked to one neighbor who said his driveway was being blocked by people picking up their kids from soccer practice, and that someone wanted to fight him once over it.
-
-A fence was installed around the perimiter with locking gates, and "no animals in park" and "use of soccer field by permit only" signs went up. There are actually three "use of soccer field" signs, one on each outside gate, as if to really drive the point home.
+A fence was installed around the perimiter with locking gates, and "no animals in park" and "use of soccer field by permit only" signs went up.
 
 But the neighbors mostly continued to meet there, although now the mood was completely different, and a bit uncomfortable.
 
