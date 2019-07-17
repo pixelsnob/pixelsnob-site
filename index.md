@@ -29,5 +29,4 @@ Some of the things I'd be willing to learn/curious about:
 
 I'm available for part-time or full-time work. Please send me an email: pixelsnob@gmail.com
 
-Professional and personal references available upon request. [C.V. available here](https://github.com/pixelsnob/about/blob/master/Luis_A_Echeverria_CV.pdf).
-
+Professional and personal references available upon request. <a href="assets/pdfs/Luis_A_Echeverria_CV.pdf" target="_blank">Download my resume here.</a>
