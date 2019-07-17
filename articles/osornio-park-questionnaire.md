@@ -9,14 +9,14 @@ You may remain anonymous if you choose. You do not have to answer every question
 
 ### Questionnaire
 
-1. I go to Osornio Park
+#. I go to Osornio Park
    - Once a week or more
    - Once a month
    - Occasionally
    - I used to go to Osornio Park but I stopped going
    - I do not go to Osornio Park
 
-2. I live
+#. I live
    - Within one or two blocks of Osornio Park
    - Within a half mile of Osornio Park
    - In La Habra
@@ -79,20 +79,16 @@ You may remain anonymous if you choose. You do not have to answer every question
     - Portable or permanent bathroom facilities
     - Other:
 
-15. The city should install a cellular tower at this location to help pay for park improvements and maintenance costs
-    - Yes
-    - No
-
-16. My experience with Osornio Park overall has been
+15. My experience with Osornio Park overall has been
     - Positive
     - Neutral/don't have an opinion
     - Negative
 
-17. I believe or believed that Osornio Park is a "private" park
+16. I believe or believed that Osornio Park is a "private" park
     - Yes
     - No
     
-18. Please explain anything else you would like the City to know about your experience with Osornio Park, and how the park can be improved.
+17. Please explain anything else you would like the City to know about your experience with Osornio Park, and how the park can be improved.
 <br/>
 <br/>
 <br/>
