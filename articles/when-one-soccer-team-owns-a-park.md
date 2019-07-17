@@ -8,7 +8,7 @@ July 14, 2019
 I live in north La Habra, about 3 blocks away from Osornio Park. When I moved here 10 years ago, the park looked mostly like it did in the 70s and 80s, when it was the playground and sports field for Hacienda School. I attended Hacienda until third grade. After my third grade year, the school was closed and I ended up going to Jordan School in Whittier, but that's another story.
 
 <p>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1654.9121815271747!2d-117.96684002402543!3d33.94564522021003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDU2JzQ0LjMiTiAxMTfCsDU3JzU2LjciVw!5e0!3m2!1sen!2sus!4v1563301282500!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+<img src="../assets/images/hacienda-school-topo.jpg" alt="Old topographic map showing Hacienda School">
 </p>
 
 Around 2009-2010, neighbors would go to the park to hang out, meet, sit under trees, walk around the perimiter of the park (there was a "walking trail" with instructions on how to stretch and how far you have walked, etc. -- there were people who used this daily). There were no "no animals in park" or "use of soccer field by permit only" signs. And people did take their dogs there, because it's the only open field in the area, besides La Bonita Park, but that park has had "no animals in park" signs for as long as I can remember.
