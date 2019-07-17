@@ -1,5 +1,4 @@
 ---
-layout: home
 title: Luis A. Echeverria's Blog
 exclude: true
 ---
