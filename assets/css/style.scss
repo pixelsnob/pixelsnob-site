@@ -1,6 +1,8 @@
 ---
 ---
 
+// Copied from jekyll "minimal" theme and trimmed down
+
 @font-face {
   font-family: 'Noto Sans';
   font-weight: 400;
@@ -578,11 +580,9 @@ footer {
   }
 }
 
-//@import "{{ site.theme }}";
-
-///////////////////////
+//////////////////////////////////////////////
 // Custom styles here
-///////////////////////
+//////////////////////////////////////////////
 
 @media print {
   body {
