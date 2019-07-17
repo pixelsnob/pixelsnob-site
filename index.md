@@ -61,7 +61,7 @@ Some of the things I'd be willing to learn/curious about:
 
 ## Contact Me
 
-Please hire me! pixelsnob@gmail.com
+I'm available for part-time or full-time work. pixelsnob@gmail.com
 
 Professional and personal references available upon request. [C.V. available here](https://github.com/pixelsnob/about/blob/master/Luis_A_Echeverria_CV.pdf).
 
