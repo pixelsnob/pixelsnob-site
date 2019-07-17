@@ -9,7 +9,9 @@
         {% include site-nav.html %}
       </header>
       <section class="site-content">
-        <h2>{{ page.title }}</h2>
+        {{ unless page.exclude }}
+          <h2>{{ page.title }}</h2>
+        {{ endunless }}
         {{ content }}
       </section>
       <footer>
