@@ -6,19 +6,16 @@ Hello! My name is Luis Echeverria, and I'm a web developer with professional exp
 
 Some of the tech I have experience with:
 
-* react, redux, redux-saga
+* JavaScript: ES6/7, webpack/babel, react, redux, redux-saga
+* Puppeteer/Chrome DevTools Protocol/Casper/PhantomJS/JSDOM for automation, content "scraping", and rendering HTML
 * antd, react-virtualized, react-dnd (drag and drop)
 * node.js/express/mongodb+mongoose, sails
-* backbone.js, Web Components, "component based" architecture
-* Semantically correct/accessible HTML5, CSS (and preprocessors such as less)
-* Implmenenting dynamic UIs from mockups, PSD files
+* Semantically correct HTML5, CSS
+* sass, less
+* backbone.js, Web Components, component based architecture
+* HTML layouts
 * SEO techniques
-* ES6/7
-* Webpack, Babel
 * grunt/gulp, as well as basic shell scripting
-* Puppeteer/Chrome DevTools Protocol/Casper/PhantomJS/JSDOM for automation, content "scraping", and rendering HTML
-* Linux (Ubuntu)
-* Jekyll (some)
 
 Some of the things I'd be willing to learn/curious about:
 
