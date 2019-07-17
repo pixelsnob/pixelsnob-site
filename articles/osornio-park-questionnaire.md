@@ -68,7 +68,7 @@ You may remain anonymous if you choose. You do not have to answer every question
     - Yes
     - No
 
-13. I'd like to see the following improvements:
+13. <span style="page-break-after:always;"></span>I'd like to see the following improvements:
     - More shade trees
     - Picnic benches
     - More places for kids to play
@@ -82,7 +82,7 @@ You may remain anonymous if you choose. You do not have to answer every question
 14. My experience with Osornio Park overall has been
     - Positive
     - Neutral/don't have an opinion
-    - Negative <span style="page-break-after:always;"></span>
+    - Negative 
 
 15. I believe or believed that Osornio Park is a "private" park
     - Yes
