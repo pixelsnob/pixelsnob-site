@@ -63,7 +63,7 @@ That was when I called the City manager's office myself, and sent a really long 
 
 Very quickly, the front gates were locked **open**. So that nobody could lock the park. I'm not sure if that's a good solution, but I do appreciate the City doing something in the moment.
 
-After that, I was invited to come in and speak with Mayor Gomez about all of this, and I explained everything that I have talked about here. He said he would look into it, and I hope that he will.
+After that, I was invited to come in and speak with Mayor Gomez about all of this, and I explained everything that I have talked about here.
 
 Shortly after that, I sent in some pictures to the City showing that the soccer team parents were using the basketball courts as a parking lot, and I asked why there are still no bathrooms, even though from my understanding, the team is required to provide them.
 
