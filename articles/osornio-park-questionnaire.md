@@ -9,14 +9,14 @@ You may remain anonymous if you choose. You do not have to answer every question
 
 ### Questionnaire
 
-#. I go to Osornio Park
+1. I go to Osornio Park
    - Once a week or more
    - Once a month
    - Occasionally
    - I used to go to Osornio Park but I stopped going
    - I do not go to Osornio Park
 
-#. I live
+2. I live
    - Within one or two blocks of Osornio Park
    - Within a half mile of Osornio Park
    - In La Habra
@@ -40,35 +40,35 @@ You may remain anonymous if you choose. You do not have to answer every question
    - Yes
    - No
 
-7. I have received a ticket/warning from the city about what I am doing at the park
+6. I have received a ticket/warning from the city about what I am doing at the park
    - Yes
    - No
 
-8. I feel that the City has been fair and transparent about its relationship with the sports teams that use Osornio Park
+7. I feel that the City has been fair and transparent about its relationship with the sports teams that use Osornio Park
    - Yes
    - No
 
-9. I feel that the City has listened to local residents' concerns about Osornio Park
+8. I feel that the City has listened to local residents' concerns about Osornio Park
    - Yes
    - No
 
-10. I think parking is adequate at this park
+9. I think parking is adequate at this park
     - Yes
     - No
 
-11. I can find shade on a hot day easily at this park
+10. I can find shade on a hot day easily at this park
     - Yes
     - No
 
-12. There are plenty of places to sit and relax at this park
+11. There are plenty of places to sit and relax at this park
     - Yes
     - No
 
-13. I have seen advertising banners at Osornio Park
+12. I have seen advertising banners at Osornio Park
     - Yes
     - No
 
-14. I'd like to see the following improvements:
+13. I'd like to see the following improvements:
     - More shade trees
     - Picnic benches
     - More places for kids to play
@@ -79,16 +79,16 @@ You may remain anonymous if you choose. You do not have to answer every question
     - Portable or permanent bathroom facilities
     - Other:
 
-15. My experience with Osornio Park overall has been
+14. My experience with Osornio Park overall has been
     - Positive
     - Neutral/don't have an opinion
     - Negative
 
-16. I believe or believed that Osornio Park is a "private" park
+15. I believe or believed that Osornio Park is a "private" park
     - Yes
     - No
     
-17. Please explain anything else you would like the City to know about your experience with Osornio Park, and how the park can be improved.
+16. Please explain anything else you would like the City to know about your experience with Osornio Park, and how the park can be improved.
 <br/>
 <br/>
 <br/>
