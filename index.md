@@ -9,7 +9,7 @@ Some of the tech I have experience with:
 
 * JavaScript: ES6/7, webpack/babel, react, redux, redux-saga
 * antd, react-virtualized, react-dnd (drag and drop)
-* node.js/express/mongodb+mongoose, sails
+* node.js/express/mongodb+mongoose, sails, postgres (some), mysql
 * Semantically correct HTML5, CSS
 * sass, less
 * backbone.js, Web Components, component based architecture
