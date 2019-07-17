@@ -8,7 +8,6 @@ relative_links:
   collections: true
 
 include:
-  - index.md
   - articles/when-one-soccer-team-owns-a-park.md
   - articles/osornio-park-questionnaire.md
 
