@@ -68,7 +68,7 @@ You may remain anonymous if you choose. You do not have to answer every question
     - Yes
     - No
 
-13. <span style="page-break-after:always;"></span>I'd like to see the following improvements:
+13. I'd like to see the following improvements:
     - More shade trees
     - Picnic benches
     - More places for kids to play
