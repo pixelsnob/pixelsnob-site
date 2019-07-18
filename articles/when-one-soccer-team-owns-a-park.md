@@ -9,6 +9,18 @@ Luis A. Echeverria<br/>
 July 14, 2019
 
 I live in north La Habra, about 3 blocks away from Osornio Park. When I moved here 10 years ago, the park looked mostly like it did in the 70s and 80s, when it was the playground and sports field for Hacienda School. I attended Hacienda until third grade. After my third grade year, the school was closed and I ended up going to Jordan School in Whittier, but that's another story.
+<p>
+  <figure>
+    <img src="../assets/images/hacienda-school-topo.jpg" alt="Old-school topo map of the area around Osornio Park">
+    <figcaption>
+      Old-school topo map of the area around Osornio Park
+    </figcaption>
+  </figure>
+</p>
+
+Around 2009-2010, neighbors would go to the park to hang out, meet, sit under trees, walk around the perimiter of the park (there was a "walking trail" with instructions on how to stretch and how far you have walked, etc. -- there were people who used this daily). There were no "no animals in park" or "use of soccer field by permit only" signs. And people did take their dogs there, because it's the only open field in the area, besides La Bonita Park, but that park has had "no animals in park" signs for as long as I can remember.
+
+People from all ages would gather at Osornio Park. Moms with their kids, adults, older people. I enjoyed going there a lot.
 
 <p>
   <figure>
@@ -19,10 +31,6 @@ I live in north La Habra, about 3 blocks away from Osornio Park. When I moved he
     </figcaption>
   </figure>
 </p>
-
-Around 2009-2010, neighbors would go to the park to hang out, meet, sit under trees, walk around the perimiter of the park (there was a "walking trail" with instructions on how to stretch and how far you have walked, etc. -- there were people who used this daily). There were no "no animals in park" or "use of soccer field by permit only" signs. And people did take their dogs there, because it's the only open field in the area, besides La Bonita Park, but that park has had "no animals in park" signs for as long as I can remember.
-
-People from all ages would gather at Osornio Park. Moms with their kids, adults, older people. I enjoyed going there a lot.
 
 Shortly after that, the Pumas soccer team started having practices and games there, and within a couple of years, the old trees were all removed, and the park was graded flat. Soccer turf was installed, and manure was laid so that you could smell it at my house, and I'm 3 blocks away. I do not remember getting any notices from the City, and I was definitely not asked for any feedback on how this space would be used. I don't know anyone else in my neighborhood who received a notice or felt like they had a say in this either.
 
