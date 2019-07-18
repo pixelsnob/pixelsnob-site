@@ -65,11 +65,26 @@ At that point, I kind of gave up, but it left such a bad taste in my mouth. The 
 
 Fast forward to January 2019, and just like clockwork, the "field closed for renovation" signs went up. But this time, there was no renovation going on. One day, I saw there was a man inside playing with his dog, but all the gates were closed. As I got closer, I noticed the larger gates on the west side of the basketball courts were not locked, so I went inside to talk to the man, who turned out to be my neighbor.
 
-<img src="../assets/images/osornio-gate-and-signs.jpg" alt="Main entrance to Osornio Park, locked, with signs">
+
+<p>
+  <figure>
+    <img src="../assets/images/osornio-gate-and-signs.jpg" alt="Main entrance to Osornio Park, with signs">
+    <figcaption>
+      Main entrance to Osornio Park
+    </figcaption>
+  </figure>
+</p>
 
 We started talking, about how this kept going on, and how the soccer team was playing games even as the signs were up, but still they were telling people not to come in with dogs, and then locking the park (or making it look like the park was locked shut). He called the City manager right there and asked what the "maintenance" was that was going on, because this park was closed for a couple of weeks and there was absolutely no maintenance going on, and we were standing right on the turf.
 
-<img src="../assets/images/osornio-gate-and-signs-2.jpg" alt="Front gates of Osornio Park, locked, with signs">
+<p>
+  <figure>
+    <img src="../assets/images/osornio-gate-and-signs-2.jpg" alt="Front gates of Osornio Park, with signs">
+    <figcaption>
+      Front gates of Osornio Park
+    </figcaption>
+  </figure>
+</p>
 
 I thought that at that point, someone at the City would listen, but then a couple of weeks later, I was there again during the day, and again, the front gates were locked, but the gates on the west side of the basketball courts were unlocked, but closed. I noticed there was a woman inside, playing with her dogs, and I recognised her as I got closer -- I had seen her before and had talked to her at the park several times.
 
@@ -89,7 +104,14 @@ Shortly after that, I sent in some pictures to the City showing that the soccer 
 
 A couple of weeks ago, I was really excited to see flyers from the City asking for input on our local parks, and how Prop 68 park funds could be used for improvements.
 
-<img src="../assets/images/flyer.jpg" alt="Propostion 68 Flyer from the City of La Habra">
+<p>
+  <figure>
+    <img src="../assets/images/flyer.jpg" alt="Propostion 68 Flyer from the City of La Habra">
+    <figcaption>
+      Propostion 68 Flyer from the City of La Habra, asking for feedback
+    </figcaption>
+  </figure>
+</p>
 
 I was not surprised to see the same man who "talked to us" years ago there at that meeting on July 11th at the community center. The head of the soccer team. He was there, lobbying for his team. I waited for him to finish, and I spoke with several people from the City at this meeting about all of these issues.
 
