@@ -54,9 +54,9 @@ Around the same time, one of my neighbors started telling me that the park was l
 
 <p>
   <figure>
-    <img src="../assets/images/la-habra-city-website-screenshot.jpg" alt="Screenshot of City website with description of Osornio Park">
+    <img src="../assets/images/la-habra-city-website-screenshot.jpg" alt="Screenshot of City website with description of Osornio Park, July, 2019">
     <figcaption>
-      Screenshot of <a href="https://www.google.com/maps/@33.9454476,-117.9660326,17z" target="_blank">City website</a> with description of Osornio Park
+      Screenshot of <a href="https://www.google.com/maps/@33.9454476,-117.9660326,17z" target="_blank">City website</a> with description of Osornio Park, July, 2019
     </figcaption>
   </figure>
 </p>
