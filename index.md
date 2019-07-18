@@ -32,7 +32,7 @@ I'm available for part-time or full-time work. Please send me an email: pixelsno
 
 Professional and personal references available upon request. <a href="assets/pdfs/Luis_A_Echeverria_CV.pdf" target="_blank">Download my resume here.</a>
 
-## Recent articles
+## Latest articles
 
 {% include site-nav.html %}
 
