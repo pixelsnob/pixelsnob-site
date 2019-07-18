@@ -17,7 +17,6 @@ Some of the tech I have experience with:
 * SEO techniques
 * Puppeteer/Chrome DevTools Protocol/Casper/PhantomJS/JSDOM for automation, content "scraping", and rendering HTML
 * grunt/gulp, as well as basic shell scripting
-* Good eye for design
 
 Some of the things I'd be willing to learn/curious about:
 
