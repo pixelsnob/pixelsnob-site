@@ -72,7 +72,7 @@ Shortly after that, I sent in some pictures to the City showing that the soccer 
 
 ### Some light at the end of the tunnel
 
-A couple of weeks ago, I was really excited to see flyers from the City asking for input on our local parks, and how Prop 68 park funds could be used for improvements. I thought it was a good opportunity to go and remind the City that what is really needed here is a park that is more welcoming and friendly to everyone, not just people who play organized sports. This does not need to cost a lot of money.
+A couple of weeks ago, I was really excited to see flyers from the City asking for input on our local parks, and how Prop 68 park funds could be used for improvements.
 
 <img src="../assets/images/flyer.jpg" alt="Propostion 68 Flyer from the City of La Habra">
 
@@ -82,7 +82,6 @@ I hope that the City will make Osornio Park a more welcoming park for everyone, 
 
 Please take the residents into account, City of La Habra, and **please don't put residents in the position of being intimidated by parents and owners of organized sports teams**.
 
-Thanks to everyone at the City who has listened to my story.
 
 
 
