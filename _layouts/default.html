@@ -10,6 +10,7 @@
       </header>
       <section class="site-content">
         {% unless page.exclude %}
+          {% include site-nav.html %}
           <h2>{{ page.title }}</h2>
         {% endunless %}
         {{ content }}
