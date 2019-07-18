@@ -6,8 +6,11 @@
       <header class="site-header">
         <h1><a href="{{ "/" | absolute_url }}">pixelsnob.com</a></h1>
         <p>Luis A. Echeverria's Personal Blog</p>
-        {% include site-nav.html %}
+        
       </header>
+      <section>
+        {% include site-nav.html %}
+      </section>
       <section class="site-content">
         {{ unless page.exclude }}
           <h2>{{ page.title }}</h2>
