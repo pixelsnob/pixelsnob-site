@@ -72,15 +72,17 @@ Shortly after that, I sent in some pictures to the City showing that the soccer 
 
 ### Some light at the end of the tunnel
 
-A couple of weeks ago, I was pleased to see flyers from the City asking for input on our local parks, and how Prop 68 park funds could be used for improvements. I thought it was a good opportunity to go and remind the City that what is really needed here is a park that is more welcoming and friendly to everyone, not just people who play organized sports. This would not take a lot of money to accomplish. It doesn't have to.
+A couple of weeks ago, I was really excited to see flyers from the City asking for input on our local parks, and how Prop 68 park funds could be used for improvements. I thought it was a good opportunity to go and remind the City that what is really needed here is a park that is more welcoming and friendly to everyone, not just people who play organized sports. This does not need to cost a lot of money.
 
 <img src="../assets/images/flyer.jpg" alt="Propostion 68 Flyer from the City of La Habra">
 
 I was not surprised to see the same man who "talked to us" years ago there at that meeting on July 11th at the community center. The head of the soccer team. He was there, lobbying for his team. I waited for him to finish, and I spoke with several people from the City at this meeting about all of these issues.
 
-When are the residents and everyday non-sports-affiliated people going to actually get a voice and feel welcome at this park? Or does this team get to do this forever, without facing any consequences at all?
+I hope that the City will make Osornio Park a more welcoming park for everyone, not just people who play sports.
 
-In other words, I cannot take my dog there, even on a leash, and if I do, I have to worry about being confronted by random people about it. But this team -- they get to do whatever they want, and break the few rules that the City imposes on them?
+Please take the residents into account, City of La Habra, and **please don't put residents in the position of being intimidated by parents and owners of organized sports teams**.
 
-Please take the residents into account, City of La Habra, and **don't put residents in the position of being intimidated by parents and owners of organized sports teams**.
+Thanks to everyone at the City who has listened to my story.
+
+
 
