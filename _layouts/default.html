@@ -9,9 +9,9 @@
         
       </header>
       <section class="site-content">
-        {{ unless page.exclude }}
+        {% unless page.exclude %}
           <h2>{{ page.title }}</h2>
-        {{ endunless }}
+        {% endunless %}
         {{ content }}
       </section>
       <footer>
