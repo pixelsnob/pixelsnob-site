@@ -13,8 +13,6 @@ Curiosities:
 
 {% include interests.html %}
 
-## Contact me
-
 Please send me an email: pixelsnob@gmail.com
 
 
