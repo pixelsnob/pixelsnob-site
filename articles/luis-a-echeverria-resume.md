@@ -2,9 +2,9 @@
 title: Luis A. Echeverria's Resume
 ---
 
-1501 Silliker Ave, La Habra, CA 90631<br/>
-https://www.pixelsnob.com<br/>
-pixelsnob@gmail.com
+1501 Silliker Ave, La Habra, CA 90631  
+https://www.pixelsnob.com  
+pixelsnob@gmail.com  
 
 ### Summary
 
@@ -26,9 +26,9 @@ I’m a front-end developer seeking part-time or full-time employment, preferabl
 ### Recent Work Experience
 
 #### Los Angeles Percussion Rentals
-Santa Clarita, CA
-Web Developer, Server Admin
-2013 - Present
+Santa Clarita, CA  
+Web Developer, Server Admin  
+2013 - Present  
 
 Complete rebuild of company's old static, tables-based website, including
 around 500 musical instruments and related images and assets. Goal was to
@@ -38,9 +38,9 @@ The site has maintained close to 100% uptime, and is consistently high in
 search engine rankings.
 
 #### Clicktripz
-Manhattan Beach, CA (remote)
-JavaScript Developer
-April 2017 - April 2018
+Manhattan Beach, CA (remote)  
+JavaScript Developer  
+April 2017 - April 2018  
 
 Worked on a fast-moving JavaScript integrations team in the travel ad-tech
 space. I helped install, fix, maintain, enhance, test, and deploy JavaScript
@@ -49,9 +49,9 @@ and usability of our code, and helped increase test coverage of our
 codebase.
 
 ### PhotoOne Media/onOne Software
-Portland, Oregon
-Web Developer/Consultant (remote)
-July 2011 - January 2013
+Portland, Oregon  
+Web Developer/Consultant (remote)  
+July 2011 - January 2013  
 
 New e-commerce site and CRM/admin system for an online magazine. Set
 up new Linux server from scratch, moved existing components, and rewrote
