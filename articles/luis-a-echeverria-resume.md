@@ -3,7 +3,7 @@ title: Luis A. Echeverria's Resume
 ---
 
 1501 Silliker Ave, La Habra, CA 90631  
-https://www.pixelsnob.com  
+<a href="https://www.pixelsnob.com">https://www.pixelsnob.com</a>  
 pixelsnob@gmail.com  
 
 ### Summary
