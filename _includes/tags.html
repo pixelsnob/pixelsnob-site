@@ -1,0 +1,9 @@
+<ul>
+{% for tag in site.data.tags %}
+  <li>
+    <a href="https://github.com/{{ tag }}">
+      {{ tag }}
+    </a>
+  </li>
+{% endfor %}
+</ul>
