@@ -6,11 +6,11 @@ title: Luis A. Echeverria's Resume
 https://www.pixelsnob.com | pixelsnob@gmail.com
 
 ### Summary
-I’m a full-stack web developer specializing in JavaScript, with professional
-experience, seeking full-time employment, either in the Southern California
-area, or remote.
 
-#### Skills
+I’m a front-end developer seeking part-time or full-time employment, preferably remotely, or in the North Orange County area
+
+### Skills
+
 - JavaScript: ES6+, node.js, Express, pug, mongodb+mongoose; task
 runners like Gulp, Grunt; build tools like Webpack
 - HTML, CSS, DOM Manipulation
