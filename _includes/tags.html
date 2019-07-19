@@ -1,9 +1,5 @@
 <ul class="tags">
 {% for tag in site.data.tags %}
-  <li class="tag">
-    <!--<a href="{{ tag.name }}">-->
-      {{ tag.name }}
-    <!--</a>-->
-  </li>
+  <li class="tag">{{ tag.name }}</li>
 {% endfor %}
 </ul>
