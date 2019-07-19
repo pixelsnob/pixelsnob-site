@@ -61,3 +61,15 @@ card as well as PayPal payments. Admin allowed full editing of orders, users,
 products, promotions, subscription expiration dates, etc. Entire system
 interfaced with existing WordPress site.
 
+### onOne Software
+Portland, Oregon  
+Web Developer/Consultant (remote)  
+January 2008 - December 2012  
+
+Company shopping carts (4 iterations, PHP back-end), database
+maintenance and optimization, custom database reports/queries, a video
+player with multi-select search system, CRM maintenance/additions, routine
+server maintenance, troubleshooting. Involved in quite a few different
+aspects of the organization, including marketing, customer service,
+accounting, and off-site shipping fulfillment.
+
