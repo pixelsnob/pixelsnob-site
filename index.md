@@ -3,7 +3,7 @@ title: Luis A. Echeverria's Blog
 exclude: true
 ---
 
-Hello! My name is Luis Echeverria, and I'm an experienced developer seeking steady employment, preferably on a remote team. <a href="articles/luis-a-echeverria-resume">Resume available here.</a>
+Hello! I'm an experienced developer seeking steady employment, preferably on a remote team. <a href="articles/luis-a-echeverria-resume">Resume available here.</a>
 
 Skills:
 
