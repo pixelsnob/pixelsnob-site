@@ -25,17 +25,12 @@ I’m a front-end developer seeking part-time or full-time employment, preferabl
 
 ### Recent Work Experience
 
-#### Los Angeles Percussion Rentals
-Santa Clarita, CA  
-Web Developer, Server Admin  
-2013 - Present  
+#### Corbin & Brooks
+Eugene, OR (remote)
+Front-end/full-stack developer
+October 2018 - Present
 
-Complete rebuild of company's old static, tables-based website, including
-around 500 musical instruments and related images and assets. Goal was to
-create an intuitive, clean site that featured the client's photography, while
-eliminating duplication of data, and making it easy to edit and maintain.
-The site has maintained close to 100% uptime, and is consistently high in
-search engine rankings.
+Mostly JavaScript development, using react, sails, postgres. Work includes a react-static implementation of a restaurant static site. Helped to build a react drag/drop tree using react-virtualized and react-dnd that supports moderately large tree structures, and is supported on touch devices. Contributed to architecture improvements, as well as general QA on a variety of different projects.
 
 #### Clicktripz
 Manhattan Beach, CA (remote)  
@@ -48,23 +43,22 @@ code to customer websites. I worked closely with QA to ensure the quality
 and usability of our code, and helped increase test coverage of our
 codebase.
 
+#### Los Angeles Percussion Rentals
+Santa Clarita, CA  
+Web Developer, Server Admin  
+2013 - Present  
+
+Complete rebuild of company's old static, tables-based website, including
+around 500 musical instruments and related images and assets. Goal was to
+create an intuitive, clean site that featured the client's photography, while
+eliminating duplication of data, and making it easy to edit and maintain.
+The site has maintained close to 100% uptime, and is consistently high in
+search engine rankings.
+
 #### PhotoOne Media/onOne Software
 Portland, Oregon  
 Web Developer/Consultant (remote)  
-July 2011 - January 2013  
-
-New e-commerce site and CRM/admin system for an online magazine. Set
-up new Linux server from scratch, moved existing components, and rewrote
-store front- and back-end using PHP and MySQL. Store had multiple product
-types, the ability to sell print and electronic subscriptions, and accepts credit
-card as well as PayPal payments. Admin allowed full editing of orders, users,
-products, promotions, subscription expiration dates, etc. Entire system
-interfaced with existing WordPress site.
-
-#### onOne Software
-Portland, Oregon  
-Web Developer/Consultant (remote)  
-January 2008 - December 2012  
+January 2008 - January 2013  
 
 Company shopping carts (4 iterations, PHP back-end), database
 maintenance and optimization, custom database reports/queries, a video
