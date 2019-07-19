@@ -12,5 +12,5 @@ include:
   - articles/when-one-soccer-team-owns-a-park.md
   - articles/osornio-park-questionnaire.md
 
-
-  
+collections:
+  - skills
