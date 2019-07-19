@@ -3,7 +3,7 @@ title: Luis A. Echeverria's Blog
 exclude: true
 ---
 
-Hello! My name is Luis Echeverria, and I'm a web developer with professional experience seeking steady employment, preferably on a remote team.
+Hello! My name is Luis Echeverria, and I'm an experienced developer seeking steady employment, preferably on a remote team. <a href="articles/luis-a-echeverria-resume">Resume available here.</a>
 
 Some of the tech I have experience with:
 
@@ -27,9 +27,9 @@ Some of the things I'd be willing to learn/curious about:
 
 ## Contact me
 
-I'm available for part-time or full-time work. Please send me an email: pixelsnob@gmail.com
+Please send me an email: pixelsnob@gmail.com
 
-Professional and personal references available upon request. <a href="assets/pdfs/Luis_A_Echeverria_CV.pdf" target="_blank">Download my resume here.</a>
+
 
 
 
