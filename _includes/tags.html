@@ -1,8 +1,8 @@
 <ul>
 {% for tag in site.data.tags %}
   <li>
-    <a href="https://github.com/{{ tag }}">
-      {{ tag }}
+    <a href="{{ tag.name }}">
+      {{ tag.name }}
     </a>
   </li>
 {% endfor %}
