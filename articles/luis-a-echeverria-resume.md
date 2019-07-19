@@ -10,7 +10,9 @@ pixelsnob@gmail.com
 
 I’m a front-end developer seeking part-time or full-time employment, preferably remotely, or in the North Orange County area.
 
-### Skills
+{% include tags.html %}
+
+<!-- ### Skills
 
 * JavaScript: ES6/7, webpack/babel, react, redux, redux-saga
 * antd, react-virtualized, react-dnd (drag and drop)
@@ -21,7 +23,7 @@ I’m a front-end developer seeking part-time or full-time employment, preferabl
 * HTML layouts
 * SEO techniques
 * Puppeteer/Chrome DevTools Protocol/Casper/PhantomJS/JSDOM for automation, content "scraping", and rendering HTML
-* grunt/gulp, as well as basic shell scripting
+* grunt/gulp, as well as basic shell scripting -->
 
 ### Recent Work Experience
 
