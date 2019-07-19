@@ -48,7 +48,7 @@ code to customer websites. I worked closely with QA to ensure the quality
 and usability of our code, and helped increase test coverage of our
 codebase.
 
-### PhotoOne Media/onOne Software
+#### PhotoOne Media/onOne Software
 Portland, Oregon  
 Web Developer/Consultant (remote)  
 July 2011 - January 2013  
@@ -61,7 +61,7 @@ card as well as PayPal payments. Admin allowed full editing of orders, users,
 products, promotions, subscription expiration dates, etc. Entire system
 interfaced with existing WordPress site.
 
-### onOne Software
+#### onOne Software
 Portland, Oregon  
 Web Developer/Consultant (remote)  
 January 2008 - December 2012  
