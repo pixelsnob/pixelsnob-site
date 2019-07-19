@@ -74,6 +74,14 @@ exclude: true
   img {
     width: 100%;
   }
+  
+  .tags {
+    display: flex;
+  }
+  
+  .tag {
+    list-style-type: none; 
+  }
 }
 
 
