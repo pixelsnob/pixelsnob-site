@@ -32,7 +32,7 @@ Eugene, OR (remote)
 Front-end/full-stack developer  
 October 2018 - Present  
 
-JavaScript development, using react, sails, postgres. Accomplishments include building a react-static restaurant site, helping to build a react drag/drop tree using react-virtualized and react-dnd, and creating a reusable json-driven form api. Contributed to architecture improvements, as well as general QA on a variety of different projects.
+JavaScript development, react, sails, postgres. Built a react-static restaurant site, helped to build a react drag/drop tree using react-virtualized and react-dnd, and created a reusable json-driven form api. Contributed to architecture improvements, as well as general QA on a variety of different projects.
 
 #### Clicktripz
 Manhattan Beach, CA (remote)  
