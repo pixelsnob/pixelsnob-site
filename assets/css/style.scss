@@ -579,9 +579,6 @@ footer {
     font-size: 12pt;
     color: #444
   }
-  .noprint {
-    display: none;
-  }
 }
 
 //////////////////////////////////////////////
@@ -663,7 +660,7 @@ img {
     font-size: 11pt;
     color: #777
   }
-  .site-header, .site-footer, img {
+  .site-header, .site-footer, img, .no-print {
     display: none;
   }
 }
