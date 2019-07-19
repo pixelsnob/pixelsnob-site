@@ -73,3 +73,6 @@ server maintenance, troubleshooting. Involved in quite a few different
 aspects of the organization, including marketing, customer service,
 accounting, and off-site shipping fulfillment.
 
+#### References and additional work history available upon request. Fluent in
+English and Spanish.
+
