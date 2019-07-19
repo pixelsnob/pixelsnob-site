@@ -9,11 +9,9 @@ Skills:
 
 {% include tags.html %}
 
-Some of the things I'd be willing to learn/curious about:
+Curiosities:
 
 {% include interests.html %}
-
-
 
 ## Contact me
 
