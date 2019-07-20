@@ -6,8 +6,6 @@ title: Luis A. Echeverria's Resume
 <a href="https://www.pixelsnob.com">https://www.pixelsnob.com</a>  
 pixelsnob@gmail.com  
 
--------
-
 I’m a front-end developer seeking part-time or full-time employment, preferably remotely, or in the North Orange County area.
 
 ### Skills
