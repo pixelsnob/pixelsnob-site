@@ -6,24 +6,13 @@ title: Luis A. Echeverria's Resume
 <a href="https://www.pixelsnob.com">https://www.pixelsnob.com</a>  
 pixelsnob@gmail.com  
 
-### Summary
+-------
 
 I’m a front-end developer seeking part-time or full-time employment, preferably remotely, or in the North Orange County area.
 
-{% include tags.html %}
+### Skills
 
-<!-- ### Skills
-
-* JavaScript: ES6/7, webpack/babel, react, redux, redux-saga
-* antd, react-virtualized, react-dnd (drag and drop)
-* node.js/express/mongodb+mongoose, sails, postgres (some), mysql
-* Semantically correct HTML5, CSS
-* sass, less
-* backbone.js, Web Components, component based architecture
-* HTML layouts
-* SEO techniques
-* Puppeteer/Chrome DevTools Protocol/Casper/PhantomJS/JSDOM for automation, content "scraping", and rendering HTML
-* grunt/gulp, as well as basic shell scripting -->
+{% include skills.html %}
 
 ### Recent Work Experience
 
