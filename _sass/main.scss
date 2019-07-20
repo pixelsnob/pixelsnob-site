@@ -1,4 +1,35 @@
+// Theme overrides
 
+header {
+  ul {
+    list-style: none;
+    height: auto;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    border: none;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    a {
+      //width: auto;
+      line-height: inherit;
+      font-size: inherit;
+      color: inherit;
+      display: inline;
+      text-align: left;
+      padding-top: 0;
+    }
+  }
+  li {
+    width: auto;
+    float: none;
+    border-right: none;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+}
 
 @media screen {
   body, html {
@@ -53,7 +84,6 @@
 
 .tags-list {
   padding: 0;
-  //display: flex;
 }
 
 .tag {
@@ -62,7 +92,6 @@
   font-size: 0.8rem;
   letter-spacing: 0.06rem;
   text-transform: uppercase;
-  //margin-right: 10px;
   line-height: 1.6rem;
   border: 1px solid #ccc;
   padding: 1px 8px;
@@ -71,6 +100,9 @@
   color: #777;
 }
 
+header .site-nav {
+  margin-top: 40px; 
+}
 
 @media print {
   body {

@@ -6,7 +6,7 @@ exclude: true
 Hello! I'm an experienced developer seeking steady employment, preferably on a remote team. <a href="articles/luis-a-echeverria-resume">Resume available here.</a>
   
   
-  
+
 ## Skills
 
 {% include skills.html %}
@@ -15,9 +15,6 @@ Hello! I'm an experienced developer seeking steady employment, preferably on a r
 
 {% include interests.html %}
 
-Please send me an email: pixelsnob@gmail.com
-
-
-
+<!--https://www.flickr.com/photos/pixelsnob-->
 
 
