@@ -3,7 +3,7 @@
 @media screen {
   body, html {
     color: #666;
-    background-color: #f1efd9; //#f9f6ed; //#f9f3e6; //#f1efd9;
+    background-color: #f9f6ed; //#f9f6ed; //#f9f3e6; //#f1efd9;
 
   }
 
@@ -32,9 +32,14 @@
     font-size: 1.2rem;
   }
   
-  a:link, a:hover, a:active, a:visited {
-    font-weight: bold;
-    color: #444;
+  a {
+    &:link, &:hover, &:active, &:visited {
+      font-weight: bold;
+      color: #ed381a;
+    }
+    &:hover {
+      color: #f48061;
+    }
   }
 
   img {
