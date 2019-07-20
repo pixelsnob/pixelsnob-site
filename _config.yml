@@ -2,15 +2,14 @@ theme: jekyll-theme-minimal
 
 plugins:
   - jekyll-relative-links
-
+  - jekyll-sitemap
+  
 relative_links:
   enabled: true
   collections: true
 
 include:
   - index.md
-  - articles/when-one-soccer-team-owns-a-park.md
-  - articles/osornio-park-questionnaire.md
 
 collections:
   - skills
