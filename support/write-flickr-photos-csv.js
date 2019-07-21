@@ -2,12 +2,11 @@
 const Flickr = require("flickrapi");
 const fs = require('fs');
 const stringify = require('csv-stringify');
-
-//const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+const config = require('../config');
 
 const flickrOptions = {
-  api_key: "7afca5a72753ae4685c196a297336d98",
-  secret: "72a2975e6c51a0ce"
+  api_key: config.api_key,
+  secret: config.secret
 };
 
 const connect = function() {
@@ -75,7 +74,8 @@ connect().then(async function(flickr) {
       process.exit();
       return null;
     }
-    fs.writeFile('tmp/photos.csv', output, (err) => {
+    
+    fs.writeFile(config.csv_write_path, output, (err) => {
       if (err) {
         console.error(err);
         process.exit();

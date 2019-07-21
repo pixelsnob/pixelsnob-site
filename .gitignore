@@ -5,4 +5,5 @@ _site/
 .jekyll-metadata
 data/
 node_modules/
+config.js
 
