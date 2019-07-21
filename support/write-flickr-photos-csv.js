@@ -49,9 +49,9 @@ const getPhotoInfo = function(flickr, photo_id, secret) {
 connect().then(async function(flickr) {
   console.log('Fetching photos...');
   const res = await getPhotos(flickr, {
-		user_id: config.user_id,
-		page: 1,
-		per_page: 10000,
+    user_id: config.user_id,
+    page: 1,
+    per_page: 10000,
     extras: 'url_o, url_s, url_c'
   });
   
