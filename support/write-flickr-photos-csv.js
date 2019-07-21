@@ -73,7 +73,7 @@ connect().then(async function(flickr) {
   // Write csv
   const columns = [ 'id', 'url_s', 'url_o', 'date_taken' ];
 
-  csvStringify(data, { header: true, columns }, (err, output) => {
+  csvStringify(data, { header: true, columns }, function(err, output) {
     if (err) {
       console.error(err);
       process.exit();
@@ -81,7 +81,7 @@ connect().then(async function(flickr) {
     }
     console.log('Writing csv to ' + config.csv_write_path);
 
-    fs.writeFile(config.csv_write_path, output, (err) => {
+    fs.writeFile(config.csv_write_path, output, function(err) {
       if (err) {
         console.error(err);
         process.exit();
