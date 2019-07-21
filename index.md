@@ -22,7 +22,7 @@ Hello! I'm an experienced developer seeking steady employment, preferably on a r
 <ul class="photos-list">
   {% for photo in site.data['flickr-photos'] %}
     <li class="photo">
-      <a class="lazy-load" data-background-image="{{ photo.url_s }}"></a>
+      <a href="{{ photo.flickr_page_url }}" class="lazy-load" data-background-image="{{ photo.url_s }}" target="_blank"></a>
     </li>
   {% endfor %}
 </ul>
