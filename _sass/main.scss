@@ -129,11 +129,15 @@ header .site-nav {
   .lazy-load {
     //display: none;
     display: hidden;
+    opacity: 0;
+    
   }
 
   .lazy-loaded {
     visibility: visible;
     display: block;
+    opacity: 1;
+    transition: opacity 1s;
     //border: 1px solid red;
   }
 }
