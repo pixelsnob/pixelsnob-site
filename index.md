@@ -17,12 +17,12 @@ Hello! I'm an experienced developer seeking steady employment, preferably on a r
 
 <!--https://www.flickr.com/photos/pixelsnob-->
 
-<!-- ## Photos
+## Photos
 
 <ul class="photos-list">
   {% for photo in site.data['flickr-photos'] %}
-    <li class="photo" style="background-image: url({{ photo.url_s }})">
-      
+    <li class="photo">
+      <a class="lazy-load" data-background-image="{{ photo.url_s }}"></a>
     </li>
   {% endfor %}
-</ul> -->
+</ul>

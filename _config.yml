@@ -8,8 +8,8 @@ relative_links:
   enabled: true
   collections: true
 
-include:
-  - index.md
+# include:
+#   - index.md
 
-collections:
-  - skills
+# collections:
+#   - skills

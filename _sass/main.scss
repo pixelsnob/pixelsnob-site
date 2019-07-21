@@ -117,7 +117,24 @@ header .site-nav {
     display: flex;
     height: 100px;
     width: 25%;
-    background-size: cover;
+    //background-size: cover;
+    a {
+      height: 100%;
+      width: 100%;
+      //display: block;
+      background-size: cover;
+    }
+  }
+
+  .lazy-load {
+    //display: none;
+    display: hidden;
+  }
+
+  .lazy-loaded {
+    visibility: visible;
+    display: block;
+    //border: 1px solid red;
   }
 }
 
