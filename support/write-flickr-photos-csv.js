@@ -22,7 +22,13 @@ const connect = function() {
 
 const getPhotos = function(flickr, options) {
   return new Promise(function(resolve, reject) {
-    flickr.people.getPhotos(options, function(err, result) {
+    flickr.people.getPhotos({
+      user_id: config.user_id,
+      page: 1,
+      per_page: 10000,
+      extras: 'url_o, url_s, url_c',
+      content_type: 1, // 1=photos only
+    }, function(err, result) {
       if (err) {
         reject(err);
       }
@@ -48,12 +54,7 @@ const getPhotoInfo = function(flickr, photo_id, secret) {
 
 connect().then(async function(flickr) {
   console.log('Fetching photos...');
-  const res = await getPhotos(flickr, {
-    user_id: config.user_id,
-    page: 1,
-    per_page: 10000,
-    extras: 'url_o, url_s, url_c'
-  });
+  const res = await getPhotos(flickr);
   
   return [ flickr, res.photos ];
 }).then(async function([ flickr, photos ]) {
