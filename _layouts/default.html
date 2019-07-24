@@ -2,7 +2,7 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   {% include site-head.html %}
   <body>
-    <div class="wrapper">
+    <div class="site-container">
       <header class="site-header">
         <h1><a href="{{ "/" | absolute_url }}">pixelsnob.com</a></h1>
         <!-- <nav class="site-nav">
@@ -13,7 +13,9 @@
         {% unless page.exclude %}
           <h2>{{ page.title }}</h2>
         {% endunless %}
-        {{ content }}
+        <div class="site-content-wrapper">
+          {{ content }}
+        </div>
         <!--<p><a class="back-to-top-link no-print" href="javascript:window.scrollTo(0, 0);void(0);">Back to top</a></p>-->
       </section>
       <footer>
