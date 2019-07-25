@@ -9,11 +9,11 @@
           {% include site-nav.html %}
         </nav> -->
       </header>
-      <section class="site-content">
+      <section class="site-content-container">
         {% unless page.exclude %}
           <h2>{{ page.title }}</h2>
         {% endunless %}
-        <div class="site-content-wrapper">
+        <div class="site-content">
           {{ content }}
         </div>
         <!--<p><a class="back-to-top-link no-print" href="javascript:window.scrollTo(0, 0);void(0);">Back to top</a></p>-->
@@ -22,19 +22,21 @@
         
       </footer>
     </div>
+    <div class="site-overlay"></div>
     <script>
       const preloadImages = function(imagePaths) {
         return new Promise((resolve, reject) => {
-          let loadedCount = 0
+          let loadedCount = 0;
           imagePaths.forEach(imagePath => {
-            const img = new Image
+            const img = new Image;
             img.onload = () => {
-              loadedCount++
+              loadedCount++;
               if (loadedCount == imagePaths.length) {
-                resolve()
+                resolve();
+                //console.log('sdasd')
               }
             }
-            img.src = imagePath
+            img.src = imagePath;
           })
         })
       };
@@ -43,5 +45,65 @@
 
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     <script src="{{ "/assets/js/lazy-load-background-images.js" | relative_url }}"></script>
+    <script>
+      let photosSlideshow;
+      const siteOverlay = document.querySelector('.site-overlay');
+      //console.log('siteOverlay', siteOverlay)
+      
+      if (!siteOverlay.childNodes.length) {
+        photosSlideshow = document.querySelector('.photos-slideshow-container').cloneNode(true);
+        siteOverlay.appendChild(photosSlideshow);
+
+      } else {
+        photosSlideshow = siteOverlay.querySelector('.photos-slideshow-container');
+      }
+
+      const loadSlideshowPhoto = function(id) {
+        //const id = evt.target.dataset.id;
+        const slideshowPhotoContainer = photosSlideshow.querySelector(`[data-id="${id}"]`);
+        const slideshowPhoto = slideshowPhotoContainer.querySelector('a');
+
+        if (slideshowPhoto) {
+          const slideshowPhotoSrc = slideshowPhoto.dataset.backgroundImage;
+          preloadImages( [ slideshowPhotoSrc ]).then(function() {
+            slideshowPhoto.style.backgroundImage = `url(${slideshowPhotoSrc})`;
+            slideshowPhotoContainer.classList.add('photo-current');
+          }); 
+        }
+      };
+
+      const photos = document.querySelectorAll('.photos-list .photo a');
+      for (let photo of photos) {
+        photo.addEventListener('click', function(evt) {
+          evt.preventDefault();
+
+          siteOverlay.classList.add('site-overlay-visible');
+          siteOverlay.querySelector('.photos-slideshow-nav-container').classList.add('photos-slideshow-nav-container-visible')
+          loadSlideshowPhoto(evt.target.dataset.id);
+        });
+      }
+
+      //////
+      const navLinkPrev = photosSlideshow.querySelector('nav .previous');
+      const navLinkNext = photosSlideshow.querySelector('nav .next');
+
+      navLinkNext.addEventListener('click', function(evt) {
+        
+        const current = photosSlideshow.querySelector('.photo-current');
+        const next = current.nextElementSibling;
+        if (next) {
+          current.classList.remove('photo-current');
+          //const nextPhoto = next.querySelector('a');
+          loadSlideshowPhoto(next.dataset.id);
+        }
+        //console.log('s', next);
+      });
+
+
+      //console.log(navLinkPrev);
+
+      
+
+    </script>
   </body>
 </html>
