@@ -3,69 +3,12 @@
   {% include site-head.html %}
   <body>
     <script>
-      
-      class PhotosListPhoto extends HTMLElement {
-        constructor() {
-          super();
-          //console.log('?');
-        }
-
-        connectedCallback() {
-          this.addEventListener('click', evt => {
-            evt.preventDefault();
-            document.querySelector('.site-overlay').classList.add('site-overlay-visible');
-            document.querySelector('.site-overlay').appendChild(document.getElementById('slideshow-template').content.cloneNode(true));
-            const slideshowPhoto = document.querySelector(`slideshow-photo[data-id="${this.dataset.id}"]`);
-            if (slideshowPhoto) {
-              slideshowPhoto.active = true;
-            }
-          });
-        }
-      }
-
-      class SlideshowPhoto extends HTMLElement {
-        constructor() {
-          super();
-          this.addEventListener('click', evt => {
-            evt.preventDefault();
-          });
-        }
-
-        static get observedAttributes() {
-          return [ 'active' ];
-        }
-
-        get active() {
-          return this.getAttribute('active');
-        }
-
-        set active(newValue) {
-          this.setAttribute('active', newValue);
-        }
-
-        attributeChangedCallback(name, oldValue, newValue) {
-          switch (name) {
-            case 'active':
-              //console.log(`Value changed from ${oldValue} to ${newValue}`);
-              this.classList.add('photo-visible');
-              const img = new Image;
-              img.src = this.dataset.backgroundImage;
-              img.className = 'img-hidden';
-              this.appendChild(img);
-              img.onload = (evt) => {
-                
-                img.className = 'img-active';
-
-              };
-              break;
-          }
-        }
-      }
-      
+      customElements.define('site-overlay', SiteOverlay);
       customElements.define('slideshow-photo', SlideshowPhoto);
       customElements.define('photos-list-photo', PhotosListPhoto);
 
     </script>
+
     <div class="site-container">
       <header class="site-header">
         <h1><a href="{{ "/" | absolute_url }}">pixelsnob.com</a></h1>
@@ -86,7 +29,7 @@
         
       </footer>
     </div>
-    <div class="site-overlay"></div>
+    <site-overlay class="site-overlay"></site-overlay>
     <script>
       const preloadImages = function(imagePaths) {
         return new Promise((resolve, reject) => {

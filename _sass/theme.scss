@@ -68,23 +68,10 @@ header .site-nav {
     display: block;
   }
 
-  // &.site-container-full-width {
-  //   //width: 100%;
-  //   border: 1px solid red;
-  //   transition: grid-template-columns 0.5s ease-in-out;
-  //   grid-template-columns: 50% 50%;
-  //   .photos-slideshow {
-  //     align-self: right;
-  //   }
-  // }
 }
 
 .site-content {
   position: relative;
-  &.site-content-faded {
-    opacity: 0.4;
-    transition: opacity 0.5s ease-in-out;
-  }
 }
 
 .site-overlay {
@@ -96,11 +83,14 @@ header .site-nav {
   z-index: 100;
   width: 0;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease;
+  overflow: hidden;
   &.site-overlay-visible {
     display: block;
     opacity: 1;
     width: 100%;
+    transition: opacity 0.3s ease;
+
     &.photos-list {
       z-index: 300;
       position: absolute;
@@ -151,6 +141,9 @@ header .site-nav {
       height: 100%;
     }
   }
+  .photo-hidden {
+    display: none;
+  }
   
 }
 .photos-slideshow-container {
@@ -165,7 +158,7 @@ header .site-nav {
   display: flex;
   align-items: center;
   height: 100%;
-  border: 1px solid yellow;
+  //border: 1px solid yellow;
   .photo {
     width: 100vw;
     //height: 100%;
@@ -176,11 +169,11 @@ header .site-nav {
   }
   .img-hidden {
     opacity: 0;
-    transition: all 1s ease;
+    transition: opacity 0.5s ease;
   }
   .img-active {
     opacity: 1;
-    transition: all 1s ease;
+    transition: opacity 0.5s ease;
    // width: 100%;
     width: auto;
     height: auto;
