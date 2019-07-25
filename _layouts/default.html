@@ -2,6 +2,70 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   {% include site-head.html %}
   <body>
+    <script>
+      
+      class PhotosListPhoto extends HTMLElement {
+        constructor() {
+          super();
+          //console.log('?');
+        }
+
+        connectedCallback() {
+          this.addEventListener('click', evt => {
+            evt.preventDefault();
+            document.querySelector('.site-overlay').classList.add('site-overlay-visible');
+            document.querySelector('.site-overlay').appendChild(document.getElementById('slideshow-template').content.cloneNode(true));
+            const slideshowPhoto = document.querySelector(`slideshow-photo[data-id="${this.dataset.id}"]`);
+            if (slideshowPhoto) {
+              slideshowPhoto.active = true;
+            }
+          });
+        }
+      }
+
+      class SlideshowPhoto extends HTMLElement {
+        constructor() {
+          super();
+          this.addEventListener('click', evt => {
+            evt.preventDefault();
+          });
+        }
+
+        static get observedAttributes() {
+          return [ 'active' ];
+        }
+
+        get active() {
+          return this.getAttribute('active');
+        }
+
+        set active(newValue) {
+          this.setAttribute('active', newValue);
+        }
+
+        attributeChangedCallback(name, oldValue, newValue) {
+          switch (name) {
+            case 'active':
+              //console.log(`Value changed from ${oldValue} to ${newValue}`);
+              this.classList.add('photo-visible');
+              const img = new Image;
+              img.src = this.dataset.backgroundImage;
+              img.className = 'img-hidden';
+              this.appendChild(img);
+              img.onload = (evt) => {
+                
+                img.className = 'img-active';
+
+              };
+              break;
+          }
+        }
+      }
+      
+      customElements.define('slideshow-photo', SlideshowPhoto);
+      customElements.define('photos-list-photo', PhotosListPhoto);
+
+    </script>
     <div class="site-container">
       <header class="site-header">
         <h1><a href="{{ "/" | absolute_url }}">pixelsnob.com</a></h1>
@@ -45,65 +109,6 @@
 
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     <script src="{{ "/assets/js/lazy-load-background-images.js" | relative_url }}"></script>
-    <script>
-      let photosSlideshow;
-      const siteOverlay = document.querySelector('.site-overlay');
-      //console.log('siteOverlay', siteOverlay)
-      
-      if (!siteOverlay.childNodes.length) {
-        photosSlideshow = document.querySelector('.photos-slideshow-container').cloneNode(true);
-        siteOverlay.appendChild(photosSlideshow);
-
-      } else {
-        photosSlideshow = siteOverlay.querySelector('.photos-slideshow-container');
-      }
-
-      const loadSlideshowPhoto = function(id) {
-        //const id = evt.target.dataset.id;
-        const slideshowPhotoContainer = photosSlideshow.querySelector(`[data-id="${id}"]`);
-        const slideshowPhoto = slideshowPhotoContainer.querySelector('a');
-
-        if (slideshowPhoto) {
-          const slideshowPhotoSrc = slideshowPhoto.dataset.backgroundImage;
-          preloadImages( [ slideshowPhotoSrc ]).then(function() {
-            slideshowPhoto.style.backgroundImage = `url(${slideshowPhotoSrc})`;
-            slideshowPhotoContainer.classList.add('photo-current');
-          }); 
-        }
-      };
-
-      const photos = document.querySelectorAll('.photos-list .photo a');
-      for (let photo of photos) {
-        photo.addEventListener('click', function(evt) {
-          evt.preventDefault();
-
-          siteOverlay.classList.add('site-overlay-visible');
-          siteOverlay.querySelector('.photos-slideshow-nav-container').classList.add('photos-slideshow-nav-container-visible')
-          loadSlideshowPhoto(evt.target.dataset.id);
-        });
-      }
-
-      //////
-      const navLinkPrev = photosSlideshow.querySelector('nav .previous');
-      const navLinkNext = photosSlideshow.querySelector('nav .next');
-
-      navLinkNext.addEventListener('click', function(evt) {
-        
-        const current = photosSlideshow.querySelector('.photo-current');
-        const next = current.nextElementSibling;
-        if (next) {
-          current.classList.remove('photo-current');
-          //const nextPhoto = next.querySelector('a');
-          loadSlideshowPhoto(next.dataset.id);
-        }
-        //console.log('s', next);
-      });
-
-
-      //console.log(navLinkPrev);
-
-      
-
-    </script>
+    
   </body>
 </html>

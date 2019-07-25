@@ -1,28 +1,25 @@
-<ul class="photos-list">
+<div class="photos-list">
   {% for photo in site.data['flickr-photos'] %}
-    <li class="photo aspect-ratio-box">
+    <photos-list-photo class="photo aspect-ratio-box" data-id="{{ photo.id }}" data-background-image="{{ photo.url_s }}">
       <a href="{{ photo.flickr_page_url }}" class="lazy-load aspect-ratio-box-inside" data-id="{{ photo.id }}" data-background-image="{{ photo.url_s }}" target="_blank"></a>
-    </li>
+    </photos-list-photo>
   {% endfor %}
-</ul>
+</div>
 
-<div class="photos-slideshow-container">
-  <ul class="photos-slideshow">
+<template id="slideshow-template">
+  <div class="photos-slideshow">
     {% for photo in site.data['flickr-photos'] %}
-      <li class="photo" data-id="{{ photo.id }}">
-        <a data-background-image="{{ photo.url_o }}" target="_blank"></a>
-      </li>
+      <slideshow-photo class="photo photo-hidden" data-id="{{ photo.id }}" data-background-image="{{ photo.url_o }}">
+        <!-- <a data-background-image="{{ photo.url_o }}" target="_blank"></a> -->
+      </slideshow-photo>
     {% endfor %}
-  </ul>
+  </div>
+
   <nav class="photos-slideshow-nav-container">
-    <ul class="photos-slideshow-nav" style="z-index: 300;">
+    <ul class="photos-slideshow-nav">
       <li><a class="previous">Previous</a></li>
       <li><a class="next">Next</a></li>
 
     </ul>
   </nav>
-</div>
-
-<script>
-  
-</script>
+</template>
