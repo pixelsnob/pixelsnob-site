@@ -23,7 +23,6 @@ class SiteOverlay extends HTMLElement {
 
   connectedCallback() {
     
-
     document.addEventListener('site-overlay-show', evt => {
       this.classList.add('site-overlay-visible');  
       const siteOverlayContent = this.querySelector('.site-overlay-content');
@@ -36,7 +35,7 @@ class SiteOverlay extends HTMLElement {
         document.dispatchEvent(new CustomEvent('site-overlay-hide'));
       });
     });
-    
+    // add close removeEventListeners
   }
 }
 

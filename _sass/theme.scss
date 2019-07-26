@@ -8,7 +8,7 @@ body, html {
   position: relative;
   height: 100%;
   @media (max-width: $breakpoint-md) {
-    padding: 7px 12px;
+    padding: 5px 7px;
   }
 }
 
@@ -172,12 +172,12 @@ header .site-nav {
   height: 100%;
   width: 100000000px;
   position: absolute;
-  
+  padding-top: 5vh;
 
   .photo {
     display: block;
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
     @media (max-width: $breakpoint-md) {
       width: 100vw;
     }
