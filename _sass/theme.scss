@@ -146,26 +146,25 @@ header .site-nav {
   }
   
 }
-.photos-slideshow-container {
-  width: 100%;
-  height: 0;
-  overflow: hidden;
-  display: none;
-}
+// .photos-slideshow-container {
+//   width: 100%;
+//   height: 100%;
+//   overflow: hidden;
+//   display: none;
+//   width: 100000000px; 
+//   border: 4px solid yellow;
+// }
 
 .photos-slideshow {
-  width: 100000000px; 
   display: flex;
   align-items: center;
   height: 100%;
-  //border: 1px solid yellow;
+  width: 100000000px;
+  position: absolute;
   .photo {
     width: 100vw;
-    //height: 100%;
     height: 80vh;
     text-align: center;
-    //border: 1px solid yellow;
-
   }
   .img-hidden {
     opacity: 0;
@@ -174,7 +173,6 @@ header .site-nav {
   .img-active {
     opacity: 1;
     transition: opacity 0.5s ease;
-   // width: 100%;
     width: auto;
     height: auto;
     max-height: 80vh;
@@ -191,7 +189,6 @@ header .site-nav {
     display: flex;
 
   }
-  border: 1px solid red;
 }
 
 .lazy-load {

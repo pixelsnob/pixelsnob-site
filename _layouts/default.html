@@ -3,10 +3,24 @@
   {% include site-head.html %}
   <body>
     <script>
+
       customElements.define('site-overlay', SiteOverlay);
       customElements.define('slideshow-photo', SlideshowPhoto);
+      customElements.define('slideshow-photos', SlideshowPhotos);
       customElements.define('photos-list-photo', PhotosListPhoto);
 
+      document.addEventListener('photos-list-click', function(evt) {
+        const template = document.getElementById('slideshow-template').content.cloneNode(true);
+        document.dispatchEvent(new CustomEvent('site-overlay-show', {
+          detail: { template }
+        }));
+        document.dispatchEvent(new CustomEvent('slideshow-photos-show', {
+          detail: { id: evt.detail.id }
+        }));
+      });
+      document.addEventListener('site-overlay-hide', evt => {
+        document.dispatchEvent(new CustomEvent('slideshow-photo-hide'));
+      });
     </script>
 
     <div class="site-container">

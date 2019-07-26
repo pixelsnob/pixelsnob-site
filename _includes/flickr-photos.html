@@ -7,13 +7,13 @@
 </div>
 
 <template id="slideshow-template">
-  <div class="photos-slideshow">
+  <slideshow-photos class="photos-slideshow">
     {% for photo in site.data['flickr-photos'] %}
       <slideshow-photo class="photo photo-hidden" data-id="{{ photo.id }}" data-background-image="{{ photo.url_o }}">
         <!-- <a data-background-image="{{ photo.url_o }}" target="_blank"></a> -->
       </slideshow-photo>
     {% endfor %}
-  </div>
+  </slideshow-photos>
 
   <nav class="photos-slideshow-nav-container">
     <ul class="photos-slideshow-nav">
