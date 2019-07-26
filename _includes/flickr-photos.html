@@ -1,9 +1,7 @@
 <div class="photos-list">
   {% for photo in site.data['flickr-photos'] %}
     <photos-list-photo class="photo aspect-ratio-box" data-id="{{ photo.id }}" data-background-image="{{ photo.url_s }}">
-      <span href="{{ photo.flickr_page_url }}" class="lazy-load aspect-ratio-box-inside" data-id="{{ photo.id }}" data-background-image="{{ photo.url_s }}" target="_blank"></span>
-      <!--<a href="{{ photo.flickr_page_url }}" class="lazy-load aspect-ratio-box-inside" data-id="{{ photo.id }}" data-background-image="{{ photo.url_s }}" target="_blank"></a>-->
-
+      <a href="{{ photo.flickr_page_url }}" class="lazy-load aspect-ratio-box-inside" data-id="{{ photo.id }}" data-background-image="{{ photo.url_s }}" target="_blank"></a>
     </photos-list-photo>
   {% endfor %}
 </div>
