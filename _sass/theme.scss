@@ -105,13 +105,21 @@ header .site-nav {
   }
   .site-overlay-close {
     position: fixed;
-    top: 5px;
-    right: 20px;
+    bottom: 3px;
+    //left: 20px;
+    width: 100%;
     text-transform: uppercase;
     cursor: pointer;
-    color: #777;
+    color: #888;
     z-index: 500;
     font-size: 1.2rem;
+    text-align: center;
+    padding: 7x 0;
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ddd;
+      font-weight: normal;
+    }
   }
 }
 
@@ -193,7 +201,7 @@ header .site-nav {
     width: auto;
     height: auto;
     max-width: 100vw;
-    max-height: 90vh;
+    max-height: 88vh;
   }
 
 }
