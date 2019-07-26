@@ -154,6 +154,7 @@ header .site-nav {
     width: 20%;
     padding-top: 20%;
     display: block;
+    z-index: 0;
     float: left;    
     height: 0;
     overflow: hidden;
@@ -162,11 +163,12 @@ header .site-nav {
       width: 33%;
       padding-top: 33%;
     }
-    a:link, a:visited, a:hover, a:active {
+    a {
       background-size: cover;
       background-position: center center;
       position: absolute;
       background-repeat: no-repeat;
+      z-index: 0;
       top: 0;
       left: 0;
       width: 100%;
