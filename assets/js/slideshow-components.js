@@ -31,11 +31,13 @@ class SiteOverlay extends HTMLElement {
       }
       // Close and remove content
       this.querySelector('.site-overlay-close').addEventListener('click', ev => {
-        this.classList.remove('site-overlay-visible');
         document.dispatchEvent(new CustomEvent('site-overlay-hide'));
       });
     });
-    // add close removeEventListeners
+    
+    document.addEventListener('site-overlay-hide', evt => {
+      this.classList.remove('site-overlay-visible');
+    });
   }
 }
 
@@ -56,8 +58,21 @@ class SlideshowPhotos extends HTMLElement {
       this.setAttribute('current-id', evt.detail.id);
     });
 
+    document.addEventListener('slideshow-photos-show-previous', evt => {
+      const current = this.querySelector(`slideshow-photo.photo-visible`);
+      if (current) {
+        if (!current.dataset.listIndex) {
+          return null;
+        }
+        const previous = this.querySelector(`slideshow-photo[data-list-index="${Number(current.dataset.listIndex) - 1}"]`);
+        if (previous) {
+          this.setAttribute('current-id', previous.dataset.id);
+        }
+      }
+    });
+
     document.addEventListener('slideshow-photos-show-next', evt => {
-      const current = this.querySelector(`slideshow-photo[data-id="${evt.detail.id}"]`);
+      const current = this.querySelector(`slideshow-photo.photo-visible`);
       if (current) {
         if (!current.dataset.listIndex) {
           return null;
@@ -122,6 +137,10 @@ class SlideshowPhoto extends HTMLElement {
         this.appendChild(img);
       } else {
         this.classList.remove('photo-visible');
+        const img = this.querySelector('img');
+        if (img) {
+          img.remove();
+        }
       }
     });
 
