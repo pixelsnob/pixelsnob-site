@@ -52,12 +52,7 @@
         
       </footer>
     </div>
-    <site-overlay class="site-overlay">
-      <div class="site-overlay-content">
-      </div>
-      <a class="site-overlay-close">Close</a>
-
-    </site-overlay>
+    {% include site-overlay.html %}
     <script>
       const preloadImages = function(imagePaths) {
         return new Promise((resolve, reject) => {
