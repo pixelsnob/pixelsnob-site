@@ -11,6 +11,12 @@ class PhotosListPhoto extends HTMLElement {
       document.dispatchEvent(new CustomEvent('photos-list-click', {
         detail: { id: this.dataset.id }
       }));
+      // console.log(evt)
+      // const input = document.createElement('input');
+      // input.type = 'hidden';
+      // input.value = evt.target.dataset.id;
+      // input.classList.add('selected-photo');
+      // this.appendChild(input);
     });
   }
 }
