@@ -163,7 +163,7 @@ header .site-nav {
       width: 33%;
       padding-top: 33%;
     }
-    a:link, a:visited, a:hover, a:active {
+    span {
       background-size: cover;
       background-position: center center;
       position: absolute;
@@ -176,7 +176,7 @@ header .site-nav {
       outline: 0;
       transition: opacity 0.2s;
     }
-    a:hover {
+    span:hover {
       opacity: 0.4;
     }
   }
