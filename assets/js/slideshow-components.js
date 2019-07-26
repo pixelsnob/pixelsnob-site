@@ -71,7 +71,7 @@ class SlideshowPhotos extends HTMLElement {
         const current = this.querySelector(`slideshow-photo[data-id="${newVal}"]`);
         if (current) {
           const i = current.getAttribute('data-list-index');
-          this.style.left = i * -window.innerWidth + 'px';
+          this.style.left = `calc(-${i} * 100vw)`;
           document.dispatchEvent(new CustomEvent('slideshow-photo-show', {
             detail: { id: newVal }
           }));
