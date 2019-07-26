@@ -115,6 +115,7 @@ header .site-nav {
     font-size: 1.2rem;
     text-align: center;
     padding: 7x 0;
+    display: inline-block;
     &:hover {
       background: rgba(255, 255, 255, 0.2);
       color: #ddd;
