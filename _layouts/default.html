@@ -18,9 +18,18 @@
           detail: { id: evt.detail.id }
         }));
       });
+
       document.addEventListener('site-overlay-hide', evt => {
-        document.dispatchEvent(new CustomEvent('slideshow-photo-hide'));
+        document.dispatchEvent(new CustomEvent('slideshow-photo-hide')); ////////////
       });
+
+      // Click on a photo to show next
+      document.addEventListener('slideshow-photo-click', evt => {
+        document.dispatchEvent(new CustomEvent('slideshow-photos-show-next', {
+          detail: { id: evt.detail.id }
+        }));
+      });
+
     </script>
 
     <div class="site-container">
@@ -43,7 +52,12 @@
         
       </footer>
     </div>
-    <site-overlay class="site-overlay"></site-overlay>
+    <site-overlay class="site-overlay">
+      <div class="site-overlay-content">
+      </div>
+      <a class="site-overlay-close">Close</a>
+
+    </site-overlay>
     <script>
       const preloadImages = function(imagePaths) {
         return new Promise((resolve, reject) => {
