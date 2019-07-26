@@ -2,26 +2,70 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   {% include site-head.html %}
   <body>
-    <div class="wrapper">
+    <script>
+
+      customElements.define('site-overlay', SiteOverlay);
+      customElements.define('slideshow-photo', SlideshowPhoto);
+      customElements.define('slideshow-photos', SlideshowPhotos);
+      customElements.define('photos-list-photo', PhotosListPhoto);
+
+      document.addEventListener('photos-list-click', function(evt) {
+        const template = document.getElementById('slideshow-template').content.cloneNode(true);
+        document.dispatchEvent(new CustomEvent('site-overlay-show', {
+          detail: { template }
+        }));
+        document.dispatchEvent(new CustomEvent('slideshow-photos-show', {
+          detail: { id: evt.detail.id }
+        }));
+      });
+      document.addEventListener('site-overlay-hide', evt => {
+        document.dispatchEvent(new CustomEvent('slideshow-photo-hide'));
+      });
+    </script>
+
+    <div class="site-container">
       <header class="site-header">
         <h1><a href="{{ "/" | absolute_url }}">pixelsnob.com</a></h1>
         <!-- <nav class="site-nav">
           {% include site-nav.html %}
         </nav> -->
       </header>
-      <section class="site-content">
+      <section class="site-content-container">
         {% unless page.exclude %}
           <h2>{{ page.title }}</h2>
         {% endunless %}
-        {{ content }}
+        <div class="site-content">
+          {{ content }}
+        </div>
         <!--<p><a class="back-to-top-link no-print" href="javascript:window.scrollTo(0, 0);void(0);">Back to top</a></p>-->
       </section>
       <footer>
         
       </footer>
     </div>
+    <site-overlay class="site-overlay"></site-overlay>
+    <script>
+      const preloadImages = function(imagePaths) {
+        return new Promise((resolve, reject) => {
+          let loadedCount = 0;
+          imagePaths.forEach(imagePath => {
+            const img = new Image;
+            img.onload = () => {
+              loadedCount++;
+              if (loadedCount == imagePaths.length) {
+                resolve();
+                //console.log('sdasd')
+              }
+            }
+            img.src = imagePath;
+          })
+        })
+      };
+      
+    </script>
+
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     <script src="{{ "/assets/js/lazy-load-background-images.js" | relative_url }}"></script>
-
+    
   </body>
 </html>
