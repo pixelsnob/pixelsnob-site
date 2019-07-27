@@ -32,10 +32,14 @@ class SiteOverlay extends HTMLElement {
       }
     });
     
-    document.addEventListener('site-overlay-hide', evt => {
-      this.classList.remove('site-overlay-visible');
-    });
-    
+    document.addEventListener('site-overlay-hide', this.hide.bind(this));
+    document.addEventListener('touch-swiped-down', this.hide.bind(this));
+
+  }
+
+  hide(evt) {
+    this.classList.remove('site-overlay-visible');
+
   }
 }
 
@@ -54,12 +58,12 @@ class SlideshowPhotos extends HTMLElement {
     document.addEventListener('slideshow-photos-show-next', this.showNextPhoto.bind(this));
 
 
-    document.addEventListener('touch-swiped-left', this.showPreviousPhoto.bind(this));    
-    document.addEventListener('touch-swiped-right',  this.showNextPhoto.bind(this));
+    document.addEventListener('touch-swiped-right', this.showPreviousPhoto.bind(this));    
+    document.addEventListener('touch-swiped-left',  this.showNextPhoto.bind(this));
+
   }
 
   showPreviousPhoto(evt) {
-    console.log('tf?')
     const current = this.querySelector(`slideshow-photo.photo-visible`);
     if (current) {
       if (!current.dataset.listIndex) {
@@ -123,8 +127,9 @@ class SlideshowPhotos extends HTMLElement {
   disconnectedCallback() {
     document.removeEventListener('slideshow-photos-show-previous', this.showPreviousPhoto.bind(this));
     document.removeEventListener('slideshow-photos-show-next', this.showNextPhoto.bind(this));
-    document.removeEventListener('touch-swiped-left', this.showPreviousPhoto.bind(this));    
-    document.removeEventListener('touch-swiped-right',  this.showNextPhoto.bind(this));
+    document.addEventListener('touch-swiped-right', this.showPreviousPhoto.bind(this));    
+    document.addEventListener('touch-swiped-left',  this.showNextPhoto.bind(this));
+    document.dispatchEvent(new CustomEvent('slideshow-photos-hide'));
   }
 }
 

@@ -1,50 +1,52 @@
-document.addEventListener('touchstart', handleTouchStart, { passive: true });    
-document.addEventListener('touchmove', handleTouchMove, { passive: true });
 
-var xDown = null;
-var yDown = null;
+// Basic touch events, based on https://stackoverflow.com/a/23230280
 
-function getTouches(evt) {
-  return evt.touches ||       // browser API
-     evt.originalEvent.touches; // jQuery
-}
+(function() {
 
-function handleTouchStart(evt) {
-  const firstTouch = getTouches(evt)[0];
-  xDown = firstTouch.clientX;
-  yDown = firstTouch.clientY;
-};
+  document.addEventListener('touchstart', handleTouchStart, { passive: true });    
+  document.addEventListener('touchmove', handleTouchMove, { passive: true });
 
-function handleTouchMove(evt) {
-  if ( ! xDown || ! yDown ) {
-    return;
+  var xDown = null;
+  var yDown = null;
+
+  function getTouches(evt) {
+    return evt.touches;
   }
 
-  var xUp = evt.touches[0].clientX;                  
-  var yUp = evt.touches[0].clientY;
+  function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+  };
 
-  var xDiff = xDown - xUp;
-  var yDiff = yDown - yUp;
+  function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+      return;
+    }
 
-  if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-    if ( xDiff > 0 ) {
-      /* left swipe */ 
-      //console.log('left')
-      document.dispatchEvent(new CustomEvent('touch-swiped-left'));
+    var xUp = evt.touches[0].clientX;                  
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+      if ( xDiff > 0 ) {
+        document.dispatchEvent(new CustomEvent('touch-swiped-left'));
+      } else {
+        document.dispatchEvent(new CustomEvent('touch-swiped-right'));
+
+      }             
     } else {
-      /* right swipe */
-      //console.log('right')
-      document.dispatchEvent(new CustomEvent('touch-swiped-right'));
+      if ( yDiff > 0 ) {
+        document.dispatchEvent(new CustomEvent('touch-swiped-up'));
+      } else { 
+        document.dispatchEvent(new CustomEvent('touch-swiped-down'));
+      }                                 
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;                       
+  };
 
-    }             
-  } else {
-    if ( yDiff > 0 ) {
-      /* up swipe */ 
-    } else { 
-      /* down swipe */
-    }                                 
-  }
-  /* reset values */
-  xDown = null;
-  yDown = null;                       
-};
+})();
