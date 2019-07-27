@@ -42,7 +42,24 @@ class SiteOverlay extends HTMLElement {
 
 class SlideshowPhotos extends HTMLElement {
 
+  connectedCallback() {
+    const photos = this.querySelectorAll('slideshow-photo');    
+    photos.forEach((photo, i) => {
+      photo.setAttribute('data-list-index', i);
+    });
+    document.addEventListener('slideshow-photos-show', evt => {
+      this.setAttribute('current-id', evt.detail.id);
+    });
+    document.addEventListener('slideshow-photos-show-previous', this.showPreviousPhoto.bind(this));
+    document.addEventListener('slideshow-photos-show-next', this.showNextPhoto.bind(this));
+
+
+    document.addEventListener('touch-swiped-left', this.showPreviousPhoto.bind(this));    
+    document.addEventListener('touch-swiped-right',  this.showNextPhoto.bind(this));
+  }
+
   showPreviousPhoto(evt) {
+    console.log('tf?')
     const current = this.querySelector(`slideshow-photo.photo-visible`);
     if (current) {
       if (!current.dataset.listIndex) {
@@ -77,17 +94,6 @@ class SlideshowPhotos extends HTMLElement {
     }
   };
 
-  connectedCallback() {
-    const photos = this.querySelectorAll('slideshow-photo');    
-    photos.forEach((photo, i) => {
-      photo.setAttribute('data-list-index', i);
-    });
-    document.addEventListener('slideshow-photos-show', evt => {
-      this.setAttribute('current-id', evt.detail.id);
-    });
-    document.addEventListener('slideshow-photos-show-previous', this.showPreviousPhoto.bind(this));
-    document.addEventListener('slideshow-photos-show-next', this.showNextPhoto.bind(this));
-  }
 
   static get observedAttributes() {
     return [ 'current-id' ];
@@ -117,6 +123,8 @@ class SlideshowPhotos extends HTMLElement {
   disconnectedCallback() {
     document.removeEventListener('slideshow-photos-show-previous', this.showPreviousPhoto.bind(this));
     document.removeEventListener('slideshow-photos-show-next', this.showNextPhoto.bind(this));
+    document.removeEventListener('touch-swiped-left', this.showPreviousPhoto.bind(this));    
+    document.removeEventListener('touch-swiped-right',  this.showNextPhoto.bind(this));
   }
 }
 
@@ -129,7 +137,7 @@ class SlideshowNav extends HTMLElement {
     this._nextOnclick = this.nextOnclick.bind(this);
     this._closeOnclick = this.closeOnclick.bind(this);
   }
-  
+
   connectedCallback() {
     const previousLink = this.querySelector('.photos-slideshow-nav-container .previous a');
     if (previousLink) {

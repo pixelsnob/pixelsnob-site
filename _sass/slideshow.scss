@@ -50,7 +50,7 @@
   width: 100000000px;
   position: absolute;
   padding-top: 5vh;
-
+  //transition: left 1s;
   .photo {
     display: block;
     width: 100vw;
@@ -82,7 +82,8 @@
   position: absolute;
   bottom: 20px;
   @media (max-width: $breakpoint-md) {
-    bottom: 80px;
+    //bottom: 80px;
+    display: none;
   }
   height: 60px;
   z-index: 200;
