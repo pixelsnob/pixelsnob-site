@@ -1,10 +1,6 @@
 
 class PhotosListPhoto extends HTMLElement {
   
-  constructor() {
-    super();
-  }
-
   connectedCallback() {
     this.addEventListener('click', evt => {
       evt.preventDefault();
@@ -21,11 +17,8 @@ class PhotosListPhoto extends HTMLElement {
   }
 }
 
+
 class SiteOverlay extends HTMLElement {
-  
-  constructor() {
-    super();
-  }
 
   connectedCallback() {
     
@@ -34,83 +27,66 @@ class SiteOverlay extends HTMLElement {
       const siteOverlayContent = this.querySelector('.site-overlay-content');
       if (evt.detail.template && siteOverlayContent && !siteOverlayContent.childElementCount) {
         siteOverlayContent.appendChild(evt.detail.template);
+        document.dispatchEvent(new CustomEvent('site-overlay-shown'));
       }
     });
     
     document.addEventListener('site-overlay-hide', evt => {
       this.classList.remove('site-overlay-visible');
-      const siteOverlayContent = document.querySelector('.site-overlay-content');
-      console.log(siteOverlayContent)
-
-      siteOverlayContent.innerHTML = '';
     });
+    
   }
 }
 
+
 class SlideshowPhotos extends HTMLElement {
-  
-  constructor() {
-    super();
-  }
+
+  showPreviousPhoto(evt) {
+    const current = this.querySelector(`slideshow-photo.photo-visible`);
+    if (current) {
+      if (!current.dataset.listIndex) {
+        return null;
+      }
+      const prevIndex = Number(current.dataset.listIndex) - 1;
+      if (prevIndex < 0) {
+        return null;
+      }
+      const previous = this.querySelector(`slideshow-photo[data-list-index="${prevIndex}"]`);
+      if (previous) {
+        this.setAttribute('current-id', previous.dataset.id);
+      }
+    }
+  };
+
+  showNextPhoto(evt) {
+    const current = this.querySelector(`slideshow-photo.photo-visible`);
+    if (current) {
+      if (!current.dataset.listIndex) {
+        return null;
+      }
+      const nextIndex = Number(current.dataset.listIndex) + 1;
+      const photoCount = this.querySelectorAll('slideshow-photo').length;
+      if (nextIndex > photoCount) {
+        return null;
+      }
+      const next = this.querySelector(`slideshow-photo[data-list-index="${nextIndex}"]`);
+      if (next) {
+        this.setAttribute('current-id', next.dataset.id);
+      }
+    }
+  };
 
   connectedCallback() {
-    const photos = this.querySelectorAll('slideshow-photo');
-    
+    const photos = this.querySelectorAll('slideshow-photo');    
     photos.forEach((photo, i) => {
       photo.setAttribute('data-list-index', i);
     });
-
     document.addEventListener('slideshow-photos-show', evt => {
       this.setAttribute('current-id', evt.detail.id);
     });
+    document.addEventListener('slideshow-photos-show-previous', this.showPreviousPhoto.bind(this));
+    document.addEventListener('slideshow-photos-show-next', this.showNextPhoto.bind(this));
 
-    document.addEventListener('slideshow-photos-show-previous', evt => {
-      const current = this.querySelector(`slideshow-photo.photo-visible`);
-      if (current) {
-        if (!current.dataset.listIndex) {
-          return null;
-        }
-        const previous = this.querySelector(`slideshow-photo[data-list-index="${Number(current.dataset.listIndex) - 1}"]`);
-        if (previous) {
-          this.setAttribute('current-id', previous.dataset.id);
-        }
-      }
-    });
-
-    document.addEventListener('slideshow-photos-show-next', evt => {
-      const current = this.querySelector(`slideshow-photo.photo-visible`);
-      if (current) {
-        if (!current.dataset.listIndex) {
-          return null;
-        }
-        const next = this.querySelector(`slideshow-photo[data-list-index="${Number(current.dataset.listIndex) + 1}"]`);
-        if (next) {
-          this.setAttribute('current-id', next.dataset.id);
-        }
-      }
-    });
-
-    // Slideshow nav link handlers
-    const previousLink = document.querySelector('.photos-slideshow-nav-container .previous a');
-    if (previousLink) {
-      previousLink.addEventListener('click', function() {
-        document.dispatchEvent(new CustomEvent('slideshow-photos-show-previous'))
-      });
-    }
-    
-    const nextLink = document.querySelector('.photos-slideshow-nav-container .next a');
-    if (nextLink) {
-      nextLink.addEventListener('click', function() {
-        document.dispatchEvent(new CustomEvent('slideshow-photos-show-next'))
-      });
-    }
-
-    const closeLink = document.querySelector('.photos-slideshow-nav-container .close a');
-    if (closeLink) {
-      closeLink.addEventListener('click', function() {
-        document.dispatchEvent(new CustomEvent('slideshow-photos-hide'))
-      });
-    }
   }
 
   static get observedAttributes() {
@@ -124,10 +100,12 @@ class SlideshowPhotos extends HTMLElement {
   attributeChangedCallback(attrName, oldVal, newVal) {
     switch (attrName) {
       case 'current-id':
+        
         const current = this.querySelector(`slideshow-photo[data-id="${newVal}"]`);
         if (current) {
           // Move the entire container to the left/right so it shows current image
           const i = current.getAttribute('data-list-index');
+          //console.log('current index is ', i)
           this.style.left = `calc(-${i} * 100vw)`;
           document.dispatchEvent(new CustomEvent('slideshow-photo-show', {
             detail: { id: newVal }
@@ -136,52 +114,100 @@ class SlideshowPhotos extends HTMLElement {
       break;
     }
   }
+
+  disconnectedCallback() {
+    document.removeEventListener('slideshow-photos-show-previous', this.showPreviousPhoto.bind(this));
+    document.removeEventListener('slideshow-photos-show-next', this.showNextPhoto.bind(this));
+  }
 }
 
+
+class SlideshowNav extends HTMLElement {
+
+  connectedCallback() {
+    const previousLink = this.querySelector('.photos-slideshow-nav-container .previous a');
+    if (previousLink) {
+      previousLink.addEventListener('click', this.previousOnclick.bind(this));
+    }
+    const nextLink = this.querySelector('.photos-slideshow-nav-container .next a');
+    if (nextLink) {
+      nextLink.addEventListener('click', this.nextOnclick.bind(this));
+    }
+    const closeLink = this.querySelector('.photos-slideshow-nav-container .close a');
+    if (closeLink) {
+      closeLink.addEventListener('click', this.closeOnclick.bind(this));
+    } 
+  }  
+
+  disconnectedCallback() {
+    const previousLink = this.querySelector('.photos-slideshow-nav-container .previous a');
+    if (previousLink) {
+      previousLink.removeEventListener('click', this.previousOnclick.bind(this));
+    }
+    const nextLink = this.querySelector('.photos-slideshow-nav-container .next a');
+    if (nextLink) {
+      nextLink.removeEventListener('click', this.nextOnclick.bind(this));
+    }
+    const closeLink = this.querySelector('.photos-slideshow-nav-container .close a');
+    if (closeLink) {
+      closeLink.removeEventListener('click', this.closeOnclick.bind(this));
+    } 
+  }  
+
+  previousOnclick(evt) {
+    document.dispatchEvent(new CustomEvent('slideshow-photos-show-previous'));
+  };
+
+  nextOnclick(evt) {
+    document.dispatchEvent(new CustomEvent('slideshow-photos-show-next'));
+
+  };
+
+  closeOnclick(evt) {
+    document.dispatchEvent(new CustomEvent('slideshow-photos-hide'));
+  };
+
+}
+
+
 class SlideshowPhoto extends HTMLElement {
-  
-  constructor() {
-    super();    
+
+  showPhoto(evt) {
+    const existingImg = this.querySelector('img');
+    if (this.dataset.id === evt.detail.id) {
+      this.classList.add('photo-visible');
+      if (existingImg) {
+        this.appendChild(existingImg);
+      } else {
+        const img = new Image;
+        img.src = this.dataset.backgroundImage;
+        img.className = 'img-hidden';
+        img.onload = function(evt) {
+          img.className = 'img-active';
+        };
+        this.appendChild(img);
+      }
+    } else {
+      this.hidePhoto();
+    }
+  }
+
+  hidePhoto(evt) {
+    const img = this.querySelector('img');
+    this.classList.remove('photo-visible');
+    if (img) {
+      img.remove();
+    }
   }
 
   connectedCallback() {
-    this.addEventListener('click', evt => {
-      document.dispatchEvent(new CustomEvent('slideshow-photo-click', {
-        detail: { id: this.dataset.id, listIndex: this.dataset.listIndex }
-      }));
-      evt.preventDefault();
-      evt.stopPropagation();
-    });
+    document.addEventListener('slideshow-photo-show', this.showPhoto.bind(this));
+    document.addEventListener('slideshow-photo-hide', this.hidePhoto.bind(this));
+  }
 
-    document.addEventListener('slideshow-photo-show', evt => {
-      const existingImg = this.querySelector('img');
-      if (this.dataset.id === evt.detail.id) {
-        this.classList.add('photo-visible');
-        if (existingImg) {
-          this.appendChild(existingImg);
-        } else {
-          const img = new Image;
-          img.src = this.dataset.backgroundImage;
-          img.className = 'img-hidden';
-          img.onload = function(evt) {
-            img.className = 'img-active';
-          };
-          this.appendChild(img);
-        }
-      } else {
-        this.classList.remove('photo-visible');
-        if (existingImg) {
-          existingImg.remove();
-        }
-      }
-    });
-
-    document.addEventListener('slideshow-photo-hide', evt => {
-      const img = this.querySelector('img');
-      this.classList.remove('photo-visible');
-      if (img) {
-        img.remove();
-      }
-    });
+  disconnectedCallback() {
+    document.removeEventListener('slideshow-photo-show', this.showPhoto.bind(this));
+    document.removeEventListener('slideshow-photo-hide', this.hidePhoto.bind(this));
+    this.classList.remove('photo-visible');
   }
 }
