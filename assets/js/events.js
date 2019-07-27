@@ -9,12 +9,13 @@ document.addEventListener('photos-list-click', function(evt) {
   }));
 });
 
-document.addEventListener('site-overlay-hide', evt => {
-  //document.dispatchEvent(new CustomEvent('slideshow-photo-hide')); ////////////
-});
+// document.addEventListener('site-overlay-hide', evt => {
+//   //document.dispatchEvent(new CustomEvent('slideshow-photo-hide')); ////////////
+// });
 
 document.addEventListener('slideshow-photos-hide', evt => {
   document.dispatchEvent(new CustomEvent('site-overlay-hide'));
+  document.dispatchEvent(new CustomEvent('slideshow-photo-hide'));
 });
 
 // Click on a photo to show next
