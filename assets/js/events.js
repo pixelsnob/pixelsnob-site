@@ -10,13 +10,17 @@ document.addEventListener('photos-list-click', function(evt) {
 });
 
 document.addEventListener('site-overlay-hide', evt => {
-  document.dispatchEvent(new CustomEvent('slideshow-photo-hide')); ////////////
+  //document.dispatchEvent(new CustomEvent('slideshow-photo-hide')); ////////////
+});
+
+document.addEventListener('slideshow-photos-hide', evt => {
+  document.dispatchEvent(new CustomEvent('site-overlay-hide'));
 });
 
 // Click on a photo to show next
-document.addEventListener('slideshow-photo-click', evt => {
-  document.dispatchEvent(new CustomEvent('slideshow-photos-show-next'));
-});
+// document.addEventListener('slideshow-photo-click', evt => {
+//   document.dispatchEvent(new CustomEvent('slideshow-photos-show-next'));
+// });
 
 document.addEventListener('keydown', function(evt) {
   switch(evt.keyCode) {
@@ -25,11 +29,9 @@ document.addEventListener('keydown', function(evt) {
     break;
     case 39:
       document.dispatchEvent(new CustomEvent('slideshow-photos-show-next'));
-
     break;
     case 27:
       document.dispatchEvent(new CustomEvent('site-overlay-hide'));
-
     break;
   }
 });

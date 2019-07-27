@@ -140,7 +140,7 @@ header .site-nav {
   padding: 4px 10px;
   margin-right: 2px;
   margin-bottom: 4px;
-  color: #777;
+  color: #555;
 }
 
 .photos-list { // thumbs
@@ -160,9 +160,10 @@ header .site-nav {
     overflow: hidden;
     position: relative;
     @media (max-width: $breakpoint-lg) {
-      width: 33%;
-      padding-top: 33%;
+      width: 32%;
+      padding-top: 32%;
     }
+    border: 1px solid transparent;
     a {
       background-size: cover;
       background-position: center center;
@@ -219,29 +220,51 @@ header .site-nav {
 }
 
 .photos-slideshow-nav-container {
-  display: none;
-  // position: absolute;
-  // top: 0;
-  // height: 100%;
-  // z-index: 200;
-  // // &.photos-slideshow-nav-container-visible {
-  // //   display: flex;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 200;
+  width: 100%;
+  ul {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    width: 50vw;
+    list-style-type: none;
+    height: 100%;
+    position: relative;
+    //cursor: pointer;
+    //border: 1px solid yellow;
 
-  // // }
-  // width: 100%;
-  // ul {
-  //   display: block;
-  //   height: 100%;
-  //   margin: 0;
-  //   padding: 0;
-  // }
-  // li {
-  //   width: 50%;
-  //   list-style-type: none;
-  //   border: 1px solid red;
-  //   height: 100%;
-
-  // }
+    a {
+      //border: 1px solid red;
+      text-transform: uppercase;
+      display: inline-block;
+      width: 33vw;
+      position: absolute;
+      bottom:0;
+      font-size: 1.3rem;
+      letter-spacing: 0.2rem;
+      padding: 7px 0;
+      text-align: center;
+      cursor: pointer;
+      //border: 1px solid red;
+      &.next {
+        right: 0;
+        text-align: right;
+      }
+      user-select: none;
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: #ddd;
+        font-weight: normal;
+      }
+    }
+  }
 }
 
 .lazy-load {

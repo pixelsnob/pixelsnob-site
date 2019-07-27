@@ -9,27 +9,6 @@
       customElements.define('slideshow-photos', SlideshowPhotos);
       customElements.define('photos-list-photo', PhotosListPhoto);
 
-      // document.addEventListener('photos-list-click', function(evt) {
-      //   const template = document.getElementById('slideshow-template').content.cloneNode(true);
-      //   document.dispatchEvent(new CustomEvent('site-overlay-show', {
-      //     detail: { template }
-      //   }));
-      //   document.dispatchEvent(new CustomEvent('slideshow-photos-show', {
-      //     detail: { id: evt.detail.id }
-      //   }));
-      // });
-
-      // document.addEventListener('site-overlay-hide', evt => {
-      //   document.dispatchEvent(new CustomEvent('slideshow-photo-hide')); ////////////
-      // });
-
-      // // Click on a photo to show next
-      // document.addEventListener('slideshow-photo-click', evt => {
-      //   document.dispatchEvent(new CustomEvent('slideshow-photos-show-next', {
-      //     detail: { id: evt.detail.id }
-      //   }));
-      // });
-
     </script>
 
     <div class="site-container">
@@ -73,7 +52,6 @@
       
     </script>
     <script src="{{ "/assets/js/events.js" | relative_url }}"></script>
-
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     <script src="{{ "/assets/js/lazy-load-background-images.js" | relative_url }}"></script>
     

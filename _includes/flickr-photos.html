@@ -10,16 +10,15 @@
   <slideshow-photos class="photos-slideshow">
     {% for photo in site.data['flickr-photos'] %}
       <slideshow-photo class="photo photo-hidden" data-id="{{ photo.id }}" data-background-image="{{ photo.url_o }}">
-        <!-- <a data-background-image="{{ photo.url_o }}" target="_blank"></a> -->
       </slideshow-photo>
     {% endfor %}
   </slideshow-photos>
 
   <nav class="photos-slideshow-nav-container">
     <ul class="photos-slideshow-nav">
-      <li><a class="previous">Previous</a></li>
-      <li><a class="next">Next</a></li>
-
+      <li class="previous"><a>Previous</a></li>
+      <li class="close"><a>Close</a></li>
+      <li class="next"><a>Next</a></li>
     </ul>
   </nav>
 </template>

@@ -74,12 +74,13 @@ connect().then(async function(flickr) {
       url_o: photo.url_o,
       url_s: photo.url_s,
       date_taken: photoInfo.dates.taken,
-      flickr_page_url: `https://www.flickr.com/photos/${config.user_id}/${photo.id}/in/dateposted-public/`
+      flickr_page_url: `https://www.flickr.com/photos/${config.user_id}/${photo.id}/in/dateposted-public/`,
+      title: photo.title
     });
   }
 
   // Write csv
-  const columns = [ 'id', 'url_s', 'url_o', 'date_taken', 'flickr_page_url' ];
+  const columns = [ 'id', 'title', 'url_s', 'url_o', 'date_taken', 'flickr_page_url' ];
 
   csvStringify(data, { header: true, columns }, function(err, output) {
     if (err) {
