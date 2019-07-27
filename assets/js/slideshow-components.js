@@ -34,15 +34,15 @@ class SiteOverlay extends HTMLElement {
       const siteOverlayContent = this.querySelector('.site-overlay-content');
       if (evt.detail.template && siteOverlayContent && !siteOverlayContent.childElementCount) {
         siteOverlayContent.appendChild(evt.detail.template);
-        // Close link handler
-        // this.querySelector('.site-overlay-close').addEventListener('click', ev => {
-        //   document.dispatchEvent(new CustomEvent('site-overlay-hide'));
-        // }); 
       }
     });
     
     document.addEventListener('site-overlay-hide', evt => {
       this.classList.remove('site-overlay-visible');
+      const siteOverlayContent = document.querySelector('.site-overlay-content');
+      console.log(siteOverlayContent)
+
+      siteOverlayContent.innerHTML = '';
     });
   }
 }
@@ -154,20 +154,24 @@ class SlideshowPhoto extends HTMLElement {
     });
 
     document.addEventListener('slideshow-photo-show', evt => {
+      const existingImg = this.querySelector('img');
       if (this.dataset.id === evt.detail.id) {
         this.classList.add('photo-visible');
-        const img = new Image;
-        img.src = this.dataset.backgroundImage;
-        img.className = 'img-hidden';
-        img.onload = function(evt) {
-          img.className = 'img-active';
-        };
-        this.appendChild(img);
+        if (existingImg) {
+          this.appendChild(existingImg);
+        } else {
+          const img = new Image;
+          img.src = this.dataset.backgroundImage;
+          img.className = 'img-hidden';
+          img.onload = function(evt) {
+            img.className = 'img-active';
+          };
+          this.appendChild(img);
+        }
       } else {
         this.classList.remove('photo-visible');
-        const img = this.querySelector('img');
-        if (img) {
-          img.remove();
+        if (existingImg) {
+          existingImg.remove();
         }
       }
     });
