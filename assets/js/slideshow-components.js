@@ -123,33 +123,40 @@ class SlideshowPhotos extends HTMLElement {
 
 class SlideshowNav extends HTMLElement {
 
+  constructor() {
+    super();
+    this._previousOnclick = this.previousOnclick.bind(this);
+    this._nextOnclick = this.nextOnclick.bind(this);
+    this._closeOnclick = this.closeOnclick.bind(this);
+  }
+  
   connectedCallback() {
     const previousLink = this.querySelector('.photos-slideshow-nav-container .previous a');
     if (previousLink) {
-      previousLink.addEventListener('click', this.previousOnclick.bind(this));
+      previousLink.addEventListener('click', this._previousOnclick);
     }
     const nextLink = this.querySelector('.photos-slideshow-nav-container .next a');
     if (nextLink) {
-      nextLink.addEventListener('click', this.nextOnclick.bind(this));
+      nextLink.addEventListener('click', this._nextOnclick);
     }
     const closeLink = this.querySelector('.photos-slideshow-nav-container .close a');
     if (closeLink) {
-      closeLink.addEventListener('click', this.closeOnclick.bind(this));
+      closeLink.addEventListener('click', this._closeOnclick);
     } 
   }  
 
   disconnectedCallback() {
     const previousLink = this.querySelector('.photos-slideshow-nav-container .previous a');
     if (previousLink) {
-      previousLink.removeEventListener('click', this.previousOnclick.bind(this));
+      previousLink.removeEventListener('click', this._previousOnclick);
     }
     const nextLink = this.querySelector('.photos-slideshow-nav-container .next a');
     if (nextLink) {
-      nextLink.removeEventListener('click', this.nextOnclick.bind(this));
+      nextLink.removeEventListener('click', this._nextOnclick);
     }
     const closeLink = this.querySelector('.photos-slideshow-nav-container .close a');
     if (closeLink) {
-      closeLink.removeEventListener('click', this.closeOnclick.bind(this));
+      closeLink.removeEventListener('click', this._closeOnclick);
     } 
   }  
 
@@ -159,17 +166,26 @@ class SlideshowNav extends HTMLElement {
 
   nextOnclick(evt) {
     document.dispatchEvent(new CustomEvent('slideshow-photos-show-next'));
-
   };
 
   closeOnclick(evt) {
     document.dispatchEvent(new CustomEvent('slideshow-photos-hide'));
   };
-
 }
 
 
 class SlideshowPhoto extends HTMLElement {
+
+  connectedCallback() {
+    document.addEventListener('slideshow-photo-show', this.showPhoto.bind(this));
+    document.addEventListener('slideshow-photo-hide', this.hidePhoto.bind(this));
+  }
+
+  disconnectedCallback() {
+    document.removeEventListener('slideshow-photo-show', this.showPhoto.bind(this));
+    document.removeEventListener('slideshow-photo-hide', this.hidePhoto.bind(this));
+    this.classList.remove('photo-visible');
+  }
 
   showPhoto(evt) {
     const existingImg = this.querySelector('img');
@@ -199,14 +215,4 @@ class SlideshowPhoto extends HTMLElement {
     }
   }
 
-  connectedCallback() {
-    document.addEventListener('slideshow-photo-show', this.showPhoto.bind(this));
-    document.addEventListener('slideshow-photo-hide', this.hidePhoto.bind(this));
-  }
-
-  disconnectedCallback() {
-    document.removeEventListener('slideshow-photo-show', this.showPhoto.bind(this));
-    document.removeEventListener('slideshow-photo-hide', this.hidePhoto.bind(this));
-    this.classList.remove('photo-visible');
-  }
 }
