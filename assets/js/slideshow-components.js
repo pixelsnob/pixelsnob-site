@@ -22,6 +22,7 @@ class SiteOverlay extends HTMLElement {
 
   connectedCallback() {
     
+    // Appends template content to overlay container
     document.addEventListener('site-overlay-show', evt => {
       this.classList.add('site-overlay-visible');  
       const siteOverlayContent = this.querySelector('.site-overlay-content');
@@ -86,7 +87,6 @@ class SlideshowPhotos extends HTMLElement {
     });
     document.addEventListener('slideshow-photos-show-previous', this.showPreviousPhoto.bind(this));
     document.addEventListener('slideshow-photos-show-next', this.showNextPhoto.bind(this));
-
   }
 
   static get observedAttributes() {
@@ -105,7 +105,6 @@ class SlideshowPhotos extends HTMLElement {
         if (current) {
           // Move the entire container to the left/right so it shows current image
           const i = current.getAttribute('data-list-index');
-          //console.log('current index is ', i)
           this.style.left = `calc(-${i} * 100vw)`;
           document.dispatchEvent(new CustomEvent('slideshow-photo-show', {
             detail: { id: newVal }
