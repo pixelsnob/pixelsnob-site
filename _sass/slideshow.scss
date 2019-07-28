@@ -50,6 +50,8 @@
   width: 100000000px;
   position: absolute;
   padding-top: 5vh;
+  left: 0;
+  transition: left 0.4s ease-in;
   .photo {
     display: block;
     width: 100vw;
