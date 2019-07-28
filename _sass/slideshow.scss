@@ -6,9 +6,9 @@
   height: 100%;
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  @media (max-width: $breakpoint-md) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+  // @media (max-width: $breakpoint-md) {
+  //   grid-template-columns: 1fr 1fr 1fr;
+  // }
   .photo {
     margin: 0;
     list-style: none;
@@ -80,7 +80,7 @@
 .photos-slideshow-nav-container {
   position: absolute;
   bottom: 0;
-  @media (max-width: $breakpoint-md) {
+  @media (max-width: $breakpoint-md) and (orientation: portrait) {
     bottom: 100px;
   }
   height: 42px;
