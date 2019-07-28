@@ -29,6 +29,8 @@
 
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
+    
+    document.dispatchEvent(new CustomEvent('touch-swiped'));
 
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
       if ( xDiff > 0 ) {

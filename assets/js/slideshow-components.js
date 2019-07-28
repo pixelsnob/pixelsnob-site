@@ -143,34 +143,46 @@ class SlideshowNav extends HTMLElement {
   }
 
   connectedCallback() {
-    const previousLink = this.querySelector('.photos-slideshow-nav-container .previous a');
+    const previousLink = this.querySelector('.previous a');
     if (previousLink) {
       previousLink.addEventListener('click', this._previousOnclick);
     }
-    const nextLink = this.querySelector('.photos-slideshow-nav-container .next a');
+    const nextLink = this.querySelector('.next a');
     if (nextLink) {
       nextLink.addEventListener('click', this._nextOnclick);
     }
-    const closeLink = this.querySelector('.photos-slideshow-nav-container .close a');
+    const closeLink = this.querySelector('.close a');
     if (closeLink) {
       closeLink.addEventListener('click', this._closeOnclick);
-    } 
+    }
+    document.addEventListener('touch-swiped', this.show.bind(this));
+    document.addEventListener('click', this.hide.bind(this));
   }  
 
   disconnectedCallback() {
-    const previousLink = this.querySelector('.photos-slideshow-nav-container .previous a');
+    const previousLink = this.querySelector('.previous a');
     if (previousLink) {
       previousLink.removeEventListener('click', this._previousOnclick);
     }
-    const nextLink = this.querySelector('.photos-slideshow-nav-container .next a');
+    const nextLink = this.querySelector('.next a');
     if (nextLink) {
       nextLink.removeEventListener('click', this._nextOnclick);
     }
-    const closeLink = this.querySelector('.photos-slideshow-nav-container .close a');
+    const closeLink = this.querySelector('.close a');
     if (closeLink) {
       closeLink.removeEventListener('click', this._closeOnclick);
-    } 
+    }
+    document.removeEventListener('touch-swiped', this.show.bind(this));
+    document.removeEventListener('click', this.hide.bind(this));
   }  
+
+  show(evt) {
+    this.classList.add('photos-slideshow-nav-container-hidden');
+  }
+
+  hide(evt) {
+    this.classList.remove('photos-slideshow-nav-container-hidden'); // set a timer
+  }
 
   previousOnclick(evt) {
     document.dispatchEvent(new CustomEvent('slideshow-photos-show-previous'));
