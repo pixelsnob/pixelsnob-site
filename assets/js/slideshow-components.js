@@ -227,10 +227,7 @@ class SlideshowPhoto extends HTMLElement {
         this.appendChild(img);
       }
     } else {
-      setTimeout(() => {
-        this.hidePhoto();
-
-      }, 400);
+      this.hidePhoto();
     }
   }
 
