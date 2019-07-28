@@ -113,7 +113,7 @@
       width: 100%;
       position: absolute;
       bottom: 0;
-      font-size: 2.4rem;
+      font-size: 2rem;
       //line-height: 3.1rem;
       font-weight: bold;
       //letter-spacing: 0.2rem;
@@ -124,9 +124,9 @@
       -webkit-tap-highlight-color: transparent;
       user-select: none;
       &:hover {
-        background: rgba(255, 255, 255, 0.2);
+        //background: rgba(255, 255, 255, 0.2);
         color: #ddd;
-        font-weight: normal;
+        //font-weight: normal;
       }
     }
   }
