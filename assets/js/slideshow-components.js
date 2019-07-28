@@ -33,7 +33,6 @@ class SiteOverlay extends HTMLElement {
     });
     
     document.addEventListener('site-overlay-hide', this.hide.bind(this));
-    //document.addEventListener('touch-swiped-down', this.hide.bind(this));
 
   }
 
