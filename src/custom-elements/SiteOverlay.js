@@ -13,6 +13,7 @@ export default class SiteOverlay extends HTMLElement {
       } else {
         this.classList.remove('site-overlay-visible');
       }
+      console.log('updating')
     });
   }
 

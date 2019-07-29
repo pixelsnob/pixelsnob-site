@@ -8,6 +8,7 @@ export default class SlideshowPhotos extends HTMLElement {
   }
 
   connectedCallback() {
+    console.log('??????')
     const photos = Array.from(this.querySelectorAll('slideshow-photo'));
     const photosData = photos.map((photo, listIndex) => {
       const { id/*, title, url_s,*/, url_o/*, date_taken,flickr_page_url*/, urlO } = photo.dataset;

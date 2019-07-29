@@ -27,14 +27,17 @@ export default class SlideshowPhoto extends HTMLElement {
   show(id) {
     if (this.dataset.id === id) {
       const existingImg = this.querySelector('img');
-      const tmpImg = new Image;
-      tmpImg.src = this.dataset.backgroundImage;
-      tmpImg.onload = (evt) => {
-        existingImg.src = tmpImg.src;
-      };
-      existingImg.onload = (evt) => {
+      if (existingImg) {
         this.classList.add('photo-visible');
+        return null;
       }
+      const img = new Image();
+
+      img.addEventListener('load', (evt) => {
+        this.appendChild(img);
+        this.classList.add('photo-visible');
+      });
+      img.src = this.dataset.backgroundImage;
     } else {
       this.hide();
     }
@@ -42,6 +45,13 @@ export default class SlideshowPhoto extends HTMLElement {
 
   hide() {
     this.classList.remove('photo-visible');
+    var img = this.querySelector('img');
+    //console.log(this.childNodes)
+
+    if (img) {
+      console.log(img)
+      //img.remove();
+    }
   }
 
 }

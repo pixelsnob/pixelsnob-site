@@ -16,9 +16,9 @@ customElements.define('slideshow-photos', SlideshowPhotos);
 customElements.define('slideshow-nav', SlideshowNav);
 customElements.define('photos-list-photo', PhotosListPhoto);
 
-store.subscribe(() => {
-  console.log(store.getState());
-})
+// store.subscribe(() => {
+//   console.log(store.getState());
+// })
 // document.addEventListener('keydown', function(evt) {
 //   switch(evt.keyCode) {
 //     case 37:
