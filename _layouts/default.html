@@ -2,15 +2,6 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   {% include site-head.html %}
   <body>
-    <script>
-
-      customElements.define('site-overlay', SiteOverlay);
-      customElements.define('slideshow-photo', SlideshowPhoto);
-      customElements.define('slideshow-photos', SlideshowPhotos);
-      customElements.define('slideshow-nav', SlideshowNav);
-      customElements.define('photos-list-photo', PhotosListPhoto);
-
-    </script>
 
     <div class="site-container">
       <header class="site-header">
@@ -32,7 +23,8 @@
         
       </footer>
     </div>
-    {% include site-overlay.html %}
+    <script src="{{ "/dist/main.js" | relative_url }}"></script>
+
     <script>
       const preloadImages = function(imagePaths) {
         return new Promise((resolve, reject) => {
@@ -51,10 +43,9 @@
         })
       };
       
+      
     </script>
-    <script src="{{ "/assets/js/events.js" | relative_url }}"></script>
-    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
-    <script src="{{ "/assets/js/lazy-load-background-images.js" | relative_url }}"></script>
+
     
   </body>
 </html>

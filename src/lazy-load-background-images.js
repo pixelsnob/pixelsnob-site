@@ -1,6 +1,6 @@
-  
+
+
 (function() {
-  
   const lazyBackgrounds = [ ...document.querySelectorAll('.lazy-load') ];
 
   if (lazyBackgrounds.length === 0) {
@@ -11,17 +11,13 @@
     let lazyBackgroundObserver = new IntersectionObserver(function(entries) {
       entries.forEach(async function(entry) {
         if (entry.isIntersecting) {
-          //console.log(entry)
-          const style = getComputedStyle(entry.target);
-          const backgroundImage = entry.target.dataset.backgroundImage;
-          if (backgroundImage) {
-            preloadImages( [ backgroundImage ]).then(function() {
+          const src = entry.target.dataset.src;
+          if (src) {
+            preloadImages( [ src ]).then(function() {
               entry.target.classList.remove('lazy-load');
               entry.target.classList.add('lazy-loaded');
-              //console.log('loaded!')
             });
-            entry.target.style.backgroundImage = `url(${backgroundImage})`;
-            
+            entry.target.src = src;
             lazyBackgroundObserver.unobserve(entry.target);
           }
         }
@@ -31,7 +27,7 @@
     lazyBackgrounds.forEach(function(lazyBackground) {
       lazyBackgroundObserver.observe(lazyBackground)
     })
-  
+
   } else {
     // If IntersectionObserver is not supported, load all images
     lazyBackgrounds.forEach(el => {
@@ -43,5 +39,4 @@
       
     })
   }
-
 })();
