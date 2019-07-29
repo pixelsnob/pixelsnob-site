@@ -17,7 +17,7 @@ I’m a front-end developer seeking part-time or full-time employment, preferabl
 #### Corbin & Brooks
 Eugene, OR (remote)  
 Front-end/full-stack developer  
-October 2018 - Present  
+October 2018 - July 2019  
 
 JavaScript development, react, sails, postgres. Built a react-static restaurant site, helped to build a react drag/drop tree using react-virtualized and react-dnd, and created a reusable json-driven form api. Contributed to architecture improvements, as well as general QA on a variety of different projects.
 
