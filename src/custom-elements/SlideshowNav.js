@@ -15,45 +15,51 @@ export default class SlideshowNav extends HTMLElement {
 
   constructor() {
     super();
-    this._previousOnclick = this.previousOnclick.bind(this);
-    this._nextOnclick = this.nextOnclick.bind(this);
-    this._closeOnclick = this.closeOnclick.bind(this);
-
+    this._previous = this.previous.bind(this);
+    this._next = this.next.bind(this);
+    this._close = this.close.bind(this);
   }
 
   connectedCallback() {
     this.innerHTML = tpl;
-    this.querySelector('.previous a').addEventListener('click', this._previousOnclick);
-    this.querySelector('.next a').addEventListener('click', this._nextOnclick);
-    this.querySelector('.close a').addEventListener('click', this._closeOnclick);
-
-    //document.addEventListener('touch-swiped', this.show.bind(this));
-    //document.addEventListener('click', this.hide.bind(this));
+    this.querySelector('.previous a').addEventListener('click', this._previous);
+    this.querySelector('.next a').addEventListener('click', this._next);
+    this.querySelector('.close a').addEventListener('click', this._close);
+    document.addEventListener('keydown', this.keydownHandler.bind(this));
   }  
 
   disconnectedCallback() {
-    this.querySelector('.previous a').removeEventListener('click', this._previousOnclick);
-    this.querySelector('.next a').removeEventListener('click', this._nextOnclick);
-    this.querySelector('.close a').removeEventListener('click', this._closeOnclick);
-  }  
-
-  show(evt) {
-    this.classList.add('photos-slideshow-nav-container-hidden');
+    this.querySelector('.previous a').removeEventListener('click', this._previous);
+    this.querySelector('.next a').removeEventListener('click', this._next);
+    this.querySelector('.close a').removeEventListener('click', this._close);
+    document.removeEventListener('keydown', this.keydownHandler.bind(this));
   }
 
-  hide(evt) {
-    //////////////////
-  }
-
-  previousOnclick(evt) {
+  previous(evt) {
     store.dispatch(setSlideshowPhotoIdToPrevious());
   };
 
-  nextOnclick(evt) {
+  next(evt) {
     store.dispatch(setSlideshowPhotoIdToNext());
   };
 
-  closeOnclick(evt) {
+  close(evt) {
     store.dispatch(setSlideshowPhotoId(null));
   };
+
+  keydownHandler(evt) {    
+    switch(evt.keyCode) {
+      case 37:
+      case 38:
+        this.previous();
+      break;
+      case 39:
+      case 40:
+        this.next();
+      break;
+      case 27:
+        this.close();
+      break;
+    }
+  }
 }

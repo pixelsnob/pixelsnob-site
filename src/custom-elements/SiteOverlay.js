@@ -1,8 +1,6 @@
 
 import store from '../store';
 
-//import { setOverlayTemplateId } from '../actions';
-
 export default class SiteOverlay extends HTMLElement {
 
   connectedCallback() {
@@ -13,7 +11,6 @@ export default class SiteOverlay extends HTMLElement {
       } else {
         this.classList.remove('site-overlay-visible');
       }
-      console.log('updating')
     });
   }
 

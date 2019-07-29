@@ -45,13 +45,6 @@ export default class SlideshowPhoto extends HTMLElement {
 
   hide() {
     this.classList.remove('photo-visible');
-    var img = this.querySelector('img');
-    //console.log(this.childNodes)
-
-    if (img) {
-      console.log(img)
-      //img.remove();
-    }
   }
 
 }
