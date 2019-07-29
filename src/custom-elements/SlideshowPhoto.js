@@ -4,47 +4,44 @@ import store from '../store';
 export default class SlideshowPhoto extends HTMLElement {
 
   connectedCallback() {
-    const state = store.getState();
-    if (state.slideshowPhotoId && state.slideshowPhotoId === this.dataset.id) {
-      this.showPhotoById(state.slideshowPhotoId);
-    }
+    this.update();
+    this._storeUnsubscribe = store.subscribe(() => {
+      this.update();
+    });
   }
 
   disconnectedCallback() {
-    //document.removeEventListener('slideshow-photo-show', this.showPhoto.bind(this));
-    //document.removeEventListener('slideshow-photo-hide', this.hidePhoto.bind(this));
     this.classList.remove('photo-visible');
+    this._storeUnsubscribe();
   }
 
-  showPhotoById(id) {
-    if (this.dataset.id === id) {
-      console.log('?????  ')
-      //this.classList.add('photo-visible');
-      // if (existingImg) {
-      //   this.appendChild(existingImg);
-      // } else {
-      //   const img = new Image;
-      //   img.src = this.dataset.backgroundImage;
-      //   img.className = 'img-hidden';
-      //   img.onload = function(evt) {
-      //     img.className = 'img-active';
-      //   };
-      //   this.appendChild(img);
-      // }
+  update() {
+    const state = store.getState();
+    if (state.slideshowPhotoId && state.slideshowPhotoId === this.dataset.id) {
+      this.show(state.slideshowPhotoId);
     } else {
-      //setTimeout((evt) => {
-        //this.hidePhoto();
-
-      //}, 800)
+      this.hide();
     }
   }
 
-  hidePhoto(evt) {
-    const img = this.querySelector('img');
-    this.classList.remove('photo-visible');
-    if (img) {
-      img.remove();
+  show(id) {
+    if (this.dataset.id === id) {
+      const existingImg = this.querySelector('img');
+      const tmpImg = new Image;
+      tmpImg.src = this.dataset.backgroundImage;
+      tmpImg.onload = (evt) => {
+        existingImg.src = tmpImg.src;
+      };
+      existingImg.onload = (evt) => {
+        this.classList.add('photo-visible');
+      }
+    } else {
+      this.hide();
     }
+  }
+
+  hide() {
+    this.classList.remove('photo-visible');
   }
 
 }

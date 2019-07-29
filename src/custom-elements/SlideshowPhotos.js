@@ -9,10 +9,10 @@ export default class SlideshowPhotos extends HTMLElement {
 
   connectedCallback() {
     const photos = Array.from(this.querySelectorAll('slideshow-photo'));
-    const photosData = photos.map(photo => {
+    const photosData = photos.map((photo, listIndex) => {
       const { id/*, title, url_s,*/, url_o/*, date_taken,flickr_page_url*/, urlO } = photo.dataset;
       return {
-        id, urlO
+        id, listIndex, urlO
       };
     });
     // Load data from existing html into store

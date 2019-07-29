@@ -9,22 +9,20 @@
 </div>
 
 <site-overlay id="slideshow">
-  <!-- <template> -->
-    <slideshow-photos class="photos-slideshow">
-      {% for photo in site.data['flickr-photos'] %}
-        <slideshow-photo class="photo photo-hidden" data-id="{{ photo.id }}" data-url-o="{{ photo.url_o }}" data-background-image="{{ photo.url_o }}">
-          <img src="{{ photo.url_s }}" alt="{{ photo.title | smartify }}"/>
-        </slideshow-photo>
-      {% endfor %}
-    </slideshow-photos>
-    <!-- add photo number/total -->
-    <slideshow-nav class="photos-slideshow-nav-container">
-      <ul class="photos-slideshow-nav">
-        <li class="previous"><a>&#x2190;</a></li>
-        <li class="close"><a>&times;</a></li>
-        <li class="next"><a>&#x2192;</a></li>
-      </ul>
-    </slideshow-nav>
-  <!-- </template> -->
+  <slideshow-photos class="photos-slideshow">
+    {% for photo in site.data['flickr-photos'] %}
+      <slideshow-photo class="photo photo-hidden" data-id="{{ photo.id }}" data-url-o="{{ photo.url_o }}" data-background-image="{{ photo.url_o }}">
+        <img data-src="{{ photo.url_o }}" alt="{{ photo.title | smartify }}"/>
+      </slideshow-photo>
+    {% endfor %}
+  </slideshow-photos>
+  <!-- add photo number/total -->
+  <slideshow-nav class="photos-slideshow-nav-container">
+    <ul class="photos-slideshow-nav">
+      <li class="previous"><a>&#x2190;</a></li>
+      <li class="close"><a>&times;</a></li>
+      <li class="next"><a>&#x2192;</a></li>
+    </ul>
+  </slideshow-nav>
 </site-overlay>
 

@@ -13,3 +13,15 @@ export const setSlideshowPhotos = (photos) => {
     photos
   };
 };
+
+export const setSlideshowPhotoIdToPrevious = () => {
+  return {
+    type: 'SET_SLIDESHOW_PHOTO_ID_TO_PREVIOUS'
+  };
+};
+
+export const setSlideshowPhotoIdToNext = () => {
+  return {
+    type: 'SET_SLIDESHOW_PHOTO_ID_TO_NEXT'
+  };
+};

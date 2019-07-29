@@ -1,7 +1,7 @@
 
 
 import store from '../store';
-import { setSlideshowPhotoId } from '../actions';
+import { setSlideshowPhotoId, setSlideshowPhotoIdToPrevious, setSlideshowPhotoIdToNext } from '../actions';
 
 const tpl = `
 <ul class="photos-slideshow-nav">
@@ -42,16 +42,15 @@ export default class SlideshowNav extends HTMLElement {
   }
 
   hide(evt) {
-    console.log('hide')
-    //store.dispatch(setSlideshowPhotoId(null));
+    //////////////////
   }
 
   previousOnclick(evt) {
-    document.dispatchEvent(new CustomEvent('slideshow-photos-show-previous'));
+    store.dispatch(setSlideshowPhotoIdToPrevious());
   };
 
   nextOnclick(evt) {
-    document.dispatchEvent(new CustomEvent('slideshow-photos-show-next'));
+    store.dispatch(setSlideshowPhotoIdToNext());
   };
 
   closeOnclick(evt) {
