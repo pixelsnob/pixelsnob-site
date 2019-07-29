@@ -17,7 +17,7 @@ export default class SlideshowPhoto extends HTMLElement {
 
   update() {
     const state = store.getState();
-    if (state.slideshowPhotoId && state.slideshowPhotoId === this.dataset.id) {
+    if (state.slideshowPhotoId) {
       this.show(state.slideshowPhotoId);
     } else {
       this.hide();
@@ -26,25 +26,27 @@ export default class SlideshowPhoto extends HTMLElement {
 
   show(id) {
     if (this.dataset.id === id) {
+      
       const existingImg = this.querySelector('img');
-      if (existingImg) {
-        this.classList.add('photo-visible');
-        return null;
+      if (existingImg.src !== this.dataset.backgroundImage) {
+        existingImg.onload = evt => {
+          const state = store.getState();
+          if (state.slideshowPhotoId === this.dataset.id) {
+            this.className = 'photo-visible';
+          }
+        };
+        existingImg.src = this.dataset.backgroundImage;// use lower res that are already loaded!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      } else {
+        this.className = 'photo-visible';
       }
-      const img = new Image();
-
-      img.addEventListener('load', (evt) => {
-        this.appendChild(img);
-        this.classList.add('photo-visible');
-      });
-      img.src = this.dataset.backgroundImage;
     } else {
-      this.hide();
+      this.className = ''
     }
   }
 
   hide() {
-    this.classList.remove('photo-visible');
+    this.className = '';
+    //this.classList.remove('photo-visible');
   }
 
 }
