@@ -56,21 +56,20 @@ slideshow-photos {
     position: absolute;
     width: 100vw;
     height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
     img {
-      //max-height: 84vh;
       max-height: 84vh;
       max-width: 100vw;
       object-fit: contain;
       overflow: hidden;
-      opacity: 0;
-      //display: none;
       display: inline;
-      //transition: opacity 0.2s ease-in-out;
     }
-    &.photo-visible img {
-      //display: inline;
+    &.photo-visible {
+      visibility: visible;
       opacity: 1;
-      //transition: opacity 0.2s ease-in-out;
+      //transition: opacity 5s ease-in-out;
     }
   }
 }
