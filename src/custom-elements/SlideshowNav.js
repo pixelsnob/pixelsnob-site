@@ -15,24 +15,29 @@ export default class SlideshowNav extends HTMLElement {
 
   constructor() {
     super();
+    this.innerHTML = tpl;
     this._previous = this.previous.bind(this);
     this._next = this.next.bind(this);
     this._close = this.close.bind(this);
+    this._keydown = this.keydown.bind(this);
+    this._previousLink = this.querySelector('.previous a');
+    this._nextLink = this.querySelector('.next a');
+    this._closeLink = this.querySelector('.close a');
+
   }
 
   connectedCallback() {
-    this.innerHTML = tpl;
-    this.querySelector('.previous a').addEventListener('click', this._previous);
-    this.querySelector('.next a').addEventListener('click', this._next);
-    this.querySelector('.close a').addEventListener('click', this._close);
-    document.addEventListener('keydown', this.keydownHandler.bind(this));
+    this._previousLink.addEventListener('click', this._previous);
+    this._nextLink.addEventListener('click', this._next);
+    this._closeLink.addEventListener('click', this._close);
+    document.addEventListener('keydown', this._keydown);
   }  
 
   disconnectedCallback() {
     this.querySelector('.previous a').removeEventListener('click', this._previous);
     this.querySelector('.next a').removeEventListener('click', this._next);
     this.querySelector('.close a').removeEventListener('click', this._close);
-    document.removeEventListener('keydown', this.keydownHandler.bind(this));
+    document.removeEventListener('keydown', this._keydown);
   }
 
   previous(evt) {
@@ -47,7 +52,7 @@ export default class SlideshowNav extends HTMLElement {
     store.dispatch(setSlideshowPhotoId(null));
   };
 
-  keydownHandler(evt) {    
+  keydown(evt) {    
     switch(evt.keyCode) {
       case 37:
       case 38:

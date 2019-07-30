@@ -6,6 +6,7 @@ export default class PhotosListPhoto extends HTMLElement {
 
   constructor() {
     super();
+    this._showPhoto = this.showPhoto.bind(this);
   }
 
   showPhoto(evt) {
@@ -14,11 +15,10 @@ export default class PhotosListPhoto extends HTMLElement {
   }
 
   connectedCallback() {
-    this.addEventListener('click', this.showPhoto.bind(this));
+    this.addEventListener('click', this._showPhoto);
   }
 
-  discconnectedCallback() {
-    this.removeEventListener('click', this.showPhoto.bind(this));
-
+  disconnectedCallback() {
+    this.removeEventListener('click', this._showPhoto);
   }
 }

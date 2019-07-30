@@ -5,8 +5,6 @@ const csvStringify = require('csv-stringify');
 const config = require('../config');
 
 const http = require('https');
-//var fs = require('fs');
-
 
 const flickrOptions = {
   api_key: config.api_key,
