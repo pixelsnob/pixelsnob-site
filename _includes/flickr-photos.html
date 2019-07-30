@@ -2,7 +2,8 @@
   {% for photo in site.data['flickr-photos'] %}
     <photos-list-photo class="photo aspect-ratio-box" data-id="{{ photo.id }}" data-background-image="{{ photo.url_s }}">
       <a href="{{ photo.flickr_page_url }}">
-        <img class="lazy-load" alt="{{ photo.title | smartify }}" data-src="{{ photo.id | prepend: 'dist/images/flickr/thumbnails/' | append: '.jpg' | relative_url }}"/>
+        <img class="lazy-load" alt="{{ photo.title | smartify }}" data-src="{{ photo.url_s | relative_url }}"/>
+        <!-- <img class="lazy-load" alt="{{ photo.title | smartify }}" data-src="{{ photo.id | prepend: 'dist/images/flickr/thumbnails/' | append: '.jpg' | relative_url }}"/> -->
       </a>
     </photos-list-photo>
   {% endfor %}
