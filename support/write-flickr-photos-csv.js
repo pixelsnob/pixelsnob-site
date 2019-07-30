@@ -87,7 +87,7 @@ connect().then(async function(flickr) {
     }
 
     try {
-      await download(photo.url_o, './assets/images/flickr/' + photo.id + '.jpg');
+      await download(photo.url_o, './tmp/images/flickr/' + photo.id + '.jpg');
     } catch (err) {
       console.error('Error downloading ' + photo.url_o);
       continue;

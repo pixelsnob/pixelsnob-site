@@ -6,4 +6,5 @@ _site/
 data/
 node_modules/
 config.js
+tmp
 

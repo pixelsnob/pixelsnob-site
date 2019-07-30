@@ -4,7 +4,7 @@ const gulp = require('gulp');
 //const imagemin = require('gulp-imagemin');
 const imageResize = require('gulp-image-resize');
 
-const src = 'assets/images/flickr/*.{jpg,JPG}';
+const src = 'tmp/images/flickr/*.{jpg,JPG}';
 
 // const largeImages = (cb) => {
 //   gulp
