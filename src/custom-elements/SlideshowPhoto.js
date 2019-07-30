@@ -26,27 +26,23 @@ export default class SlideshowPhoto extends HTMLElement {
 
   show(id) {
     if (this.dataset.id === id) {
-      
       const existingImg = this.querySelector('img');
-      if (existingImg.src !== this.dataset.backgroundImage) {
-        existingImg.onload = evt => {
-          const state = store.getState();
-          if (state.slideshowPhotoId === this.dataset.id) {
-            this.className = 'photo-visible';
-          }
-        };
-        existingImg.src = this.dataset.backgroundImage;// use lower res that are already loaded!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      } else {
-        this.className = 'photo-visible';
-      }
+      const tmpImg = new Image;
+      tmpImg.onload = evt => {
+        const state = store.getState();
+        if (state.slideshowPhotoId === id) {
+          this.className = 'photo-visible';
+        }
+      };
+      tmpImg.src = existingImg.dataset.src;
+      existingImg.src = tmpImg.src;
     } else {
-      this.className = ''
+      this.className = '';
     }
   }
 
   hide() {
     this.className = '';
-    //this.classList.remove('photo-visible');
   }
 
 }
