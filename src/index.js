@@ -1,6 +1,6 @@
 
 
-import './touch.js';
+//import './touch.js';
 import './lazy-load-background-images';
 //import store from './store';
 

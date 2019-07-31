@@ -1,6 +1,9 @@
 
 
 import store from '../store';
+import touch from '../touch';
+
+
 import { setSlideshowPhotoId, setSlideshowPhotoIdToPrevious, setSlideshowPhotoIdToNext } from '../actions';
 
 const tpl = `
@@ -23,7 +26,7 @@ export default class SlideshowNav extends HTMLElement {
     this._previousLink = this.querySelector('.previous a');
     this._nextLink = this.querySelector('.next a');
     this._closeLink = this.querySelector('.close a');
-
+    this._removeTouch = touch(document, this.ontouch.bind(this)); //maybe use more specific element...
   }
 
   connectedCallback() {
@@ -31,6 +34,7 @@ export default class SlideshowNav extends HTMLElement {
     this._nextLink.addEventListener('click', this._next);
     this._closeLink.addEventListener('click', this._close);
     document.addEventListener('keydown', this._keydown);
+
   }  
 
   disconnectedCallback() {
@@ -38,17 +42,18 @@ export default class SlideshowNav extends HTMLElement {
     this.querySelector('.next a').removeEventListener('click', this._next);
     this.querySelector('.close a').removeEventListener('click', this._close);
     document.removeEventListener('keydown', this._keydown);
+    this._removeTouch();
   }
 
-  previous(evt) {
+  previous() {
     store.dispatch(setSlideshowPhotoIdToPrevious());
   };
 
-  next(evt) {
+  next() {
     store.dispatch(setSlideshowPhotoIdToNext());
   };
 
-  close(evt) {
+  close() {
     store.dispatch(setSlideshowPhotoId(null));
   };
 
@@ -65,6 +70,25 @@ export default class SlideshowNav extends HTMLElement {
       case 27:
         this.close();
       break;
+    }
+  }
+
+  ontouch(touchEventName) {
+    console.log(touchEventName)
+    switch (touchEventName) {
+      case 'left':
+        this.previous();
+        break;
+      case 'right':
+        this.next();
+        break;
+      case 'up':
+      case 'down':
+        setTimeout(() => {
+          this.close();
+        }, 300);
+        
+        break;
     }
   }
 }

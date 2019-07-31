@@ -7,13 +7,11 @@ export default class SlideshowPhoto extends HTMLElement {
 
   connectedCallback() {
     this.update();
-    const observer = createObserver(store);
-
-    // This should only fire for the properties declared
-    this._storeUnsubscribe = observer(
+    //const observer = createObserver(store);
+    this._storeUnsubscribe = createObserver(store)(
       state => ({ slideshowPhotoId: state.slideshowPhotoId }),
       this.update.bind(this)
-    )
+    );
   }
 
   disconnectedCallback() {
