@@ -28,7 +28,7 @@ export default class SlideshowPhoto extends HTMLElement {
       if (isImageLoaded) {
         existingImg.src = existingImg.dataset.src;
         this.className = 'photo-visible';
-        
+        this.prefetchNext(slideshowPhotoId);
       } else {
         const tmpImg = new Image;
         tmpImg.onload = evt => {
@@ -40,6 +40,7 @@ export default class SlideshowPhoto extends HTMLElement {
           }
           // Add to image cache
           store.dispatch(setImageLoaded(existingImg.dataset.src));
+          this.prefetchNext(slideshowPhotoId);
         };
         tmpImg.src = existingImg.dataset.src;
         existingImg.src = tmpImg.src;
@@ -50,4 +51,18 @@ export default class SlideshowPhoto extends HTMLElement {
     }
   }
 
+  prefetchNext(slideshowPhotoId) {
+    const photos = store.getState().slideshowPhotos;
+    const current = photos.find(photo => photo.id === slideshowPhotoId);
+    if (current) {
+      const next = photos.find(photo => photo.listIndex === current.listIndex + 1);
+      if (next) {
+        const tmpImg = new Image;
+        tmpImg.onload = evt => {
+          store.dispatch(setImageLoaded(next.src));
+        };
+        tmpImg.src = next.src;
+      }
+    }
+  }
 }
