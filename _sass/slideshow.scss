@@ -73,7 +73,7 @@ slideshow-photos {
 .photos-slideshow-nav-container {
   position: absolute;
   bottom: 0;
-  @media (max-width: $breakpoint-md) and (orientation: portrait) {
+  @media (max-width: $breakpoint-md) {
     display: none;
   }
   height: 42px;
