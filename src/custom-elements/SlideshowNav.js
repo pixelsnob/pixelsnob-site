@@ -3,7 +3,6 @@
 import store from '../store';
 import touch from '../touch';
 
-
 import { setSlideshowPhotoId, setSlideshowPhotoIdToPrevious, setSlideshowPhotoIdToNext } from '../actions';
 
 const tpl = `
@@ -74,7 +73,6 @@ export default class SlideshowNav extends HTMLElement {
   }
 
   ontouch(touchEventName) {
-    console.log(touchEventName)
     switch (touchEventName) {
       case 'left':
         this.previous();
