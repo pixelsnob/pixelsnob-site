@@ -56,13 +56,25 @@ export default class SlideshowPhoto extends HTMLElement {
     const current = photos.find(photo => photo.id === slideshowPhotoId);
     if (current) {
       const next = photos.find(photo => photo.listIndex === current.listIndex + 1);
+      // check if loaded
       if (next) {
-        const tmpImg = new Image;
+        let tmpImg = new Image;
         tmpImg.onload = evt => {
           store.dispatch(setImageLoaded(next.src));
         };
         tmpImg.src = next.src;
       }
+      const previous = photos.find(photo => photo.listIndex === current.listIndex - 1);
+      //console.log(previous)
+
+      if (previous) {
+        let tmpImg = new Image;
+        tmpImg.onload = evt => {
+          store.dispatch(setImageLoaded(previous.src));
+        };
+        tmpImg.src = previous.src;
+      }
+
     }
   }
 }

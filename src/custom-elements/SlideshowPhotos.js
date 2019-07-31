@@ -10,7 +10,6 @@ export default class SlideshowPhotos extends HTMLElement {
   connectedCallback() {
     const photos = Array.from(this.querySelectorAll('slideshow-photo'));
     const photosData = photos.map((photo, listIndex) => {
-      console.log(photo)
       const existingImg = photo.querySelector('img');
       return {
         id: photo.dataset.id,
