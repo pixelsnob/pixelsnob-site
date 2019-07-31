@@ -8,6 +8,7 @@ export default class SlideshowPhotos extends HTMLElement {
   }
 
   connectedCallback() {
+    // Load data from existing html into store
     const photos = Array.from(this.querySelectorAll('slideshow-photo'));
     const photosData = photos.map((photo, listIndex) => {
       const existingImg = photo.querySelector('img');
@@ -17,7 +18,6 @@ export default class SlideshowPhotos extends HTMLElement {
         src: existingImg.dataset.src
       };
     });
-    // Load data from existing html into store
     store.dispatch(setSlideshowPhotos(photosData));
 
   }
