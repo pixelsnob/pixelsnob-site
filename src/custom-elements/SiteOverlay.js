@@ -10,7 +10,9 @@ export default class SiteOverlay extends HTMLElement {
       (overlayShow) => {
         if (overlayShow) {
           this.classList.add('site-overlay-visible');
+          document.body.classList.add('no-scroll');
         } else {
+          document.body.classList.remove('no-scroll');
           this.classList.remove('site-overlay-visible');
         }
       }

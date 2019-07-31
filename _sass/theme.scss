@@ -11,6 +11,9 @@ body {
     padding: 12px;
   }
   //border: 1px solid red;
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 
 strong {
