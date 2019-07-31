@@ -75,10 +75,10 @@ export default class SlideshowNav extends HTMLElement {
   ontouch(touchEventName) {
     switch (touchEventName) {
       case 'left':
-        this.previous();
+        this.next();
         break;
       case 'right':
-        this.next();
+        this.previous();
         break;
       case 'up':
       case 'down':
