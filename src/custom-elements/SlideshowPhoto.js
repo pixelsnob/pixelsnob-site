@@ -1,13 +1,19 @@
 
 import store from '../store';
+import createObserver from '../createObserver';
+import { setImageLoaded } from '../actions';
 
 export default class SlideshowPhoto extends HTMLElement {
 
   connectedCallback() {
     this.update();
-    this._storeUnsubscribe = store.subscribe(() => {
-      this.update();
-    });
+    const observer = createObserver(store);
+
+    // This should only fire for the properties declared
+    this._storeUnsubscribe = observer(
+      state => ({ slideshowPhotoId: state.slideshowPhotoId }),
+      this.update.bind(this)
+    )
   }
 
   disconnectedCallback() {
@@ -15,34 +21,39 @@ export default class SlideshowPhoto extends HTMLElement {
     this._storeUnsubscribe();
   }
 
-  update() {
-    const state = store.getState();
-    if (state.slideshowPhotoId) {
-      this.show(state.slideshowPhotoId);
-    } else {
-      this.hide();
-    }
-  }
-
-  show(id) {
-    if (this.dataset.id === id) {
-      const existingImg = this.querySelector('img');
-      const tmpImg = new Image;
-      tmpImg.onload = evt => {
-        const state = store.getState();
-        if (state.slideshowPhotoId === id) {
-          this.className = 'photo-visible';
-        }
-      };
-      tmpImg.src = existingImg.dataset.src;
-      existingImg.src = tmpImg.src;
+  update(slideshowId) {
+    if (slideshowId === this.dataset.id) {
+      this.loadImage(this.dataset.id);
     } else {
       this.className = '';
     }
   }
 
-  hide() {
-    this.className = '';
+  loadImage(id) {
+    const state = store.getState();
+    const existingImg = this.querySelector('img');
+    const isImageLoaded = state.loadedImages.find(image => image === existingImg.dataset.src);
+    
+    if (isImageLoaded) {
+      existingImg.src = existingImg.dataset.src;
+      this.className = 'photo-visible';
+      
+    } else {
+      const tmpImg = new Image;
+      tmpImg.onload = evt => {
+        // The current id could have changed by the time this loads
+        if (store.getState().slideshowPhotoId === id) {
+          this.className = 'photo-visible';
+        } else {
+          this.className = '';
+        }
+        // Add to image cache
+        store.dispatch(setImageLoaded(existingImg.dataset.src));
+      };
+      tmpImg.src = existingImg.dataset.src;
+      existingImg.src = tmpImg.src;
+    }
+
   }
 
 }

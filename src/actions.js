@@ -25,3 +25,11 @@ export const setSlideshowPhotoIdToNext = () => {
     type: 'SET_SLIDESHOW_PHOTO_ID_TO_NEXT'
   };
 };
+
+export const setImageLoaded = (imageSrc) => {
+  return {
+    type: 'ADD_LOADED_IMAGE',
+    imageSrc
+  };
+};
+
