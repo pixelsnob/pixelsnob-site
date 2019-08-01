@@ -11,6 +11,7 @@ export default class SlideshowPhoto extends HTMLElement {
       state => ({ slideshowPhotoId: state.slideshowPhotoId }),
       this.update.bind(this)
     );
+    
   }
 
   disconnectedCallback() {
@@ -19,62 +20,44 @@ export default class SlideshowPhoto extends HTMLElement {
   }
 
   update(slideshowPhotoId) {
-    if (slideshowPhotoId === this.dataset.id) {
-      
-      const state = store.getState();
-      const existingImg = this.querySelector('img');
-      const isImageLoaded = state.loadedImages.find(image => image === existingImg.dataset.src);
-      
-      if (isImageLoaded) {
-        existingImg.src = existingImg.dataset.src;
-        this.className = 'photo-visible';
-        //this.prefetch(slideshowPhotoId);
-      } else {
-        const tmpImg = new Image;
-        tmpImg.onload = evt => {
-          // The current id could have changed by the time this loads
-          if (store.getState().slideshowPhotoId === slideshowPhotoId) {
-            this.className = 'photo-visible';
-          } else {
-            this.className = '';
-          }
-          // Add to image cache
-          store.dispatch(setImageLoaded(existingImg.dataset.src));
-          //this.prefetch(slideshowPhotoId);
-        };
-        tmpImg.src = existingImg.dataset.src;
-        existingImg.src = tmpImg.src;
-      }
-
-    } else {
+    if (slideshowPhotoId !== this.dataset.id) {
       this.className = '';
+      return null;
     }
-  }
+    const state = store.getState();
+    const currentPhoto = state.slideshowPhotos.find(photo => photo.id === slideshowPhotoId);
+    if (!currentPhoto) {
+      this.className = '';
+      return null;
+    }
 
-  prefetch(slideshowPhotoId) {
-    const photos = store.getState().slideshowPhotos;
-    const current = photos.find(photo => photo.id === slideshowPhotoId);
-    if (current) {
-      const next = photos.find(photo => photo.listIndex === current.listIndex + 1);
-      // check if loaded
-      if (next) {
-        let tmpImg = new Image;
-        tmpImg.onload = evt => {
-          store.dispatch(setImageLoaded(next.src));
-        };
-        tmpImg.src = next.src;
-      }
-      const previous = photos.find(photo => photo.listIndex === current.listIndex - 1);
-      //console.log(previous)
-
-      if (previous) {
-        let tmpImg = new Image;
-        tmpImg.onload = evt => {
-          store.dispatch(setImageLoaded(previous.src));
-        };
-        tmpImg.src = previous.src;
-      }
-
+    let img = this.querySelector('img');
+    if (!img) {
+      img = document.createElement('img');
+      this.appendChild(img);
+      img.setAttribute('data-src', currentPhoto.src);
+      img.setAttribute('alt', currentPhoto.title);
+    }
+    
+    const isImageLoaded = state.loadedImages.find(image => image === img.dataset.src);
+    
+    if (isImageLoaded) {
+      img.src = img.dataset.src;
+      this.className = 'photo-visible';
+    } else {
+      const tmpImg = new Image;
+      tmpImg.onload = evt => {
+        // The current id could have changed by the time this loads
+        if (store.getState().slideshowPhotoId === slideshowPhotoId) {
+          this.className = 'photo-visible';
+        } else {
+          this.className = '';
+        }
+        // Add to image cache
+        store.dispatch(setImageLoaded(img.dataset.src));
+      };
+      tmpImg.src = img.dataset.src;
+      img.src = tmpImg.src;
     }
   }
 }

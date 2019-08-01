@@ -76,7 +76,7 @@ slideshow-photos {
   // @media (max-width: $breakpoint-md) {
   //   display: none;
   // }
-  height: 38px;
+  height: 60px;
   z-index: 200;
   width: 100vw;
   opacity: 1;
@@ -85,6 +85,7 @@ slideshow-photos {
     opacity: 0;
     bottom: -100000px;
   }
+
   ul {
     display: flex;
     justify-content: center;
@@ -98,13 +99,15 @@ slideshow-photos {
     list-style-type: none;
     height: 100%;
     position: relative;
-
+    bottom: 40px;
     a {
       text-transform: uppercase;
+      //line-height: 2rem;
+      height: 100%;
       display: inline-block;
       width: 100%;
-      position: absolute;
-      bottom: 0;
+      //position: absolute;
+      
       font-size: 2.5rem;
       font-weight: bold;
       text-align: center;
@@ -128,7 +131,7 @@ slideshow-photos {
     }
     @media (max-width: $breakpoint-md) and (orientation: portrait) {
       &.close {
-        bottom: 40px;
+        bottom: 80px;
       }
     }
 

@@ -1,30 +1,17 @@
+
 <div class="photos-list">
   {% for photo in site.data['flickr-photos'] %}
     <photos-list-photo class="photo aspect-ratio-box" data-id="{{ photo.id }}" data-background-image="{{ photo.url_s }}">
       <a href="{{ photo.flickr_page_url }}">
-        <img class="lazy-load" alt="{{ photo.title | smartify }}" data-src="{{ photo.url_s | relative_url }}"/>
-        <!-- <img class="lazy-load" alt="{{ photo.title | smartify }}" data-src="{{ photo.id | prepend: 'dist/images/flickr/thumbnails/' | append: '.jpg' | relative_url }}"/> -->
+        <img class="lazy-load" alt="{{ photo.title | smartify }}" alt="{{ photo.title | smartify }}" data-src="{{ photo.url_s | relative_url }}"/>
       </a>
     </photos-list-photo>
   {% endfor %}
 </div>
 
 <site-overlay id="slideshow">
-  <slideshow-photos class="photos-slideshow">
-    {% for photo in site.data['flickr-photos'] %}
-      <slideshow-photo class="photo photo-hidden" data-id="{{ photo.id }}">
-        <img data-src="{{ photo.url_o }}" alt="{{ photo.title | smartify }}"/>
-        <!-- <img data-src="{{ photo.id | prepend: 'dist/images/flickr/large/' | append: '.jpg' | relative_url }}" alt="{{ photo.title | smartify }}"/> -->
-      </slideshow-photo>
-    {% endfor %}
-  </slideshow-photos>
+  <slideshow-photos class="photos-slideshow"/>
   <!-- add photo number/total -->
-  <slideshow-nav class="photos-slideshow-nav-container">
-    <ul class="photos-slideshow-nav">
-      <li class="previous"><a>&#x2190;</a></li>
-      <li class="close"><a>&times;</a></li>
-      <li class="next"><a>&#x2192;</a></li>
-    </ul>
-  </slideshow-nav>
+  <slideshow-nav class="photos-slideshow-nav-container"/>
 </site-overlay>
 

@@ -1,7 +1,6 @@
 
 const Flickr = require("flickrapi");
 const fs = require('fs');
-const csvStringify = require('csv-stringify');
 const config = require('../config');
 
 const http = require('https');
@@ -78,19 +77,25 @@ connect().then(async function(flickr) {
   console.log('Fetching info for each photo...');
 
   const data = [];
+  let i = 1;
   for (let photo of photos.photo) {
     const photoInfo = await getPhotoInfo(flickr, photo.id, photo.secret);
     if (blacklist.includes(photo.id)) {
       continue;
     }
+    
+    // if (i > 50) {
+    //   break;
+    // }
 
-    try {
-      await download(photo.url_o, './tmp/images/flickr/' + photo.id + '.jpg');
-    } catch (err) {
-      console.error('Error downloading ' + photo.url_o);
-      continue;
-    }
+    // try {
+    //   await download(photo.url_o, './tmp/images/flickr/' + photo.id + '.jpg');
+    // } catch (err) {
+    //   console.error('Error downloading ' + photo.url_o);
+    //   continue;
+    // }
 
+    console.log('Adding photo', i , 'of' + photos.photo.length);
     data.push({
       id: photo.id,
       url_o: photo.url_o,
@@ -99,28 +104,18 @@ connect().then(async function(flickr) {
       flickr_page_url: `https://www.flickr.com/photos/${config.user_id}/${photo.id}/in/dateposted-public/`,
       title: photo.title
     });
+    i++;
+    
   }
 
-  // Write csv
-  const columns = [ 'id', 'title', 'url_s', 'url_o', 'date_taken', 'flickr_page_url' ];
-
-  csvStringify(data, { header: true, columns }, function(err, output) {
+  fs.writeFile('_data/flickr-photos.json', JSON.stringify(data), function(err) {
     if (err) {
       console.error(err);
       process.exit();
       return null;
     }
-    console.log('Writing csv to ' + config.csv_write_path);
-
-    fs.writeFile(config.csv_write_path, output, function(err) {
-      if (err) {
-        console.error(err);
-        process.exit();
-        return null;
-      }
-      console.log('Done');
-      process.exit();
-    });
+    console.log('Done');
+    process.exit();
   });
 
 }).catch(function(err) {
