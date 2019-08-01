@@ -28,7 +28,7 @@ export default class SlideshowPhoto extends HTMLElement {
       if (isImageLoaded) {
         existingImg.src = existingImg.dataset.src;
         this.className = 'photo-visible';
-        this.prefetch(slideshowPhotoId);
+        //this.prefetch(slideshowPhotoId);
       } else {
         const tmpImg = new Image;
         tmpImg.onload = evt => {
@@ -40,7 +40,7 @@ export default class SlideshowPhoto extends HTMLElement {
           }
           // Add to image cache
           store.dispatch(setImageLoaded(existingImg.dataset.src));
-          this.prefetch(slideshowPhotoId);
+          //this.prefetch(slideshowPhotoId);
         };
         tmpImg.src = existingImg.dataset.src;
         existingImg.src = tmpImg.src;
