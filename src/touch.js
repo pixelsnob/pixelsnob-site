@@ -12,14 +12,12 @@ export default (el, cb) => {
   }
   
   function handleTouchStart(evt) {
-    evt.preventDefault();
     const firstTouch = getTouches(evt)[0];
     xDown = firstTouch.clientX;
     yDown = firstTouch.clientY;
   };
   
   function handleTouchMove(evt) {
-    evt.preventDefault();
     if (!xDown || !yDown) {
       return;
     }

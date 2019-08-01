@@ -80,11 +80,11 @@ export default class SlideshowNav extends HTMLElement {
       case 'right':
         this.previous();
         break;
-      case 'up':
-      case 'down':
-        setTimeout(() => {
-          this.close();
-        }, 300);
+      // case 'up':
+      // case 'down':
+      //   setTimeout(() => {
+      //     this.close();
+      //   }, 300);
         
         break;
     }
