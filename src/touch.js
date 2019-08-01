@@ -12,13 +12,15 @@ export default (el, cb) => {
   }
   
   function handleTouchStart(evt) {
+    evt.preventDefault();
     const firstTouch = getTouches(evt)[0];
     xDown = firstTouch.clientX;
     yDown = firstTouch.clientY;
   };
   
   function handleTouchMove(evt) {
-    if ( ! xDown || ! yDown ) {
+    evt.preventDefault();
+    if (!xDown || !yDown) {
       return;
     }
   
@@ -28,14 +30,14 @@ export default (el, cb) => {
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
     
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) { /*most significant*/
-      if ( xDiff > 0 ) {
+    if (Math.abs(xDiff) > Math.abs(yDiff)) { /*most significant*/
+      if (xDiff > 0) {
         cb('left');
       } else {
         cb('right');  
       }             
     } else {
-      if ( yDiff > 0 ) {
+      if (yDiff > 0) {
         cb('up');  
       } else { 
         cb('down');  
