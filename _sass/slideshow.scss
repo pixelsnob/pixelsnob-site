@@ -73,10 +73,10 @@ slideshow-photos {
 .photos-slideshow-nav-container {
   position: absolute;
   bottom: 0;
-  @media (max-width: $breakpoint-md) {
-    display: none;
-  }
-  height: 42px;
+  // @media (max-width: $breakpoint-md) {
+  //   display: none;
+  // }
+  height: 38px;
   z-index: 200;
   width: 100vw;
   opacity: 1;
@@ -87,6 +87,7 @@ slideshow-photos {
   }
   ul {
     display: flex;
+    justify-content: center;
     height: 100%;
     width: 100%;
     margin: 0;
@@ -97,13 +98,14 @@ slideshow-photos {
     list-style-type: none;
     height: 100%;
     position: relative;
+
     a {
       text-transform: uppercase;
       display: inline-block;
       width: 100%;
       position: absolute;
       bottom: 0;
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: bold;
       text-align: center;
       cursor: pointer;
@@ -114,5 +116,21 @@ slideshow-photos {
         color: #ddd;
       }
     }
+    @media (max-width: $breakpoint-md) {
+      &.previous, &.next {
+        display: none;
+      }
+      &.close {
+        a {
+          font-size: 3rem;
+        }
+      }
+    }
+    @media (max-width: $breakpoint-md) and (orientation: portrait) {
+      &.close {
+        bottom: 40px;
+      }
+    }
+
   }
 }
