@@ -1,22 +1,20 @@
 import store from '../store';
-import { setSlideshowPhotos } from '../actions';
-import photosJson from '../../_data/flickr-photos.json';
 
 
 export default class SlideshowPhotos extends HTMLElement {
 
   constructor() {
     super();
-    // Load photos json into store, add index #
-    const photos = photosJson.map((photo, listIndex) => {
-      return {
-        id: photo.id,
-        listIndex,
-        src: photo.url_o,
-        title: photo.title
-      };
-    });
-    store.dispatch(setSlideshowPhotos(photos));
+    // // Load photos json into store, add index #
+    // const photos = photosJson.map((photo, listIndex) => {
+    //   return {
+    //     id: photo.id,
+    //     listIndex,
+    //     src: photo.url_o,
+    //     title: photo.title
+    //   };
+    // });
+    // store.dispatch(setSlideshowPhotos(photos));
   }
 
   connectedCallback() {

@@ -1,14 +1,13 @@
 
+export default selector => {
 
-(function() {
-  const lazyBackgrounds = [ ...document.querySelectorAll('.lazy-load') ];
-
-  if (lazyBackgrounds.length === 0) {
-    return;
+  const $images = [ ...document.querySelectorAll('.lazy-load') ];
+  if (!$images.length) {
+    return null;
   }
 
   if (typeof window != 'undefined' && 'IntersectionObserver' in window) {
-    let lazyBackgroundObserver = new IntersectionObserver(function(entries) {
+    let observer = new IntersectionObserver(function(entries) {
       entries.forEach(async function(entry) {
         if (entry.isIntersecting) {
           const src = entry.target.dataset.src;
@@ -18,25 +17,25 @@
               entry.target.classList.add('lazy-loaded');
             });
             entry.target.src = src;
-            lazyBackgroundObserver.unobserve(entry.target);
+            observer.unobserve(entry.target);
           }
         }
       })
     })
 
-    lazyBackgrounds.forEach(function(lazyBackground) {
-      lazyBackgroundObserver.observe(lazyBackground)
+    $images.forEach(function($images) {
+      observer.observe($images)
     })
 
   } else {
     // If IntersectionObserver is not supported, load all images
-    lazyBackgrounds.forEach(el => {
+    $images.forEach(el => {
       
       setTimeout(() => {
-        el.classList.add('lazy-loaded')
+        el.classList.add(selector)
         el.classList.remove('lazy')
       }, 100)
       
     })
   }
-})();
+};
