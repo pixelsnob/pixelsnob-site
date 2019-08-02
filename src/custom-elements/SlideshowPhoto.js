@@ -1,7 +1,6 @@
 
 import store from '../store';
 import createObserver from '../createObserver';
-import { setImageLoaded } from '../actions';
 import preloadImage from '../preloadImage';
 
 export default class SlideshowPhoto extends HTMLElement {
