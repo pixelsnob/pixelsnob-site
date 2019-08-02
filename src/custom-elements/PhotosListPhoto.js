@@ -1,6 +1,6 @@
 
 import store from '../store';
-import { setSlideshowPhotoId, setImageLoaded } from '../actions';
+import { setSlideshowPhotoId } from '../actions';
 
 const tpl = (photo) => `
 <a href="${photo.flickr_page_url}">

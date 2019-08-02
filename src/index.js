@@ -20,7 +20,7 @@ const photos = photosJson.map((photo, listIndex) => {
     id: photo.id,
     listIndex,
     src: photo.url_o,
-    thumbnail: photo.url_s,
+    src_small: photo.url_s,
     title: photo.title
   };
 });
