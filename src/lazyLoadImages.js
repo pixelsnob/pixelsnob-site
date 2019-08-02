@@ -1,3 +1,4 @@
+import preloadImage from './preloadImage';
 
 export default selector => {
 
@@ -12,11 +13,10 @@ export default selector => {
         if (entry.isIntersecting) {
           const src = entry.target.dataset.src;
           if (src) {
-            preloadImages( [ src ]).then(function() {
+            preloadImage(src, entry.target).then(function() {
               entry.target.classList.remove('lazy-load');
               entry.target.classList.add('lazy-loaded');
             });
-            entry.target.src = src;
             observer.unobserve(entry.target);
           }
         }

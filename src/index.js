@@ -1,6 +1,4 @@
 
-
-
 import lazyLoadImages from './lazyLoadImages';
 import photosJson from '../_data/flickr-photos.json';
 import store from './store';

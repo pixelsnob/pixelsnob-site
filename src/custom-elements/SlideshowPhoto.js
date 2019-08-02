@@ -2,6 +2,7 @@
 import store from '../store';
 import createObserver from '../createObserver';
 import { setImageLoaded } from '../actions';
+import preloadImage from '../preloadImage';
 
 export default class SlideshowPhoto extends HTMLElement {
 
@@ -39,25 +40,13 @@ export default class SlideshowPhoto extends HTMLElement {
       img.setAttribute('alt', currentPhoto.title);
     }
     
-    const isImageLoaded = state.loadedImages.find(image => image === img.dataset.src);
-    
-    if (isImageLoaded) {
-      img.src = img.dataset.src;
-      this.className = 'photo-visible';
-    } else {
-      const tmpImg = new Image;
-      tmpImg.onload = evt => {
-        // The current id could have changed by the time this loads
-        if (store.getState().slideshowPhotoId === slideshowPhotoId) {
-          this.className = 'photo-visible';
-        } else {
-          this.className = '';
-        }
-        // Add to image cache
-        store.dispatch(setImageLoaded(img.dataset.src));
-      };
-      tmpImg.src = img.dataset.src;
-      img.src = tmpImg.src;
-    }
+    preloadImage(currentPhoto.src, img).then(() => {
+      // The current id could have changed by the time this loads
+      if (store.getState().slideshowPhotoId === slideshowPhotoId) {
+        this.className = 'photo-visible';
+      } else {
+        this.className = '';
+      }
+    });
   }
 }

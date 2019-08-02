@@ -1,6 +1,5 @@
 
 const defaultState = {
-  overlayTemplateId: null,
   slideshowPhotoId: null,
   slideshowPhotos: [],
   loadedImages: []
