@@ -21,7 +21,7 @@
       transition: opacity 0.5s;
 
     }
-    a {
+    span {
       display: block;
       position: absolute;
       z-index: 0;
@@ -75,6 +75,15 @@ slideshow-photos {
       opacity: 1;
     }
   }
+  // loading-progress {
+  //   position: fixed;
+  //   //align-self: center;
+  //   width: 2vw;
+  //   height: 2vh;
+  //   left: 48vw;
+  //   top: 48vh;
+  //   background: yellow;
+  // }
 }
 
 .photos-slideshow-nav-container {
