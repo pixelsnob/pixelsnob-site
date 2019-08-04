@@ -3,11 +3,13 @@ import lazyLoadImages from './lazyLoadImages';
 import photosJson from '../_data/flickr-photos.json';
 import store from './store';
 import { setSlideshowPhotos } from './actions';
+import SlideshowProgress from './custom-elements/SlideshowProgress.js';
 
 import SiteOverlay from './custom-elements/SiteOverlay.js';
 import SlideshowPhoto from './custom-elements/SlideshowPhoto.js';
 import SlideshowPhotos from './custom-elements/SlideshowPhotos.js';
 import SlideshowNav from './custom-elements/SlideshowNav.js';
+
 import PhotosList from './custom-elements/PhotosList.js';
 import PhotosListPhoto from './custom-elements/PhotosListPhoto.js';
 
@@ -25,9 +27,12 @@ const photos = photosJson.map((photo, listIndex) => {
 
 store.dispatch(setSlideshowPhotos(photos));
 
+
 customElements.define('site-overlay', SiteOverlay);
+//customElements.define('slideshow-progress', SlideshowProgress);
 customElements.define('slideshow-photo', SlideshowPhoto);
 customElements.define('slideshow-photos', SlideshowPhotos);
+
 customElements.define('slideshow-nav', SlideshowNav);
 customElements.define('photos-list', PhotosList);
 customElements.define('photos-list-photo', PhotosListPhoto);

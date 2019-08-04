@@ -9,7 +9,9 @@ export default class SlideshowPhoto extends HTMLElement {
     this.update();
     this._storeUnsubscribe = createObserver(store)(
       state => ({ slideshowPhotoId: state.slideshowPhotoId }),
-      this.update.bind(this)
+      (key, value) => {
+        this.update(value);
+      }
     );
     
   }

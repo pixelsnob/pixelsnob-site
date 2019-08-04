@@ -3,24 +3,19 @@
   "version": "1.0.0",
   "description": "pixelsnob-site",
   "main": "config.js",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-classes": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-custom-element-classes": "^0.1.0",
+    "babel-plugin-transform-es2015-classes": "^6.24.1",
     "csv-stringify": "^5.3.0",
     "flickrapi": "^0.6.2",
     "gulp": "^4.0.2",
     "gulp-watch": "^5.0.1",
     "redux": "^4.0.4"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.6",
-    "babel-preset-es2015": "^6.24.1",
-    "gulp-gm": "0.0.9",
-    "gulp-image-resize": "^0.13.1",
-    "gulp-imagemin": "^6.0.0",
-    "gulp-images-resizer": "0.0.7",
-    "imagemin-mozjpeg": "^8.0.0",
-    "webpack": "^4.38.0",
-    "webpack-cli": "^3.3.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
