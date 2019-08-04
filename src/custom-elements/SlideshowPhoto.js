@@ -38,7 +38,7 @@ export default class SlideshowPhoto extends HTMLElement {
     if (!img) {
       img = document.createElement('img');
       this.appendChild(img);
-      img.setAttribute('data-src', currentPhoto.src/*window.innerWidth > 640 ? currentPhoto.src : currentPhoto.src_small*/);
+      img.setAttribute('data-src', currentPhoto.src);
       img.setAttribute('alt', currentPhoto.title);
     }
     
