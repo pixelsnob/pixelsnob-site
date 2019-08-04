@@ -1,7 +1,7 @@
 
 import store from '../store';
 import { setSlideshowPhotoId } from '../actions';
-import { getSlideshowPhotos } from '../selectors';
+import { getSlideshowPhotos, getSlideshowPhotoByListIndex } from '../selectors';
 
 export default class SlideshowProgress extends HTMLElement {
 
@@ -19,7 +19,7 @@ export default class SlideshowProgress extends HTMLElement {
     if (slideshowPhotos) {
       // Load a photo by list index, based on where the progress bar was clicked.
       const listIndex = Math.ceil((ev.clientX / window.innerWidth) * (slideshowPhotos.length - 1));
-      const photo = slideshowPhotos.find(photo => photo.listIndex === listIndex);
+      const photo = getSlideshowPhotoByListIndex({ ...store.getState(), listIndex });
       if (photo) {
         store.dispatch(setSlideshowPhotoId(photo.id));
       }

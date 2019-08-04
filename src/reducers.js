@@ -1,8 +1,11 @@
 
+import { getSlideshowPhoto, getSlideshowPhotoByListIndex } from './selectors';
+
 const defaultState = {
   slideshowPhotoId: null,
   slideshowPhotos: [],
-  loadedImages: []
+  loadedImages: [],
+  touchEnabled: false
 };
 
 function appReducer(state = defaultState, action) {
@@ -27,9 +30,9 @@ function appReducer(state = defaultState, action) {
       if (!state.slideshowPhotos.length) {
         return state;
       }
-      const currentPhoto = state.slideshowPhotos.find((photo => photo.id === state.slideshowPhotoId));
+      const currentPhoto = getSlideshowPhoto(state);
       if (currentPhoto) {
-        const previousPhoto = state.slideshowPhotos[currentPhoto.listIndex - 1];
+        const previousPhoto = getSlideshowPhotoByListIndex({ ...state, listIndex: currentPhoto.listIndex - 1 });
         if (previousPhoto) {
           return { ...state, slideshowPhotoId: previousPhoto.id };
         }
@@ -41,9 +44,9 @@ function appReducer(state = defaultState, action) {
       if (!state.slideshowPhotos.length) {
         return state;
       }
-      const currentPhoto = state.slideshowPhotos.find((photo => photo.id === state.slideshowPhotoId));
+      const currentPhoto = getSlideshowPhoto(state);
       if (currentPhoto) {
-        const nextPhoto = state.slideshowPhotos[currentPhoto.listIndex + 1];
+        const nextPhoto = getSlideshowPhotoByListIndex({ ...state, listIndex: currentPhoto.listIndex + 1 });
         if (nextPhoto) {
           return { ...state, slideshowPhotoId: nextPhoto.id };
         }
@@ -58,9 +61,14 @@ function appReducer(state = defaultState, action) {
       }
       return state;
     }
+
+    // case 'ENABLE_TOUCH': {
+    //   return { ...state, touchEnabled: true };
+    // }
     
-    default:
+    default: {
       return state;
+    }
   }
 }
 

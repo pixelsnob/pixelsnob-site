@@ -73,6 +73,11 @@ export default class SlideshowNav extends HTMLElement {
   }
 
   ontouch(touchEventName) {
+    //enableTouch();
+    // Hide previous and next links
+    this._previousLink.style.display = 'none';
+    this._nextLink.style.display = 'none';
+
     switch (touchEventName) {
       case 'left':
         this.next();
@@ -80,17 +85,6 @@ export default class SlideshowNav extends HTMLElement {
       case 'right':
         this.previous();
         break;
-      // case 'touchstart':
-      //   console.log('hide')
-      //   this.style.display = 'none';
-      //   break;
-      // case 'up':
-      // case 'down':
-      //   setTimeout(() => {
-      //     this.close();
-      //   }, 300);
-        
-        //break;
     }
   }
 }

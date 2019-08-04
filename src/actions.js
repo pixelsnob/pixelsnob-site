@@ -33,3 +33,9 @@ export const setImageLoaded = (imageSrc) => {
   };
 };
 
+
+// export const enableTouch = () => {
+//   return {
+//     type: 'ENABLE_TOUCH'
+//   };
+// };
