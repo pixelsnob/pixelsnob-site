@@ -2,6 +2,7 @@
 import store from '../store';
 import createObserver from '../createObserver';
 import preloadImage from '../preloadImage';
+import { getSlideshowPhoto } from '../selectors';
 
 export default class SlideshowPhoto extends HTMLElement {
 
@@ -26,8 +27,8 @@ export default class SlideshowPhoto extends HTMLElement {
       this.className = '';
       return null;
     }
-    const state = store.getState();
-    const currentPhoto = state.slideshowPhotos.find(photo => photo.id === slideshowPhotoId);
+    
+    const currentPhoto = getSlideshowPhoto({ ...store.getState(), slideshowPhotoId });
     if (!currentPhoto) {
       this.className = '';
       return null;

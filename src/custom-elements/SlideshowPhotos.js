@@ -1,4 +1,5 @@
 import store from '../store';
+import { getSlideshowPhotos } from '../selectors';
 
 export default class SlideshowPhotos extends HTMLElement {
 
@@ -7,7 +8,7 @@ export default class SlideshowPhotos extends HTMLElement {
   }
 
   connectedCallback() {
-    const photos = store.getState().slideshowPhotos;
+    const photos = getSlideshowPhotos(store.getState());
     photos.forEach((photo, i) => {
       const $photo = document.createElement('slideshow-photo');
       this.appendChild($photo);

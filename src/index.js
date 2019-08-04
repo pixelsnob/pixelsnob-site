@@ -3,7 +3,10 @@ import lazyLoadImages from './lazyLoadImages';
 import photosJson from '../_data/flickr-photos.json';
 import store from './store';
 import { setSlideshowPhotos } from './actions';
+
 import SlideshowProgress from './custom-elements/SlideshowProgress.js';
+import SlideshowProgressStats from './custom-elements/SlideshowProgressStats.js';
+import SlideshowProgressBar from './custom-elements/SlideshowProgressBar.js';
 
 import SiteOverlay from './custom-elements/SiteOverlay.js';
 import SlideshowPhoto from './custom-elements/SlideshowPhoto.js';
@@ -30,6 +33,9 @@ store.dispatch(setSlideshowPhotos(photos));
 
 customElements.define('site-overlay', SiteOverlay);
 customElements.define('slideshow-progress', SlideshowProgress);
+customElements.define('slideshow-progress-stats', SlideshowProgressStats);
+customElements.define('slideshow-progress-bar', SlideshowProgressBar);
+
 customElements.define('slideshow-photo', SlideshowPhoto);
 customElements.define('slideshow-photos', SlideshowPhotos);
 
