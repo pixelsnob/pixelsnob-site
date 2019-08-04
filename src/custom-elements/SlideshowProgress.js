@@ -9,24 +9,28 @@ export default class SlideshowProgress extends HTMLElement {
     super();
     this._progressBar = document.createElement('div');
     this._progressBar.className = 'slideshow-progress-bar';
+    
     this.addEventListener('click', this.onClick.bind(this));
     this.appendChild(this._progressBar);
-    
-    
+    this._progressStats = document.createElement('span');
+    this._progressStats.className = 'slideshow-progress-stats';
+    this.appendChild(this._progressStats);
   }
+  
   connectedCallback() {
     this._storeUnsubscribe = createObserver(store)(
       state => ({ slideshowPhotoId: state.slideshowPhotoId, slideshowPhotos: state.slideshowPhotos }),
       (key, value) => {
         if (key === 'slideshowPhotoId') {
-          this.updateProgressBar(value);
+          this.updateProgress(value);
         }
       }
     );
   }
 
-  updateProgressBar(slideshowPhotoId) {
+  updateProgress(slideshowPhotoId) {
     this._progressBar.style.width = '0';
+    this._progressStats.innerHTML = '';
     const slideshowPhotos = store.getState().slideshowPhotos;
     if (slideshowPhotos) {
 
@@ -34,6 +38,7 @@ export default class SlideshowProgress extends HTMLElement {
       if (photo) {
         const percent = (photo.listIndex / (slideshowPhotos.length - 1)) * 100;
         this._progressBar.style.width = percent + '%';
+        this._progressStats.innerHTML = `${photo.listIndex + 1} of ${slideshowPhotos.length}`;
       }
     }
   }

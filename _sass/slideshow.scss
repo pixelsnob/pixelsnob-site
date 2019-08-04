@@ -59,7 +59,7 @@ slideshow-photos {
     visibility: hidden;
     transition: opacity 0.3s ease-in-out;
     img {
-      max-height: 88vh;
+      max-height: 85vh;
       @media (max-width: $breakpoint-md) and (orientation: portrait) {
         max-height: 80vh;
       }
@@ -77,10 +77,13 @@ slideshow-photos {
   slideshow-progress {
     position: fixed;
     bottom: 0px;
-    height: 20px;
+    height: 25px;
     width: 100%;
     background-color: #111;
     z-index: 10000000;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
     // canvas {
     //   //border: 1px solid red;
     //   position: absolute;
@@ -92,24 +95,41 @@ slideshow-photos {
     // }
     cursor: pointer;
     .slideshow-progress-bar {
-      border-radius: 7px;
+      //border-radius: 7px;
       position: relative;
-      height: 12px;
+      height: 16px;
       top: 4px;
-      background-color: #444;
+      background-color: #333;
       width: 0;
+    }
+    .slideshow-progress-stats {
+      //border: 1px solid red;
+      position: absolute;
+      width: 80px;
+      height: 20px;
+      line-height: 2;
+      //border: 1px solid yellow;
+      top: 0px;
+      left: calc(50% - 40px);
+      color: #888;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      text-align: center;
     }
     &:hover {
       background-color: #444;
       .slideshow-progress-bar {
-        background-color: #aaa;
+        background-color: #777;
+      }
+      .slideshow-progress-stats {
+        color: white;
       }
     }
   }
 }
 
 .photos-slideshow-nav-container {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   @media (max-width: $breakpoint-md) and (orientation: portrait) {
     bottom: 56px;
