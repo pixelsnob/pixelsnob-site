@@ -29,7 +29,7 @@ store.dispatch(setSlideshowPhotos(photos));
 
 
 customElements.define('site-overlay', SiteOverlay);
-//customElements.define('slideshow-progress', SlideshowProgress);
+customElements.define('slideshow-progress', SlideshowProgress);
 customElements.define('slideshow-photo', SlideshowPhoto);
 customElements.define('slideshow-photos', SlideshowPhotos);
 

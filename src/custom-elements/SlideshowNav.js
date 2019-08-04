@@ -80,13 +80,17 @@ export default class SlideshowNav extends HTMLElement {
       case 'right':
         this.previous();
         break;
+      // case 'touchstart':
+      //   console.log('hide')
+      //   this.style.display = 'none';
+      //   break;
       // case 'up':
       // case 'down':
       //   setTimeout(() => {
       //     this.close();
       //   }, 300);
         
-        break;
+        //break;
     }
   }
 }

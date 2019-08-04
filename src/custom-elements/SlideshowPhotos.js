@@ -13,7 +13,5 @@ export default class SlideshowPhotos extends HTMLElement {
       this.appendChild($photo);
       $photo.setAttribute('data-id', photo.id);
     });
-    //const progress = document.createElement('slideshow-progress');
-    //this.appendChild(progress);
   }
 }

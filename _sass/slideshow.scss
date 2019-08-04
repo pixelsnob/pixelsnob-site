@@ -12,8 +12,6 @@
     padding-top: 100%;
     display: block;
     z-index: 0;
-    // opacity: 0;
-    // transition: opacity 0.5s;
     overflow: hidden;
     position: relative;
     &.photo-visible {
@@ -39,9 +37,6 @@
         overflow: hidden;
       }
     }
-    // a:hover {
-    //   opacity: 0.4;
-    // }
   }
   .photo-hidden {
     display: none;
@@ -79,11 +74,18 @@ slideshow-photos {
     }
   }
 
-  progress {
+  slideshow-progress {
     position: fixed;
     bottom: 0;
+    height: 10px;
     width: 100%;
-    z-index: 10;
+    background-color: #111;
+    .slideshow-progress-bar {
+      position: absolute;
+      height: 10px;
+      background-color: #333;
+      width: 0;
+    }
   }
 }
 
@@ -136,24 +138,9 @@ slideshow-photos {
       -webkit-tap-highlight-color: rgba(0,0,0,0);
       -webkit-tap-highlight-color: transparent;
       &:hover {
-        color: #ddd;
+        color: inherit;
       }
     }
-    // @media (max-width: $breakpoint-md) and (orientation: portrait) {
-    //   &.previous, &.next {
-    //     display: none;
-    //   }
-    //   &.close {
-    //     a {
-    //       font-size: 3rem;
-    //     }
-    //   }
-    // }
-    // @media (max-width: $breakpoint-md) and (orientation: portrait) {
-    //   &.close {
-    //     bottom: 80px;
-    //   }
-    // }
 
   }
 }
