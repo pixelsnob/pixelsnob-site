@@ -14,13 +14,13 @@ export default class SlideshowProgressBar extends HTMLElement {
       state => ({ slideshowPhotoId: state.slideshowPhotoId, slideshowPhotos: state.slideshowPhotos }),
       (key, value) => {
         if (key === 'slideshowPhotoId') {
-          this.updateProgress(value);
+          this.updateProgress();
         }
       }
     );
   }
 
-  updateProgress(slideshowPhotoId) {
+  updateProgress() {
     this.style.width = '0';
     const state = store.getState();
     const photo = getSlideshowPhoto(state);

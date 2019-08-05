@@ -3,46 +3,14 @@
 import store from '../store';
 import touch from '../touch';
 
-import { setSlideshowPhotoId, setSlideshowPhotoIdToPrevious, setSlideshowPhotoIdToNext } from '../actions';
-
-const tpl = `
-<ul class="photos-slideshow-nav">
-  <li class="previous"><a>&#x2190;</a></li>
-  <li class="close"><a>&times;</a></li>
-  <li class="next"><a>&#x2192;</a></li>
-</ul>
-`;
+import { setSlideshowPhotoId, setSlideshowPhotoIdToPrevious, setSlideshowPhotoIdToNext, enableTouch } from '../actions';
 
 export default class SlideshowNav extends HTMLElement {
 
-  constructor() {
-    super();
-    this.innerHTML = tpl;
-    this._previous = this.previous.bind(this);
-    this._next = this.next.bind(this);
-    this._close = this.close.bind(this);
-    this._keydown = this.keydown.bind(this);
-    this._previousLink = this.querySelector('.previous a');
-    this._nextLink = this.querySelector('.next a');
-    this._closeLink = this.querySelector('.close a');
-    this._removeTouch = touch(document, this.ontouch.bind(this)); //maybe use more specific element...
-  }
-
   connectedCallback() {
-    this._previousLink.addEventListener('click', this._previous);
-    this._nextLink.addEventListener('click', this._next);
-    this._closeLink.addEventListener('click', this._close);
-    document.addEventListener('keydown', this._keydown);
-
+    this._removeTouch = touch(document, this.ontouch.bind(this));
+    document.addEventListener('keydown', this.keydown.bind(this));
   }  
-
-  disconnectedCallback() {
-    this.querySelector('.previous a').removeEventListener('click', this._previous);
-    this.querySelector('.next a').removeEventListener('click', this._next);
-    this.querySelector('.close a').removeEventListener('click', this._close);
-    document.removeEventListener('keydown', this._keydown);
-    this._removeTouch();
-  }
 
   previous() {
     store.dispatch(setSlideshowPhotoIdToPrevious());
@@ -73,11 +41,7 @@ export default class SlideshowNav extends HTMLElement {
   }
 
   ontouch(touchEventName) {
-    //enableTouch();
-    // Hide previous and next links
-    this._previousLink.style.display = 'none';
-    this._nextLink.style.display = 'none';
-
+    store.dispatch(enableTouch());
     switch (touchEventName) {
       case 'left':
         this.next();
@@ -87,4 +51,10 @@ export default class SlideshowNav extends HTMLElement {
         break;
     }
   }
+
+  disconnectedCallback() {
+    document.removeEventListener('keydown', this.keydown.bind(this));
+    this._removeTouch();
+  }
+
 }

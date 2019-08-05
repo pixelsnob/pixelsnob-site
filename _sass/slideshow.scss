@@ -6,6 +6,9 @@
   height: 100%;
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
   .photo {
     margin: 0;
     list-style: none;
@@ -81,7 +84,7 @@ slideshow-photos {
     height: 25px;
     width: 100%;
     background-color: #111;
-    z-index: 10000000;
+    z-index: 10000000; /////////////////////
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -92,6 +95,7 @@ slideshow-photos {
       top: 4px;
       left: 0;
       background-color: #333;
+      //z-index: 100000000000000;
     }
     slideshow-progress-stats {
       position: absolute;
@@ -137,7 +141,7 @@ slideshow-photos {
     bottom: -100000px;
   }
 
-  ul {
+  .photos-slideshow-nav {
     display: flex;
     justify-content: center;
     height: 100%;
@@ -145,7 +149,7 @@ slideshow-photos {
     margin: 0;
     padding: 0;
   }
-  li {
+  slideshow-nav-previous, slideshow-nav-close, slideshow-nav-next {
     width: 33%;
     list-style-type: none;
     height: 100%;
@@ -159,7 +163,7 @@ slideshow-photos {
       display: inline-block;
       width: 100%;
       //position: absolute;
-      
+      z-index: 5000000000;
       font-size: 2.5rem;
       font-weight: bold;
       text-align: center;

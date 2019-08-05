@@ -12,6 +12,9 @@ import SiteOverlay from './custom-elements/SiteOverlay.js';
 import SlideshowPhoto from './custom-elements/SlideshowPhoto.js';
 import SlideshowPhotos from './custom-elements/SlideshowPhotos.js';
 import SlideshowNav from './custom-elements/SlideshowNav.js';
+import SlideshowNavPrevious from './custom-elements/SlideshowNavPrevious.js';
+import SlideshowNavClose from './custom-elements/SlideshowNavClose.js';
+import SlideshowNavNext from './custom-elements/SlideshowNavNext.js';
 
 import PhotosList from './custom-elements/PhotosList.js';
 import PhotosListPhoto from './custom-elements/PhotosListPhoto.js';
@@ -30,16 +33,20 @@ const photos = photosJson.map((photo, listIndex) => {
 
 store.dispatch(setSlideshowPhotos(photos));
 
-
 customElements.define('site-overlay', SiteOverlay);
+
 customElements.define('slideshow-progress', SlideshowProgress);
 customElements.define('slideshow-progress-stats', SlideshowProgressStats);
 customElements.define('slideshow-progress-bar', SlideshowProgressBar);
 
+customElements.define('slideshow-nav', SlideshowNav);
+customElements.define('slideshow-nav-previous', SlideshowNavPrevious);
+customElements.define('slideshow-nav-next', SlideshowNavNext);
+customElements.define('slideshow-nav-close', SlideshowNavClose);
+
 customElements.define('slideshow-photo', SlideshowPhoto);
 customElements.define('slideshow-photos', SlideshowPhotos);
 
-customElements.define('slideshow-nav', SlideshowNav);
 customElements.define('photos-list', PhotosList);
 customElements.define('photos-list-photo', PhotosListPhoto);
 

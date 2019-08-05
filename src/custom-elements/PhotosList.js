@@ -19,6 +19,7 @@ export default class PhotosListPhoto extends HTMLElement {
       this.appendChild($photo);
       
     });
+    
   }
 
   disconnectedCallback() {

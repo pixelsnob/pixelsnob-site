@@ -62,9 +62,9 @@ function appReducer(state = defaultState, action) {
       return state;
     }
 
-    // case 'ENABLE_TOUCH': {
-    //   return { ...state, touchEnabled: true };
-    // }
+    case 'ENABLE_TOUCH': {
+      return { ...state, touchEnabled: true };
+    }
     
     default: {
       return state;
