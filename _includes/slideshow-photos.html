@@ -1,5 +1,14 @@
 
-<photos-list class="photos-list"/>
+<photos-list class="photos-list">
+  <div class="backup-photos">
+    {% for photo in site.data['flickr-photos'] limit:7 %}
+      <a href="{{ photo.flickr_page_url }}" title="{{ photo.title }}" target="_blank">
+        <img src="{{ photo.url_s }}" alt="{{ photo.title }}"/>
+      </a>
+    {% endfor %}
+  </div>
+  <a href="https://www.flickr.com/photos/pixelsnob" title="{{ photo.title }}" target="_blank">More photos on my Flickr page</a>
+</photos-list>
 
 <site-overlay id="slideshow">
   <slideshow-photos class="photos-slideshow">
@@ -7,6 +16,7 @@
       <slideshow-progress-bar></slideshow-progress-bar>
       <slideshow-progress-stats></slideshow-progress-stats>
     </slideshow-progress>
+    
   </slideshow-photos>
   
   <slideshow-nav class="photos-slideshow-nav-container">

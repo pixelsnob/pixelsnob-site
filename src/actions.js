@@ -34,7 +34,6 @@ export const setImageLoaded = (imageSrc) => {
 };
 
 export const enableTouch = () => {
-  console.log('dsadsd?')
   return {
     type: 'ENABLE_TOUCH'
   };

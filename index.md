@@ -15,5 +15,5 @@ Hello! I'm a <a href="articles/luis-a-echeverria-resume">developer seeking stead
 
 ## Photos
 
-{% include flickr-photos.html %}
+{% include slideshow-photos.html %}
 

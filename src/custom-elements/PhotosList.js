@@ -8,6 +8,7 @@ export default class PhotosListPhoto extends HTMLElement {
   }
 
   connectedCallback() {
+    this.innerHTML = '';
     store.getState().slideshowPhotos.forEach((photo, i) => {
       const $photo = document.createElement('photos-list-photo');
       

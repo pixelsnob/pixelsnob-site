@@ -2,9 +2,11 @@
 title: Luis A. Echeverria's Resume
 ---
 
-1501 Silliker Ave, La Habra, CA 90631  
-<a href="https://www.pixelsnob.com">https://www.pixelsnob.com</a>  
-pixelsnob@gmail.com  
+<div class="print">
+1501 Silliker Ave, La Habra, CA 90631<br/>
+https://www.pixelsnob.com<br/>
+pixelsnob@gmail.com<br/>
+</div>
 
 I’m a front-end developer seeking part-time or full-time employment, preferably remotely, or in the North Orange County area.
 

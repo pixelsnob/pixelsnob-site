@@ -3,9 +3,9 @@ import store from '../store';
 import { setSlideshowPhotoId } from '../actions';
 
 const tpl = (photo) => `
-<span>
+<a href="${photo.flickr_page_url}">
   <img alt="${photo.title}" data-src="${photo.src}" class="lazy-load"/>
-</span>
+</a>
 `;
 
 export default class PhotosListPhoto extends HTMLElement {
