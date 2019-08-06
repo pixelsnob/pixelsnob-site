@@ -8,7 +8,7 @@ https://www.pixelsnob.com<br/>
 pixelsnob@gmail.com<br/>
 </div>
 
-I’m a front-end developer seeking part-time or full-time employment, preferably remotely, or in the North Orange County area.
+I’m a front-end developer seeking full-time employment, preferably remotely, or in the North Orange County area.
 
 ### Skills
 
