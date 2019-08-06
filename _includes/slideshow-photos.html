@@ -1,13 +1,13 @@
 
 <photos-list class="photos-list">
-  <div class="backup-photos">
+  <!-- <div class="backup-photos">
     {% for photo in site.data['flickr-photos'] limit:7 %}
       <a href="{{ photo.flickr_page_url }}" title="{{ photo.title }}" target="_blank">
         <img src="{{ photo.url_s }}" alt="{{ photo.title }}"/>
       </a>
     {% endfor %}
   </div>
-  <a href="https://www.flickr.com/photos/pixelsnob" title="{{ photo.title }}" target="_blank">More photos on my Flickr page</a>
+  <a href="https://www.flickr.com/photos/pixelsnob" title="{{ photo.title }}" target="_blank">More photos on my Flickr page</a> -->
 </photos-list>
 
 <site-overlay id="slideshow">
@@ -21,9 +21,9 @@
   
   <slideshow-nav class="photos-slideshow-nav-container">
     <div class="photos-slideshow-nav">
-      <slideshow-nav-previous><a>&#x2190;</a></slideshow-nav-previous>
-      <slideshow-nav-close><a>&times;</a></slideshow-nav-close>
-      <slideshow-nav-next><a>&#x2192;</a></slideshow-nav-next>
+      <slideshow-nav-link data-action="previous"><a>&#x2190;</a></slideshow-nav-link>
+      <slideshow-nav-link data-action="close"><a>&times;</a></slideshow-nav-link>
+      <slideshow-nav-link data-action="next"><a>&#x2192;</a></slideshow-nav-link>
     </div>
   </slideshow-nav>
 </site-overlay>
