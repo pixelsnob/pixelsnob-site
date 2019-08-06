@@ -1,5 +1,5 @@
 ---
-title: What I'm Looking For in a Job
+title: What I'm Looking For in a Tech Job
 ---
 
 ### Remote or in Southern California preferable
