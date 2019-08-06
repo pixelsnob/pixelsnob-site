@@ -11,7 +11,7 @@ export default class SlideshowNavLink extends HTMLElement {
     this._storeUnsubscribe = createObserver(store)(
       state => ({ touchEnabled: state.touchEnabled }),
       (key, value) => {
-        if (value && this.action !== 'close') {
+        if (value && this.dataset.action !== 'close') {
           // Hide previous or next link if touch is enabled
           this.style.display = 'none';
         }
