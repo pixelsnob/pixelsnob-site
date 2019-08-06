@@ -3,7 +3,11 @@ title: Luis A. Echeverria's Blog
 exclude: true
 ---
 
-Hello! I'm a <a href="articles/luis-a-echeverria-resume">developer seeking steady employment, preferably on a remote team.</a>
+Hello! I'm an experienced web developer seeking steady employment, preferably on a remote team.
+
+Please see 
+<a href="/articles/luis-a-echeverria-resume">my resume</a>, and my article
+<a href="/articles/what-im-looking-for-in-a-job">What I'm Looking For in a Job.</a>
 
 ## Skills
 
