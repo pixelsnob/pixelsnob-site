@@ -81,18 +81,21 @@ slideshow-photos {
     height: 25px;
     width: 100%;
     background-color: #111;
-    z-index: 1000; /////////////////////
+    z-index: 1100;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     cursor: pointer;
+    z-index: 600;
     slideshow-progress-bar {
       position: absolute;
-      height: 16px;
+      height: 17px;
       top: 4px;
       left: 0;
       background-color: #333;
       //z-index: 100000000000000;
+      z-index: 1100;
+
     }
     slideshow-progress-stats {
       position: absolute;
@@ -106,6 +109,8 @@ slideshow-photos {
       font-size: 0.8rem;
       white-space: nowrap;
       text-align: center;
+      z-index: 1100;
+
     }
     &:hover {
       background-color: #444;
@@ -121,12 +126,12 @@ slideshow-photos {
 
 .photos-slideshow-nav-container {
   position: fixed;
-  bottom: 14px;
+  bottom: 16px;
   // @media (max-width: $breakpoint-md) and (orientation: portrait) {
   //   bottom: 56px;
   // }
   height: 60px;
-  z-index: 1000;
+  z-index: 550;
   width: 100vw;
   opacity: 1;
   transition: opacity 0.5s ease;
@@ -164,10 +169,19 @@ slideshow-photos {
       cursor: pointer;
       -webkit-tap-highlight-color: rgba(0,0,0,0);
       -webkit-tap-highlight-color: transparent;
+      //border: 1px solid transparent;
       &:hover {
         color: inherit;
+        //border: 1px solid #333;
       }
     }
+    
+    // &[data-action="previous"] a:hover {
+    //   border-left-color: transparent;
+    // }
+    // &[data-action="next"] a:hover {
+    //   border-right-color: transparent;
+    // }
 
   }
 }
