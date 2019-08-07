@@ -10,7 +10,7 @@ I still believe in the power of the open web. I hope to see the day when hundred
 
 ### Focus on speed
 
-I focus on speed and responsiveness. You can build the nicest, most accessible, easy-to-use UI, but if it takes 10 seconds to load, you might as well spend your resources on other things. That's not just my opinion. According to <a href="https://pdfs.semanticscholar.org/e09f/f31852c87e19bf921a0e38565a901da61f5c.pdf" target="_blank">this 2003 study</a> (pdf), "10 seconds is about the limit for keeping the user’s attention focused on the dialogue."
+I focus on speed and responsiveness. You can build the nicest, most accessible, easy-to-use UI, but if it takes 10 seconds to load, you might as well spend your resources on other things. That's not just my opinion. According to <a href="https://pdfs.semanticscholar.org/e09f/f31852c87e19bf921a0e38565a901da61f5c.pdf" target="_blank">this 2003 study (pdf)</a>, **"10 seconds is about the limit for keeping the user’s attention focused on the dialogue."**
 
 I have years of experience using different approaches to make the UI experience as snappy and smooth as possible. They're not tricks, just sound, common-sense choices about design and technology, without going overboard on the latest or next "shiny thing".
 
@@ -26,7 +26,7 @@ I take code quality very seriously. But this is only a small part of building a 
 
 ### Case study: <a href="https://www.lapercussionrentals.com" target="_blank">Los Angeles Percussion Rentals</a>
 
-#### What's your content???
+<!-- #### What's your content??? -->
 
 One of the first things I try to figure out when someone asks me to build a website from scratch is "what content do you want to publish"? This is a simple question, but the answer is almost never simple. 
 
