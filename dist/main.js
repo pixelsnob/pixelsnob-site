@@ -217,10 +217,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
   !*** ./src/custom-elements/SiteSidePanel.js ***!
   \**********************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return SidePanel; });\n\n// import store from '../store';\n// import createObserver from '../createObserver';\n\nclass SidePanel extends HTMLElement {\n\n  connectedCallback() {\n    console.log('cockerel')\n    // this._storeUnsubscribe = createObserver(store)(\n    //   state => ({ overlayShow: state.overlayShow }),\n    //   (key, value) => {\n    //     if (key !== 'overlayShow') {\n    //       return false;\n    //     }\n    //     if (value) {\n    //       this.classList.add('site-overlay-visible');\n    //       document.body.classList.add('no-scroll');\n    //     } else {\n    //       document.body.classList.remove('no-scroll');\n    //       this.classList.remove('site-overlay-visible');\n    //     }\n    //   }\n    // );\n  }\n\n  disconnectedCallback() {\n    // if (this._storeUnsubscribe) {\n    //   this._storeUnsubscribe();\n    // }\n  }\n}\n\n\n//# sourceURL=webpack:///./src/custom-elements/SiteSidePanel.js?");
+eval("throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open '/Users/luis/src/pixelsnob-site/src/custom-elements/SiteSidePanel.js'\");\n\n//# sourceURL=webpack:///./src/custom-elements/SiteSidePanel.js?");
 
 /***/ }),
 
