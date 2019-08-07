@@ -52,6 +52,7 @@ a {
   }
   &:hover {
     color: #f48061;
+    text-decoration: underline;
   }
 }
 
@@ -67,9 +68,9 @@ header .site-nav {
   margin-top: 40px; 
 }
 
-header {
-  text-align: center;
-}
+// header {
+//   text-align: center;
+// }
 
 .github-logo {
   display: block;
