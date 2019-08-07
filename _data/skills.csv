@@ -9,7 +9,6 @@ redux-saga
 antd
 react-virtualized
 react-dnd
-react-static
 node.js
 express
 mongodb

@@ -4,8 +4,6 @@ title: About my Work
 
 August 6, 2019
 
-### The web...not all of it sucks
-
 The web still holds a lot of promise. Browsers and languages adopt new features constantly, and more and more things are becoming possible, without resorting to hacks and frameworks. 
 
 I still believe in the power of the open web. I hope to see the day when hundreds of frameworks are replaced by one, agreed-upon solution. There's no reason why the prevailing options need to come from huge, self-interested corporations. Technologies that tip the scale in favor of the everyday person -- these are the things that keep me interested in tech.
