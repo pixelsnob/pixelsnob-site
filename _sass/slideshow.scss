@@ -1,5 +1,5 @@
 
-.photos-list { // thumbs
+.photos-list {
   margin: 0;
   padding: 0;
   display: grid;
@@ -9,6 +9,7 @@
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
+  
   .photo {
     margin: 0;
     list-style: none;
@@ -16,20 +17,22 @@
     display: block;
     overflow: hidden;
     position: relative;
-    a:link, a:visited, a:hover, a:active {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    outline: none !important;
+    
+    span {
+      opacity: 1;
+      transition: opacity 0.5s;
+      &:hover {
+        opacity: 0.6;
+      }
       display: block;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      outline: 0;
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      @media (max-width: $breakpoint-md) {
-        cursor: default; // 🐞workaround for "flashing" when another element is on top of it
-      }
       img {
         height: 100%;
         width: 100%;
@@ -44,7 +47,7 @@
   }
 }
 
-slideshow-photos {
+.slideshow-photos {
   display: flex;
   align-items: center;
   height: 100%;
@@ -74,7 +77,69 @@ slideshow-photos {
       opacity: 1;
     }
   }
-
+  
+  slideshow-nav {
+    position: fixed;
+    bottom: 16px;
+    // @media (max-width: $breakpoint-md) and (orientation: portrait) {
+    //   bottom: 56px;
+    // }
+    height: 60px;
+    z-index: 550;
+    width: 100vw;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    &.photos-slideshow-nav-container-hidden {
+      opacity: 0;
+      bottom: -100000px;
+    }
+  
+    .photos-slideshow-nav {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    slideshow-nav-link, slideshow-nav-close {
+      width: 33%;
+      list-style-type: none;
+      height: 100%;
+      position: relative;
+      bottom: 0;
+      
+      a {
+        text-transform: uppercase;
+        height: 100%;
+        display: inline-block;
+        width: 100%;
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-tap-highlight-color: transparent;
+        //border: 1px solid transparent;
+        &:hover {
+          color: inherit;
+          //border: 1px solid #333;
+        }
+      }
+      
+      // &[data-action="previous"] a:hover {
+      //   border-left-color: transparent;
+      // }
+      // &[data-action="next"] a:hover {
+      //   border-right-color: transparent;
+      // }
+  
+    }
+  }
+  
   slideshow-progress {
     position: fixed;
     bottom: 0px;
@@ -93,7 +158,6 @@ slideshow-photos {
       top: 4px;
       left: 0;
       background-color: #333;
-      //z-index: 100000000000000;
       z-index: 1100;
 
     }
@@ -124,65 +188,4 @@ slideshow-photos {
   }
 }
 
-.photos-slideshow-nav-container {
-  position: fixed;
-  bottom: 16px;
-  // @media (max-width: $breakpoint-md) and (orientation: portrait) {
-  //   bottom: 56px;
-  // }
-  height: 60px;
-  z-index: 550;
-  width: 100vw;
-  opacity: 1;
-  transition: opacity 0.5s ease;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  &.photos-slideshow-nav-container-hidden {
-    opacity: 0;
-    bottom: -100000px;
-  }
-
-  .photos-slideshow-nav {
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  slideshow-nav-link, slideshow-nav-close {
-    width: 33%;
-    list-style-type: none;
-    height: 100%;
-    position: relative;
-    bottom: 0;
-    
-    a {
-      text-transform: uppercase;
-      height: 100%;
-      display: inline-block;
-      width: 100%;
-      font-size: 2.5rem;
-      font-weight: bold;
-      text-align: center;
-      cursor: pointer;
-      -webkit-tap-highlight-color: rgba(0,0,0,0);
-      -webkit-tap-highlight-color: transparent;
-      //border: 1px solid transparent;
-      &:hover {
-        color: inherit;
-        //border: 1px solid #333;
-      }
-    }
-    
-    // &[data-action="previous"] a:hover {
-    //   border-left-color: transparent;
-    // }
-    // &[data-action="next"] a:hover {
-    //   border-right-color: transparent;
-    // }
-
-  }
-}
 

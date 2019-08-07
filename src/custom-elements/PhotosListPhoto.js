@@ -3,9 +3,9 @@ import store from '../store';
 import { setSlideshowPhotoId } from '../actions';
 
 const tpl = (photo) => `
-<a href="${photo.flickr_page_url}">
+<span>
   <img alt="${photo.title}" data-src="${photo.src}" class="lazy-load"/>
-</a>
+</span>
 `;
 
 export default class PhotosListPhoto extends HTMLElement {
@@ -23,6 +23,7 @@ export default class PhotosListPhoto extends HTMLElement {
 
   showPhoto(evt) {
     evt.preventDefault();
+    evt.stopPropagation();
     store.dispatch(setSlideshowPhotoId(this.dataset.id));
   }
 

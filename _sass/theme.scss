@@ -67,6 +67,18 @@ header .site-nav {
   margin-top: 40px; 
 }
 
+header {
+  text-align: center;
+}
+
+.github-logo {
+  display: block;
+  opacity: 0.5;
+  width: 30px;
+  //position: absolute;
+  bottom: 0;
+}
+
 .site-container {
   display: grid;
   grid-template-columns: 22vw 48vw;
@@ -172,3 +184,4 @@ site-overlay {
     display: none;
   }
 }
+

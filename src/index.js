@@ -25,7 +25,8 @@ const photos = photosJson.map((photo, listIndex) => {
     listIndex,
     src: photo.url_o,
     src_small: photo.url_s,
-    title: photo.title
+    title: photo.title,
+    flickr_page_url: photo.flickr_page_url
   };
 });
 
