@@ -17,7 +17,7 @@ import SlideshowNavLink from './custom-elements/SlideshowNavLink.js';
 import PhotosList from './custom-elements/PhotosList.js';
 import PhotosListPhoto from './custom-elements/PhotosListPhoto.js';
 
-import SiteSidePanel from './custom-elements/SiteSidePanel.js';
+//import SiteSidePanel from './custom-elements/SiteSidePanel.js';
 
 // Load photos json into store, add index #
 const photos = photosJson.map((photo, listIndex) => {
@@ -48,6 +48,6 @@ customElements.define('slideshow-photos', SlideshowPhotos);
 customElements.define('photos-list', PhotosList);
 customElements.define('photos-list-photo', PhotosListPhoto);
 
-customElements.define('site-side-panel', SiteSidePanel);
+//customElements.define('site-side-panel', SiteSidePanel);
 
 lazyLoadImages();
