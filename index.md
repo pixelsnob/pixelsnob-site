@@ -1,5 +1,5 @@
 ---
-title: Luis A. Echeverria's Blog
+#title: Home
 exclude: true
 ---
 
@@ -12,10 +12,6 @@ If you are hiring, please <a href="/articles/about">read more about my work</a>,
 ## Skills
 
 {% include skills.html %}
-<!-- 
-## Interests
-
-{% include interests.html %} -->
 
 ## Photos
 
