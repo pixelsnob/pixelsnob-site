@@ -8,8 +8,7 @@ relative_links:
   enabled: true
   collections: true
 
-#title: Luis A. Echeverria's Personal Website
-description: Luis A. Echeverria's Personal Website
+title: Luis A. Echeverria's Personal Website
 
 # include:
 #   - index.md
