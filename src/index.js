@@ -1,23 +1,21 @@
 
-import lazyLoadImages from './lazyLoadImages';
 import photosJson from '../_data/flickr-photos.json';
 import store from './store';
 import { setSlideshowPhotos } from './actions';
 
-import SlideshowProgress from './custom-elements/SlideshowProgress.js';
-import SlideshowProgressStats from './custom-elements/SlideshowProgressStats.js';
-import SlideshowProgressBar from './custom-elements/SlideshowProgressBar.js';
+import SlideshowProgressHoc from './custom-elements/hoc/SlideshowProgressHoc.js';
+import SlideshowProgressStatsHoc from './custom-elements/hoc/SlideshowProgressStatsHoc.js';
+import SlideshowProgressBarHoc from './custom-elements/hoc/SlideshowProgressBarHOC.js';
+import SiteOverlayHoc from './custom-elements/hoc/SiteOverlayHoc.js';
 
-import SiteOverlay from './custom-elements/SiteOverlay.js';
 import SlideshowPhoto from './custom-elements/SlideshowPhoto.js';
 import SlideshowPhotos from './custom-elements/SlideshowPhotos.js';
-import SlideshowNav from './custom-elements/SlideshowNav.js';
-import SlideshowNavLink from './custom-elements/SlideshowNavLink.js';
+import SlideshowNavHoc from './custom-elements/hoc/SlideshowNavHoc.js';
 
-import PhotosList from './custom-elements/PhotosList.js';
-import PhotosListPhoto from './custom-elements/PhotosListPhoto.js';
+import SlideshowNavLinkHoc from './custom-elements/hoc/SlideshowNavLinkHoc.js';
 
-//import SiteSidePanel from './custom-elements/SiteSidePanel.js';
+import PhotosListHoc from './custom-elements/hoc/PhotosListHoc.js';
+import PhotosListPhotoHoc from './custom-elements/hoc/PhotosListPhotoHoc.js';
 
 // Load photos json into store, add index #
 const photos = photosJson.map((photo, listIndex) => {
@@ -33,21 +31,15 @@ const photos = photosJson.map((photo, listIndex) => {
 
 store.dispatch(setSlideshowPhotos(photos));
 
-customElements.define('site-overlay', SiteOverlay);
+customElements.define('site-overlay-hoc', SiteOverlayHoc);
+customElements.define('slideshow-progress-hoc', SlideshowProgressHoc);
+customElements.define('slideshow-progress-stats-hoc', SlideshowProgressStatsHoc);
+customElements.define('slideshow-progress-bar-hoc', SlideshowProgressBarHoc);
 
-customElements.define('slideshow-progress', SlideshowProgress);
-customElements.define('slideshow-progress-stats', SlideshowProgressStats);
-customElements.define('slideshow-progress-bar', SlideshowProgressBar);
-
-customElements.define('slideshow-nav', SlideshowNav);
-customElements.define('slideshow-nav-link', SlideshowNavLink);
-
+customElements.define('slideshow-nav-hoc', SlideshowNavHoc);
+customElements.define('slideshow-nav-link-hoc', SlideshowNavLinkHoc);
 customElements.define('slideshow-photo', SlideshowPhoto);
 customElements.define('slideshow-photos', SlideshowPhotos);
 
-customElements.define('photos-list', PhotosList);
-customElements.define('photos-list-photo', PhotosListPhoto);
-
-//customElements.define('site-side-panel', SiteSidePanel);
-
-lazyLoadImages();
+customElements.define('photos-list-hoc', PhotosListHoc);
+customElements.define('photos-list-photo-hoc', PhotosListPhotoHoc);

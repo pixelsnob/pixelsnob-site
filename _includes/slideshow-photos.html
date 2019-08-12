@@ -1,5 +1,5 @@
 
-<photos-list class="photos-list">
+<photos-list-hoc class="photos-list">
   <!-- <div class="backup-photos">
     {% for photo in site.data['flickr-photos'] limit:7 %}
       <a href="{{ photo.flickr_page_url }}" title="{{ photo.title }}" target="_blank">
@@ -8,23 +8,21 @@
     {% endfor %}
   </div>
   <a href="https://www.flickr.com/photos/pixelsnob" title="{{ photo.title }}" target="_blank">More photos on my Flickr page</a> -->
-</photos-list>
+</photos-list-hoc>
 
-<site-overlay id="slideshow">
-  <slideshow-photos class="slideshow-photos">
-    <slideshow-progress>
-      <slideshow-progress-bar></slideshow-progress-bar>
-      <slideshow-progress-stats></slideshow-progress-stats>
-    </slideshow-progress>
-    <slideshow-nav>
-      <div class="photos-slideshow-nav">
-        <slideshow-nav-link data-action="previous"><a>&#x2190;</a></slideshow-nav-link>
-        <slideshow-nav-link data-action="close"><a>&times;</a></slideshow-nav-link>
-        <slideshow-nav-link data-action="next"><a>&#x2192;</a></slideshow-nav-link>
+<site-overlay-hoc>
+  <slideshow-photos class="slideshow-photos" slot="overlay-content">
+    <slideshow-progress-hoc slot="progress">
+      <slideshow-progress-bar-hoc slot="progress-bar"></slideshow-progress-bar-hoc>
+      <slideshow-progress-stats-hoc slot="progress-stats"></slideshow-progress-stats-hoc>
+    </slideshow-progress-hoc>
+    <slideshow-nav-hoc slot="nav">
+      <div class="photos-slideshow-nav" slot="nav-links">
+        <slideshow-nav-link-hoc data-action="previous"><a slot="nav-link">&#x2190;</a></slideshow-nav-link-hoc>
+        <slideshow-nav-link-hoc data-action="close"><a slot="nav-link">&times;</a></slideshow-nav-link-hoc>
+        <slideshow-nav-link-hoc data-action="next"><a slot="nav-link">&#x2192;</a></slideshow-nav-link-hoc>
       </div>
-    </slideshow-nav>
+    </slideshow-nav-hoc>
   </slideshow-photos>
-  
- 
-</site-overlay>
+</site-overlay-hoc>
 

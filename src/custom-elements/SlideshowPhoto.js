@@ -4,9 +4,44 @@ import createObserver from '../createObserver';
 import preloadImage from '../preloadImage';
 import { getSlideshowPhoto } from '../selectors';
 
+const template = document.createElement('template');
+template.innerHTML = `
+<style>
+:host {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  opacity: 0;
+  text-align: center;
+  vertical-align: middle;
+  transition: opacity 0.2s ease-in-out;
+  margin-top: 3vh;
+}
+:host(.photo-visible) {
+  opacity: 1;
+}
+img {
+  display: inline;
+  max-height: 80vh;
+  /* align-self: middle;
+  @media (max-width: $breakpoint-md) and (orientation: portrait) {
+    max-height: 80vh;
+  } */
+  max-width: 100vw;
+  object-fit: contain;
+  overflow: hidden;
+}
+
+</style>
+`;
+
 export default class SlideshowPhoto extends HTMLElement {
 
   connectedCallback() {
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.update();
     this._storeUnsubscribe = createObserver(store)(
       state => ({ slideshowPhotoId: state.slideshowPhotoId }),
@@ -34,10 +69,10 @@ export default class SlideshowPhoto extends HTMLElement {
       return null;
     }
 
-    let img = this.querySelector('img');
+    let img = this.shadowRoot.querySelector('img');
     if (!img) {
       img = document.createElement('img');
-      this.appendChild(img);
+      this.shadowRoot.appendChild(img);
       img.setAttribute('data-src', currentPhoto.src);
       img.setAttribute('alt', currentPhoto.title);
     }

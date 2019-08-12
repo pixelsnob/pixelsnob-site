@@ -1,30 +1,54 @@
 
-import store from '../store';
-import createObserver from '../createObserver';
+const template = document.createElement('template');
+template.innerHTML = `
+<style>
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 1);
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  overflow: hidden;
+}
+
+:host(.site-overlay-visible) {
+  display: block;
+  opacity: 1;
+}
+
+</style>
+<slot name="overlay-content"></slot>
+`;
 
 export default class SiteOverlay extends HTMLElement {
 
+  static get observedAttributes() {
+    return [ 'visible' ];
+  }
+  
   connectedCallback() {
-    this._storeUnsubscribe = createObserver(store)(
-      state => ({ overlayShow: state.overlayShow }),
-      (key, value) => {
-        if (key !== 'overlayShow') {
-          return false;
-        }
-        if (value) {
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    switch (name) {
+      case 'visible':
+        if (newValue === '1') {
           this.classList.add('site-overlay-visible');
-          document.body.classList.add('no-scroll');
+
         } else {
-          document.body.classList.remove('no-scroll');
           this.classList.remove('site-overlay-visible');
         }
-      }
-    );
+      break;
+    }
   }
 
   disconnectedCallback() {
-    if (this._storeUnsubscribe) {
-      this._storeUnsubscribe();
-    }
+    
   }
 }

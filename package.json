@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "pixelsnob-site",
   "main": "config.js",
-  "dependencies": {},
+  "dependencies": {
+    "@power-elements/lazy-image": "^2.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "lodash": "^4.17.15"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-classes": "^7.5.5",

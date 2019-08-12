@@ -1,35 +1,34 @@
 
-import store from '../store';
-import { setSlideshowPhotoId } from '../actions';
-import { getSlideshowPhotos, getSlideshowPhotoByListIndex } from '../selectors';
+
+const template = document.createElement('template');
+template.innerHTML = `
+<style>
+:host {
+  position: fixed;
+  bottom: 0px;
+  height: 25px;
+  width: 100%;
+  background-color: #444;
+  z-index: 1100;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  cursor: pointer;
+  z-index: 600;
+}
+:host(:hover) {
+  background-color: #666;
+}
+</style>
+<slot name="progress-bar"></slot>
+<slot name="progress-stats"></slot>
+`;
 
 export default class SlideshowProgress extends HTMLElement {
 
-  constructor() {
-    super();
-  }
-  
   connectedCallback() {
-    this.addEventListener('click', this.onClick.bind(this));
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 
-  onClick(ev) {
-    ev.preventDefault();
-    const slideshowPhotos = getSlideshowPhotos(store.getState());
-    if (slideshowPhotos) {
-      // Load a photo by list index, based on where the progress bar was clicked.
-      const listIndex = Math.ceil((ev.clientX / window.innerWidth) * (slideshowPhotos.length - 1));
-      const photo = getSlideshowPhotoByListIndex({ ...store.getState(), listIndex });
-      if (photo) {
-        store.dispatch(setSlideshowPhotoId(photo.id));
-      }
-    }
-  }
-
-  disconnectedCallback() {
-    if (this._storeUnsubscribe) {
-      this._storeUnsubscribe();
-    }
-    this.removeEventListener('click', this.onClick.bind(this));
-  }
 }
