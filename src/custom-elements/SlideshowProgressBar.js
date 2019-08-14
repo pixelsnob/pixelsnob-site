@@ -9,7 +9,7 @@ template.innerHTML = `
   top: 4px;
   left: 0;
   background-color: #888;
-  z-index: 1500;
+  z-index: 1000;
 }
 :host-context(slideshow-progress:hover) {
   background-color: #aaa;

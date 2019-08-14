@@ -16,11 +16,11 @@ const getTemplate = (currentIndex, numPhotos) => {
   font-size: 0.8rem;
   white-space: nowrap;
   text-align: center;
-  z-index: 1600;
+  z-index: 2000;
 }
 </style>
-<span>${currentIndex} of ${numPhotos}</span>
-`;
+<span>${currentIndex} of ${numPhotos}</span>`;
+
   return template;
 };
 
@@ -55,8 +55,6 @@ export default class SlideshowProgressStats extends HTMLElement {
   }
 
   disconnectedCallback() {
-    if (this._storeUnsubscribe) {
-      this._storeUnsubscribe();
-    }
+    
   }
 }

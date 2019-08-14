@@ -1,12 +1,9 @@
 
 
 import preloadImage from '../preloadImage';
-import isElementInViewport from '../isElementInViewport';
-import throttle from 'lodash/throttle';
 
-const getTemplate = photo => {
-  const template = document.createElement('template');
-  template.innerHTML = `
+const template = document.createElement('template');
+template.innerHTML = `
 <style>
 :host {
   margin: 0;
@@ -43,11 +40,9 @@ img.loaded {
 }
 </style>
 <span>
-  <img alt="${photo.title}" data-src="${photo.src}"/>
+  <img alt="" data-src=""/>
 </span>
 `;
-  return template;
-};
 
 export default class PhotosListPhoto extends HTMLElement {
 
@@ -55,15 +50,21 @@ export default class PhotosListPhoto extends HTMLElement {
     return [ 'photo' ];
   }
 
-
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
     this._loaded = false;
-    this._boundUpdate = throttle(this._update.bind(this), 20);
-    this.shadowRoot.appendChild(getTemplate(this.photo).content.cloneNode(true));
-    window.addEventListener('scroll', this._boundUpdate, false);
-  }
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
 
+    this.addEventListener('click', this._onClick.bind(this));
+    this._intersectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this._loadImage();
+        }
+      });
+    });
+    this._intersectionObserver.observe(this);
+  }
 
   get photo() {
     return JSON.parse(this.getAttribute('photo'));
@@ -76,29 +77,36 @@ export default class PhotosListPhoto extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'photo':
-        this._update();
+        if (this._loaded && this.isConnected) {
+          this.shadowRoot.appendChild(template.content.cloneNode(true));
+          this._loadImage();
+          
+        }
       break;
     }
   }
 
-  _update() {
-    
-    requestAnimationFrame(() => {
-      if (!this._loaded && isElementInViewport(this)) {
-        const $img = this.shadowRoot.querySelector('img');
-        if (!$img) {
-          return null;
-        }
-        preloadImage(this.photo.src_small, this.shadowRoot.querySelector('img')).then(() => {
-          $img.classList.add('loaded')
-          window.removeEventListener('scroll', this._boundUpdate, false);
-        });
+  _onClick(ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+    const customEvent = new CustomEvent('photos-list-photo-click', {
+      detail: {
+        id: this.photo.id
       }
-    })
+    });
+    this.dispatchEvent(customEvent);
+  }
+
+  _loadImage() {
+    const $img = this.shadowRoot.querySelector('img');
+    preloadImage(this.photo.src_small, $img).then(() => {
+      $img.classList.add('loaded');
+      this._intersectionObserver.unobserve(this);
+      this._loaded = true;
+    });
   }
 
   disconnectedCallback() {
-    window.removeEventListener('scroll',  this._boundUpdate, false);
-
+    this._intersectionObserver.unobserve(this);
   }
 }

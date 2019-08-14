@@ -18,9 +18,10 @@ template.innerHTML = `
   -webkit-user-select: none;
   -moz-user-select: none;
   display: block;
+  
 }
 
-::slotted(.photos-slideshow-nav) {
+.photos-slideshow-nav {
   display: flex;
   justify-content: center;
   height: 100%;
@@ -28,9 +29,16 @@ template.innerHTML = `
   margin: 0;
   padding: 0;
 }
+
+/** style links here? **/
+
 </style>
-<slot name="nav-links"></slot>
-`;
+
+<div class="photos-slideshow-nav">
+  <slideshow-nav-link action="previous"><a slot="nav-link">&#x2190;</a></slideshow-nav-link>
+  <slideshow-nav-link action="close"><a slot="nav-link">&times;</a></slideshow-nav-link>
+  <slideshow-nav-link action="next"><a slot="nav-link">&#x2192;</a></slideshow-nav-link>
+</div>`;
 
 export default class SlideshowNav extends HTMLElement {
 
@@ -38,20 +46,30 @@ export default class SlideshowNav extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this._removeTouch = touch(document, this.ontouch.bind(this));
-    //document.addEventListener('keydown', this.keydown.bind(this));
+    document.addEventListener('keydown', this.keydown.bind(this));
+
+    // this.shadowRoot.addEventListener('nav-link-click', ev => {
+    //   console.log('dkljdakjh hjk')
+    // }, true);
   }  
 
-  previous() {
-    //store.dispatch(setSlideshowPhotoIdToPrevious());
-  };
+  // previous() {
+  //   //store.dispatch(setSlideshowPhotoIdToPrevious());
+  //   const customEvent = new CustomEvent('nav-action', { detail: 'previous' });
+  //   this.shadowRoot.dispatchEvent(customEvent);
+  // };
 
-  next() {
-    //store.dispatch(setSlideshowPhotoIdToNext());
-  };
+  // next() {
+  //   //store.dispatch(setSlideshowPhotoIdToNext());
+  //   const customEvent = new CustomEvent('nav-action', { detail: 'next' });
+  //   this.shadowRoot.dispatchEvent(customEvent);
+  // };
 
-  close() {
-    //store.dispatch(setSlideshowPhotoId(null));
-  };
+  // close() {
+  //   //store.dispatch(setSlideshowPhotoId(null));
+  //   const customEvent = new CustomEvent('nav-action', { detail: 'close' });
+  //   this.shadowRoot.dispatchEvent(customEvent);
+  // };
 
   keydown(evt) {    
     switch(evt.keyCode) {

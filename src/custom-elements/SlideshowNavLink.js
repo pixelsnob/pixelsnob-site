@@ -1,7 +1,4 @@
 
-
-import { setSlideshowPhotoIdToPrevious, setSlideshowPhotoIdToNext, setSlideshowPhotoId } from '../actions';
-
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
@@ -12,6 +9,7 @@ template.innerHTML = `
   position: relative;
   bottom: 0;
   display: flex;
+  border: 1px solid yellow;
 }
 ::slotted(a) {
   text-transform: uppercase;
@@ -44,18 +42,8 @@ export default class SlideshowNavLink extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.addEventListener('click', this._onClick.bind(this));
-    //console.log(this.action)
-    // this._storeUnsubscribe = createObserver(store)(
-    //   state => ({ touchEnabled: state.touchEnabled }),
-    //   (key, value) => {
-    //     if (value && this.dataset.action !== 'close') {
-    //       // Hide previous and next link if touch is enabled
-    //       this.style.display = 'none';
-    //     }
-    //   }
-    // );
+   
   }  
-
 
   get action() {
     return this.getAttribute('action');
@@ -67,13 +55,14 @@ export default class SlideshowNavLink extends HTMLElement {
 
   _onClick(ev) {
     ev.preventDefault();
-    this.shadowRoot.dispatchEvent(new CustomEvent('nav-link-click', { detail: { 
+    const customEvent = new CustomEvent('nav-link-click', { detail: { 
       action: this.action
-    }}));
+    }})
+    this.dispatchEvent(customEvent);
   };
 
   disconnectedCallback() {
-    this.removeEventListener('click', this.onClick.bind(this));
+    this.removeEventListener('click', this._onClick.bind(this));
 
   }
 

@@ -23,25 +23,14 @@ listTemplate.innerHTML = `
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   outline: none !important;
+  border: 1px solid red;
 }
 </style>
 `;
 
-const getListItemTemplate = photo => {
-  const listItemTemplate = document.createElement('template');
-  
-  /////////////////////////////////
-  listItemTemplate.innerHTML = `
-<photos-list-photo-hoc
-  data-id="${photo.id}"
-  data-title="${photo.title}"
-  data-src="${photo.src_small}"
-  className="photo aspect-ratio-box"
-/>
-`;
-  return listItemTemplate;
-};
-
+const listItemTemplate = document.createElement('template');
+listItemTemplate.innerHTML = `
+<photos-list-photo className="aspect-ratio-box" />`;
 
 export default class PhotosList extends HTMLElement {
 
@@ -51,21 +40,6 @@ export default class PhotosList extends HTMLElement {
 
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.appendChild(listTemplate.content.cloneNode(true));
-
-  }
-
-  _update(photos) {
-    requestAnimationFrame(() => {
-      this.shadowRoot.innerHTML = '';
-      this.shadowRoot.appendChild(listTemplate.content.cloneNode(true));
-      this.photos.forEach(photo => {
-        requestAnimationFrame(() => {
-        const $photo = getListItemTemplate(photo).content.cloneNode(true);
-        this.shadowRoot.appendChild($photo);
-        });
-      });
-    });
   }
 
   get photos() {
@@ -79,9 +53,25 @@ export default class PhotosList extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'photos':
-        this._update(newValue);
+        this._update();
       break;
     }
+  }
+
+  _update() {
+    requestAnimationFrame(() => {
+      this.shadowRoot.innerHTML = '';
+      this.shadowRoot.appendChild(listTemplate.content.cloneNode(true));
+
+      this.photos.forEach(photo => {
+        requestAnimationFrame(() => {
+          const $photo = document.createElement('photos-list-photo');
+          $photo.className = 'photo aspect-ratio-box';
+          this.shadowRoot.appendChild($photo);
+          $photo.photo = photo;
+        });
+      });
+    });
   }
 
 }

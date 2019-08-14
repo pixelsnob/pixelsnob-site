@@ -7,31 +7,40 @@ import SlideshowNav from '../SlideshowNav.js';
 
 customElements.define('slideshow-nav', SlideshowNav);
 
-
 export default class SlideshowNavHoc extends HTMLElement {
 
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
-
     const $slideshowNav = document.createElement('slideshow-nav');
-    
-    $slideshowNav.appendChild(this.querySelector('[slot="nav-links"]'));
     this.shadowRoot.appendChild($slideshowNav);
-
-
+    $slideshowNav.shadowRoot.addEventListener('nav-link-click', this._handleAction.bind(this), true);
   }  
 
-  // previous() {
-  //   store.dispatch(setSlideshowPhotoIdToPrevious());
-  // };
+  _handleAction(ev) {
+    switch(ev.detail.action) {
+      case 'previous':
+        this.previous();
+      break;
+      case 'next':
+        this.next();
+      break;
+      case 'close':
+        this.close();
+      break;
+    }
+  }
 
-  // next() {
-  //   store.dispatch(setSlideshowPhotoIdToNext());
-  // };
+  previous() {
+    store.dispatch(setSlideshowPhotoIdToPrevious());
+  };
 
-  // close() {
-  //   store.dispatch(setSlideshowPhotoId(null));
-  // };
+  next() {
+    store.dispatch(setSlideshowPhotoIdToNext());
+  };
+
+  close() {
+    store.dispatch(setSlideshowPhotoId(null));
+  };
 
   // keydown(evt) {    
   //   switch(evt.keyCode) {
