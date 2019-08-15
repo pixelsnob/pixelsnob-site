@@ -85,8 +85,7 @@ header .site-nav {
   grid-template-columns: 22vw 48vw;
   column-gap: 5vw;
   justify-content: center;
-  //border: 1px solid red;
-
+  min-height: 100vh;
   @media (max-width: $breakpoint-lg) {
     display: block;
   }
