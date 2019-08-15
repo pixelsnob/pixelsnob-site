@@ -30,12 +30,12 @@ img {
   max-width: 100vw;
   object-fit: contain;
   overflow: hidden;
-  transition: opacity 0.4s;
+  transition: opacity 0.4s linear;
 }
 
 img.current {
   opacity: 1;
-  transition: opacity 0.4s;
+  transition: opacity 0.4s linear;
 
 }
 </style>
@@ -46,18 +46,18 @@ export default class SlideshowPhoto extends HTMLElement {
 
 
   static get observedAttributes() {
-    return [ 'photo', 'current-photo-id' ];
+    return [ 'photo', 'current-photo-id', 'photo-loading' ];
   }
-
 
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
+    this._loaded = false;
     this.shadowRoot.appendChild(template.content.cloneNode(true));
-    this.getRootNode().addEventListener('current-photo-id-change', this._onCurrentPhotoIdChange.bind(this), true);
   }
 
   disconnectedCallback() {
-    this.getRootNode().removeEventListener('current-photo-id-change', this._onCurrentPhotoIdChange.bind(this), true);
+    const img = this.shadowRoot.querySelector('img');
+    img.className = '';
   }
 
   _onCurrentPhotoIdChange(evt) {
@@ -83,39 +83,69 @@ export default class SlideshowPhoto extends HTMLElement {
     this.setAttribute('current-photo-id', value);
   }
 
+  get photoLoading() {
+    return this.getAttribute('photo-loading');
+  }
+
+  set photoLoading(value) {
+    this.setAttribute('photo-loading', value);
+  }
+
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'photo':
       case 'current-photo-id':
         this._loadImage();
       break;
+      case 'photo-loading':
+        console.log(newValue)
+      break;
     }
   }
 
   _loadImage() {
     const img = this.shadowRoot.querySelector('img');
-
-    if (!this.currentPhotoId || !this.photo) {
+    
+    if (!this.photo) {
       img.className = '';
       return null;
     }
-    
+
     if (this.currentPhotoId !== this.photo.id) {
       img.className = '';
-
       return null;
     }
+
+    //console.log(this.photoLoading)
 
     img.setAttribute('data-src', this.photo.src);
     img.setAttribute('alt', this.photo.title);
     
     // check if another image has loaded and abort
+
+    const customEvent = new CustomEvent('slideshow-photo-loading', {
+      detail: { loading: true }
+    });
+
+    this.getRootNode().dispatchEvent(customEvent);
+
     preloadImage(this.photo.src, img).then(() => {
       if (this.currentPhotoId === this.photo.id) {
         img.className = 'current';
+        //this._loaded = true;
+
+        const customEvent = new CustomEvent('slideshow-photo-loading', {
+          detail: { loading: false }
+        });
+    
+        this.getRootNode().dispatchEvent(customEvent);
+
         return;
       }
       img.className = '';
+
+      
     });
+    
   }
 }

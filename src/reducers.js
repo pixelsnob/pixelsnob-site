@@ -21,7 +21,11 @@ function appReducer(state = defaultState, action) {
 
     case 'SET_SLIDESHOW_PHOTOS': {
       if (action.photos) {
-        return { ...state, slideshowPhotos: action.photos };
+        if (action.photos.find(photo => photo.id === state.slideshowPhotoId)) {
+          return { ...state, slideshowPhotos: action.photos };
+        } else {
+          return { ...state, slideshowPhotos: action.photos, overlayShow: false, slideshowPhotoId: null };
+        }
       }
       return state;
     }
@@ -44,6 +48,7 @@ function appReducer(state = defaultState, action) {
       if (!state.slideshowPhotos.length) {
         return state;
       }
+
       const currentPhoto = getSlideshowPhoto(state);
       if (currentPhoto) {
         const nextPhoto = getSlideshowPhotoByListIndex({ ...state, listIndex: currentPhoto.listIndex + 1 });

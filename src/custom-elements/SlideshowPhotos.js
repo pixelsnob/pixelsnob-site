@@ -1,4 +1,3 @@
-
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
@@ -26,7 +25,30 @@ export default class SlideshowPhotos extends HTMLElement {
 
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
+    this._$photos = [];
     this.shadowRoot.appendChild(template.content.cloneNode(true));
+
+    this.shadowRoot.addEventListener('slideshow-photo-loading', this._onPhotoLoading.bind(this), true);
+  }
+
+  _onPhotoLoading(ev) {
+    //console.log(this.shadowRoot.querySelector('[name="nav"]'))  
+
+    // this._$photos.forEach($photo => {
+    //   $photo.photoLoading = !!ev.detail.loading;
+    // });
+
+    // const customEvent = new CustomEvent('slideshow-photo-loading-fwd', {
+    //   detail: { loading: false }
+    // });
+
+    //this.shadowRoot.dispatchEvent(customEvent);
+
+
+    //const $nav = this.shadowRoot.querySelector('slot[name="nav"]').assignedNodes();
+    //const $nav = this.shadowRoot.querySelector('slot[name="nav"]').assignedNodes()[0];
+    //$nav.dispatchEvent(customEvent);
+    //$nav.photoLoading = !!ev.detail.loading;
   }
 
   get photos() {
@@ -46,32 +68,29 @@ export default class SlideshowPhotos extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+
     switch (name) {
       case 'photos':
         this._updateList();
       break;
       case 'current-photo-id':
-        this._onCurrentPhotoIdChange();
-
+        this._$photos.forEach($photo => {
+          $photo.currentPhotoId = newValue;
+        });
       break;
     }
-  }
-
-  _onCurrentPhotoIdChange() {
-    const $list = this.shadowRoot.querySelector('.slideshow-photos-list');
-    const customEvent = new CustomEvent('current-photo-id-change', {
-      detail: { id: this.currentPhotoId ? this.currentPhotoId : null }
-    });
-    $list.dispatchEvent(customEvent);
   }
 
   _updateList() {
     const $list = this.shadowRoot.querySelector('.slideshow-photos-list');
     $list.innerHTML = '';
+    this._$photos = [];
     this.photos.forEach(photo => {
       const $photo = document.createElement('slideshow-photo');
       $list.appendChild($photo);
       $photo.photo = photo;
+      $photo.currentPhotoId = this.currentPhotoId;
+      this._$photos.push($photo);
     });
   }
 

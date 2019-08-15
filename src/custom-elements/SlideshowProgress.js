@@ -33,9 +33,6 @@ export default class SlideshowProgress extends HTMLElement {
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
-    this.$_progressBar = this.shadowRoot.querySelector('slideshow-progress-bar');
-    this.$_progressStats = this.shadowRoot.querySelector('slideshow-progress-stats');
-    
   }
 
   get currentIndex() {
@@ -58,10 +55,14 @@ export default class SlideshowProgress extends HTMLElement {
     switch (name) {
       case 'current-index':
       case 'list-length':
-        this.$_progressBar.setAttribute('list-length', this.listLength);
-        this.$_progressBar.setAttribute('current-index', this.currentIndex);
-        this.$_progressStats.setAttribute('list-length', this.listLength);
-        this.$_progressStats.setAttribute('current-index', this.currentIndex);
+        const customEvent = new CustomEvent('progress-changed', {
+          detail: { 
+            listLength: this.listLength,
+            currentIndex: this.currentIndex
+          }
+        });
+        this.shadowRoot.dispatchEvent(customEvent);
+
       break;
     }
   }

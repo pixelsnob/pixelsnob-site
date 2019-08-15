@@ -1,18 +1,8 @@
 
-<photos-list-hoc class="photos-list">
-  <!-- <div class="backup-photos">
-    {% for photo in site.data['flickr-photos'] limit:7 %}
-      <a href="{{ photo.flickr_page_url }}" title="{{ photo.title }}" target="_blank">
-        <img src="{{ photo.url_s }}" alt="{{ photo.title }}"/>
-      </a>
-    {% endfor %}
-  </div>
-  <a href="https://www.flickr.com/photos/pixelsnob" title="{{ photo.title }}" target="_blank">More photos on my Flickr page</a> -->
-</photos-list-hoc>
+<photos-list-container class="photos-list">
+</photos-list-container>
 
-<site-overlay-hoc>
-  <slideshow-photos-hoc class="slideshow-photos" slot="overlay-content">
-    
-  </slideshow-photos-hoc>
-</site-overlay-hoc>
+<site-overlay-container>
+  <slideshow-container class="slideshow-photos" slot="overlay-content"/>
+</site-overlay-container>
 

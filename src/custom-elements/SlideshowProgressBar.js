@@ -26,20 +26,50 @@ export default class SlideshowProgressBar extends HTMLElement {
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this._boundOnProgressChange = this._onProgressChange.bind(this);
+    this.getRootNode().addEventListener('progress-changed', this._boundOnProgressChange, true);
+
+  }
+
+  disconnectedCallback() {
+    this.getRootNode().removeEventListener('progress-changed', this._boundOnProgressChange, true);
+  }
+
+  get currentIndex() {
+    return this.getAttribute('current-index');
+  }
+
+  set currentIndex(value) {
+    this.setAttribute('current-index', value);
+  }
+
+  get listLength() {
+    return this.getAttribute('list-length');
+  }
+
+  set listLength(value) {
+    this.setAttribute('list-length', value);
+  }
+
+  _onProgressChange(evt) {
+    this.currentIndex = evt.detail.currentIndex;
+    this.listLength = evt.detail.listLength;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'current-index':
       case 'list-length':
-        this._update();
+        if (oldValue !== newValue) {
+          this._update();
+        }
       break;
     }
   }
 
   _update() {
-    const currentIndex = Number(this.getAttribute('current-index'));
-    const listLength = Number(this.getAttribute('list-length'));
+    const currentIndex = Number(this.currentIndex);
+    const listLength = Number(this.listLength);
     if (isNaN(currentIndex) || isNaN(listLength)) {
       this.style.width = 0;
       return null;

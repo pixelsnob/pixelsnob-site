@@ -18,7 +18,6 @@ template.innerHTML = `
   -webkit-user-select: none;
   -moz-user-select: none;
   display: block;
-  
 }
 
 .photos-slideshow-nav {
@@ -42,34 +41,53 @@ template.innerHTML = `
 
 export default class SlideshowNav extends HTMLElement {
 
+  static get observedAttributes() {
+    return [ 'photo-loading' ];
+  }
+
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this._removeTouch = touch(document, this.ontouch.bind(this));
     document.addEventListener('keydown', this.keydown.bind(this));
-
-    // this.shadowRoot.addEventListener('nav-link-click', ev => {
-    //   console.log('dkljdakjh hjk')
-    // }, true);
+    this.shadowRoot.addEventListener('nav-action', this._onNavActon.bind(this), true);
   }  
 
-  // previous() {
-  //   //store.dispatch(setSlideshowPhotoIdToPrevious());
-  //   const customEvent = new CustomEvent('nav-action', { detail: 'previous' });
-  //   this.shadowRoot.dispatchEvent(customEvent);
-  // };
+  disconnectedCallback() {
+    document.removeEventListener('keydown', this.keydown.bind(this));
+    this.shadowRoot.removeEventListener('nav-action', this._onNavActon.bind(this), true);
 
-  // next() {
-  //   //store.dispatch(setSlideshowPhotoIdToNext());
-  //   const customEvent = new CustomEvent('nav-action', { detail: 'next' });
-  //   this.shadowRoot.dispatchEvent(customEvent);
-  // };
+    this._removeTouch(); /////////
+  }
 
-  // close() {
-  //   //store.dispatch(setSlideshowPhotoId(null));
-  //   const customEvent = new CustomEvent('nav-action', { detail: 'close' });
-  //   this.shadowRoot.dispatchEvent(customEvent);
-  // };
+  _onNavActon(ev) {
+    switch(ev.detail.action) {
+      case 'previous':
+        this.previous();
+      break;
+      case 'next':
+        this.next();
+      break;
+      case 'close':
+        this.close();
+      break;
+    }
+  }
+
+  previous() {
+    const customEvent = new CustomEvent('nav-action', { detail: { action: 'previous' }});
+    this.dispatchEvent(customEvent);
+  };
+
+  next() {
+    const customEvent = new CustomEvent('nav-action', { detail: { action: 'next' }});
+    this.dispatchEvent(customEvent);
+  };
+
+  close() {
+    const customEvent = new CustomEvent('nav-action', { detail: { action: 'close' }});
+    this.dispatchEvent(customEvent);
+  };
 
   keydown(evt) {    
     switch(evt.keyCode) {
@@ -88,7 +106,7 @@ export default class SlideshowNav extends HTMLElement {
   }
 
   ontouch(touchEventName) {
-    store.dispatch(enableTouch());
+    //store.dispatch(enableTouch());
     switch (touchEventName) {
       case 'left':
         this.next();
@@ -99,9 +117,6 @@ export default class SlideshowNav extends HTMLElement {
     }
   }
 
-  disconnectedCallback() {
-    document.removeEventListener('keydown', this.keydown.bind(this));
-    this._removeTouch();
-  }
+
 
 }

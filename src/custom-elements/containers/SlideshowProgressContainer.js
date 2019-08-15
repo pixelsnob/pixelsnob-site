@@ -1,20 +1,29 @@
 
 import store from '../../store';
 import createObserver from '../../createObserver';
+import { customElementsDefineFromArray } from '../../customElements';
 
 import { setSlideshowPhotoId } from '../../actions';
 import { getSlideshowPhotos, getSlideshowPhotoByListIndex, getSlideshowPhoto } from '../../selectors';
 import SlideshowProgress from '../SlideshowProgress.js';
+import SlideshowProgressStats from '../SlideshowProgressStats';
+import SlideshowProgressBar from '../SlideshowProgressBar';
 
-customElements.define('slideshow-progress', SlideshowProgress);
+customElementsDefineFromArray([
+  [ 'slideshow-progress', SlideshowProgress ],
+  [ 'slideshow-progress-stats', SlideshowProgressStats ],
+  [ 'slideshow-progress-bar', SlideshowProgressBar ]
+]);
 
-export default class SlideshowProgressHoc extends HTMLElement {
+export default class SlideshowProgressContainer extends HTMLElement {
 
   connectedCallback() {
     
     this.attachShadow({ mode: 'open' });
     this._$progress = document.createElement('slideshow-progress');
-    this._$progress.addEventListener('click', this._onClick.bind(this)); //////////////////////////////
+    
+    this.shadowRoot.addEventListener('click', this._onClick.bind(this));
+
     this.shadowRoot.appendChild(this._$progress);
     this._storeUnsubscribe = createObserver(store)(
       state => ({ slideshowPhotoId: state.slideshowPhotoId, slideshowPhotos: state.slideshowPhotos }),
@@ -28,12 +37,16 @@ export default class SlideshowProgressHoc extends HTMLElement {
 
     const state = store.getState();
     const slideshowPhoto = getSlideshowPhoto(state);
-    if (!slideshowPhoto) {
-      return null
+    const slideshowPhotos = getSlideshowPhotos(state);
+
+    let listIndex = 0;
+
+    if (slideshowPhoto) {
+      listIndex = slideshowPhoto.listIndex;
+      
     }
-    
-    this._$progress.setAttribute('list-length', state.slideshowPhotos.length);
-    this._$progress.setAttribute('current-index', slideshowPhoto.listIndex);
+    this._$progress.setAttribute('current-index', listIndex);
+    this._$progress.setAttribute('list-length', slideshowPhotos.length);
   }
 
   _onClick(ev) {

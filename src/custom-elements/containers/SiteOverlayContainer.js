@@ -2,10 +2,13 @@
 import store from '../../store';
 import createObserver from '../../createObserver';
 import SiteOverlay from '../SiteOverlay.js';
+import { customElementsDefineFromArray } from '../../customElements';
 
-customElements.define('site-overlay', SiteOverlay);
+customElementsDefineFromArray([
+  [ 'site-overlay', SiteOverlay ]
+]);
 
-export default class SiteOverlayHoc extends HTMLElement {
+export default class SiteOverlayContainer extends HTMLElement {
 
   connectedCallback() {
     this.attachShadow({ mode: 'open' });

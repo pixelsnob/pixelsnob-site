@@ -33,6 +33,34 @@ export default class SlideshowProgressStats extends HTMLElement {
   
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
+    this._boundOnProgressChange = this._onProgressChange.bind(this);
+    this.getRootNode().addEventListener('progress-changed', this._boundOnProgressChange, true);
+  }
+
+  disconnectedCallback() {
+    this.getRootNode().removeEventListener('progress-changed', this._boundOnProgressChange, true);
+  }
+
+
+  get currentIndex() {
+    return this.getAttribute('current-index');
+  }
+
+  set currentIndex(value) {
+    this.setAttribute('current-index', value);
+  }
+
+  get listLength() {
+    return this.getAttribute('list-length');
+  }
+
+  set listLength(value) {
+    this.setAttribute('list-length', value);
+  }
+
+  _onProgressChange(evt) {
+    this.currentIndex = evt.detail.currentIndex;
+    this.listLength = evt.detail.listLength;
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -48,13 +76,9 @@ export default class SlideshowProgressStats extends HTMLElement {
     const currentIndex = Number(this.getAttribute('current-index'));
     const listLength = Number(this.getAttribute('list-length'));
     if (isNaN(currentIndex) || isNaN(listLength)) {
-      this.style.width = 0;
+      //this.style.width = 0;
       return null;
     }
     this.shadowRoot.innerHTML = getTemplate(currentIndex + 1, listLength).innerHTML;
-  }
-
-  disconnectedCallback() {
-    
   }
 }

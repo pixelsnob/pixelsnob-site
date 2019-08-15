@@ -9,7 +9,6 @@ template.innerHTML = `
   position: relative;
   bottom: 0;
   display: flex;
-  border: 1px solid yellow;
 }
 ::slotted(a) {
   text-transform: uppercase;
@@ -55,15 +54,15 @@ export default class SlideshowNavLink extends HTMLElement {
 
   _onClick(ev) {
     ev.preventDefault();
-    const customEvent = new CustomEvent('nav-link-click', { detail: { 
+    const customEvent = new CustomEvent('nav-action', { detail: { 
       action: this.action
     }})
     this.dispatchEvent(customEvent);
+
   };
 
   disconnectedCallback() {
     this.removeEventListener('click', this._onClick.bind(this));
-
   }
 
 }
