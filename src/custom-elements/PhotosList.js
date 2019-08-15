@@ -13,18 +13,7 @@ listTemplate.innerHTML = `
   -webkit-user-select: none;
   -moz-user-select: none;
 }
-.photos-list-photo {
-  margin: 0;
-  list-style: none;
-  padding-top: 100%;
-  display: block;
-  overflow: hidden;
-  position: relative;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  outline: none !important;
-  border: 1px solid red;
-}
+
 </style>
 `;
 
@@ -59,19 +48,19 @@ export default class PhotosList extends HTMLElement {
   }
 
   _update() {
-    requestAnimationFrame(() => {
+    //requestAnimationFrame(() => {
       this.shadowRoot.innerHTML = '';
       this.shadowRoot.appendChild(listTemplate.content.cloneNode(true));
 
       this.photos.forEach(photo => {
-        requestAnimationFrame(() => {
+        //requestAnimationFrame(() => {
           const $photo = document.createElement('photos-list-photo');
           $photo.className = 'photo aspect-ratio-box';
           this.shadowRoot.appendChild($photo);
           $photo.photo = photo;
-        });
+        //});
       });
-    });
+    //});
   }
 
 }

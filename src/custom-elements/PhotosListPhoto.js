@@ -17,7 +17,7 @@ template.innerHTML = `
   outline: none !important;
 }
 span {
-  opacity: 1;
+  opacity: 0;
   transition: opacity 0.5s;
   display: block;
   position: absolute;
@@ -26,18 +26,19 @@ span {
   width: 100%;
   height: 100%;
 }
+span.loaded {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
 img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   overflow: hidden;
-  opacity: 0;
+  
   transition: opacity 0.5s;
 }
-img.loaded {
-  opacity: 1;
-  transition: opacity 0.5s;
-}
+
 </style>
 <span>
   <img alt="" data-src=""/>
@@ -57,14 +58,22 @@ export default class PhotosListPhoto extends HTMLElement {
 
     this.addEventListener('click', this._onClick.bind(this));
 
+    let options = {
+      //root: document.querySelector('#scrollArea'),
+      rootMargin: '200px',
+      threshold: 1.0
+    }
+
+    
     // Lazy load only if image is within viewport
     this._intersectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          //console.log('?', this._loaded);
           this._loadImage();
         }
       });
-    });
+    }, options);
     this._intersectionObserver.observe(this);
   }
 
@@ -77,9 +86,11 @@ export default class PhotosListPhoto extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    console.log(name)
     switch (name) {
       case 'photo':
         if (this._loaded && this.isConnected) {
+
           this.shadowRoot.appendChild(template.content.cloneNode(true));
           this._loadImage();
           
@@ -101,10 +112,13 @@ export default class PhotosListPhoto extends HTMLElement {
 
   _loadImage() {
     const $img = this.shadowRoot.querySelector('img');
+    const $imgContainer = this.shadowRoot.querySelector('span');
+
     preloadImage(this.photo.src_small, $img).then(() => {
-      $img.classList.add('loaded');
       this._intersectionObserver.unobserve(this);
       this._loaded = true;
+      $imgContainer.classList.add('loaded');
+
     });
   }
 
