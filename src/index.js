@@ -13,7 +13,7 @@ import PhotosListContainer from './custom-elements/containers/PhotosListContaine
 const photos = photosJson.map((photo, listIndex) => {
   return {
     id: photo.id,
-    listIndex,
+    listIndex,/// use indexOf instead
     src: photo.url_o,
     src_small: photo.url_s,
     title: photo.title,

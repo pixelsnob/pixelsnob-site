@@ -56,6 +56,8 @@ export default class PhotosListPhoto extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
 
     this.addEventListener('click', this._onClick.bind(this));
+
+    // Lazy load only if image is within viewport
     this._intersectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {

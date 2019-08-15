@@ -1,6 +1,7 @@
 
 
 import touch from '../touch';
+import throttle from 'lodash/throttle';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -49,13 +50,16 @@ export default class SlideshowNav extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this._removeTouch = touch(document, this.ontouch.bind(this));
-    document.addEventListener('keydown', this.keydown.bind(this));
-    this.shadowRoot.addEventListener('nav-action', this._onNavActon.bind(this), true);
+    this._boundOnKeydown = throttle(this._onKeydown.bind(this), 40);
+    this._boundOnNavAction = throttle(this._onNavActon.bind(this), 40);
+    document.addEventListener('keydown', this._boundOnKeydown);
+    this.shadowRoot.addEventListener('nav-action', this._boundOnNavAction, true);
   }  
 
   disconnectedCallback() {
-    document.removeEventListener('keydown', this.keydown.bind(this));
-    this.shadowRoot.removeEventListener('nav-action', this._onNavActon.bind(this), true);
+    document.removeEventListener('keydown', this._boundKeydown);
+    this.shadowRoot.removeEventListener('nav-action', this._boundOnNavAction, true);
+    this.shadowRoot.removeEventListener('keydown', this._boundOnKeydown, true);
 
     this._removeTouch(); /////////
   }
@@ -63,60 +67,48 @@ export default class SlideshowNav extends HTMLElement {
   _onNavActon(ev) {
     switch(ev.detail.action) {
       case 'previous':
-        this.previous();
-      break;
+        this._dispatchNavActionEvent('previous');
+        break;
       case 'next':
-        this.next();
-      break;
+        this._dispatchNavActionEvent('next');
+        break;
       case 'close':
-        this.close();
-      break;
+        this._dispatchNavActionEvent('close');
+        break;
     }
   }
+  
 
-  previous() {
-    const customEvent = new CustomEvent('nav-action', { detail: { action: 'previous' }});
+  _dispatchNavActionEvent(action) {
+    const customEvent = new CustomEvent('nav-action', { detail: { action }});
     this.dispatchEvent(customEvent);
-  };
+  }
 
-  next() {
-    const customEvent = new CustomEvent('nav-action', { detail: { action: 'next' }});
-    this.dispatchEvent(customEvent);
-  };
-
-  close() {
-    const customEvent = new CustomEvent('nav-action', { detail: { action: 'close' }});
-    this.dispatchEvent(customEvent);
-  };
-
-  keydown(evt) {    
+  _onKeydown(evt) {    
     switch(evt.keyCode) {
       case 37:
       case 38:
-        this.previous();
+        this._dispatchNavActionEvent('previous');
       break;
       case 39:
       case 40:
-        this.next();
+        this._dispatchNavActionEvent('next');
       break;
       case 27:
-        this.close();
+        this._dispatchNavActionEvent('close');
       break;
     }
   }
 
   ontouch(touchEventName) {
-    //store.dispatch(enableTouch());
+    //store.dispatch(enableTouch());//////////////////////
     switch (touchEventName) {
       case 'left':
-        this.next();
-        break;
+        this._dispatchNavActionEvent('previous');
+      break;
       case 'right':
-        this.previous();
+          this._dispatchNavActionEvent('next');
         break;
     }
   }
-
-
-
 }

@@ -28,28 +28,28 @@ export default class SlideshowPhotos extends HTMLElement {
     this._$photos = [];
     this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-    this.shadowRoot.addEventListener('slideshow-photo-loading', this._onPhotoLoading.bind(this), true);
+    //this.shadowRoot.addEventListener('slideshow-photo-loading', this._onPhotoLoading.bind(this), true);
   }
 
-  _onPhotoLoading(ev) {
-    //console.log(this.shadowRoot.querySelector('[name="nav"]'))  
+  // _onPhotoLoading(ev) {
+  //   //console.log(this.shadowRoot.querySelector('[name="nav"]'))  
 
-    // this._$photos.forEach($photo => {
-    //   $photo.photoLoading = !!ev.detail.loading;
-    // });
+  //   // this._$photos.forEach($photo => {
+  //   //   $photo.photoLoading = !!ev.detail.loading;
+  //   // });
 
-    // const customEvent = new CustomEvent('slideshow-photo-loading-fwd', {
-    //   detail: { loading: false }
-    // });
+  //   // const customEvent = new CustomEvent('slideshow-photo-loading-fwd', {
+  //   //   detail: { loading: false }
+  //   // });
 
-    //this.shadowRoot.dispatchEvent(customEvent);
+  //   //this.shadowRoot.dispatchEvent(customEvent);
 
 
-    //const $nav = this.shadowRoot.querySelector('slot[name="nav"]').assignedNodes();
-    //const $nav = this.shadowRoot.querySelector('slot[name="nav"]').assignedNodes()[0];
-    //$nav.dispatchEvent(customEvent);
-    //$nav.photoLoading = !!ev.detail.loading;
-  }
+  //   //const $nav = this.shadowRoot.querySelector('slot[name="nav"]').assignedNodes();
+  //   //const $nav = this.shadowRoot.querySelector('slot[name="nav"]').assignedNodes()[0];
+  //   //$nav.dispatchEvent(customEvent);
+  //   //$nav.photoLoading = !!ev.detail.loading;
+  // }
 
   get photos() {
     return JSON.parse(this.getAttribute('photos'));

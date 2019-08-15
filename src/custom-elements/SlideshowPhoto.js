@@ -46,7 +46,7 @@ export default class SlideshowPhoto extends HTMLElement {
 
 
   static get observedAttributes() {
-    return [ 'photo', 'current-photo-id', 'photo-loading' ];
+    return [ 'photo', 'current-photo-id'/*, 'photo-loading'*/ ];
   }
 
   connectedCallback() {
@@ -83,22 +83,11 @@ export default class SlideshowPhoto extends HTMLElement {
     this.setAttribute('current-photo-id', value);
   }
 
-  get photoLoading() {
-    return this.getAttribute('photo-loading');
-  }
-
-  set photoLoading(value) {
-    this.setAttribute('photo-loading', value);
-  }
-
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'photo':
       case 'current-photo-id':
         this._loadImage();
-      break;
-      case 'photo-loading':
-        console.log(newValue)
       break;
     }
   }
@@ -106,22 +95,13 @@ export default class SlideshowPhoto extends HTMLElement {
   _loadImage() {
     const img = this.shadowRoot.querySelector('img');
     
-    if (!this.photo) {
+    if (!this.photo || this.currentPhotoId !== this.photo.id) {
       img.className = '';
       return null;
     }
-
-    if (this.currentPhotoId !== this.photo.id) {
-      img.className = '';
-      return null;
-    }
-
-    //console.log(this.photoLoading)
 
     img.setAttribute('data-src', this.photo.src);
     img.setAttribute('alt', this.photo.title);
-    
-    // check if another image has loaded and abort
 
     const customEvent = new CustomEvent('slideshow-photo-loading', {
       detail: { loading: true }
@@ -132,19 +112,13 @@ export default class SlideshowPhoto extends HTMLElement {
     preloadImage(this.photo.src, img).then(() => {
       if (this.currentPhotoId === this.photo.id) {
         img.className = 'current';
-        //this._loaded = true;
-
         const customEvent = new CustomEvent('slideshow-photo-loading', {
           detail: { loading: false }
         });
-    
         this.getRootNode().dispatchEvent(customEvent);
-
-        return;
+      } else {
+        img.className = '';
       }
-      img.className = '';
-
-      
     });
     
   }

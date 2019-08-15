@@ -24,6 +24,7 @@ function appReducer(state = defaultState, action) {
         if (action.photos.find(photo => photo.id === state.slideshowPhotoId)) {
           return { ...state, slideshowPhotos: action.photos };
         } else {
+          // Current photo is no longer in photos list: close slideshow
           return { ...state, slideshowPhotos: action.photos, overlayShow: false, slideshowPhotoId: null };
         }
       }
