@@ -1,5 +1,3 @@
-
-
 const getTemplate = (currentIndex, numPhotos) => {
   const template = document.createElement('template');
   template.innerHTML = `
@@ -76,7 +74,6 @@ export default class SlideshowProgressStats extends HTMLElement {
     const currentIndex = Number(this.getAttribute('current-index'));
     const listLength = Number(this.getAttribute('list-length'));
     if (isNaN(currentIndex) || isNaN(listLength)) {
-      //this.style.width = 0;
       return null;
     }
     this.shadowRoot.innerHTML = getTemplate(currentIndex + 1, listLength).innerHTML;

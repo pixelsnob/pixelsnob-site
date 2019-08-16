@@ -1,5 +1,3 @@
-
-
 import preloadImage from '../preloadImage';
 
 const template = document.createElement('template');
@@ -58,22 +56,19 @@ export default class PhotosListPhoto extends HTMLElement {
 
     this.addEventListener('click', this._onClick.bind(this));
 
-    let options = {
-      //root: document.querySelector('#scrollArea'),
-      rootMargin: '200px',
-      threshold: 1.0
+    const intersectionObserverOptions = {
+      rootMargin: '40% 0px 60% 0px',
     }
-
     
     // Lazy load only if image is within viewport
     this._intersectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          //console.log('?', this._loaded);
           this._loadImage();
         }
       });
-    }, options);
+    }, intersectionObserverOptions);
+
     this._intersectionObserver.observe(this);
   }
 
@@ -86,7 +81,6 @@ export default class PhotosListPhoto extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    console.log(name)
     switch (name) {
       case 'photo':
         if (this._loaded && this.isConnected) {
@@ -117,7 +111,7 @@ export default class PhotosListPhoto extends HTMLElement {
     preloadImage(this.photo.src_small, $img).then(() => {
       this._intersectionObserver.unobserve(this);
       this._loaded = true;
-      $imgContainer.classList.add('loaded');
+      $imgContainer.classList.add('loaded');////////////////////////////////////////////////////?
 
     });
   }

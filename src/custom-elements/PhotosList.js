@@ -17,9 +17,9 @@ listTemplate.innerHTML = `
 </style>
 `;
 
-const listItemTemplate = document.createElement('template');
-listItemTemplate.innerHTML = `
-<photos-list-photo className="aspect-ratio-box" />`;
+//const listItemTemplate = document.createElement('template');
+//listItemTemplate.innerHTML = `
+//<photos-list-photo/>`; //  className="aspect-ratio-box"
 
 export default class PhotosList extends HTMLElement {
 
@@ -49,17 +49,17 @@ export default class PhotosList extends HTMLElement {
 
   _update() {
     //requestAnimationFrame(() => {
-      this.shadowRoot.innerHTML = '';
-      this.shadowRoot.appendChild(listTemplate.content.cloneNode(true));
+    this.shadowRoot.innerHTML = '';
+    this.shadowRoot.appendChild(listTemplate.content.cloneNode(true));
 
-      this.photos.forEach(photo => {
-        //requestAnimationFrame(() => {
-          const $photo = document.createElement('photos-list-photo');
-          $photo.className = 'photo aspect-ratio-box';
-          this.shadowRoot.appendChild($photo);
-          $photo.photo = photo;
-        //});
-      });
+    this.photos.forEach(photo => {
+      //requestAnimationFrame(() => {
+      const $photo = document.createElement('photos-list-photo');
+      //$photo.className = 'photo aspect-ratio-box';
+      this.shadowRoot.appendChild($photo);
+      $photo.photo = photo;
+      //});
+    });
     //});
   }
 

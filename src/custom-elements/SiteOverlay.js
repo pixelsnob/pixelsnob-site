@@ -35,10 +35,22 @@ export default class SiteOverlay extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 
+  get visible() {
+    const visible = JSON.parse(this.getAttribute('visible'));
+    if (visible.value) {
+      return visible.value;
+    }
+  }
+
+  set visible(value) {
+    this.setAttribute('visible', JSON.stringify(value));
+  }
+
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'visible':
-        if (newValue === '1') {
+
+        if (this.visible) {
           this.classList.add('site-overlay-visible');
 
         } else {

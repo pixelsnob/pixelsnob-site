@@ -2,11 +2,9 @@
 import store from '../../store';
 import createObserver from '../../createObserver';
 import SiteOverlay from '../SiteOverlay.js';
-import { customElementsDefineFromArray } from '../../customElements';
+import { customElementsDefine } from '../../customElements';
 
-customElementsDefineFromArray([
-  [ 'site-overlay', SiteOverlay ]
-]);
+customElementsDefine('site-overlay', SiteOverlay);
 
 export default class SiteOverlayContainer extends HTMLElement {
 
@@ -23,10 +21,10 @@ export default class SiteOverlayContainer extends HTMLElement {
           return false;
         }
         if (value) {
-          $siteOverlay.setAttribute('visible', '1');
+          $siteOverlay.visible = { value: true };
           document.body.classList.add('no-scroll');
         } else {
-          $siteOverlay.setAttribute('visible', '0');
+          $siteOverlay.visible = { value: false };
           document.body.classList.remove('no-scroll');
         }
       }
