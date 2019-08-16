@@ -1,7 +1,7 @@
 
 
 import touch from '../touch';
-import throttle from 'lodash/throttle';
+import throttle from 'lodash.throttle';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -61,7 +61,7 @@ export default class SlideshowNav extends HTMLElement {
     this.shadowRoot.removeEventListener('nav-action', this._boundOnNavAction, true);
     this.shadowRoot.removeEventListener('keydown', this._boundOnKeydown, true);
 
-    this._removeTouch(); /////////
+    this._removeTouch();
   }
 
   _onNavActon(ev) {
@@ -101,7 +101,6 @@ export default class SlideshowNav extends HTMLElement {
   }
 
   ontouch(touchEventName) {
-    //store.dispatch(enableTouch());//////////////////////
     switch (touchEventName) {
       case 'left':
         this._dispatchNavActionEvent('previous');
