@@ -2,10 +2,9 @@
 const Flickr = require("flickrapi");
 const fs = require('fs');
 const config = require('../config');
-const colorTheif = require('color-thief-jimp');
-const jimp = require('jimp');
 
 const http = require('https');
+const jimp = require('jimp');
 
 const flickrOptions = {
   api_key: config.api_key,
@@ -85,31 +84,44 @@ connect().then(async function(flickr) {
     if (blacklist.includes(photo.id)) {
       continue;
     }
-    
+    // average color?
     // if (i > 10) {
     //   break;
     // }
 
-    try {
-      const image = await jimp.read(photo.url_o);
-      const dominantColor = colorTheif.getColor(image);
-  
-      console.log(`Fetching photo ${i}`);
-  
-      data.push({
-        id: photo.id,
-        url_o: photo.url_o,
-        url_s: photo.url_s,
-        date_taken: photoInfo.dates.taken,
-        flickr_page_url: `https://www.flickr.com/photos/${config.user_id}/${photo.id}/in/dateposted-public/`,
-        title: photo.title,
-        dominantColor
-      });
-      
-      i++;
-    } catch (err) {
-      console.error(err);
-    }
+    // try {
+    //   await download(photo.url_o, './tmp/images/flickr/' + photo.id + '.jpg');
+    // } catch (err) {
+    //   console.error('Error downloading ' + photo.url_o);
+    //   continue;
+    // }
+    // if (i > 100) {
+    //   break;
+    // }
+    jimp.read(photo.url_o)
+      .then(image => {
+        image.scaleToFit(150, jimp.AUTO)
+          image.getBase64Async(jimp.MIME_JPEG).then(base64 => {
+            data.push({
+              id: photo.id,
+              url_o: photo.url_o,
+              url_s: photo.url_s,
+              date_taken: photoInfo.dates.taken,
+              flickr_page_url: `https://www.flickr.com/photos/${config.user_id}/${photo.id}/in/dateposted-public/`,
+              title: photo.title,
+              base64 //`data:${jimp.MIME_JPEG};base64,${base64}` 
+            });
+            
+            
+          });
+          //.write('./tmp/images/flickr/thumbnails/' + photo.id + '.jpg')
+      })
+      console.log('Adding photo', i);
+            
+            i++;
+
+    
+    
   }
 
   fs.writeFile('_data/flickr-photos.json', JSON.stringify(data), function(err) {

@@ -12,12 +12,13 @@ import PhotosListContainer from './custom-elements/containers/PhotosListContaine
 // Load photos json into store, add index #
 const photos = photosJson.map((photo, listIndex) => {
   return {
-    id: photo.id,
+    id: String(photo.id),
     listIndex,/// use indexOf instead
     src: photo.url_o,
     src_small: photo.url_s,
     title: photo.title,
-    flickr_page_url: photo.flickr_page_url
+    flickr_page_url: photo.flickr_page_url,
+    dominantColor: photo.dominantColor
   };
 });
 
@@ -30,7 +31,7 @@ customElementsDefineFromArray([
   [ 'photos-list-container', PhotosListContainer ]
 ]);
 
-
+sessionStorage.setItem('loaded-images', []);
 
 
 

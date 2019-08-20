@@ -14,9 +14,15 @@ template.innerHTML = `
   -webkit-tap-highlight-color: transparent;
   outline: none !important;
 }
+:host(.dimmed) {
+  opacity: 0.4;
+}
+:host(.dimmed:hover) {
+  opacity: 0.95;
+}
 span {
   opacity: 0;
-  transition: opacity 0.5s;
+  transition: opacity 0.4s;
   display: block;
   position: absolute;
   top: 0;
@@ -26,7 +32,7 @@ span {
 }
 span.loaded {
   opacity: 1;
-  transition: opacity 0.5s;
+  transition: opacity 0.4s;
 }
 img {
   height: 100%;
@@ -34,7 +40,7 @@ img {
   object-fit: cover;
   overflow: hidden;
   
-  transition: opacity 0.5s;
+  transition: opacity 0.4s;
 }
 
 </style>
@@ -46,20 +52,22 @@ img {
 export default class PhotosListPhoto extends HTMLElement {
 
   static get observedAttributes() {
-    return [ 'photo' ];
+    return [ 'photo', 'current-photo-id' ];
   }
 
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
     this._loaded = false;
     this.shadowRoot.appendChild(template.content.cloneNode(true));
-
     this.addEventListener('click', this._onClick.bind(this));
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this._observe();
+  }
 
+  _observe() {
     const intersectionObserverOptions = {
-      rootMargin: '40% 0px 60% 0px',
+      rootMargin: '100px 0px 100px 0px',
     }
-    
     // Lazy load only if image is within viewport
     this._intersectionObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -80,14 +88,32 @@ export default class PhotosListPhoto extends HTMLElement {
     this.setAttribute('photo', JSON.stringify(photo));
   }
 
+  get currentPhotoId() {
+    return this.getAttribute('current-photo-id');
+  }
+
+  set currentPhotoId(value) {
+    this.setAttribute('current-photo-id', value);
+  }
+
   attributeChangedCallback(name, oldValue, newValue) {
+    
     switch (name) {
       case 'photo':
+        // Use photo's dominant/average color as a placeholder until it loads
+        if (Array.isArray(this.photo.dominantColor) && this.photo.dominantColor.length === 3) {
+          this.style.backgroundColor = `rgb(${this.photo.dominantColor.join(',')})`;
+        }
         if (this._loaded && this.isConnected) {
+          this._loadImage(); 
+        }
+      break;
+      case 'current-photo-id':
+        if (newValue && newValue === this.photo.id) {
+          this.classList.remove('dimmed');
 
-          this.shadowRoot.appendChild(template.content.cloneNode(true));
-          this._loadImage();
-          
+        } else if (!isNaN(newValue)) {
+          this.classList.add('dimmed');
         }
       break;
     }
@@ -107,11 +133,11 @@ export default class PhotosListPhoto extends HTMLElement {
   _loadImage() {
     const $img = this.shadowRoot.querySelector('img');
     const $imgContainer = this.shadowRoot.querySelector('span');
-
     preloadImage(this.photo.src_small, $img).then(() => {
+      
       this._intersectionObserver.unobserve(this);
       this._loaded = true;
-      $imgContainer.classList.add('loaded');////////////////////////////////////////////////////?
+      $imgContainer.classList.add('loaded');
 
     });
   }

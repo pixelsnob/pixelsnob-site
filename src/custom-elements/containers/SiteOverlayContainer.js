@@ -1,7 +1,7 @@
 
 import store from '../../store';
 import createObserver from '../../createObserver';
-import SiteOverlay from '../SiteOverlay.js';
+import SiteOverlay from '../SiteOverlay';
 import { customElementsDefine } from '../../customElements';
 
 customElementsDefine('site-overlay', SiteOverlay);

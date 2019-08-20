@@ -7,6 +7,7 @@ export default function(src, $img) {
     const isImageLoaded = store.getState().loadedImages.find(image => image === src);
 
     if (isImageLoaded) {
+      //console.log('loaded')
       resolve();
       $img.src = src;
     } else {

@@ -3,8 +3,15 @@
   "version": "1.0.0",
   "description": "pixelsnob-site",
   "main": "config.js",
-  "dependencies": {},
+  "dependencies": {
+    "jimp": "^0.6.4",
+    "lodash.debounce": "^4.0.8"
+  },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "color-thief-jimp": "^2.0.2",
     "csv-stringify": "^5.3.0",
     "flickrapi": "^0.6.2",
     "gulp": "^4.0.2",

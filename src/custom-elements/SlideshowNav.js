@@ -50,8 +50,8 @@ export default class SlideshowNav extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this._removeTouch = touch(document, this.ontouch.bind(this));
-    this._boundOnKeydown = throttle(this._onKeydown.bind(this), 40);
-    this._boundOnNavAction = throttle(this._onNavActon.bind(this), 40);
+    this._boundOnKeydown = throttle(this._onKeydown.bind(this), 70);
+    this._boundOnNavAction = throttle(this._onNavActon.bind(this), 70);
     document.addEventListener('keydown', this._boundOnKeydown);
     this.shadowRoot.addEventListener('nav-action', this._boundOnNavAction, true);
   }  

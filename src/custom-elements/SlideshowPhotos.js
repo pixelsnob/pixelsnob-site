@@ -10,6 +10,8 @@ template.innerHTML = `
 }
 </style>
 
+<slot name="photos-list-nav"></slot>
+
 <div class="slideshow-photos-list"></div>
 
 <slot name="progress"></slot>

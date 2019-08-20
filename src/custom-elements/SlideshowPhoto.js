@@ -30,12 +30,12 @@ img {
   max-width: 100vw;
   object-fit: contain;
   overflow: hidden;
-  transition: opacity 0.4s linear;
+  transition: opacity 0.2s linear;
 }
 
 img.current {
   opacity: 1;
-  transition: opacity 0.4s linear;
+  transition: opacity 0.2s linear;
 
 }
 </style>
@@ -100,24 +100,20 @@ export default class SlideshowPhoto extends HTMLElement {
       return null;
     }
 
+    if (this._loaded) {
+      img.className = 'current';
+      return null;
+    }
     img.setAttribute('data-src', this.photo.src);
     img.setAttribute('alt', this.photo.title);
-
-    const customEvent = new CustomEvent('slideshow-photo-loading', {
-      detail: { loading: true }
-    });
-
-    this.getRootNode().dispatchEvent(customEvent);
 
     preloadImage(this.photo.src, img).then(() => {
       if (this.currentPhotoId === this.photo.id) {
         img.className = 'current';
-        const customEvent = new CustomEvent('slideshow-photo-loading', {
-          detail: { loading: false }
-        });
-        this.getRootNode().dispatchEvent(customEvent);
+        this._loaded = true;
       } else {
         img.className = '';
+        
       }
     });
     
