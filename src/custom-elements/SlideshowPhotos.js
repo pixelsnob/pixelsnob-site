@@ -2,21 +2,17 @@ const template = document.createElement('template');
 template.innerHTML = `
 <style>
 :host {
-  display: flex;
   height: 100%;
-  width: 100000000px;
+  width: 100%;
+}
+.slideshow-photos-list {
+  width: 100%;
+  height: 100%;
   position: relative;
-  left: 0;
 }
 </style>
 
-<slot name="photos-list-nav"></slot>
-
 <div class="slideshow-photos-list"></div>
-
-<slot name="progress"></slot>
-<slot name="nav"></slot>
-
 `;
 
 export default class SlideshowPhotos extends HTMLElement {

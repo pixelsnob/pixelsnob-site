@@ -3,7 +3,7 @@ const template = document.createElement('template');
 template.innerHTML = `
 <style>
 :host {
-  width: 33vw;
+  width: 33%;
   list-style-type: none;
   height: 100%;
   position: relative;
@@ -14,7 +14,7 @@ template.innerHTML = `
   text-transform: uppercase;
   display: inline-block;
   width: 100%;
-  line-height: 0.8;
+  height: 100%;
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;

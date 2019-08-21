@@ -2,19 +2,21 @@ const getTemplate = (currentIndex, numPhotos) => {
   const template = document.createElement('template');
   template.innerHTML = `
 <style>
-:host {
-  position: absolute;
+span {
   width: 80px;
-  height: 20px;
-  line-height: 2;
+  height: 100%;
+
   display: block;
-  top: 0px;
-  left: calc(50% - 40px);
   color: #fff;
+  display: block;
+  line-height: 1.7;
+  position: relative;
   font-size: 0.8rem;
   white-space: nowrap;
   text-align: center;
   z-index: 2000;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
 <span>${currentIndex} of ${numPhotos}</span>`;

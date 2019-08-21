@@ -21,10 +21,9 @@ export default class SlideshowProgressContainer extends HTMLElement {
     
     this.attachShadow({ mode: 'open' });
     this._$progress = document.createElement('slideshow-progress');
-    
-    this.shadowRoot.addEventListener('click', this._onClick.bind(this));
-
     this.shadowRoot.appendChild(this._$progress);
+    this._$progress.addEventListener('progress-update-photo-by-index', this._updatePhotoByIndex.bind(this));
+
     this._storeUnsubscribe = createObserver(store)(
       state => ({ slideshowPhotoId: state.slideshowPhotoId, slideshowPhotos: state.slideshowPhotos }),
       (key, value) => {
@@ -49,22 +48,19 @@ export default class SlideshowProgressContainer extends HTMLElement {
     this._$progress.setAttribute('list-length', slideshowPhotos.length);
   }
 
-  _onClick(ev) {
+  _updatePhotoByIndex(ev) {
     ev.preventDefault();
     const slideshowPhotos = getSlideshowPhotos(store.getState());
-    if (slideshowPhotos) {
-      // Load a photo by list index, based on where the progress bar was clicked.
-      const listIndex = Math.ceil((ev.clientX / window.innerWidth) * (slideshowPhotos.length - 1));
-      const photo = getSlideshowPhotoByListIndex({ ...store.getState(), listIndex });
-
+    if (slideshowPhotos && ev.detail.photoListIndex) {
+      const photo = getSlideshowPhotoByListIndex({ ...store.getState(), listIndex: ev.detail.photoListIndex });
       if (photo) {
         store.dispatch(setSlideshowPhotoId(photo.id));
-
       }
     }
   }
 
   disconnectedCallback() {
+    this._$progress.removeEventListener('progress-update-photo-by-index', this._updatePhotoByIndex.bind(this));
     this._$progress.removeEventListener('click', this._onClick.bind(this));
   }
 }

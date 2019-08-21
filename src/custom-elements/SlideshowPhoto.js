@@ -8,30 +8,26 @@ template.innerHTML = `
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100%;
-  opacity: 1;
-  text-align: center;
-  vertical-align: middle;
-  transition: opacity 0.2s ease-in-out;
-  margin-top: 3vh;
 }
-:host(.photo-visible) {
-  
-}
+
 img {
-  display: inline;
-  max-height: 80vh;
-  /* align-self: middle;
-  @media (max-width: $breakpoint-md) and (orientation: portrait) {
-    max-height: 80vh;
-  } */
+  display: block;
+  max-height: 100%;
+  width: 100%;
+  align-self: middle;
+  
+  margin-left: auto;
+  margin-right: auto;
   opacity: 0;
-  max-width: 100vw;
+  
   object-fit: contain;
   overflow: hidden;
   transition: opacity 0.2s linear;
 }
+
+
 
 img.current {
   opacity: 1;
@@ -87,12 +83,15 @@ export default class SlideshowPhoto extends HTMLElement {
     switch (name) {
       case 'photo':
       case 'current-photo-id':
-        this._loadImage();
+        requestAnimationFrame(() => {
+          this._loadImage();
+        });
       break;
     }
   }
 
   _loadImage() {
+    
     const img = this.shadowRoot.querySelector('img');
     
     if (!this.photo || this.currentPhotoId !== this.photo.id) {
@@ -108,14 +107,19 @@ export default class SlideshowPhoto extends HTMLElement {
     img.setAttribute('alt', this.photo.title);
 
     preloadImage(this.photo.src, img).then(() => {
-      if (this.currentPhotoId === this.photo.id) {
-        img.className = 'current';
-        this._loaded = true;
-      } else {
-        img.className = '';
-        
-      }
+      requestAnimationFrame(() => {
+        if (this.currentPhotoId === this.photo.id) {
+          img.className = 'current';
+          this._loaded = true;
+        } else {
+          img.className = '';
+          
+        }
+      });
+       
+      
+      
     });
-    
+ 
   }
 }

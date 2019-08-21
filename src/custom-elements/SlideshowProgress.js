@@ -3,25 +3,27 @@
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
-:host {
-  position: fixed;
-  bottom: 0px;
-  height: 25px;
-  width: 100%;
+
+.progress-container {
   background-color: #444;
-  z-index: 1100;
+  width: 100%;
+  height: 25px;
+  position: relative;
+  cursor: pointer;
+
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  cursor: pointer;
-  z-index: 600;
 }
-:host(:hover) {
+
+.progress-container:hover {
   background-color: #666;
 }
 </style>
-<slideshow-progress-bar></slideshow-progress-bar>
-<slideshow-progress-stats></slideshow-progress-stats>
+<div class="progress-container">
+  <slideshow-progress-bar></slideshow-progress-bar>
+  <slideshow-progress-stats></slideshow-progress-stats>
+</div>
 `;
 
 export default class SlideshowProgress extends HTMLElement {
@@ -33,6 +35,8 @@ export default class SlideshowProgress extends HTMLElement {
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.shadowRoot.addEventListener('click', this._onClick.bind(this));
+
   }
 
   get currentIndex() {
@@ -64,6 +68,20 @@ export default class SlideshowProgress extends HTMLElement {
         this.shadowRoot.dispatchEvent(customEvent);
 
       break;
+    }
+  }
+
+  _onClick(ev) {
+    ev.preventDefault();
+    const $progressContainer = this.shadowRoot.querySelector('.progress-container');
+    if (!isNaN(Number(this.listLength))) {
+      const photoListIndex = Math.ceil((ev.clientX / $progressContainer.clientWidth) * (this.listLength - 1));
+      const customEvent = new CustomEvent('progress-update-photo-by-index', {
+        detail: {
+          photoListIndex
+        }
+      });
+      this.dispatchEvent(customEvent);
     }
   }
 }

@@ -7,13 +7,9 @@ const template = document.createElement('template');
 template.innerHTML = `
 <style>
 :host {
-  position: fixed;
-  bottom: 25px;
-  height: 36px;
-  z-index: 550;
-  width: 100vw;
+  height: 55px;
+  width: 100%;
   opacity: 1;
-  left: 0;
   transition: opacity 0.5s ease;
   user-select: none;
   -webkit-user-select: none;
@@ -29,8 +25,6 @@ template.innerHTML = `
   margin: 0;
   padding: 0;
 }
-
-/** style links here? **/
 
 </style>
 
@@ -50,8 +44,8 @@ export default class SlideshowNav extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this._removeTouch = touch(document, this.ontouch.bind(this));
-    this._boundOnKeydown = throttle(this._onKeydown.bind(this), 70);
-    this._boundOnNavAction = throttle(this._onNavActon.bind(this), 70);
+    this._boundOnKeydown = throttle(this._onKeydown.bind(this), 50);
+    this._boundOnNavAction = throttle(this._onNavActon.bind(this), 50);
     document.addEventListener('keydown', this._boundOnKeydown);
     this.shadowRoot.addEventListener('nav-action', this._boundOnNavAction, true);
   }  

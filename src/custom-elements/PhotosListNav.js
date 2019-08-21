@@ -9,16 +9,10 @@ template.innerHTML = `
 :host {
   position: fixed;
   top: 0;
-  right: 0;
-  height: calc(100vh - 100px);
+  height: 100%;
   width: 100px;
   z-index: 500000000;
   overflow: hidden;
-}
-@media (max-width: 1200px) {
-  :host {
-    display: none !important;
-  }
 }
 .photos-list-container {
   position: absolute;
@@ -26,7 +20,7 @@ template.innerHTML = `
   top: 0;
   width: 100%;
   --photos-list-display: block;
-  z-index: 500000000;
+  z-index: 2000;
   /*transition: top 0.2s ease-in;*/
 }
 

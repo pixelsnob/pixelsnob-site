@@ -2,12 +2,13 @@ const template = document.createElement('template');
 template.innerHTML = `
 <style>
 :host {
-  position: absolute;
-  height: 70%;
-  top: 4px;
-  left: 0;
+  position: absolute; 
+  height: 100%;
+  
+  width: 100%;
   background-color: #888;
   z-index: 1000;
+  
 }
 :host-context(slideshow-progress:hover) {
   background-color: #aaa;
