@@ -9,6 +9,7 @@ template.innerHTML = `
 :host {
   position: fixed;
   top: 0;
+  right: 0;
   height: 100%;
   width: 100px;
   z-index: 500000000;
@@ -16,7 +17,7 @@ template.innerHTML = `
 }
 .photos-list-container {
   position: absolute;
-  left: 0;
+  
   top: 0;
   width: 100%;
   --photos-list-display: block;

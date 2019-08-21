@@ -7,7 +7,7 @@ const template = document.createElement('template');
 template.innerHTML = `
 <style>
 :host {
-  height: 55px;
+  height: 70px;
   width: 100%;
   opacity: 1;
   transition: opacity 0.5s ease;
@@ -15,6 +15,7 @@ template.innerHTML = `
   -webkit-user-select: none;
   -moz-user-select: none;
   display: block;
+  
 }
 
 .photos-slideshow-nav {

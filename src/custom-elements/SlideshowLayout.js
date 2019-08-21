@@ -6,36 +6,42 @@ template.innerHTML = `
   width: 100%;
   position: relative;
 }
-.left {
+.col-1 {
   height: 100%;
   width: calc(100% - 100px);
   float: left;
 }
-.left-top {
-  height: calc(100% - 80px);
+.col-1-top {
+  height: calc(100% - 95px);
   width: 100%;
 }
-.left-bottom {
-  height: 80px;
+.col-1-bottom {
+  height: 95px;
   width: 100%; 
 }
-.right {
+.col-2 {
   height: 100%;
   width: 100px;
   float: left; 
+  position: relative;
 }
+
+@media (max-width: 768px) {
+  
+}
+
 </style>
-<div class="left">
-  <div class="left-top">
+<div class="col-1">
+  <div class="col-1-top">
     <slot name="slideshow-photos"></slot>
   </div>
-  <div class="left-bottom">
+  <div class="col-1-bottom">
     <slot name="slideshow-nav-container"></slot>
     <slot name="slideshow-progress-container"></slot>
   </div>
 
 </div>
-<div class="right">
+<div class="col-1">
   <slot name="photos-list-nav"></slot>
 </div>
 `;
