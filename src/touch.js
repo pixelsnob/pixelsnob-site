@@ -1,8 +1,8 @@
 
 export default (el, cb) => {
 
-  el.addEventListener('touchstart', handleTouchStart, { passive: true });    
-  el.addEventListener('touchmove', handleTouchMove, { passive: true });
+  el.addEventListener('touchstart', handleTouchStart, { passive: false });    
+  el.addEventListener('touchmove', handleTouchMove, { passive: false });
   
   var xDown = null;
   var yDown = null;
