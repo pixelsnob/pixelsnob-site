@@ -12,8 +12,9 @@ template.innerHTML = `
   float: left;
 }
 .col-1-top {
-  height: calc(100% - 95px);
+  height: calc(100% - 115px);
   width: 100%;
+  padding-top: 20px;
 }
 .col-1-bottom {
   height: 95px;
@@ -27,7 +28,12 @@ template.innerHTML = `
 }
 
 @media (max-width: 768px) {
-  
+  .col-1 {
+    width: 100%;
+  }
+  .col-2 {
+    display: none;
+  }
 }
 
 </style>
@@ -41,7 +47,7 @@ template.innerHTML = `
   </div>
 
 </div>
-<div class="col-1">
+<div class="col-2">
   <slot name="photos-list-nav"></slot>
 </div>
 `;

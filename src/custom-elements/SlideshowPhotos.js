@@ -70,6 +70,4 @@ export default class SlideshowPhotos extends HTMLElement {
     });
   }
 
-  disconnectedCallback() {
-  }
 }

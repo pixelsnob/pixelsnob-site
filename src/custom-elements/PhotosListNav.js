@@ -1,5 +1,5 @@
 
-import touch from '../touch';
+//import touch from '../touch';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -42,8 +42,13 @@ export default class PhotosListNav extends HTMLElement {
     this._photosList =  this.shadowRoot.querySelector('photos-list');
     this._photosList.addEventListener('photos-list-photo-click', this._onPhotosListClick.bind(this), true);
 
-    this._removeTouch = touch(this._photosList, this._onTouch.bind(this));
+    //this._removeTouch = touch(this._photosList, this._onTouch.bind(this));
   }  
+
+  disconnectedCallback() {
+    this._photosList.shadowRoot.removeEventListener('photos-list-photo-click', this._onPhotosListClick.bind(this), true);
+    //this._removeTouch();
+  }
 
   get photos() {
     return JSON.parse(this.getAttribute('photos'));
@@ -52,7 +57,6 @@ export default class PhotosListNav extends HTMLElement {
   set photos(photos) {
     this.setAttribute('photos', JSON.stringify(photos));
   }
-
 
   get currentPhotoId() {
     return this.getAttribute('current-photo-id');
@@ -64,7 +68,6 @@ export default class PhotosListNav extends HTMLElement {
     }
     this.setAttribute('current-photo-id', value);
   }
-
 
   attributeChangedCallback(name, oldValue, newValue) {
     const $photosList = this.shadowRoot.querySelector('photos-list');
@@ -80,23 +83,26 @@ export default class PhotosListNav extends HTMLElement {
     }
   }
 
-  disconnectedCallback() {
-    this._photosList.shadowRoot.removeEventListener('photos-list-photo-click', this._onPhotosListClick.bind(this), true);
-    this._removeTouch();
-  }
-
-  _onTouch(touchEventName) {
-    const $photosListContainer = this.shadowRoot.querySelector('.photos-list-container');
-    switch (touchEventName) {
-      case 'up':
-        $photosListContainer.style.top = $photosListContainer.offsetTop - (this.offsetHeight / 2) + 'px';
-      break;
-      case 'down':
-        
-        $photosListContainer.style.top = $photosListContainer.offsetTop + (this.offsetHeight / 2) + 'px';
-        break;
-    }
-  }
+  // _onTouch(touchEventName) {
+  //   const $photosListContainer = this.shadowRoot.querySelector('.photos-list-container');
+  //   switch (touchEventName) {
+  //     case 'up': {
+  //       const top = $photosListContainer.offsetTop - (this.offsetHeight / 2);
+  //       $photosListContainer.style.top = top + 'px';
+  //       console.log($photosListContainer.offsetTop, + $photosListContainer.offsetHeight)
+  //       break;
+  //     }
+  //     case 'down': {
+  //       const top = $photosListContainer.offsetTop + (this.offsetHeight / 2);
+  //       if (top < 0) {
+  //         $photosListContainer.style.top = top + 'px';
+  //       } else {
+  //         $photosListContainer.style.top = 0;
+  //       }
+  //       break;
+  //     }
+  //   }
+  // }
 
   _onPhotosListClick(ev) {    
     const customEvent = new CustomEvent('photos-list-photo-change', { detail: { id: ev.detail.id }});
