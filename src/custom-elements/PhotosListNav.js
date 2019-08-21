@@ -1,7 +1,5 @@
 
-
-//import touch from '../touch';
-//import throttle from 'lodash.throttle';
+import touch from '../touch';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -43,6 +41,8 @@ export default class PhotosListNav extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this._photosList =  this.shadowRoot.querySelector('photos-list');
     this._photosList.addEventListener('photos-list-photo-click', this._onPhotosListClick.bind(this), true);
+
+    this._removeTouch = touch(this._photosList, this._onTouch.bind(this));
   }  
 
   get photos() {
@@ -82,6 +82,20 @@ export default class PhotosListNav extends HTMLElement {
 
   disconnectedCallback() {
     this._photosList.shadowRoot.removeEventListener('photos-list-photo-click', this._onPhotosListClick.bind(this), true);
+    this._removeTouch();
+  }
+
+  _onTouch(touchEventName) {
+    const $photosListContainer = this.shadowRoot.querySelector('.photos-list-container');
+    switch (touchEventName) {
+      case 'up':
+        $photosListContainer.style.top = $photosListContainer.offsetTop - (this.offsetHeight / 2) + 'px';
+      break;
+      case 'down':
+        
+        $photosListContainer.style.top = $photosListContainer.offsetTop + (this.offsetHeight / 2) + 'px';
+        break;
+    }
   }
 
   _onPhotosListClick(ev) {    

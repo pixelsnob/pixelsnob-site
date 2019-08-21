@@ -44,7 +44,7 @@ export default class SlideshowNav extends HTMLElement {
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
-    this._removeTouch = touch(document, this.ontouch.bind(this));
+    this._removeTouch = touch(document, this._onTouch.bind(this));
     this._boundOnKeydown = throttle(this._onKeydown.bind(this), 50);
     this._boundOnNavAction = throttle(this._onNavActon.bind(this), 50);
     document.addEventListener('keydown', this._boundOnKeydown);
@@ -95,13 +95,13 @@ export default class SlideshowNav extends HTMLElement {
     }
   }
 
-  ontouch(touchEventName) {
+  _onTouch(touchEventName) {
     switch (touchEventName) {
       case 'left':
-        this._dispatchNavActionEvent('previous');
+        this._dispatchNavActionEvent('next');
       break;
       case 'right':
-          this._dispatchNavActionEvent('next');
+          this._dispatchNavActionEvent('previous');
         break;
     }
   }
