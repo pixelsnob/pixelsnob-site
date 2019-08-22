@@ -5,11 +5,12 @@ template.innerHTML = `
   height: 100%;
   width: 100%;
   position: relative;
+  display: flex;
 }
 .col-1 {
   height: 100%;
   width: calc(100% - 100px);
-  float: left;
+  
 }
 .col-1-top {
   height: calc(100% - 115px);
@@ -23,18 +24,22 @@ template.innerHTML = `
 .col-2 {
   height: 100%;
   width: 100px;
-  float: left; 
   position: relative;
+  
+  
+}
+.col-2::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .col-1 {
     width: 100%;
   }
   .col-2 {
     display: none;
   }
-}
+} */
 
 </style>
 <div class="col-1">

@@ -10,19 +10,22 @@ template.innerHTML = `
   right: 0;
   height: 100%;
   width: 100px;
-  z-index: 500000000;
   overflow: hidden;
 }
 .photos-list-container {
   position: absolute;
-  
+  overflow-y: scroll;
   top: 0;
   width: 100%;
+  height: 100%;
   --photos-list-display: block;
   z-index: 2000;
-  /*transition: top 0.2s ease-in;*/
+  -ms-overflow-style: none;  /* IE 10+ */
+  scrollbar-width: none;  /* Firefox */
 }
-
+.photos-list-container::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
 </style>
 <div class="photos-list-container">
   <photos-list></photos-list>
@@ -42,12 +45,11 @@ export default class PhotosListNav extends HTMLElement {
     this._photosList =  this.shadowRoot.querySelector('photos-list');
     this._photosList.addEventListener('photos-list-photo-click', this._onPhotosListClick.bind(this), true);
 
-    //this._removeTouch = touch(this._photosList, this._onTouch.bind(this));
+    this._scrollCurrentPhotoIntoView = true;
   }  
 
   disconnectedCallback() {
     this._photosList.shadowRoot.removeEventListener('photos-list-photo-click', this._onPhotosListClick.bind(this), true);
-    //this._removeTouch();
   }
 
   get photos() {
@@ -83,50 +85,24 @@ export default class PhotosListNav extends HTMLElement {
     }
   }
 
-  // _onTouch(touchEventName) {
-  //   const $photosListContainer = this.shadowRoot.querySelector('.photos-list-container');
-  //   switch (touchEventName) {
-  //     case 'up': {
-  //       const top = $photosListContainer.offsetTop - (this.offsetHeight / 2);
-  //       $photosListContainer.style.top = top + 'px';
-  //       console.log($photosListContainer.offsetTop, + $photosListContainer.offsetHeight)
-  //       break;
-  //     }
-  //     case 'down': {
-  //       const top = $photosListContainer.offsetTop + (this.offsetHeight / 2);
-  //       if (top < 0) {
-  //         $photosListContainer.style.top = top + 'px';
-  //       } else {
-  //         $photosListContainer.style.top = 0;
-  //       }
-  //       break;
-  //     }
-  //   }
-  // }
-
-  _onPhotosListClick(ev) {    
+  _onPhotosListClick(ev) {
+    this._scrollCurrentPhotoIntoView = false;
     const customEvent = new CustomEvent('photos-list-photo-change', { detail: { id: ev.detail.id }});
     this.dispatchEvent(customEvent);
   }
 
   _makeCurrentPhotoVisible() {
-    
+    // Don't scroll if this list was clicked on
+    if (!this._scrollCurrentPhotoIntoView) {
+      this._scrollCurrentPhotoIntoView = true;
+      return null;
+    }
     const $photosListPhotos = this._photosList.shadowRoot.querySelectorAll('photos-list-photo');
     $photosListPhotos.forEach($photo => {
       if ($photo.photo && $photo.photo.id === this.currentPhotoId) {
         const $photosListContainer = this.shadowRoot.querySelector('.photos-list-container');
-        if (($photo.offsetTop + (this.offsetHeight / 2)) > $photosListContainer.offsetHeight) {
-          $photosListContainer.style.top = 'auto';
-          $photosListContainer.style.bottom = 0;
+        $photosListContainer.scrollTo(0, $photo.offsetTop -  (this.offsetHeight / 2) + ($photo.offsetHeight / 2));
 
-        } else if ($photo.offsetTop > (this.offsetHeight / 2)) {
-          $photosListContainer.style.top = `-${$photo.offsetTop - (this.offsetHeight / 2) + ($photo.offsetHeight / 2)}px`;
-          $photosListContainer.style.bottom = 'auto';
-
-        } else {
-          $photosListContainer.style.top = 0;
-          $photosListContainer.style.bottom = 'auto';
-        }
       }
     });
 

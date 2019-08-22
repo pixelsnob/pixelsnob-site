@@ -83,9 +83,9 @@ export default class SlideshowPhoto extends HTMLElement {
     switch (name) {
       case 'photo':
       case 'current-photo-id':
-        requestAnimationFrame(() => {
+        //requestAnimationFrame(() => {
           this._loadImage();
-        });
+        //});
       break;
     }
   }
@@ -107,7 +107,7 @@ export default class SlideshowPhoto extends HTMLElement {
     img.setAttribute('alt', this.photo.title);
 
     preloadImage(this.photo.src, img).then(() => {
-      requestAnimationFrame(() => {
+      //requestAnimationFrame(() => {
         if (this.currentPhotoId === this.photo.id) {
           img.className = 'current';
           this._loaded = true;
@@ -115,7 +115,7 @@ export default class SlideshowPhoto extends HTMLElement {
           img.className = '';
           
         }
-      });
+     // });
        
       
       

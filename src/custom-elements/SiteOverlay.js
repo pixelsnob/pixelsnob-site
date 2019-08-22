@@ -6,8 +6,8 @@ template.innerHTML = `
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background: rgba(0, 0, 0, 1);
   display: none;
   opacity: 0;
