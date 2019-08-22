@@ -15,10 +15,13 @@ template.innerHTML = `
   outline: none !important;
 }
 :host(.dimmed) {
-  opacity: 0.4;
+  opacity: 0.6;
 }
 :host(.dimmed:hover) {
-  opacity: 0.6;
+  opacity: 0.4;
+}
+:host(.dimmed:active) {
+  opacity: 0.8;
 }
 span {
   opacity: 0;
