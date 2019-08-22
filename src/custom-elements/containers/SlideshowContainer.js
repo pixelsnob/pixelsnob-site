@@ -16,7 +16,7 @@ customElementsDefineFromArray([
   [ 'slideshow-photos', SlideshowPhotos ],
   [ 'slideshow-photo', SlideshowPhoto ],//
   [ 'slideshow-progress-container', SlideshowProgressContainer ],
-  [ 'photos-list-nav-container', PhotosListNavContainer ],
+  [ 'photos-list-nav-container', PhotosListNavContainer ]
 ]);
 
 
