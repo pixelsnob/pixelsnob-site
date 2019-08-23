@@ -1,5 +1,5 @@
 
-//import touch from '../touch';
+import { customElementsDefine } from '../customElements';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -32,8 +32,7 @@ template.innerHTML = `
 </div>
 `;
 
-export default class PhotosListNav extends HTMLElement {
-
+class PhotosListNav extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'photos', 'current-photo-id' ];
@@ -101,10 +100,15 @@ export default class PhotosListNav extends HTMLElement {
     $photosListPhotos.forEach($photo => {
       if ($photo.photo && $photo.photo.id === this.currentPhotoId) {
         const $photosListContainer = this.shadowRoot.querySelector('.photos-list-container');
-        $photosListContainer.scrollTo(0, $photo.offsetTop -  (this.offsetHeight / 2) + ($photo.offsetHeight / 2));
+        //$photosListContainer.scrollTo(0, $photo.offsetTop -  (this.offsetHeight / 2) + ($photo.offsetHeight / 2));
 
       }
     });
 
   }  
 }
+
+customElementsDefine('photos-list-nav', PhotosListNav, template);
+
+export default PhotosListNav;
+

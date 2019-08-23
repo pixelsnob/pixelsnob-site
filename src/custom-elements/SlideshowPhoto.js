@@ -1,4 +1,5 @@
 
+import { customElementsDefine } from '../customElements';
 import preloadImage from '../preloadImage';
 
 const template = document.createElement('template');
@@ -36,9 +37,10 @@ img.current {
 }
 </style>
 <img/>
+
 `;
 
-export default class SlideshowPhoto extends HTMLElement {
+class SlideshowPhoto extends HTMLElement {
 
 
   static get observedAttributes() {
@@ -123,3 +125,8 @@ export default class SlideshowPhoto extends HTMLElement {
  
   }
 }
+
+customElementsDefine('slideshow-photo', SlideshowPhoto, template);
+
+export default SlideshowPhoto;
+

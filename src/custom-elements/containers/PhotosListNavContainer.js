@@ -1,16 +1,12 @@
 
 import store from '../../store';
 import createObserver from '../../createObserver'
-import { customElementsDefineFromArray } from '../../customElements';
-import PhotosListNav from '../PhotosListNav.js';
+import { customElementsDefine } from '../../customElements';
+import '../PhotosListNav.js';
 
 import { setSlideshowPhotoId } from '../../actions';
 
-customElementsDefineFromArray([
-  [ 'photos-list-nav', PhotosListNav ]
-]);
-
-export default class PhotosListContainer extends HTMLElement {
+class PhotosListNavContainer extends HTMLElement {
 
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
@@ -41,3 +37,7 @@ export default class PhotosListContainer extends HTMLElement {
       this._storeUnsubscribe();
   }
 }
+
+customElementsDefine('photos-list-nav-container', PhotosListNavContainer);
+
+export default PhotosListNavContainer;

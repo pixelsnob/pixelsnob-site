@@ -2,16 +2,11 @@
 
 import store from '../../store';
 import { setSlideshowPhotoId, setSlideshowPhotoIdToPrevious, setSlideshowPhotoIdToNext, enableTouch } from '../../actions';// enable touch?
-import SlideshowNav from '../SlideshowNav.js';
-import SlideshowNavLink from '../SlideshowNavLink';
-import { customElementsDefineFromArray } from '../../customElements';
+import '../SlideshowNav.js';
+import '../SlideshowNavLink';
+import { customElementsDefine } from '../../customElements';
 
-customElementsDefineFromArray([
-  [ 'slideshow-nav', SlideshowNav ],
-  [ 'slideshow-nav-link', SlideshowNavLink ]
-]);
-
-export default class SlideshowNavContainer extends HTMLElement {
+class SlideshowNavContainer extends HTMLElement {
 
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
@@ -51,3 +46,7 @@ export default class SlideshowNavContainer extends HTMLElement {
     store.dispatch(setSlideshowPhotoId(null));
   };
 }
+
+export default SlideshowNavContainer;
+
+customElementsDefine('slideshow-nav-container', SlideshowNavContainer);

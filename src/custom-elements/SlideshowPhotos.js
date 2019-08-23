@@ -1,3 +1,5 @@
+import { customElementsDefine } from '../customElements';
+
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
@@ -15,7 +17,7 @@ template.innerHTML = `
 <div class="slideshow-photos-list"></div>
 `;
 
-export default class SlideshowPhotos extends HTMLElement {
+class SlideshowPhotos extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'photos', 'current-photo-id' ];
@@ -71,3 +73,8 @@ export default class SlideshowPhotos extends HTMLElement {
   }
 
 }
+
+customElementsDefine('slideshow-photos', SlideshowPhotos, template);
+
+export default SlideshowPhotos;
+

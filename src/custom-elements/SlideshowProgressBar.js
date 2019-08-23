@@ -1,3 +1,6 @@
+
+import { customElementsDefine } from '../customElements';
+
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
@@ -16,7 +19,7 @@ template.innerHTML = `
 </style>
 `;
 
-export default class SlideshowProgressBar extends HTMLElement {
+class SlideshowProgressBar extends HTMLElement {
   
   static get observedAttributes() {
     return [ 'current-index', 'list-length' ];
@@ -77,3 +80,8 @@ export default class SlideshowProgressBar extends HTMLElement {
   }
 
 }
+
+customElementsDefine('slideshow-progress-bar', SlideshowProgressBar, template);
+
+export default SlideshowProgressBar;
+

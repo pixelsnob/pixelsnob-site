@@ -1,3 +1,6 @@
+
+import { customElementsDefine } from '../customElements';
+
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
@@ -57,7 +60,7 @@ template.innerHTML = `
 </div>
 `;
 
-export default class SlideshowLayout extends HTMLElement {
+class SlideshowLayout extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'photos', 'current-photo-id' ];
@@ -68,3 +71,7 @@ export default class SlideshowLayout extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 }
+
+customElementsDefine('slideshow-layout', SlideshowLayout, template);
+
+export default SlideshowLayout;

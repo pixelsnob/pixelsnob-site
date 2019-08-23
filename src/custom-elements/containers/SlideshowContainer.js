@@ -1,24 +1,16 @@
 import store from '../../store';
 import createObserver from '../../createObserver';
-import { customElementsDefineFromArray } from '../../customElements';
-
+import { customElementsDefine } from '../../customElements';
 import { getSlideshowPhotos } from '../../selectors';
-import SlideshowLayout from '../SlideshowLayout';
 
-import SlideshowPhotos from '../SlideshowPhotos';
-import SlideshowPhoto from '../SlideshowPhoto';
-import SlideshowProgressContainer from './SlideshowProgressContainer';
-import PhotosListNavContainer from './PhotosListNavContainer';
+import '../SlideshowLayout';
+import '../SlideshowPhotos';
+import '../SlideshowPhoto';
+import './SlideshowProgressContainer';
+import './PhotosListNavContainer';
+import './SlideshowNavContainer';
+
 import debounce from 'lodash.debounce';
-
-customElementsDefineFromArray([
-  [ 'slideshow-layout', SlideshowLayout ],
-  [ 'slideshow-photos', SlideshowPhotos ],
-  [ 'slideshow-photo', SlideshowPhoto ],//
-  [ 'slideshow-progress-container', SlideshowProgressContainer ],
-  [ 'photos-list-nav-container', PhotosListNavContainer ]
-]);
-
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -30,7 +22,7 @@ template.innerHTML = `
 </slideshow-layout>
 `;
 
-export default class SlideshowContainer extends HTMLElement {
+class SlideshowContainer extends HTMLElement {
 
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
@@ -63,3 +55,7 @@ export default class SlideshowContainer extends HTMLElement {
   }
 
 }
+
+customElementsDefine('slideshow-container', SlideshowContainer, template);
+
+export default SlideshowContainer;

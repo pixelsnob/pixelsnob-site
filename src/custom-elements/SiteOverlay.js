@@ -1,4 +1,6 @@
 
+import { customElementsDefine } from '../customElements';
+
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
@@ -24,7 +26,7 @@ template.innerHTML = `
 <slot name="overlay-content"></slot>
 `;
 
-export default class SiteOverlay extends HTMLElement {
+class SiteOverlay extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'visible' ];
@@ -64,3 +66,8 @@ export default class SiteOverlay extends HTMLElement {
     
   }
 }
+
+customElementsDefine('site-overlay', SiteOverlay, template);
+
+export default SiteOverlay;
+

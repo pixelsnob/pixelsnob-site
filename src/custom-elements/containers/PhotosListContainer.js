@@ -1,18 +1,13 @@
 
 import store from '../../store';
 import createObserver from '../../createObserver'
-import { customElementsDefineFromArray } from '../../customElements';
-import PhotosList from '../PhotosList.js';
-import PhotosListPhoto from '../PhotosListPhoto.js';
+import { customElementsDefine } from '../../customElements';
+import '../PhotosList.js';
+import '../PhotosListPhoto.js';
 
 import { setSlideshowPhotoId } from '../../actions';
 
-customElementsDefineFromArray([
-  [ 'photos-list', PhotosList ],
-  [ 'photos-list-photo', PhotosListPhoto ]
-]);
-
-export default class PhotosListContainer extends HTMLElement {
+class PhotosListContainer extends HTMLElement {
 
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
@@ -42,3 +37,8 @@ export default class PhotosListContainer extends HTMLElement {
     this._storeUnsubscribe();
   }
 }
+
+customElementsDefine('photos-list-container', PhotosListContainer);
+
+export default PhotosListContainer;
+

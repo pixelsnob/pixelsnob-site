@@ -1,12 +1,10 @@
 
-export const customElementsDefine = (name, customElement) => {
-  if (!customElements.get(name)) {
+export const customElementsDefine = (name, customElement, template) => {
+  if (window.customElements && !window.customElements.get(name)) {
+    if (template && window.ShadyCSS) {
+      //console.log('prep')
+      window.ShadyCSS.prepareTemplate(template, name);
+    }
     customElements.define(name, customElement);
   }
-}
-
-export const customElementsDefineFromArray = (customElementsArray) => {
-  customElementsArray.forEach(([ key, val ]) => {
-    customElementsDefine(key, val);
-  });
 }

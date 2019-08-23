@@ -1,4 +1,5 @@
 import preloadImage from '../preloadImage';
+import { customElementsDefine } from '../customElements';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -52,7 +53,7 @@ img {
 </span>
 `;
 
-export default class PhotosListPhoto extends HTMLElement {
+class PhotosListPhoto extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'photo', 'current-photo-id' ];
@@ -63,7 +64,6 @@ export default class PhotosListPhoto extends HTMLElement {
     this._loaded = false;
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.addEventListener('click', this._onClick.bind(this));
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
     this._observe();
   }
 
@@ -149,3 +149,7 @@ export default class PhotosListPhoto extends HTMLElement {
     this._intersectionObserver.unobserve(this);
   }
 }
+
+customElementsDefine('photos-list-photo', PhotosListPhoto, template);
+
+export default PhotosListPhoto;

@@ -1,13 +1,14 @@
 
+
 import photosJson from '../_data/flickr-photos.json';
 import store from './store';
 import { setSlideshowPhotos } from './actions';
 import { customElementsDefineFromArray } from './customElements';
 
-import SiteOverlayContainer from './custom-elements/containers/SiteOverlayContainer';
-import SlideshowContainer from './custom-elements/containers/SlideshowContainer';
-import SlideshowNavContainer from './custom-elements/containers/SlideshowNavContainer';
-import PhotosListContainer from './custom-elements/containers/PhotosListContainer';
+import './custom-elements/containers/SiteOverlayContainer';
+import './custom-elements/containers/SlideshowContainer';
+//import SlideshowNavContainer from './custom-elements/containers/SlideshowNavContainer';
+import './custom-elements/containers/PhotosListContainer';
 
 // Load photos json into store, add index #
 const photos = photosJson.map((photo, listIndex) => {
@@ -21,15 +22,15 @@ const photos = photosJson.map((photo, listIndex) => {
     dominantColor: photo.dominantColor
   };
 });
-
+//console.log(WebComponents)
 store.dispatch(setSlideshowPhotos(photos));
 
-customElementsDefineFromArray([
-  [ 'site-overlay-container', SiteOverlayContainer ],
-  [ 'slideshow-nav-container', SlideshowNavContainer ],
-  [ 'slideshow-container', SlideshowContainer ],
-  [ 'photos-list-container', PhotosListContainer ]
-]);
+// customElementsDefineFromArray([
+//   [ 'site-overlay-container', SiteOverlayContainer ],
+//   [ 'slideshow-nav-container', SlideshowNavContainer ],
+//   [ 'slideshow-container', SlideshowContainer ],
+//   [ 'photos-list-container', PhotosListContainer ]
+// ]);
 
 sessionStorage.setItem('loaded-images', []);
 

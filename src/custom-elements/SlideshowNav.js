@@ -2,6 +2,7 @@
 
 import touch from '../touch';
 import throttle from 'lodash.throttle';
+import { customElementsDefine } from '../customElements';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -35,7 +36,7 @@ template.innerHTML = `
   <slideshow-nav-link action="next"><a slot="nav-link">&#x2192;</a></slideshow-nav-link>
 </div>`;
 
-export default class SlideshowNav extends HTMLElement {
+class SlideshowNav extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'photo-loading' ];
@@ -106,3 +107,8 @@ export default class SlideshowNav extends HTMLElement {
     }
   }
 }
+
+customElementsDefine('slideshow-nav', SlideshowNav, template);
+
+export default SlideshowNav;
+

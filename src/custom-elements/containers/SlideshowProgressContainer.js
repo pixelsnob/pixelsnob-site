@@ -1,21 +1,15 @@
 
 import store from '../../store';
 import createObserver from '../../createObserver';
-import { customElementsDefineFromArray } from '../../customElements';
+import { customElementsDefine } from '../../customElements';
 
 import { setSlideshowPhotoId } from '../../actions';
 import { getSlideshowPhotos, getSlideshowPhotoByListIndex, getSlideshowPhoto } from '../../selectors';
-import SlideshowProgress from '../SlideshowProgress.js';
-import SlideshowProgressStats from '../SlideshowProgressStats';
-import SlideshowProgressBar from '../SlideshowProgressBar';
+import '../SlideshowProgress.js';
+import '../SlideshowProgressStats';
+import '../SlideshowProgressBar';
 
-customElementsDefineFromArray([
-  [ 'slideshow-progress', SlideshowProgress ],
-  [ 'slideshow-progress-stats', SlideshowProgressStats ],
-  [ 'slideshow-progress-bar', SlideshowProgressBar ]
-]);
-
-export default class SlideshowProgressContainer extends HTMLElement {
+class SlideshowProgressContainer extends HTMLElement {
 
   connectedCallback() {
     
@@ -64,3 +58,8 @@ export default class SlideshowProgressContainer extends HTMLElement {
     this._$progress.removeEventListener('click', this._onClick.bind(this));
   }
 }
+
+customElementsDefine('slideshow-progress-container', SlideshowProgressContainer);
+
+export default SlideshowProgressContainer;
+

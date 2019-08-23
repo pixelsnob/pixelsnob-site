@@ -12,7 +12,6 @@
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
-  
   </head>
   
   <body>
@@ -42,8 +41,12 @@
         
       </footer>
     </div>
-    <script src="{{ "/dist/main.js" | absolute_url }}" async></script>
 
-    
+    <script src="{{ "/assets/vendor/webcomponentsjs/webcomponents-loader.js" | absolute_url }}"></script>
+    <script>
+      window.WebComponents = window.WebComponents || {};
+      window.WebComponents.root = '/assets/vendor/webcomponentsjs/';
+    </script>
+    <script src="{{ "/dist/main.js" | absolute_url }}" defer></script>
   </body>
 </html>

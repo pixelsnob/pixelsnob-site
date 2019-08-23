@@ -4,6 +4,12 @@ module.exports = {
   optimization: {
    //splitChunks: { chunks: 'all' }
   },
+  entry: [
+    //"babel-polyfill",
+    //'@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js',
+    //'@webcomponents/webcomponentsjs/webcomponents-bundle.js',
+    './src/index.js'
+  ],
   output: {
     //chunkFilename: '[id].[hash].js',
     // https://reactjs.org/docs/cross-origin-errors.html
@@ -21,9 +27,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            //presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env'],
             "plugins": [
-              'syntax-dynamic-import'
+              //'transform-es2015-modules-commonjs'
+              //'syntax-dynamic-import'
              // "@babel/plugin-transform-classes",
              // "transform-class-properties"
             ]

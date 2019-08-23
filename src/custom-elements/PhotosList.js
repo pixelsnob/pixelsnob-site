@@ -1,6 +1,8 @@
 
-const listTemplate = document.createElement('template');
-listTemplate.innerHTML = `
+import { customElementsDefine } from '../customElements';
+
+const template = document.createElement('template');
+template.innerHTML = `
 <style>
 :host {
   margin: 0;
@@ -20,7 +22,7 @@ listTemplate.innerHTML = `
 </style>
 `;
 
-export default class PhotosList extends HTMLElement {
+class PhotosList extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'photos', 'current-photo-id' ];
@@ -72,7 +74,7 @@ export default class PhotosList extends HTMLElement {
 
   _updatePhotos() {
     this.shadowRoot.innerHTML = '';
-    this.shadowRoot.appendChild(listTemplate.content.cloneNode(true));
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
 
     this.photos.forEach(photo => {
       const $photo = document.createElement('photos-list-photo');
@@ -89,3 +91,8 @@ export default class PhotosList extends HTMLElement {
   }
 
 }
+
+customElementsDefine('photos-list', PhotosList, template);
+
+export default PhotosList;
+

@@ -1,3 +1,6 @@
+
+import { customElementsDefine } from '../customElements';
+
 const getTemplate = (currentIndex, numPhotos) => {
   const template = document.createElement('template');
   template.innerHTML = `
@@ -24,8 +27,7 @@ span {
   return template;
 };
 
-
-export default class SlideshowProgressStats extends HTMLElement {
+class SlideshowProgressStats extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'current-index', 'list-length' ];
@@ -81,3 +83,8 @@ export default class SlideshowProgressStats extends HTMLElement {
     this.shadowRoot.innerHTML = getTemplate(currentIndex + 1, listLength).innerHTML;
   }
 }
+
+customElementsDefine('slideshow-progress-stats', SlideshowProgressStats);
+
+export default SlideshowProgressStats;
+

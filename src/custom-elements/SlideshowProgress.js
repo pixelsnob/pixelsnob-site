@@ -1,4 +1,7 @@
 
+import { customElementsDefine } from '../customElements';
+import './SlideshowProgressBar';
+import './SlideshowProgressStats';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -26,7 +29,7 @@ template.innerHTML = `
 </div>
 `;
 
-export default class SlideshowProgress extends HTMLElement {
+class SlideshowProgress extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'current-index', 'list-length' ];
@@ -64,8 +67,9 @@ export default class SlideshowProgress extends HTMLElement {
             listLength: this.listLength,
             currentIndex: this.currentIndex
           }
-        });
-        this.shadowRoot.dispatchEvent(customEvent);
+        },);
+        //console.log(this.shadowRoot)
+        //this.shadowRoot.dispatchEvent(customEvent);
 
       break;
     }
@@ -85,3 +89,8 @@ export default class SlideshowProgress extends HTMLElement {
     }
   }
 }
+
+customElementsDefine('slideshow-progress', SlideshowProgress, template);
+
+export default SlideshowProgress;
+

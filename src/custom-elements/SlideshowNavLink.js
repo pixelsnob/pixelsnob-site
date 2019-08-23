@@ -1,4 +1,6 @@
 
+import { customElementsDefine } from '../customElements';
+
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
@@ -31,7 +33,7 @@ template.innerHTML = `
 <slot name="nav-link"></slot>
 `;
 
-export default class SlideshowNavLink extends HTMLElement {
+class SlideshowNavLink extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'action' ];
@@ -66,3 +68,7 @@ export default class SlideshowNavLink extends HTMLElement {
   }
 
 }
+
+customElementsDefine('slideshow-nav-link', SlideshowNavLink, template);
+
+export default SlideshowNavLink;
