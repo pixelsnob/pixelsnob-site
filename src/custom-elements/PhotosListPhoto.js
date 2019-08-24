@@ -14,15 +14,16 @@ template.innerHTML = `
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   outline: none !important;
+  
 }
 :host(.dimmed) {
-  opacity: 0.6;
+  opacity: 0.3;
 }
 :host(.dimmed:hover) {
-  opacity: 0.4;
+  opacity: 0.85;
 }
 :host(.dimmed:active) {
-  opacity: 0.8;
+  opacity: 0.95;
 }
 span {
   opacity: 0;

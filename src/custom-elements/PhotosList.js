@@ -14,9 +14,7 @@ template.innerHTML = `
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  @media (min-width: 768px) {
-    display: none;
-  }
+  
 }
 
 </style>

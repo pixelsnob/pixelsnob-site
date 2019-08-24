@@ -6,17 +6,20 @@ import './SlideshowProgressStats';
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
-
+:host {
+  width: 100%;
+}
 .progress-container {
   background-color: #444;
   width: 100%;
   height: 25px;
-  position: relative;
+  position: absolute;
   cursor: pointer;
-
+  z-index: 2000;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .progress-container:hover {
@@ -40,6 +43,8 @@ class SlideshowProgress extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.shadowRoot.addEventListener('click', this._onClick.bind(this));
 
+    this._$slideshowProgressBar = this.shadowRoot.querySelector('slideshow-progress-bar');
+    this._$slideshowProgressStats = this.shadowRoot.querySelector('slideshow-progress-stats');
   }
 
   get currentIndex() {
@@ -61,16 +66,12 @@ class SlideshowProgress extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'current-index':
+        this._$slideshowProgressBar.currentIndex = newValue;
+        this._$slideshowProgressStats.currentIndex = newValue;
+        break;
       case 'list-length':
-        const customEvent = new CustomEvent('progress-changed', {
-          detail: { 
-            listLength: this.listLength,
-            currentIndex: this.currentIndex
-          }
-        },);
-        //console.log(this.shadowRoot)
-        //this.shadowRoot.dispatchEvent(customEvent);
-
+        this._$slideshowProgressBar.listLength = newValue;
+        this._$slideshowProgressStats.listLength = newValue;
       break;
     }
   }

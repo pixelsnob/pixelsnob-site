@@ -5,24 +5,29 @@ const getTemplate = (currentIndex, numPhotos) => {
   const template = document.createElement('template');
   template.innerHTML = `
 <style>
-span {
-  width: 80px;
+.stats {
+  width: 100%;
   height: 100%;
 
   display: block;
   color: #fff;
-  display: block;
   line-height: 1.7;
-  position: relative;
+  
   font-size: 0.8rem;
   white-space: nowrap;
   text-align: center;
-  z-index: 2000;
-  margin-left: auto;
-  margin-right: auto;
+  
+  position: absolute;
+  left: calc(50% - 40px);
+  z-index: 4000;
+  width: 80px;
+  height: 100%;
+  
+  /* margin-left: auto;
+  margin-right: auto; */
 }
 </style>
-<span>${currentIndex} of ${numPhotos}</span>`;
+<span class="stats">${currentIndex} of ${numPhotos}</span>`;
 
   return template;
 };
@@ -35,12 +40,9 @@ class SlideshowProgressStats extends HTMLElement {
   
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
-    this._boundOnProgressChange = this._onProgressChange.bind(this);
-    this.getRootNode().addEventListener('progress-changed', this._boundOnProgressChange, true);
   }
 
   disconnectedCallback() {
-    this.getRootNode().removeEventListener('progress-changed', this._boundOnProgressChange, true);
   }
 
 

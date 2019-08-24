@@ -23,6 +23,7 @@ template.innerHTML = `
 .col-1-bottom {
   height: 95px;
   width: 100%; 
+  position: relative;
 }
 .col-2 {
   height: 100%;

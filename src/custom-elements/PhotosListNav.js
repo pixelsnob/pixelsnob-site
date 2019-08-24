@@ -100,7 +100,14 @@ class PhotosListNav extends HTMLElement {
     $photosListPhotos.forEach($photo => {
       if ($photo.photo && $photo.photo.id === this.currentPhotoId) {
         const $photosListContainer = this.shadowRoot.querySelector('.photos-list-container');
-        //$photosListContainer.scrollTo(0, $photo.offsetTop -  (this.offsetHeight / 2) + ($photo.offsetHeight / 2));
+
+        if (!$photosListContainer.scrollTo) {
+          setTimeout(() => $photo.scrollIntoView(), 200);
+          //console.log(this.currentPhotoId)
+          return null;
+        }
+        
+        $photosListContainer.scrollTo(0, $photo.offsetTop -  (this.offsetHeight / 2) + ($photo.offsetHeight / 2));
 
       }
     });

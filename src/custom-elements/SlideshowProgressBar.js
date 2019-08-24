@@ -7,10 +7,11 @@ template.innerHTML = `
 :host {
   position: absolute; 
   height: 100%;
-  
   width: 100%;
+  top: 0;
+  left: 0;
   background-color: #888;
-  z-index: 1000;
+  z-index: 3000;
   
 }
 :host-context(slideshow-progress:hover) {
@@ -28,13 +29,9 @@ class SlideshowProgressBar extends HTMLElement {
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
-    this._boundOnProgressChange = this._onProgressChange.bind(this);
-    this.getRootNode().addEventListener('progress-changed', this._boundOnProgressChange, true);
-
   }
 
   disconnectedCallback() {
-    this.getRootNode().removeEventListener('progress-changed', this._boundOnProgressChange, true);
   }
 
   get currentIndex() {
@@ -62,9 +59,7 @@ class SlideshowProgressBar extends HTMLElement {
     switch (name) {
       case 'current-index':
       case 'list-length':
-        if (oldValue !== newValue) {
-          this._update();
-        }
+        this._update();
       break;
     }
   }
