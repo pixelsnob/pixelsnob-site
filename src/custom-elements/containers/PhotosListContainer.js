@@ -5,7 +5,7 @@ import { customElementsDefine } from '../../customElements';
 import '../PhotosList.js';
 import '../PhotosListPhoto.js';
 
-import { setSlideshowPhotoId } from '../../actions';
+import { setCurrentSlideshowPhotoById } from '../../actions';
 
 class PhotosListContainer extends HTMLElement {
 
@@ -18,16 +18,17 @@ class PhotosListContainer extends HTMLElement {
 
     this._storeUnsubscribe = createObserver(store)(
       state => ({ slideshowPhotos: state.slideshowPhotos }),
-      (key, value) => {
-        if (key === 'slideshowPhotos') {
-          $photosList.photos = value;
-        }
+      (state) => {
+        console.log('?', state)
+        //if (key === 'slideshowPhotos') {
+        $photosList.photos = state.slideshowPhotos;
+        //}
       }
     );
   }
 
   _onPhotoSelect(ev) {
-    store.dispatch(setSlideshowPhotoId(ev.detail.id));
+    store.dispatch(setCurrentSlideshowPhotoById(ev.detail.id));
 
   }
 

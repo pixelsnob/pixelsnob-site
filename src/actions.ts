@@ -1,16 +1,16 @@
 
-
-export const setSlideshowPhotoId = (id) => {
+export const setCurrentSlideshowPhotoById = (id: number) => {
   return {
-    type: 'SET_SLIDESHOW_PHOTO_ID',
-    id
+    id,
+    type: 'SET_CURRENT_SLIDESHOW_PHOTO_BY_ID',
   };
 };
 
-export const setSlideshowPhotos = (photos) => {
+export const setSlideshowPhotos = (photos: SlideshowPhoto[]) => {
   return {
+    photos,
     type: 'SET_SLIDESHOW_PHOTOS',
-    photos
+    
   };
 };
 
@@ -26,10 +26,10 @@ export const setSlideshowPhotoIdToNext = () => {
   };
 };
 
-export const setImageLoaded = (imageSrc) => {
+export const setImageLoaded = (imageSrc: string) => {
   return {
-    type: 'ADD_LOADED_IMAGE',
-    imageSrc
+    imageSrc,
+    type: 'ADD_LOADED_IMAGE'
   };
 };
 

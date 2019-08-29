@@ -1,13 +1,12 @@
 
-import store from './store';
 import { setImageLoaded } from './actions';
+import store from './store';
 
-export default function(src, $img) {
-  return new Promise((resolve, reject) => {
-    const isImageLoaded = store.getState().loadedImages.find(image => image === src);
+export default function(src: string, $img: HTMLImageElement) {
+  return new Promise((resolve) => {
+    const isImageLoaded = store.getState().loadedImages.find(image => image.src === src);
 
     if (isImageLoaded) {
-      //console.log('loaded')
       resolve();
       $img.src = src;
     } else {

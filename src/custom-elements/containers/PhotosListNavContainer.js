@@ -4,7 +4,7 @@ import createObserver from '../../createObserver'
 import { customElementsDefine } from '../../customElements';
 import '../PhotosListNav.js';
 
-import { setSlideshowPhotoId } from '../../actions';
+import { setCurrentSlideshowPhotoById } from '../../actions';
 
 class PhotosListNavContainer extends HTMLElement {
 
@@ -16,19 +16,19 @@ class PhotosListNavContainer extends HTMLElement {
     this._$photosListNav.addEventListener('photos-list-photo-change', this._onPhotoChange.bind(this), true);
 
     this._storeUnsubscribe = createObserver(store)(
-      state => ({ slideshowPhotos: state.slideshowPhotos, slideshowPhotoId: state.slideshowPhotoId }),
+      state => ({ slideshowPhotos: state.slideshowPhotos/* , slideshowPhotoId: state.slideshowPhotoId */ }),
       (key, value) => {
         if (key === 'slideshowPhotos') {
           this._$photosListNav.photos = value;
-        } else if (key === 'slideshowPhotoId') {
-          this._$photosListNav.currentPhotoId = value;
+        // } else if (key === 'slideshowPhotoId') {
+        //   this._$photosListNav.currentPhotoId = value;
         }
       }
     );
   }
 
   _onPhotoChange(ev) {
-    store.dispatch(setSlideshowPhotoId(ev.detail.id));
+    store.dispatch(setCurrentSlideshowPhotoById(ev.detail.id));
 
   }
 

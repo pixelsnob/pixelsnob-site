@@ -3,7 +3,7 @@ import store from '../../store';
 import createObserver from '../../createObserver';
 import { customElementsDefine } from '../../customElements';
 
-import { setSlideshowPhotoId } from '../../actions';
+import { setCurrentSlideshowPhotoById } from '../../actions';
 import { getSlideshowPhotos, getSlideshowPhotoByListIndex, getSlideshowPhoto } from '../../selectors';
 import '../SlideshowProgress.js';
 import '../SlideshowProgressStats';
@@ -19,7 +19,7 @@ class SlideshowProgressContainer extends HTMLElement {
     this._$progress.addEventListener('progress-update-photo-by-index', this._updatePhotoByIndex.bind(this));
 
     this._storeUnsubscribe = createObserver(store)(
-      state => ({ slideshowPhotoId: state.slideshowPhotoId, slideshowPhotos: state.slideshowPhotos }),
+      state => ({ /* slideshowPhotoId: state.slideshowPhotoId,  */slideshowPhotos: state.slideshowPhotos }),
       (key, value) => {
         this._updateProgress();
       }
@@ -48,7 +48,7 @@ class SlideshowProgressContainer extends HTMLElement {
     if (slideshowPhotos && ev.detail.photoListIndex) {
       const photo = getSlideshowPhotoByListIndex({ ...store.getState(), listIndex: ev.detail.photoListIndex });
       if (photo) {
-        store.dispatch(setSlideshowPhotoId(photo.id));
+        store.dispatch(setCurrentSlideshowPhotoById(photo.id));
       }
     }
   }

@@ -28,7 +28,7 @@ class SlideshowContainer extends HTMLElement {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this._storeUnsubscribe = createObserver(store)(
-      state => ({ slideshowPhotos: state.slideshowPhotos, slideshowPhotoId: state.slideshowPhotoId }),
+      state => ({ slideshowPhotos: state.slideshowPhotos/* , slideshowPhotoId: state.slideshowPhotoId */ }),
       debounce(this._onSlideshowStateChange.bind(this), 60, { leading: true })
     );
   }

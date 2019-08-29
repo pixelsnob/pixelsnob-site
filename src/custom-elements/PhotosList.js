@@ -63,6 +63,7 @@ class PhotosList extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
       case 'photos':
+        //console.log(name, oldValue === newValue);
         this._updatePhotos();
       case 'current-photo-id':
         this._updateCurrentPhotoId();
@@ -73,7 +74,6 @@ class PhotosList extends HTMLElement {
   _updatePhotos() {
     this.shadowRoot.innerHTML = '';
     this.shadowRoot.appendChild(template.content.cloneNode(true));
-
     this.photos.forEach(photo => {
       const $photo = document.createElement('photos-list-photo');
       this.shadowRoot.appendChild($photo);

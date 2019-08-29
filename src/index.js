@@ -3,7 +3,7 @@
 import photosJson from '../_data/flickr-photos.json';
 import store from './store';
 import { setSlideshowPhotos } from './actions';
-import { customElementsDefineFromArray } from './customElements';
+//import { customElementsDefineFromArray } from './customElements';
 
 import './custom-elements/containers/SiteOverlayContainer';
 import './custom-elements/containers/SlideshowContainer';
@@ -13,7 +13,7 @@ import './custom-elements/containers/PhotosListContainer';
 // Load photos json into store, add index #
 const photos = photosJson.map((photo, listIndex) => {
   return {
-    id: String(photo.id),
+    id: Number(photo.id),
     listIndex,/// use indexOf instead
     src: photo.url_o,
     src_small: photo.url_s,
@@ -32,7 +32,7 @@ store.dispatch(setSlideshowPhotos(photos));
 //   [ 'photos-list-container', PhotosListContainer ]
 // ]);
 
-sessionStorage.setItem('loaded-images', []);
+//sessionStorage.setItem('loaded-images', []);
 
 
 
@@ -45,6 +45,6 @@ sessionStorage.setItem('loaded-images', []);
 //   store.dispatch(setSlideshowPhotos(tmpPhotos));
 // }, 4000);
 
-// store.subscribe(() => {
-//   //console.log(store.getState().slideshowPhotoId);
-// });
+store.subscribe(() => {
+  console.log('state update', store.getState());
+});

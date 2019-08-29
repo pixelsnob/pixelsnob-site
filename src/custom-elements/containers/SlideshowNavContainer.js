@@ -1,7 +1,7 @@
 
 
 import store from '../../store';
-import { setSlideshowPhotoId, setSlideshowPhotoIdToPrevious, setSlideshowPhotoIdToNext, enableTouch } from '../../actions';// enable touch?
+import { setCurrentSlideshowPhotoById, setSlideshowPhotoIdToPrevious, setSlideshowPhotoIdToNext, enableTouch } from '../../actions';// enable touch?
 import '../SlideshowNav.js';
 import '../SlideshowNavLink';
 import { customElementsDefine } from '../../customElements';
@@ -43,7 +43,7 @@ class SlideshowNavContainer extends HTMLElement {
   };
 
   close() {
-    store.dispatch(setSlideshowPhotoId(null));
+    store.dispatch(setCurrentSlideshowPhotoById(null));
   };
 }
 
