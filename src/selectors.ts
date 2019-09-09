@@ -12,6 +12,12 @@ export const getSlideshowPhoto = createSelector([
   return slideshowPhotos.find(photo => photo.id === slideshowPhotoId);
 });
 
+export const getSlideshowPhotoByListIndex = (listIndex: number) => createSelector([
+  slideshowPhotosSelector
+], (slideshowPhotos: SlideshowPhoto[]) => {
+  return slideshowPhotos[0];///////
+});
+
 export const getPreviousSlideshowPhoto = createSelector([
   slideshowPhotosSelector,
   currentSlideshowPhotoSelector

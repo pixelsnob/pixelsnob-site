@@ -33,39 +33,44 @@ template.innerHTML = `
 <slot name="nav-link"></slot>
 `;
 
-class SlideshowNavLink extends HTMLElement {
 
+class SlideshowNavLink extends HTMLElement {
+  
   static get observedAttributes() {
     return [ 'action' ];
   }
   
-  connectedCallback() {
+  private actionValue: string = '';
+
+  public connectedCallback() {
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
-    this.addEventListener('click', this._onClick.bind(this));
+    this.shadowRoot!.appendChild(template.content.cloneNode(true));
+    this.addEventListener('click', this.onClick.bind(this));
    
-  }  
-
-  get action() {
-    return this.getAttribute('action');
   }
 
-  set action(action) {
-    this.setAttribute('action', action);
+  public disconnectedCallback() {
+    this.removeEventListener('click', this.onClick.bind(this));
   }
 
-  _onClick(ev) {
+  get action(): string {
+    return this.actionValue;
+  }
+
+  set action(value: string) {
+    this.actionValue = value;
+  }
+
+  private onClick(ev: MouseEvent) {
     ev.preventDefault();
     const customEvent = new CustomEvent('nav-action', { detail: { 
-      action: this.action
+      action: this.actionValue
     }})
     this.dispatchEvent(customEvent);
 
   };
 
-  disconnectedCallback() {
-    this.removeEventListener('click', this._onClick.bind(this));
-  }
+
 
 }
 

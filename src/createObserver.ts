@@ -1,10 +1,10 @@
 
-export default (store: Store) => (selector: (state: State) => {}, onChange: (state: State | {}) => {}) => {
-  let currentState: State | {} = {};
+export default (store: Store) => (selector: (state: State) => {}, onChange: (state: State) => void): () => void => {
+  let currentState: State;
   return store.subscribe(() => {
-    const nextState: State  | {} = selector(store.getState());
+    const nextState: State | {} = selector(store.getState());
     if (JSON.stringify(currentState) !== JSON.stringify(nextState)) {
-      currentState = nextState;
+      currentState = nextState as State;
       onChange(currentState);
     }
   })

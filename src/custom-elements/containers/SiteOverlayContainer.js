@@ -14,12 +14,9 @@ class SiteOverlayContainer extends HTMLElement {
     this.shadowRoot.appendChild($siteOverlay);
 
     this._storeUnsubscribe = createObserver(store)(
-      state => ({ overlayShow: state.overlayShow }),
-      (key, value) => {
-        if (key !== 'overlayShow') {
-          return false;
-        }
-        if (value) {
+      state => ({ showOverlay: state.showOverlay }),
+      (state) => {
+        if (state.showOverlay) {
           $siteOverlay.visible = { value: true };
           document.body.classList.add('no-scroll');
         } else {

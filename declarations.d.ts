@@ -23,11 +23,32 @@ interface State {
   readonly loadedImages: LoadedImage[];
   readonly slideshowPhotos: SlideshowPhoto[];
   readonly touchEnabled: boolean;
+  readonly showOverlay: boolean;
+}
+
+interface StateConfig {
+  readonly currentSlideshowPhoto?: SlideshowPhoto;
+  readonly loadedImages?: LoadedImage[];
+  readonly slideshowPhotos?: SlideshowPhoto[];
+  readonly touchEnabled?: boolean;
+  readonly showOverlay?: boolean;
 }
 
 interface Store {
-  readonly subscribe: (callback: () => void) => {};
+  readonly subscribe: (callback: () => void) => () => void;
   readonly getState: () => State;
   readonly dispatch: (action: object) => {}; // action type?
 }
 
+declare module 'lodash.debounce';
+declare module 'lodash.throttle';
+declare module 'customElements';
+
+// declare module 'SlideshowPhotos';
+// declare module SlideshowPhotos {
+
+// }
+
+// interface customElement extends FunctionConstructor {
+
+// }

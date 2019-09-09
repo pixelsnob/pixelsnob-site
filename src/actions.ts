@@ -1,5 +1,5 @@
 
-export const setCurrentSlideshowPhotoById = (id: number) => {
+export const setCurrentSlideshowPhotoById = (id: number | null) => {
   return {
     id,
     type: 'SET_CURRENT_SLIDESHOW_PHOTO_BY_ID',
@@ -33,8 +33,20 @@ export const setImageLoaded = (imageSrc: string) => {
   };
 };
 
-export const enableTouch = () => {
+export const showOverlay = () => {
   return {
-    type: 'ENABLE_TOUCH'
+    type: 'SHOW_OVERLAY'
   };
 };
+
+export const hideOverlay = () => {
+  return {
+    type: 'HIDE_OVERLAY'
+  };
+};
+
+// export const enableTouch = () => {
+//   return {
+//     type: 'ENABLE_TOUCH'
+//   };
+// };

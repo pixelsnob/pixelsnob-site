@@ -1,8 +1,9 @@
-import { getNextSlideshowPhoto, getPreviousSlideshowPhoto, getSlideshowPhoto } from './selectors';
+import { getNextSlideshowPhoto, getPreviousSlideshowPhoto } from './selectors';
 
 const defaultState: State = {
   currentSlideshowPhoto: null,
   loadedImages: [],
+  showOverlay: false,
   slideshowPhotos: [],
   touchEnabled: false
 };
@@ -14,12 +15,7 @@ function appReducer(state: State = defaultState, action: any) {
     case 'SET_SLIDESHOW_PHOTOS': {
       
       if (action.photos) {
-        if (action.photos.find((photo: SlideshowPhoto) => state.currentSlideshowPhoto && photo.id === state.currentSlideshowPhoto.id)) {
-          return { ...state, slideshowPhotos: action.photos };
-        } else {
-          // Current photo is no longer in photos list: close slideshow
-          return { ...state, slideshowPhotos: action.photos, overlayShow: false };
-        }
+        return { ...state, slideshowPhotos: action.photos };
       }
       return state;
     }
@@ -29,10 +25,10 @@ function appReducer(state: State = defaultState, action: any) {
         const currentSlideshowPhoto = state.slideshowPhotos.length ?
           state.slideshowPhotos.find((photo) => photo.id === action.id) : null;
         if (currentSlideshowPhoto) {
-          return { ...state, overlayShow: true, currentSlideshowPhoto };
+          return { ...state, /* overlayShow: true,  */currentSlideshowPhoto };
         }
       }
-      return { ...state, overlayShow: false, currentSlideshowPhoto: null };
+      return { ...state, /* overlayShow: false, */ currentSlideshowPhoto: null };
     }
 
     
@@ -63,6 +59,14 @@ function appReducer(state: State = defaultState, action: any) {
         return { ...state, loadedImages: [ ...state.loadedImages, action.imageSrc ] };
       }
       return state;
+    }
+
+    case 'SHOW_OVERLAY': {
+      return { ...state, showOverlay: true };
+    }
+    
+    case 'HIDE_OVERLAY': {
+      return { ...state, showOverlay: false };
     }
 
     // case 'ENABLE_TOUCH': {

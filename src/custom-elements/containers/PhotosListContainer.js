@@ -2,8 +2,8 @@
 import store from '../../store';
 import createObserver from '../../createObserver'
 import { customElementsDefine } from '../../customElements';
-import '../PhotosList.js';
-import '../PhotosListPhoto.js';
+import '../PhotosList';
+import '../PhotosListPhoto';
 
 import { setCurrentSlideshowPhotoById } from '../../actions';
 
@@ -15,21 +15,16 @@ class PhotosListContainer extends HTMLElement {
     this.shadowRoot.appendChild($photosList);
     $photosList.photos = store.getState().slideshowPhotos;
     $photosList.shadowRoot.addEventListener('photos-list-photo-click', this._onPhotoSelect.bind(this), true);
-
     this._storeUnsubscribe = createObserver(store)(
       state => ({ slideshowPhotos: state.slideshowPhotos }),
       (state) => {
-        console.log('?', state)
-        //if (key === 'slideshowPhotos') {
         $photosList.photos = state.slideshowPhotos;
-        //}
       }
     );
   }
 
   _onPhotoSelect(ev) {
     store.dispatch(setCurrentSlideshowPhotoById(ev.detail.id));
-
   }
 
   disconnectedCallback() {

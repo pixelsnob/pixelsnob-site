@@ -1,8 +1,9 @@
 
 
-import touch from '../touch';
+import { component } from '../decorators';
+
 import throttle from 'lodash.throttle';
-import { customElementsDefine } from '../customElements';
+import touch from '../touch';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -36,31 +37,38 @@ template.innerHTML = `
   <slideshow-nav-link action="next"><a slot="nav-link">&#x2192;</a></slideshow-nav-link>
 </div>`;
 
-class SlideshowNav extends HTMLElement {
+@component('slideshow-nav', template)
+export default class SlideshowNavComponent extends HTMLElement {
 
-  static get observedAttributes() {
-    return [ 'photo-loading' ];
+  private boundOnKeydown: (ev: Event) => {};
+  private boundOnNavAction: (ev: Event) => {};
+  private removeTouch: any;
+
+  constructor() {
+    super();
+    this.boundOnKeydown = throttle(this._onKeydown.bind(this), 50);
+    this.boundOnNavAction = throttle(this._onNavActon.bind(this), 50);
+    this.removeTouch = null;
   }
 
-  connectedCallback() {
+  public connectedCallback() {
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
-    this._removeTouch = touch(document, this._onTouch.bind(this));
-    this._boundOnKeydown = throttle(this._onKeydown.bind(this), 50);
-    this._boundOnNavAction = throttle(this._onNavActon.bind(this), 50);
-    document.addEventListener('keydown', this._boundOnKeydown);
-    this.shadowRoot.addEventListener('nav-action', this._boundOnNavAction, true);
+    this.shadowRoot!.appendChild(template.content.cloneNode(true));
+    this.removeTouch = touch(document.body, this._onTouch.bind(this));
+    document.addEventListener('keydown', this.boundOnKeydown);
+    this.shadowRoot!.addEventListener('nav-action', this.boundOnNavAction, true);
   }  
 
-  disconnectedCallback() {
-    document.removeEventListener('keydown', this._boundKeydown);
-    this.shadowRoot.removeEventListener('nav-action', this._boundOnNavAction, true);
-    this.shadowRoot.removeEventListener('keydown', this._boundOnKeydown, true);
-
-    this._removeTouch();
+  public disconnectedCallback() {
+    document.removeEventListener('keydown', this.boundOnKeydown);
+    this.shadowRoot!.removeEventListener('nav-action', this.boundOnNavAction, true);
+    this.shadowRoot!.removeEventListener('keydown', this.boundOnKeydown, true);
+    if (this.removeTouch) {
+      this.removeTouch();
+    }
   }
 
-  _onNavActon(ev) {
+  private _onNavActon(ev: CustomEvent) {
     switch(ev.detail.action) {
       case 'previous':
         this._dispatchNavActionEvent('previous');
@@ -74,14 +82,13 @@ class SlideshowNav extends HTMLElement {
     }
   }
   
-
-  _dispatchNavActionEvent(action) {
+  private _dispatchNavActionEvent(action: string) {
     const customEvent = new CustomEvent('nav-action', { detail: { action }});
     this.dispatchEvent(customEvent);
   }
 
-  _onKeydown(evt) {    
-    switch(evt.keyCode) {
+  private _onKeydown(ev: KeyboardEvent) {    
+    switch(ev.keyCode) {
       case 37:
       case 38:
         this._dispatchNavActionEvent('previous');
@@ -96,7 +103,7 @@ class SlideshowNav extends HTMLElement {
     }
   }
 
-  _onTouch(touchEventName) {
+  private _onTouch(touchEventName: string) {
     switch (touchEventName) {
       case 'left':
         this._dispatchNavActionEvent('next');
@@ -107,8 +114,3 @@ class SlideshowNav extends HTMLElement {
     }
   }
 }
-
-customElementsDefine('slideshow-nav', SlideshowNav, template);
-
-export default SlideshowNav;
-

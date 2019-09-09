@@ -1,7 +1,7 @@
 
 import { customElementsDefine } from '../customElements';
 
-const getTemplate = (currentIndex, numPhotos) => {
+const getTemplate = (currentIndex: number, numPhotos: number) => {
   const template = document.createElement('template');
   template.innerHTML = `
 <style>
@@ -38,51 +38,55 @@ class SlideshowProgressStats extends HTMLElement {
     return [ 'current-index', 'list-length' ];
   }
   
-  connectedCallback() {
+  public connectedCallback() {
     this.attachShadow({ mode: 'open' });
   }
 
-  disconnectedCallback() {
+  get currentIndex(): number {
+    const value = this.getAttribute('current-index');
+    if (!isNaN(Number(value))) {
+      return Number(value);
+    }
+    return 0;
   }
 
-
-  get currentIndex() {
-    return this.getAttribute('current-index');
+  set currentIndex(value: number) {
+    this.setAttribute('current-index', '' + value);
   }
 
-  set currentIndex(value) {
-    this.setAttribute('current-index', value);
+  get listLength(): number {
+    const value = this.getAttribute('list-length');
+    if (!isNaN(Number(value))) {
+      return Number(value);
+    }
+    return 0;
   }
 
-  get listLength() {
-    return this.getAttribute('list-length');
+  set listLength(value: number) {
+    this.setAttribute('list-length', '' + value);
   }
 
-  set listLength(value) {
-    this.setAttribute('list-length', value);
-  }
-
-  _onProgressChange(evt) {
-    this.currentIndex = evt.detail.currentIndex;
-    this.listLength = evt.detail.listLength;
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
+  public attributeChangedCallback(name: string, oldValue: any, newValue: any) {
     switch (name) {
       case 'current-index':
       case 'list-length':
-        this._update();
+        this.update();
       break;
     }
   }
 
-  _update() {
-    const currentIndex = Number(this.getAttribute('current-index'));
-    const listLength = Number(this.getAttribute('list-length'));
+  // private _onProgressChange(ev: CustomEvent) {
+  //   this.currentIndex = ev.detail.currentIndex;
+  //   this.listLength = ev.detail.listLength;
+  // }
+
+  private update() {
+    const currentIndex = this.currentIndex;
+    const listLength = this.listLength;
     if (isNaN(currentIndex) || isNaN(listLength)) {
       return null;
     }
-    this.shadowRoot.innerHTML = getTemplate(currentIndex + 1, listLength).innerHTML;
+    this.shadowRoot!.innerHTML = getTemplate(currentIndex + 1, listLength).innerHTML;
   }
 }
 
