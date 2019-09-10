@@ -24,7 +24,7 @@ export default class SlideshowProgressContainer extends HTMLElement {
     this.storeUnsubscribe = createObserver(store)(
       state => ({ slideshowPhotos: state.slideshowPhotos }),
       (state) => {
-        this.updateProgress(state);
+        this.updateProgress(state);////////////////////
       }
     );
   }
@@ -46,6 +46,7 @@ export default class SlideshowProgressContainer extends HTMLElement {
       listIndex = slideshowPhoto.listIndex;
       
     }
+    console.log(listIndex)////////////////
     this.$progress.currentIndex = listIndex;
     this.$progress.listLength = slideshowPhotos.length;
   }

@@ -54,17 +54,21 @@ export default class SlideshowNavLinkComponent extends HTMLElement {
   }
 
   get action(): string {
-    return this.actionValue;
+    const value = this.getAttribute('action');
+    if (value) {
+      return value;
+    }
+    return '';
   }
 
   set action(value: string) {
-    this.actionValue = value;
+    this.setAttribute('action', value);
   }
 
   private onClick(ev: MouseEvent) {
     ev.preventDefault();
     const customEvent = new CustomEvent('nav-action', { detail: { 
-      action: this.actionValue
+      action: this.action
     }})
     this.dispatchEvent(customEvent);
 
