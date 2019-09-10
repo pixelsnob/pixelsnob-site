@@ -1,24 +1,23 @@
 
 import createObserver from '../../createObserver';
-import { customElementsDefine } from '../../customElements';
-
+import { component } from '../../decorators';
 import store from '../../store';
 
 import { setCurrentSlideshowPhotoById } from '../../actions';
 import { getSlideshowPhoto, getSlideshowPhotoByListIndex, getSlideshowPhotos } from '../../selectors';
-import '../SlideshowProgress';
-import '../SlideshowProgressBar';
-import '../SlideshowProgressStats';
+// import '../SlideshowProgress';
+// import '../SlideshowProgressBar';
+// import '../SlideshowProgressStats';
 
 import SlideshowProgressComponent from '../SlideshowProgress';
 
-class SlideshowProgressContainer extends HTMLElement {
+@component('slideshow-progress-container')
+export default class SlideshowProgressContainer extends HTMLElement {
 
   private $progress: any;
   private storeUnsubscribe?: () => void;
 
   public connectedCallback() {
-    
     this.attachShadow({ mode: 'open' });
     this.$progress = document.createElement('slideshow-progress') as SlideshowProgressComponent;
     this.shadowRoot!.appendChild(this.$progress);
@@ -50,8 +49,8 @@ class SlideshowProgressContainer extends HTMLElement {
       listIndex = slideshowPhoto.listIndex;
       
     }
-    this.$progress.setAttribute('current-index', listIndex);
-    this.$progress.setAttribute('list-length', slideshowPhotos.length);
+    this.$progress.currentIndex = listIndex;
+    this.$progress.listLength = slideshowPhotos.length;
   }
 
   private updatePhotoByIndex = (ev: CustomEvent) => {
@@ -66,8 +65,3 @@ class SlideshowProgressContainer extends HTMLElement {
   }
 
 }
-
-customElementsDefine('slideshow-progress-container', SlideshowProgressContainer);
-
-export default SlideshowProgressContainer;
-

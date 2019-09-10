@@ -5,7 +5,6 @@ import { hideOverlay, showOverlay } from '../../actions';
 import store from '../../store';
 
 @component('slideshow-overlay-connector-container')
-
 class SlideshowOverlayConnectorContainer extends HTMLElement {
 
   private storeUnsubscribe?: () => void;

@@ -1,5 +1,5 @@
 
-import { customElementsDefine } from '../customElements';
+import { component } from '../decorators';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -26,48 +26,37 @@ template.innerHTML = `
 <slot name="overlay-content"></slot>
 `;
 
-class SiteOverlay extends HTMLElement {
+@component('site-overlay', template)
+export default class SiteOverlay extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'visible' ];
   }
   
-  connectedCallback() {
+  public connectedCallback() {
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.shadowRoot!.appendChild(template.content.cloneNode(true));
   }
 
-  get visible() {
-    const visible = JSON.parse(this.getAttribute('visible'));
-    if (visible.value) {
-      return visible.value;
-    }
+  get visible(): boolean {
+    const visible = this.getAttribute('visible');
+    return visible === '1';
   }
 
-  set visible(value) {
-    this.setAttribute('visible', JSON.stringify(value));
+  set visible(value: boolean) {
+    this.setAttribute('visible', value ? '1' : '0');
   }
 
-  attributeChangedCallback(name, oldValue, newValue) {
+  public attributeChangedCallback(name: string, oldValue: any, newValue: any) {
     switch (name) {
       case 'visible':
 
         if (this.visible) {
           this.classList.add('site-overlay-visible');
-
         } else {
           this.classList.remove('site-overlay-visible');
         }
       break;
     }
   }
-
-  disconnectedCallback() {
-    
-  }
 }
-
-customElementsDefine('site-overlay', SiteOverlay, template);
-
-export default SiteOverlay;
-

@@ -15,14 +15,13 @@ template.innerHTML = `
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  
 }
 
 </style>
 `;
 
 @component('photos-list', template)
-export default class PhotosList extends HTMLElement {
+export default class PhotosListComponent extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'photos', 'current-photo' ];

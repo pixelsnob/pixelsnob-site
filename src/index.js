@@ -4,20 +4,32 @@ import photosJson from '../_data/flickr-photos.json';
 import store from './store';
 import { setSlideshowPhotos } from './actions';
 
+import './custom-elements/PhotosList';
+import './custom-elements/PhotosListPhoto';
+
+import './custom-elements/containers/SlideshowProgressContainer';
+import './custom-elements/SlideshowProgress';
+import './custom-elements/SlideshowProgressBar';
+import './custom-elements/SlideshowProgressStats';
+
+import './custom-elements/containers/SlideshowNavContainer';
+import './custom-elements/SlideshowNavComponent';
+import './custom-elements/SlideshowNavLink';
+
 import './custom-elements/containers/SlideshowOverlayConnectorContainer';
 import './custom-elements/containers/SiteOverlayContainer';
+import './custom-elements/SiteOverlay';
+
 import './custom-elements/containers/SlideshowContainer';
 import './custom-elements/SlideshowPhotoComponent';
 import './custom-elements/SlideshowPhotosComponent';
 import './custom-elements/containers/PhotosListContainer';
-//import './custom-elements/containers/PhotosListNavContainer';
-import './custom-elements/containers/SlideshowNavContainer';
-// import './custom-elements/containers/SlideshowOverlayConnectorContainer';
-// import './custom-elements/containers/SlideshowProgressContainer';
 
-// import './custom-elements/SlideshowLayout';
-// import './custom-elements/SlideshowPhotosComponent';
-// import './custom-elements/SlideshowPhotoComponent';
+import './custom-elements/containers/PhotosListNavContainer';
+import './custom-elements/PhotosListNav';
+
+import './custom-elements/containers/SlideshowNavContainer';
+import './custom-elements/SlideshowLayout';
 
 // Load photos json into store, add index #
 const photos = photosJson.map((photo, listIndex) => {
@@ -31,20 +43,7 @@ const photos = photosJson.map((photo, listIndex) => {
     dominantColor: photo.dominantColor
   };
 });
-//console.log(WebComponents)
 store.dispatch(setSlideshowPhotos(photos));
-
-// customElementsDefineFromArray([
-//   [ 'site-overlay-container', SiteOverlayContainer ],
-//   [ 'slideshow-nav-container', SlideshowNavContainer ],
-//   [ 'slideshow-container', SlideshowContainer ],
-//   [ 'photos-list-container', PhotosListContainer ]
-// ]);
-
-//sessionStorage.setItem('loaded-images', []);
-
-
-
 
 // console.log(photos.length)
 
@@ -54,6 +53,6 @@ store.dispatch(setSlideshowPhotos(photos));
 //   store.dispatch(setSlideshowPhotos(tmpPhotos));
 // }, 4000);
 
-store.subscribe(() => {
+//store.subscribe(() => {
   //console.log('state update', store.getState());
-});
+//});

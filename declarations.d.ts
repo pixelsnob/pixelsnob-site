@@ -26,13 +26,13 @@ interface State {
   readonly showOverlay: boolean;
 }
 
-interface StateConfig {
-  readonly currentSlideshowPhoto?: SlideshowPhoto;
-  readonly loadedImages?: LoadedImage[];
-  readonly slideshowPhotos?: SlideshowPhoto[];
-  readonly touchEnabled?: boolean;
-  readonly showOverlay?: boolean;
-}
+// interface StateConfig {
+//   readonly currentSlideshowPhoto?: SlideshowPhoto;
+//   readonly loadedImages?: LoadedImage[];
+//   readonly slideshowPhotos?: SlideshowPhoto[];
+//   readonly touchEnabled?: boolean;
+//   readonly showOverlay?: boolean;
+// }
 
 interface Store {
   readonly subscribe: (callback: () => void) => () => void;

@@ -1,5 +1,6 @@
 
 import { customElementsDefine } from '../customElements';
+import { component } from '../decorators';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -29,22 +30,10 @@ template.innerHTML = `
   height: 100%;
   width: 100px;
   position: relative;
-  
-  
 }
 .col-2::-webkit-scrollbar { 
   display: none;  /* Safari and Chrome */
 }
-
-/* @media (max-width: 768px) {
-  .col-1 {
-    width: 100%;
-  }
-  .col-2 {
-    display: none;
-  }
-} */
-
 </style>
 <div class="col-1">
   <div class="col-1-top">
@@ -61,18 +50,15 @@ template.innerHTML = `
 </div>
 `;
 
-class SlideshowLayout extends HTMLElement {
+@component('slideshow-layout', template)
+export default class SlideshowLayout extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'photos', 'current-photo-id' ];
   }
 
-  connectedCallback() {
+  public connectedCallback() {
     this.attachShadow({ mode: 'open' });
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.shadowRoot!.appendChild(template.content.cloneNode(true));
   }
 }
-
-customElementsDefine('slideshow-layout', SlideshowLayout, template);
-
-export default SlideshowLayout;

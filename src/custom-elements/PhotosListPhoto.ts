@@ -56,7 +56,7 @@ img {
 `;
 
 @component('photos-list-photo', template)
-export default class PhotosListPhotoComponent extends HTMLElement {
+export default class PhotosListPhoto extends HTMLElement {
 
   private loaded: boolean = false;
   private intersectionObserver: IntersectionObserver | null = null;
@@ -124,7 +124,6 @@ export default class PhotosListPhotoComponent extends HTMLElement {
     }
   }
 
-
   private observe() {
     const intersectionObserverOptions = {
       rootMargin: '100px 0px 100px 0px',
@@ -140,7 +139,6 @@ export default class PhotosListPhotoComponent extends HTMLElement {
 
     this.intersectionObserver.observe(this);
   }
-
 
   private onClick(ev: Event) {
     ev.preventDefault();
