@@ -25,10 +25,10 @@ function appReducer(state: State = defaultState, action: any) {
         const currentSlideshowPhoto = state.slideshowPhotos.length ?
           state.slideshowPhotos.find((photo) => photo.id === action.id) : null;
         if (currentSlideshowPhoto) {
-          return { ...state, /* overlayShow: true,  */currentSlideshowPhoto };
+          return { ...state, currentSlideshowPhoto };
         }
       }
-      return { ...state, /* overlayShow: false, */ currentSlideshowPhoto: null };
+      return { ...state, currentSlideshowPhoto: null };
     }
 
     
@@ -68,10 +68,6 @@ function appReducer(state: State = defaultState, action: any) {
     case 'HIDE_OVERLAY': {
       return { ...state, showOverlay: false };
     }
-
-    // case 'ENABLE_TOUCH': {
-    //   return { ...state, touchEnabled: true };
-    // }
     
     default: {
       return state;

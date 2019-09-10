@@ -23,8 +23,6 @@ const getTemplate = (currentIndex: number, numPhotos: number) => {
   width: 80px;
   height: 100%;
   
-  /* margin-left: auto;
-  margin-right: auto; */
 }
 </style>
 <span class="stats">${currentIndex} of ${numPhotos}</span>`;
