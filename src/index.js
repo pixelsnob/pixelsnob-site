@@ -13,7 +13,7 @@ import './custom-elements/SlideshowProgressBar';
 import './custom-elements/SlideshowProgressStats';
 
 import './custom-elements/containers/SlideshowNavContainer';
-import './custom-elements/SlideshowNavComponent';
+import './custom-elements/SlideshowNav';
 import './custom-elements/SlideshowNavLink';
 
 import './custom-elements/containers/SlideshowOverlayConnectorContainer';
@@ -21,14 +21,15 @@ import './custom-elements/containers/SiteOverlayContainer';
 import './custom-elements/SiteOverlay';
 
 import './custom-elements/containers/SlideshowContainer';
-import './custom-elements/SlideshowPhotoComponent';
-import './custom-elements/SlideshowPhotosComponent';
+import './custom-elements/SlideshowPhoto';
+import './custom-elements/SlideshowPhotos';
+
+import './custom-elements/SlideshowPhotos';
 import './custom-elements/containers/PhotosListContainer';
 
 import './custom-elements/containers/PhotosListNavContainer';
 import './custom-elements/PhotosListNav';
 
-import './custom-elements/containers/SlideshowNavContainer';
 import './custom-elements/SlideshowLayout';
 
 // Load photos json into store, add index #

@@ -1,6 +1,6 @@
 
 import { component } from '../decorators';
-import SlideshowPhotoComponent from './SlideshowPhotoComponent';
+import SlideshowPhotoComponent from './SlideshowPhoto';
 
 const template = document.createElement('template');
 template.innerHTML = `

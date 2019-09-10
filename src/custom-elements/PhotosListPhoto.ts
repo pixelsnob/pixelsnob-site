@@ -56,7 +56,7 @@ img {
 `;
 
 @component('photos-list-photo', template)
-export default class PhotosListPhoto extends HTMLElement {
+export default class PhotosListPhotoComponent extends HTMLElement {
 
   private loaded: boolean = false;
   private intersectionObserver: IntersectionObserver | null = null;

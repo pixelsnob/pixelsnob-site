@@ -35,7 +35,7 @@ template.innerHTML = `
 `;
 
 @component('photos-list-nav', template)
-export default class PhotosListNav extends HTMLElement {
+export default class PhotosListNavComponent extends HTMLElement {
 
   private $photosList: PhotosListComponent | null = null;
   private scrollCurrentPhotoIntoView: boolean = false;

@@ -5,9 +5,6 @@ import store from '../../store';
 
 import { setCurrentSlideshowPhotoById } from '../../actions';
 import { getSlideshowPhoto, getSlideshowPhotoByListIndex, getSlideshowPhotos } from '../../selectors';
-// import '../SlideshowProgress';
-// import '../SlideshowProgressBar';
-// import '../SlideshowProgressStats';
 
 import SlideshowProgressComponent from '../SlideshowProgress';
 

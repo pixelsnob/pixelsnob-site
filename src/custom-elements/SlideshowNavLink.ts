@@ -1,5 +1,5 @@
 
-import { customElementsDefine } from '../customElements';
+import { component } from '../decorators';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -33,8 +33,8 @@ template.innerHTML = `
 <slot name="nav-link"></slot>
 `;
 
-
-class SlideshowNavLink extends HTMLElement {
+@component('slideshow-nav-link', template)
+export default class SlideshowNavLinkComponent extends HTMLElement {
   
   static get observedAttributes() {
     return [ 'action' ];
@@ -69,11 +69,5 @@ class SlideshowNavLink extends HTMLElement {
     this.dispatchEvent(customEvent);
 
   };
-
-
-
 }
 
-customElementsDefine('slideshow-nav-link', SlideshowNavLink, template);
-
-export default SlideshowNavLink;

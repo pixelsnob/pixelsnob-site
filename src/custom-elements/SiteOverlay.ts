@@ -27,7 +27,7 @@ template.innerHTML = `
 `;
 
 @component('site-overlay', template)
-export default class SiteOverlay extends HTMLElement {
+export default class SiteOverlayComponent extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'visible' ];

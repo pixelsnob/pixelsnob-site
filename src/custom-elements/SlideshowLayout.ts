@@ -1,5 +1,4 @@
 
-import { customElementsDefine } from '../customElements';
 import { component } from '../decorators';
 
 const template = document.createElement('template');
@@ -51,7 +50,7 @@ template.innerHTML = `
 `;
 
 @component('slideshow-layout', template)
-export default class SlideshowLayout extends HTMLElement {
+export default class SlideshowLayoutComponent extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'photos', 'current-photo-id' ];

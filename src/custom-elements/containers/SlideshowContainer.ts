@@ -3,7 +3,7 @@ import createObserver from '../../createObserver';
 import { component } from '../../decorators';
 import { getSlideshowPhotos } from '../../selectors';
 import store from '../../store';
-import SlideshowPhotosComponent from '../SlideshowPhotosComponent';
+import SlideshowPhotosComponent from '../SlideshowPhotos';
 
 const template = document.createElement('template');
 template.innerHTML = `

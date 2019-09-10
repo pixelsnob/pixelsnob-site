@@ -35,3 +35,5 @@ interface Store {
 declare module 'lodash.debounce';
 declare module 'lodash.throttle';
 declare module 'customElements';
+
+type PossiblyAbstractConstructor<T> = Function & { prototype: T };

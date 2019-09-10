@@ -21,7 +21,7 @@ template.innerHTML = `
 `;
 
 @component('slideshow-progress-bar', template)
-export default class SlideshowProgressBar extends HTMLElement {
+export default class SlideshowProgressBarComponent extends HTMLElement {
   
   static get observedAttributes() {
     return [ 'current-index', 'list-length' ];

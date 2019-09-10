@@ -1,7 +1,12 @@
-import { customElementsDefine } from './customElements';
 
 export function component(name: string, template: HTMLTemplateElement | null = null) {
-  return (constructor: Function) => {
-    customElementsDefine(name, constructor, template);
+  return (constructor: PossiblyAbstractConstructor<HTMLElement>) => {
+    if (window.customElements && !window.customElements.get(name)) {
+      if (template && window.ShadyCSS) {
+        window.ShadyCSS.prepareTemplate(template, name);
+      }
+      customElements.define(name, constructor);
+    }
   }
 }
+

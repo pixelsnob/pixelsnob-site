@@ -3,7 +3,7 @@
 import { setCurrentSlideshowPhotoById, setSlideshowPhotoIdToNext, setSlideshowPhotoIdToPrevious } from '../../actions';
 import { component } from '../../decorators';
 import store from '../../store';
-import SlideshowNavComponent from '../SlideshowNavComponent';
+import SlideshowNavComponent from '../SlideshowNav';
 import '../SlideshowNavLink';
 
 @component('slideshow-nav-container')

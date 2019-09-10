@@ -1,5 +1,5 @@
 
-import { customElementsDefine } from '../customElements';
+import { component } from '../decorators';
 
 const getTemplate = (currentIndex: number, numPhotos: number) => {
   const template = document.createElement('template');
@@ -30,7 +30,8 @@ const getTemplate = (currentIndex: number, numPhotos: number) => {
   return template;
 };
 
-class SlideshowProgressStats extends HTMLElement {
+@component('slideshow-progress-stats')
+export default class SlideshowProgressStatsComponent extends HTMLElement {
 
   static get observedAttributes() {
     return [ 'current-index', 'list-length' ];
@@ -87,8 +88,3 @@ class SlideshowProgressStats extends HTMLElement {
     this.shadowRoot!.innerHTML = getTemplate(currentIndex + 1, listLength).innerHTML;
   }
 }
-
-customElementsDefine('slideshow-progress-stats', SlideshowProgressStats);
-
-export default SlideshowProgressStats;
-
