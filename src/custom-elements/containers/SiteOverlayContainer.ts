@@ -1,7 +1,6 @@
 
 import createObserver from '../../createObserver';
 import { component } from '../../decorators';
-
 import store from '../../store';
 import SiteOverlayComponent from '../SiteOverlay';
 

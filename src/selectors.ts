@@ -1,7 +1,7 @@
 
 import { createSelector } from 'reselect';
 
-const slideshowPhotoIdSelector = (state: State) => state.currentSlideshowPhoto ? state.currentSlideshowPhoto.id : null;/////
+const slideshowPhotoIdSelector = (state: State) => state.currentSlideshowPhoto ? state.currentSlideshowPhoto.id : null;
 const slideshowPhotosSelector = (state: State) => state.slideshowPhotos;
 const currentSlideshowPhotoSelector = (state: State) => state.currentSlideshowPhoto;
 
@@ -15,21 +15,25 @@ export const getSlideshowPhoto = createSelector([
 export const getSlideshowPhotoByListIndex = (listIndex: number) => createSelector([
   slideshowPhotosSelector
 ], (slideshowPhotos: SlideshowPhoto[]) => {
-  return slideshowPhotos[0];///////
+  return slideshowPhotos[listIndex];
 });
 
 export const getPreviousSlideshowPhoto = createSelector([
   slideshowPhotosSelector,
   currentSlideshowPhotoSelector
 ], (slideshowPhotos: SlideshowPhoto[], currentSlideshowPhoto: SlideshowPhoto | null) => {
-  return slideshowPhotos.find(photo => currentSlideshowPhoto && photo.listIndex === currentSlideshowPhoto.listIndex - 1);
+  return slideshowPhotos.find(photo => 
+    currentSlideshowPhoto && photo.listIndex === currentSlideshowPhoto.listIndex - 1
+  );
 });
 
 export const getNextSlideshowPhoto = createSelector([
   slideshowPhotosSelector,
   currentSlideshowPhotoSelector
 ], (slideshowPhotos: SlideshowPhoto[], currentSlideshowPhoto: SlideshowPhoto | null) => {
-  return slideshowPhotos.find(photo => currentSlideshowPhoto && photo.listIndex === currentSlideshowPhoto.listIndex + 1);
+  return slideshowPhotos.find(photo =>
+    currentSlideshowPhoto && photo.listIndex === currentSlideshowPhoto.listIndex + 1
+  );
 });
 
 export const getSlideshowPhotos = createSelector([

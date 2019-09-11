@@ -62,7 +62,7 @@ export default class PhotosListPhotoComponent extends HTMLElement {
   private intersectionObserver: IntersectionObserver | null = null;
 
   static get observedAttributes() {
-    return [ 'photo', 'current-photo' ];
+    return [ 'photo', 'current-photo', 'scroll-current-photo-into-view' ];
   }
 
   public connectedCallback() {
@@ -101,6 +101,15 @@ export default class PhotosListPhotoComponent extends HTMLElement {
     this.setAttribute('current-photo', JSON.stringify(value));
   }
 
+  get scrollCurrentPhotoIntoView(): boolean {
+    const value = this.getAttribute('scroll-current-photo-into-view');
+    return value === '1';
+  }
+
+  set scrollCurrentPhotoIntoView(value: boolean) {
+    this.setAttribute('scroll-current-photo-into-view', value ? '1' : '0');
+  }
+
   public attributeChangedCallback(name: string, oldValue: any, newValue: any) {
     
     switch (name) {
@@ -113,12 +122,11 @@ export default class PhotosListPhotoComponent extends HTMLElement {
           this.loadImage(); 
         }
       break;
-      case 'current-photo-id'://////////////////////////////////////////
-        if (this.photo && newValue && newValue === this.photo.id) {
-          this.classList.remove('dimmed');
-
-        } else if (!isNaN(newValue)) {
-          this.classList.add('dimmed');
+      // Scroll into view if this is the current photo and `scrollCurrentPhotoIntoView` is set to true
+      case 'current-photo':
+      case 'scroll-current-photo-into-view':
+        if (this.currentPhoto && this.photo && this.currentPhoto.id === this.photo.id && this.scrollCurrentPhotoIntoView) {
+          this.scrollIntoView();
         }
       break;
     }

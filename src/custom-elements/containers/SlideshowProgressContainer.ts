@@ -1,11 +1,9 @@
 
+import { setCurrentSlideshowPhotoById } from '../../actions';
 import createObserver from '../../createObserver';
 import { component } from '../../decorators';
-import store from '../../store';
-
-import { setCurrentSlideshowPhotoById } from '../../actions';
 import { getSlideshowPhoto, getSlideshowPhotoByListIndex, getSlideshowPhotos } from '../../selectors';
-
+import store from '../../store';
 import SlideshowProgressComponent from '../SlideshowProgress';
 
 @component('slideshow-progress-container')
@@ -22,9 +20,9 @@ export default class SlideshowProgressContainer extends HTMLElement {
     this.$progress.addEventListener('progress-update-photo-by-index', this.updatePhotoByIndex.bind(this));
 
     this.storeUnsubscribe = createObserver(store)(
-      state => ({ slideshowPhotos: state.slideshowPhotos }),
+      state => ({ slideshowPhotos: state.slideshowPhotos, currentSlideshowPhoto: state.currentSlideshowPhoto }),
       (state) => {
-        this.updateProgress(state);////////////////////
+        this.updateProgress(state);
       }
     );
   }
@@ -41,12 +39,11 @@ export default class SlideshowProgressContainer extends HTMLElement {
     const slideshowPhotos: SlideshowPhoto[] = getSlideshowPhotos(state);
 
     let listIndex = 0;
-
+    
     if (slideshowPhoto) {
       listIndex = slideshowPhoto.listIndex;
-      
     }
-    console.log(listIndex)////////////////
+
     this.$progress.currentIndex = listIndex;
     this.$progress.listLength = slideshowPhotos.length;
   }

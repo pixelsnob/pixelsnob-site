@@ -6,7 +6,7 @@ module.exports = {
   },
   entry: [
     //"babel-polyfill",
-    './src/index.js'
+    './src/index'
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),

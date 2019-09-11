@@ -1,8 +1,7 @@
 
 
-import { component } from '../decorators';
-
 import throttle from 'lodash.throttle';
+import { component } from '../decorators';
 import touch from '../touch';
 
 const template = document.createElement('template');
@@ -71,18 +70,18 @@ export default class SlideshowNavComponent extends HTMLElement {
   private _onNavActon(ev: CustomEvent) {
     switch(ev.detail.action) {
       case 'previous':
-        this._dispatchNavActionEvent('previous');
+        this.dispatchNavActionEvent('previous');
         break;
       case 'next':
-        this._dispatchNavActionEvent('next');
+        this.dispatchNavActionEvent('next');
         break;
       case 'close':
-        this._dispatchNavActionEvent('close');
+        this.dispatchNavActionEvent('close');
         break;
     }
   }
   
-  private _dispatchNavActionEvent(action: string) {
+  private dispatchNavActionEvent(action: string) {
     const customEvent = new CustomEvent('nav-action', { detail: { action }});
     this.dispatchEvent(customEvent);
   }
@@ -91,14 +90,14 @@ export default class SlideshowNavComponent extends HTMLElement {
     switch(ev.keyCode) {
       case 37:
       case 38:
-        this._dispatchNavActionEvent('previous');
+        this.dispatchNavActionEvent('previous');
       break;
       case 39:
       case 40:
-        this._dispatchNavActionEvent('next');
+        this.dispatchNavActionEvent('next');
       break;
       case 27:
-        this._dispatchNavActionEvent('close');
+        this.dispatchNavActionEvent('close');
       break;
     }
   }
@@ -106,10 +105,10 @@ export default class SlideshowNavComponent extends HTMLElement {
   private _onTouch(touchEventName: string) {
     switch (touchEventName) {
       case 'left':
-        this._dispatchNavActionEvent('next');
+        this.dispatchNavActionEvent('next');
       break;
       case 'right':
-          this._dispatchNavActionEvent('previous');
+          this.dispatchNavActionEvent('previous');
         break;
     }
   }

@@ -1,10 +1,9 @@
 
+import { setCurrentSlideshowPhotoById } from '../../actions';
 import createObserver from '../../createObserver'
 import { component } from '../../decorators';
 import store from '../../store';
 import PhotosListComponent from '../PhotosList';
-
-import { setCurrentSlideshowPhotoById } from '../../actions';
 
 @component('photos-list-container')
 export default class PhotosListContainer extends HTMLElement {

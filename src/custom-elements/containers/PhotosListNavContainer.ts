@@ -1,14 +1,15 @@
+import { setCurrentSlideshowPhotoById } from '../../actions';
 import createObserver from '../../createObserver'
 import { component } from '../../decorators';
-import PhotosListNavComponent from '../PhotosListNav'
-
-import { setCurrentSlideshowPhotoById } from '../../actions';
 import store from '../../store';
+import PhotosListNavComponent from '../PhotosListNav'
 
 @component('photos-list-nav-container')
 export default class PhotosListNavContainer extends HTMLElement {
 
-  private storeUnsubscribe?: () => void;
+  private photosStoreUnsubscribe?: () => void;
+  private currentPhotoStoreUnsubscribe?: () => void;
+
   private $photosListNav?: PhotosListNavComponent;
 
   public connectedCallback() {
@@ -19,18 +20,28 @@ export default class PhotosListNavContainer extends HTMLElement {
     
     this.$photosListNav.addEventListener('photos-list-photo-change', this.onPhotoChange.bind(this), true);
 
-    this.storeUnsubscribe = createObserver(store)(
+    this.photosStoreUnsubscribe = createObserver(store)(
       state => ({ slideshowPhotos: state.slideshowPhotos }),
       (state) => {
         this.$photosListNav!.photos = state.slideshowPhotos;
+      }
+    );
+
+    this.currentPhotoStoreUnsubscribe = createObserver(store)(
+      state => ({ currentSlideshowPhoto: state.currentSlideshowPhoto }),
+      (state) => {
+        this.$photosListNav!.currentPhoto = state.currentSlideshowPhoto;
       }
     );
   }
 
   public disconnectedCallback() {
     this.$photosListNav!.removeEventListener('photos-list-photo-change', this.onPhotoChange.bind(this), true);
-    if (this.storeUnsubscribe) {
-      this.storeUnsubscribe();
+    if (this.photosStoreUnsubscribe) {
+      this.photosStoreUnsubscribe();
+    }
+    if (this.currentPhotoStoreUnsubscribe) {
+      this.currentPhotoStoreUnsubscribe();
     }
   }
 

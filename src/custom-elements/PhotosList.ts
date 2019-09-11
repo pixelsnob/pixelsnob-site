@@ -1,6 +1,7 @@
 
 import { component } from '../decorators';
 import PhotosListPhotoComponent from './PhotosListPhoto';
+import SlideshowPhotoComponent from './SlideshowPhoto';
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -24,13 +25,12 @@ template.innerHTML = `
 export default class PhotosListComponent extends HTMLElement {
 
   static get observedAttributes() {
-    return [ 'photos', 'current-photo' ];
+    return [ 'photos', 'current-photo', 'scroll-current-photo-into-view' ];
   }
 
   public connectedCallback() {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot!.addEventListener('photos-list-photo-click', this.photosListPhotoClick.bind(this), true);
-    
   }
 
   public disconnectedCallback() {
@@ -43,7 +43,6 @@ export default class PhotosListComponent extends HTMLElement {
       return JSON.parse(photos);
     }
     return [];
-    
   }
 
   set photos(value: SlideshowPhoto[]) {
@@ -62,12 +61,23 @@ export default class PhotosListComponent extends HTMLElement {
     this.setAttribute('current-photo', JSON.stringify(value));
   }
 
+  get scrollCurrentPhotoIntoView(): boolean {
+    const value = this.getAttribute('scroll-current-photo-into-view');
+    return value === '1';
+  }
+
+  set scrollCurrentPhotoIntoView(value: boolean) {
+    this.setAttribute('scroll-current-photo-into-view', value ? '1' : '0');
+  }
+
   public attributeChangedCallback(name: string, oldValue: any, newValue: any) {
     switch (name) {
       case 'photos':
+        this.initPhotos();
+      break;
+      case 'current-photo':
+      case 'scroll-current-photo-into-view':
         this.updatePhotos();
-      case 'current-photo-id':
-        this.updateCurrentPhoto();
       break;
     }
   }
@@ -77,7 +87,7 @@ export default class PhotosListComponent extends HTMLElement {
     this.dispatchEvent(customEvent);
   }
 
-  private updatePhotos() {
+  private initPhotos() {
     this.shadowRoot!.innerHTML = '';
     this.shadowRoot!.appendChild(template.content.cloneNode(true));
     this.photos.forEach(photo => {
@@ -85,14 +95,19 @@ export default class PhotosListComponent extends HTMLElement {
       this.shadowRoot!.appendChild($photo);
       $photo.photo = photo;
       $photo.currentPhoto = this.currentPhoto;
+      $photo.scrollCurrentPhotoIntoView = this.scrollCurrentPhotoIntoView;
     });
   }
 
-  private updateCurrentPhoto() {
-    const $photos = this.shadowRoot!.querySelectorAll('photos-list-photo') as NodeListOf<PhotosListPhotoComponent>;
-    $photos.forEach($photo => $photo.currentPhoto = this.currentPhoto);
-
+  private updatePhotos() {
+    if (!this.shadowRoot) {
+      return null;
+    }
+    const $photos = this.shadowRoot.querySelectorAll('photos-list-photo') as NodeListOf<PhotosListPhotoComponent>;
+    $photos.forEach(($photo => {
+      $photo.currentPhoto = this.currentPhoto;
+      $photo.scrollCurrentPhotoIntoView = this.scrollCurrentPhotoIntoView;
+    }));
   }
-
 }
 

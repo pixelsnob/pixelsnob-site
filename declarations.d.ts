@@ -19,6 +19,7 @@ interface LoadedImage {
 }
 
 interface State {
+  readonly [key: string]: any;
   readonly currentSlideshowPhoto: SlideshowPhoto | null;
   readonly loadedImages: LoadedImage[];
   readonly slideshowPhotos: SlideshowPhoto[];
@@ -35,5 +36,9 @@ interface Store {
 declare module 'lodash.debounce';
 declare module 'lodash.throttle';
 declare module 'customElements';
+
+// declare module "./_data/flickr-photos.json" {
+  
+// }
 
 type PossiblyAbstractConstructor<T> = Function & { prototype: T };

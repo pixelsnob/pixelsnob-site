@@ -38,13 +38,6 @@ img.current {
 
 `;
 
-// function configurable() {
-//   return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-//       //descriptor.configurable = value;
-//     console.log(propertyKey)
-//   };
-// }
-
 @component('slideshow-photo', template)
 export default class SlideshowPhotoComponent extends HTMLElement {
 

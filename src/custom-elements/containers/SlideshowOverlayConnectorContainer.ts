@@ -1,7 +1,6 @@
+import { hideOverlay, showOverlay } from '../../actions';
 import createObserver from '../../createObserver';
 import { component } from '../../decorators';
-
-import { hideOverlay, showOverlay } from '../../actions';
 import store from '../../store';
 
 @component('slideshow-overlay-connector-container')

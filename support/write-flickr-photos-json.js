@@ -98,8 +98,8 @@ connect().then(async function(flickr) {
   
       data.push({
         id: photo.id,
-        url_o: photo.url_o,
-        url_s: photo.url_s,
+        src_small: photo.url_s,
+        src: photo.url_o,
         date_taken: photoInfo.dates.taken,
         flickr_page_url: `https://www.flickr.com/photos/${config.user_id}/${photo.id}/in/dateposted-public/`,
         title: photo.title,
