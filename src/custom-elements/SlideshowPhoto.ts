@@ -104,6 +104,7 @@ export default class SlideshowPhotoComponent extends HTMLElement {
       img.className = '';
       return null;
     }
+    
     if (this.loaded) {
       img.className = 'current';
       return null;

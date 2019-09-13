@@ -45,15 +45,15 @@ export default class SlideshowNavComponent extends HTMLElement {
 
   constructor() {
     super();
-    this.boundOnKeydown = throttle(this._onKeydown.bind(this), 50);
-    this.boundOnNavAction = throttle(this._onNavActon.bind(this), 50);
+    this.boundOnKeydown = throttle(this.onKeydown.bind(this), 50);
+    this.boundOnNavAction = throttle(this.onNavActon.bind(this), 50);
     this.removeTouch = null;
   }
 
   public connectedCallback() {
     this.attachShadow({ mode: 'open' });
     this.shadowRoot!.appendChild(template.content.cloneNode(true));
-    this.removeTouch = touch(document.body, this._onTouch.bind(this));
+    this.removeTouch = touch(document.body, this.onTouch.bind(this));
     document.addEventListener('keydown', this.boundOnKeydown);
     this.shadowRoot!.addEventListener('nav-action', this.boundOnNavAction, true);
   }  
@@ -67,7 +67,7 @@ export default class SlideshowNavComponent extends HTMLElement {
     }
   }
 
-  private _onNavActon(ev: CustomEvent) {
+  private onNavActon(ev: CustomEvent) {
     switch(ev.detail.action) {
       case 'previous':
         this.dispatchNavActionEvent('previous');
@@ -86,7 +86,7 @@ export default class SlideshowNavComponent extends HTMLElement {
     this.dispatchEvent(customEvent);
   }
 
-  private _onKeydown(ev: KeyboardEvent) {    
+  private onKeydown(ev: KeyboardEvent) {    
     switch(ev.keyCode) {
       case 37:
       case 38:
@@ -102,7 +102,7 @@ export default class SlideshowNavComponent extends HTMLElement {
     }
   }
 
-  private _onTouch(touchEventName: string) {
+  private onTouch(touchEventName: string) {
     switch (touchEventName) {
       case 'left':
         this.dispatchNavActionEvent('next');

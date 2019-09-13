@@ -74,11 +74,6 @@ export default class SlideshowProgressStatsComponent extends HTMLElement {
     }
   }
 
-  // private _onProgressChange(ev: CustomEvent) {
-  //   this.currentIndex = ev.detail.currentIndex;
-  //   this.listLength = ev.detail.listLength;
-  // }
-
   private update() {
     const currentIndex = this.currentIndex;
     const listLength = this.listLength;

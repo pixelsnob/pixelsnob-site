@@ -59,6 +59,7 @@ img {
 export default class PhotosListPhotoComponent extends HTMLElement {
 
   private loaded: boolean = false;
+  private preventScrollOnClick: boolean = false;
   private intersectionObserver: IntersectionObserver | null = null;
 
   static get observedAttributes() {
@@ -113,6 +114,22 @@ export default class PhotosListPhotoComponent extends HTMLElement {
   public attributeChangedCallback(name: string, oldValue: any, newValue: any) {
     
     switch (name) {
+      case 'current-photo':
+        if (!this.scrollCurrentPhotoIntoView || !this.currentPhoto || !this.photo) {
+          this.classList.remove('dimmed');
+          break;
+        }
+        if (this.currentPhoto.id === this.photo.id) {
+          if (this.preventScrollOnClick) {
+            this.preventScrollOnClick = false;
+          } else {
+            requestAnimationFrame(() => this.scrollIntoView());
+          }
+          this.classList.remove('dimmed');
+        } else {
+          this.classList.add('dimmed');
+        }
+      break;
       case 'photo':
         // Use photo's dominant/average color as a placeholder until it loads
         if (this.photo && Array.isArray(this.photo.dominantColor) && this.photo.dominantColor.length === 3) {
@@ -120,13 +137,6 @@ export default class PhotosListPhotoComponent extends HTMLElement {
         }
         if (this.loaded && this.isConnected) {
           this.loadImage(); 
-        }
-      break;
-      // Scroll into view if this is the current photo and `scrollCurrentPhotoIntoView` is set to true
-      case 'current-photo':
-      case 'scroll-current-photo-into-view':
-        if (this.currentPhoto && this.photo && this.currentPhoto.id === this.photo.id && this.scrollCurrentPhotoIntoView) {
-          this.scrollIntoView();
         }
       break;
     }
@@ -149,6 +159,7 @@ export default class PhotosListPhotoComponent extends HTMLElement {
   }
 
   private onClick(ev: Event) {
+    this.preventScrollOnClick = true;
     ev.preventDefault();
     ev.stopPropagation();
     const customEvent = new CustomEvent('photos-list-photo-click', {

@@ -66,11 +66,6 @@ export default class SlideshowProgressBarComponent extends HTMLElement {
     }
   }
 
-  // private onProgressChange(ev: CustomEvent) {
-  //   this.currentIndex = ev.detail.currentIndex;
-  //   this.listLength = ev.detail.listLength;
-  // }
-
   private update() {
     const currentIndex = Number(this.currentIndex);
     const listLength = Number(this.listLength);
