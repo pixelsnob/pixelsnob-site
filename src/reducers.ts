@@ -1,4 +1,3 @@
-import { getNextSlideshowPhoto, getPreviousSlideshowPhoto } from './selectors';
 
 const defaultState: State = {
   currentSlideshowPhoto: null,
@@ -9,8 +8,8 @@ const defaultState: State = {
 };
 
 function appReducer(state: State = defaultState, action: any) {
-  switch (action.type) {
 
+  switch (action.type) {
 
     case 'SET_SLIDESHOW_PHOTOS': {
       
@@ -31,25 +30,28 @@ function appReducer(state: State = defaultState, action: any) {
       return { ...state, currentSlideshowPhoto: null };
     }
 
-    
-    case 'SET_SLIDESHOW_PHOTO_ID_TO_PREVIOUS': {
-      if (!state.slideshowPhotos.length || !state.currentSlideshowPhoto) {
+    case 'SET_SLIDESHOW_PHOTO_TO_PREVIOUS': { /// confusing name
+      if (!state.currentSlideshowPhoto || !state.slideshowPhotos.length) {
         return state;
       }
-      const previousPhoto = getPreviousSlideshowPhoto(state);
+      const currentIndex = state.slideshowPhotos.indexOf(state.currentSlideshowPhoto);
+      const previousPhoto = state.slideshowPhotos[currentIndex - 1];
+
       if (previousPhoto) {
-        return { ...state, currentSlideshowPhoto: { ...previousPhoto }};
+        return { ...state, currentSlideshowPhoto: previousPhoto };
       }
       return state;
     }
 
-    case 'SET_SLIDESHOW_PHOTO_ID_TO_NEXT': {
-      if (!state.slideshowPhotos.length) {
+    case 'SET_SLIDESHOW_PHOTO_TO_NEXT': { /// confusing name
+      if (!state.currentSlideshowPhoto || !state.slideshowPhotos.length) {
         return state;
       }
-      const nextPhoto = getNextSlideshowPhoto(state);
+      const currentIndex = state.slideshowPhotos.indexOf(state.currentSlideshowPhoto);
+      const nextPhoto = state.slideshowPhotos[currentIndex + 1];
+
       if (nextPhoto) {
-        return { ...state, currentSlideshowPhoto: { ...nextPhoto }};
+        return { ...state, currentSlideshowPhoto: nextPhoto };
       }
       return state;
     }

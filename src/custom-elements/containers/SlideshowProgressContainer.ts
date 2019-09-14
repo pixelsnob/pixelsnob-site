@@ -40,8 +40,8 @@ export default class SlideshowProgressContainer extends HTMLElement {
 
     let listIndex = 0;
     
-    if (slideshowPhoto) {
-      listIndex = slideshowPhoto.listIndex;
+    if (slideshowPhoto && slideshowPhotos.length) {
+      listIndex = slideshowPhotos.indexOf(slideshowPhoto);
     }
 
     this.$progress.currentIndex = listIndex;

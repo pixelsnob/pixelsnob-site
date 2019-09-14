@@ -5,7 +5,6 @@ interface Window {
 
 interface SlideshowPhoto {
   readonly id: number;
-  readonly listIndex: number;
   readonly src: string;
   readonly src_small: string;
   readonly title: string;
@@ -42,3 +41,8 @@ declare module 'customElements';
 // }
 
 type PossiblyAbstractConstructor<T> = Function & { prototype: T };
+
+declare module "*.json" {
+  const value: any;
+  export default value;
+}

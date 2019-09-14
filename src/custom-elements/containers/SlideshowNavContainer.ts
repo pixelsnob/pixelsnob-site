@@ -8,14 +8,10 @@ import '../SlideshowNavLink';
 
 @component('slideshow-nav-container')
 export default class SlideshowNavContainer extends HTMLElement {
-
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-  }
-
+  
   public connectedCallback() {
-    
+    this.attachShadow({ mode: 'open' });
+
     const $slideshowNav = document.createElement('slideshow-nav') as SlideshowNavComponent;
     this.shadowRoot!.appendChild($slideshowNav);
     $slideshowNav.addEventListener('nav-action', this.handleAction.bind(this), true);

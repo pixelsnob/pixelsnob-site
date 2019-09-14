@@ -16,13 +16,13 @@ export const setSlideshowPhotos = (photos: SlideshowPhoto[]) => {
 
 export const setSlideshowPhotoIdToPrevious = () => {
   return {
-    type: 'SET_SLIDESHOW_PHOTO_ID_TO_PREVIOUS'
+    type: 'SET_SLIDESHOW_PHOTO_TO_PREVIOUS'
   };
 };
 
 export const setSlideshowPhotoIdToNext = () => {
   return {
-    type: 'SET_SLIDESHOW_PHOTO_ID_TO_NEXT'
+    type: 'SET_SLIDESHOW_PHOTO_TO_NEXT'
   };
 };
 
@@ -44,9 +44,3 @@ export const hideOverlay = () => {
     type: 'HIDE_OVERLAY'
   };
 };
-
-// export const enableTouch = () => {
-//   return {
-//     type: 'ENABLE_TOUCH'
-//   };
-// };

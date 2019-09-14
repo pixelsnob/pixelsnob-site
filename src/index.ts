@@ -1,5 +1,5 @@
 
-// @ts-ignore
+
 import photosJson from '../_data/flickr-photos.json';
 
 import { setSlideshowPhotos } from './actions';
@@ -27,20 +27,6 @@ import './custom-elements/containers/SlideshowNavContainer';
 import './custom-elements/containers/SlideshowOverlayConnectorContainer';
 import './custom-elements/containers/SlideshowProgressContainer';
 
-// Load photos json into store, add index #
-const photos = photosJson.map((photo: SlideshowPhoto, listIndex: number) => {
-  const { src, src_small, title, flickr_page_url, dominantColor } = photo;
-  return {
-    id: photo.id,
-    // tslint:disable-next-line: object-literal-sort-keys
-    dominantColor,
-    flickr_page_url,
-    listIndex,/// use indexOf instead
-    src,
-    src_small,
-    title,
-  };
-});
 
-store.dispatch(setSlideshowPhotos(photos));
+store.dispatch(setSlideshowPhotos(photosJson as SlideshowPhoto[]));
 
