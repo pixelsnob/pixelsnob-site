@@ -20,7 +20,7 @@ In 2010, the Pumas received a state grant, and started digging up the park. The 
 
 One day, I was there with a neighbor and his dogs for a game of fetch. It was later in the afternoon, and we saw the soccer team start to show up. We leashed up our dogs, and started heading out.
 
-As we were leaving, we were approached by the soccer team president, who threatened us, and told us the city would start ticketing us if we brought our dogs there anymore. I was taken aback that this stranger would be confronting me in a city park, but I showed him my poop bags, and explained that we pick up after ourselves. He didn't care one bit.
+As we were leaving, we were approached by the soccer team president, who threatened us, and told us the city would start ticketing us if we brought our dogs there anymore. I was taken aback that this stranger would be confronting me in a city park, but I showed him my poop bags, and explained that we pick up after ourselves. He didn't care one bit. Apparently, he had made up his mind about us already.
 
 Around the same time, "no animals in park" signs went up. It was obvious that this same person behind this, and he was now using the full power of city government to get his way.
 
