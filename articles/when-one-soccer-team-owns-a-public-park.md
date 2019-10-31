@@ -36,14 +36,13 @@ I went to one of those city meetings, and they were great. I enjoyed speaking wi
 
 But someone else was there, talking to city employees and officials for quite a long time: the soccer team coach. The same man that had "talked to me" about what I was doing in a public park years ago. He was there, lobbying for his team, and his own interests.
 
-Since that time, I have posted my negative experience with this park and this soccer team coach on google maps, only to have him come out and blame the residents openly for "failing to pick up after their dogs". This man has no right to accuse residents, and to dictate public policy. The city should know better. 
+Since that time, I have posted my negative experience with this park and this soccer team coach on google maps, only to have him come out and blame the residents openly for "failing to pick up after their dogs". This man has no right to accuse residents, and should not be dictating public policy. This is extremely inappropriate and unethical.
 
 Other issues I've brought up to the city:
 
 * Parking is extremely inadequate here. There are three spaces, and no disabled spaces at all
 * The inadequate parking mentioned above causes soccer team spectators and parents to park on the basketball courts, and has caused parking nightmares for residents nearby
 * There are no bathrooms here at all, and the soccer team is required by the agreement they sign with the city to provide a portable toilet, but they don't always do that, so, sometimes there isn't even a portable toilet here
-
 
 I hope the city of La Habra does what is fair, and I hope any future improvements are done with everyone in mind. And please don't put residents in the position of being intimidated by entitled sports teams. It's completely inapproriate, and shows a real lack of caring and imagination from this city's leadership.
 
