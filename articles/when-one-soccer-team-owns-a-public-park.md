@@ -30,7 +30,7 @@ Then, around 2014, things got completely out of hand. The soccer team hung adver
 
 Us residents -- who would still take our dogs there in spite of their signs -- started waking up to trash left the night before after games. Trash cans would be overflowing with garbage, including dirty diapers, half-eaten food, etc. It was disgusting. It was more disgusting to watch this all unfold, and that the city let this happen.
 
-Finally, this year, in 2019, I met with the mayor and tried to tell the story from a resident's perspective. I was relieved because I thought that something would be done. I was even more excited when I received a flyer from the city, asking for feedback on our parks that could get potential grant money, which includes Osornio Park. I thought they were finally listening to the community.
+Finally, this year, in 2019, I met with the mayor and tried to tell the story from a resident's perspective, after years of emails and phone calls with different city departments. I was relieved because I thought that something would be done. I was even more excited when I received a flyer from the city, asking for feedback on our parks that could get potential grant money, which includes Osornio Park. I thought they were finally listening to the community.
 
 I went to one of those city meetings, and they were great. I enjoyed speaking with city employees and city officials.
 
