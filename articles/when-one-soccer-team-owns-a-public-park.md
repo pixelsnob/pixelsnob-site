@@ -22,7 +22,7 @@ One day, I was there with a neighbor and his dogs for a game of fetch. It was la
 
 As we were leaving, we were approached by the soccer team president, who threatened us, and told us the city would start ticketing us if we brought our dogs there anymore. I was taken aback that this stranger would be confronting me in a city park, but I showed him my poop bags, and explained that we pick up after ourselves. He didn't care one bit. Apparently, he had made up his mind about us already.
 
-Around the same time, "no animals in park" signs went up. It was obvious that this same person behind this, and he was now using the full power of city government to get his way.
+Around the same time, "no animals in park" signs went up. It was obvious that this same person was behind this, and he was now using the full power of city government to get his way.
 
 But that wasn't even the end of it. Ever since the fence was fixed and locks were put on the gates, the park would be locked periodically. But we would see soccer still being played! Even though there were signs saying "field closed for maintenance"! So, a couple of us residents started calling the city, asking if we could get our own keys to the park. To which they would reply: "we don't give keys out to our parks." This went on for years, and each time, we would call, and the park would be opened again so that we could use it.
 
