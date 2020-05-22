@@ -12,5 +12,5 @@ Whether the thread comes back or not, I do know one thing for sure: I denounce -
 
 Here are some of the screenshots, and some toxic examples of disgusting crap that people decided to spew at me that evening. It is amazing that these people -- some of whom are supposed "respected" professionals in their respective careers -- can act in such an immature, disgusting, and aggressive way when they think other people aren't looking.
 
-<img src="/assets/images/carmelas-nasty-post-clipped.jpg"/>
+<img src="../assets/images/carmelas-nasty-post-clipped.jpg"/>
 
