@@ -13,7 +13,9 @@ I am not sure if the thread will come back.
 
 Here are some of the screenshots, and some toxic examples of **absolutely disgusting crap** that people decided to spew at me that evening.
 
-It is amazing that these neighbors, some of whom are supposed "respected" professionals in their careers, think that it is completely acceptable to go behind someone's back to defame them, online and offline, and to gather other random internet trolls to attack them, and then sitting back, watching and encouraging more attacks and veiled threats.
+It is amazing that these neighbors, some of whom are supposed "respected" professionals in their careers, think that it is completely acceptable to go behind someone's back to defame them, and to gather other random internet trolls to attack them and single them out, and then sitting back, watching and encouraging more attacks and veiled threats.
+
+Absolutely disgusting.
 
 I'm completely disgusted by all of this, and I hope all of these passive-aggressive people in my community get actual, professional help with their anger issues, so that we can go back to some level of peace and respect that seems to have completely disappeared.
 
