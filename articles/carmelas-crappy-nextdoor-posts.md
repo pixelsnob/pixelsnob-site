@@ -25,6 +25,10 @@ I'm completely disgusted by all of this, and I hope all of these passive-aggress
 <img src="../assets/images/carmela-blames-everyone-for-her-burglary.jpg"/><br/>
 <hr/>
 <img src="../assets/images/jeniffer-porras-disgusting-death-wishing-internet-bigot.jpg"/><br/>
+<hr/>
+<img src="../assets/images/jonathan-leon-judgmental-internet-commenter.jpg"><br/>
+<hr/>
+
 <!-- church-going -->
 
 
