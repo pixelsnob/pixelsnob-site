@@ -15,7 +15,9 @@ Here are some of the screenshots, and some toxic examples of **absolutely disgus
 
 It is amazing that these neighbors, some of whom are supposed "respected" professionals in their careers, think that it is completely acceptable to go behind someone's back to defame them, and to gather other random internet trolls to attack them and single them out, and then sitting back, watching and encouraging more attacks and veiled threats.
 
-Absolutely, rank crap!
+**Absolutely, rank, crap.**
+
+I hope everyone involved in this mess is completely ashamed of how they have behaved. I pray that you do not have families, although I know that some of you do. It's sad how people like this tend to pass on their poison, and their judgments, right on to their own kids, ruining their lives, and the lives of other people.
 
 I'm completely disgusted by all of this, and I hope all of these passive-aggressive people in my community get actual, professional help with their anger issues, so that we can go back to some level of peace and respect that seems to have completely disappeared.
 
