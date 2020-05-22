@@ -1,5 +1,6 @@
 ---
 title: Carmela's Crappy, Creepy, "Nextdoor" Internet Troll Posts
+description: Nextdoor Online Bully Carmela; Carmela Panza, "Nextdoor" La Habra Internet Troll; Jeniffer Porras, La Habra Internet Troll and Death-Wisher; Deandra Montiel, La Habra Passive-Aggressive Internet Troll
 ---
 
 May 22, 2020
