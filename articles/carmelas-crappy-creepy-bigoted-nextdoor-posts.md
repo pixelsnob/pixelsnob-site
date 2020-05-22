@@ -27,20 +27,22 @@ I'm completely disgusted by all of this, and I hope all of these passive-aggress
 <hr/>
 <img src="../assets/images/jeniffer-porras-aggressive-nasty-ignorant-internet-troll-1.jpg"/>
 <hr/>
+<img src="../assets/images/jeniffer-porras-disgusting-death-wishing-internet-bigot.jpg"/><br/>
+<hr/>
+<img src="../assets/images/trolls-who-celebrate-old-men-dying-in-la-habra-california-90631.jpg"/><br/>
+<hr/>
 <img src="../assets/images/deandra-montiel-passive-aggressive-internet-troll-1.jpg"/><br/>
 <hr/>
 <img src="../assets/images/carmela-blames-everyone-for-her-burglary.jpg"/><br/>
 <hr/>
 <img src="../assets/images/carmela-creepy-neighbor-schtick-2018.jpg"/><br/>
 <hr/>
-<img src="../assets/images/jeniffer-porras-disgusting-death-wishing-internet-bigot.jpg"/><br/>
-<hr/>
+
 <img src="../assets/images/jonathan-leon-judgmental-internet-commenter.jpg"/><br/>
 <hr/>
 <img src="../assets/images/carmela-panza-racist-nextdoor-troll.jpg"/><br/>
 <hr/>
-<img src="../assets/images/trolls-who-celebrate-old-men-dying-in-la-habra-california-90631.jpg"/><br/>
-<hr/>
+
 <!-- church-going -->
 
 
