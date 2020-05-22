@@ -22,6 +22,8 @@ I'm completely disgusted with all of this, and I hope all of these passive-aggre
 <hr/>
 <img src="../assets/images/deandra-montiel-passive-aggressive-internet-troll-1.jpg"/><br/>
 <hr/>
+<img src="../assets/images/carmela-blames-everyone-for-her-burglary.jpg"/><br/>
+
 <!-- church-going -->
 
 
