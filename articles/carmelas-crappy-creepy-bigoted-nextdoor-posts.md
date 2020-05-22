@@ -9,11 +9,11 @@ On May 19, 2020, my next-door neighbor decided to air a years-long feud with me 
 
 I am not sure if the thread will come back.
 
-**I denounce, in the strongest possible terms, my neighbor's passive-aggressive actions, including her repeated attempts over the years at defaming me, online, and offline, and her most recent, blatant attempt (screenshots below) to turn my own neighborhood against me. I also denounce, in the strongest possible terms, her negative characterizations of me, that she has spread around my immediate neighborhood, online and off.**
+**I denounce, in the strongest possible terms, my neighbor's passive-aggressive actions, including her repeated attempts over the years at defaming me, online, and offline, and her most recent, blatant attempt (screenshots below) to turn my own neighborhood against me. I also denounce, in the strongest possible terms, her negative characterizations of me, that she has spread around my immediate neighborhood, and my entire community.**
 
 Here are some of the screenshots, and some toxic examples of **absolutely disgusting crap** that people decided to spew at me that evening.
 
-It is amazing that these people -- some of whom are supposed "respected" professionals in their careers -- think that it is acceptable to go behind someone's back to defame them, online and offline, and to gather other random internet trolls in order to attack them, and then support the people doing the attacks.
+It is amazing that these neighbors, some of whom are supposed "respected" professionals in their careers, think that it is completely acceptable to go behind someone's back to defame them, online and offline, and to gather other random internet trolls to attack them, and then sitting back, watching and encouraging more attacks and veiled threats.
 
 I'm completely disgusted by all of this, and I hope all of these passive-aggressive people in my community get actual, professional help with their anger issues, so that we can go back to some level of peace and respect that seems to have completely disappeared.
 
