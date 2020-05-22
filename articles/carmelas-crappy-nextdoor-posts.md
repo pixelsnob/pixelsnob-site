@@ -14,7 +14,7 @@ Here are some of the screenshots, and some toxic examples of disgusting crap tha
 
 It is amazing that these people -- some of whom are supposed "respected" professionals in their careers -- think that it is acceptable to go behind someone's back to defame them, online and offline, and to gather other random internet trolls in order to attack them, and then support the people doing the attacks.
 
-I'm completely disgusted with all of this, and I hope all of these passive-aggressive people in my community get actual, professional help with their anger issues, so that we can go back to some level of peace and respect that seems to have completely disappeared.
+I'm completely disgusted by all of this, and I hope all of these passive-aggressive people in my community get actual, professional help with their anger issues, so that we can go back to some level of peace and respect that seems to have completely disappeared.
 
 <img src="../assets/images/carmelas-nasty-post-clipped.jpg"/><br/>
 <hr/>
@@ -23,7 +23,8 @@ I'm completely disgusted with all of this, and I hope all of these passive-aggre
 <img src="../assets/images/deandra-montiel-passive-aggressive-internet-troll-1.jpg"/><br/>
 <hr/>
 <img src="../assets/images/carmela-blames-everyone-for-her-burglary.jpg"/><br/>
-
+<hr/>
+<img src="../assets/images/jeniffer-porras-disgusting-death-wishing-internet-bigot.jpg"/><br/>
 <!-- church-going -->
 
 
