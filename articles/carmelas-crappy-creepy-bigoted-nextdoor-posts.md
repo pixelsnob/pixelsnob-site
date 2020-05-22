@@ -9,7 +9,7 @@ On May 19, 2020, my next-door neighbor decided to air a years-long feud with me 
 
 I am not sure if the thread will come back.
 
-**I denounce, in the strongest possible terms, my neighbor's passive-aggressive actions, including her repeated attempts over the years at defaming me, online, and offline, and her most recent, blatant attempt (screenshots below) to turn my own neighborhood against me. I also denounce, in the strongest possible terms, her negative characterizations of me, that she has spread around my immediate neighborhood, and my entire community.**
+**I denounce, in the strongest possible terms, my neighbor's passive-aggressive actions, including her repeated attempts over the years at defaming me, online, and offline, and her most recent, blatant attempt (screenshots below) to turn my own neighborhood against me in an online witch hunt. I also denounce, in the strongest possible terms, her negative characterizations of me, that she has spread around my immediate neighborhood, and my entire community.**
 
 Here are some of the screenshots, and some toxic examples of the nasty, smelly, garbage that people decided to spew at me that evening.
 
