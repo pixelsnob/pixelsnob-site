@@ -5,7 +5,7 @@ category: article
 
 May 22, 2020
 
-On May 19, 2020, my next-door neighbor decided to air a years-long feud between the both of us on the Nextdoor internet forum, where several internet trolls and death-wishers piled on with aggressive comments, until Nextdoor finally removed the entire thread. 
+On May 19, 2020, my next-door neighbor decided to air a years-long feud between the both of us on the <a href="https://nextdoor.com/" target="_blank">Nextdoor</a> internet forum, where several internet trolls and death-wishers piled on with aggressive comments, until Nextdoor finally removed the entire thread. 
 
 I am not sure if the thread will come back.
 
