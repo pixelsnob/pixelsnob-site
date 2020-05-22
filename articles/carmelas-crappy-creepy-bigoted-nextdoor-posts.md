@@ -17,6 +17,8 @@ It is amazing that these people -- some of whom are supposed "respected" profess
 
 I'm completely disgusted by all of this, and I hope all of these passive-aggressive people in my community get actual, professional help with their anger issues, so that we can go back to some level of peace and respect that seems to have completely disappeared.
 
+**Trigger warning. None of this trash is worth reading anyway.**
+
 <img src="../assets/images/carmelas-nasty-post-clipped.jpg"/><br/>
 <hr/>
 <img src="../assets/images/jeniffer-porras-aggressive-nasty-ignorant-internet-troll-1.jpg"/>
