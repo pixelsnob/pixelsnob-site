@@ -33,7 +33,8 @@ I'm completely disgusted by all of this, and I hope all of these passive-aggress
 <hr/>
 <img src="../assets/images/carmela-panza-racist-nextdoor-troll.jpg"/><br/>
 <hr/>
-
+<img src="../assets/images/trolls-who-celebrate-old-men-dying-in-la-habra-california-90631.jpg"/><br/>
+<hr/>
 <!-- church-going -->
 
 
