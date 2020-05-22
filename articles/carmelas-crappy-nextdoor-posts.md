@@ -21,7 +21,7 @@ I'm completely disgusted with all of this, and I hope all of these passive-aggre
 <img src="../assets/images/jeniffer-porras-aggressive-nasty-ignorant-internet-troll-1.jpg"/>
 <hr/>
 <img src="../assets/images/deandra-montiel-passive-aggressive-internet-troll-1.jpg"/><br/>
-
+<hr/>
 <!-- church-going -->
 
 
