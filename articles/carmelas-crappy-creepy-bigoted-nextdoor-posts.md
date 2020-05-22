@@ -11,7 +11,7 @@ I am not sure if the thread will come back.
 
 Whether the thread comes back or not, I do know one thing for sure: **I denounce -- in the strongest terms -- how my next-door neighbor decided to deal with this. I also denounce -- in the strongest terms -- her negative characterizations of me, that she has spread around my immediate neighborhood, online and off.**
 
-Here are some of the screenshots, and some toxic examples of *disgusting crap* that people decided to spew at me that evening.
+Here are some of the screenshots, and some toxic examples of **absolutely disgusting crap** that people decided to spew at me that evening.
 
 It is amazing that these people -- some of whom are supposed "respected" professionals in their careers -- think that it is acceptable to go behind someone's back to defame them, online and offline, and to gather other random internet trolls in order to attack them, and then support the people doing the attacks.
 
