@@ -1,6 +1,5 @@
 ---
 title: Carmela's Crappy "Nextdoor" Internet Troll Posts
-category: article
 ---
 
 May 22, 2020
