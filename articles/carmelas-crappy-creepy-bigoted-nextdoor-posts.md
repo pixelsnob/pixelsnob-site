@@ -11,7 +11,7 @@ I am not sure if the thread will come back. Nextdoor has not reponded to any of 
 
 **I denounce, in the strongest possible terms, my neighbor's passive-aggressive actions, including her repeated attempts over the years at defaming me, online, and offline, and her most recent, blatant attempt (screenshots below) to turn my own neighborhood against me in an online witch hunt. I also denounce, in the strongest possible terms, her negative characterizations of me, that she has spread around my immediate neighborhood, and my entire community.**
 
-Below are some of the toxic examples of the nasty, smelly, rotten garbage that people decided to spew at me that evening.
+Below are some of the toxic examples of the nasty, smelly, rotten garbage that people decided to spew at me that evening, as well as other casually racist and fascist comments made by my neighbor.
 
 It is amazing that these neighbors, some of whom are supposed "respected" professionals in their careers, think that it is completely acceptable to go behind someone's back to defame them, then gather other random internet trolls to attack them and single them out, and then have the nerve to sit back and completely enjoy the trash fire that they helped to create.
 
