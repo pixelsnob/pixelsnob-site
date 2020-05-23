@@ -13,7 +13,7 @@ I'm not sure if the post will stay down.
 
 Below are some of the toxic examples of the nasty, smelly, rotten garbage that people decided to spew at me that evening.
 
-It is amazing to me how these neighbors, some of whom are supposed "respected" professionals in their careers, think that it is completely acceptable to go behind someone's back to defame them, then gather other random internet trolls to attack them and single them out, and then have the nerve to sit back and completely enjoy the trash fire that they started.
+It is amazing to me how these neighbors, some of whom are supposedly "respected" professionals in their careers, think that it is completely acceptable to go behind someone's back to defame them, and then have the nerve to sit back and watch, and encourage other people to join in.
 
 **It's absolute crap.**
 
