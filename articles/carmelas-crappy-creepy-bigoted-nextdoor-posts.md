@@ -17,7 +17,7 @@ It is amazing that these neighbors, some of whom are supposed "respected" profes
 
 **Absolute crap.**
 
-I hope everyone involved in this mess is completely ashamed of how they have behaved. I pray that you do not have families, although I know that some of you do. It's sad how people like this tend to pass on their poison, and their judgments, right on to their own kids, ruining their lives, and the lives of other people.
+I hope everyone involved in this mess is completely ashamed of how they have behaved. I pray that they do not have families, although I know that some of them do, because it is sad and pathetic how people like this tend to pass on their poison, and their judgments, right on to their own kids, ruining their lives, and the lives of other people.
 
 I'm completely disgusted by all of this, and I hope all of these passive-aggressive people in my community get actual, professional help with their anger issues, so that we can go back to some level of peace and respect that seems to have completely disappeared.
 
