@@ -8,7 +8,11 @@ Hello! I'm an experienced web developer seeking steady employment, preferably on
 If you are hiring, please <a href="/articles/luis-a-echeverria-resume">read my resume</a>, and 
 <a href="/articles/what-im-looking-for-in-a-job">see what I'm looking for in a tech job.</a> Thank you!
 
-## Recent Sites
+## Recent Articles
+
+- <a href="/articles/carmelas-crappy-creepy-bigoted-nextdoor-posts">Nextdoor: Reeking Online Cesspool of Bullies, Trolls, and Vigiliantes</a>
+
+## Work Samples
 
 - <a href="https://www.lapercussionrentals.com/" target="_blank">Los Angeles Percussion Rentals</a>
 - <a href="https://friendsofosorniopark.org/" target="_blank">Friends of Osornio Park</a>
