@@ -7,7 +7,7 @@ May 22, 2020
 
 On May 19, 2020, my next-door neighbor decided to air a years-long feud with me behind my back on the <a href="https://nextdoor.com/" target="_blank">Nextdoor</a> internet forum, where several trolls and death-wishers piled on with aggressive comments, until Nextdoor finally removed the entire thread. 
 
-I am not sure if the thread will come back. Nextdoor has been silent during the entire thing, and failed to repond to any of my messages.
+I am not sure if the thread will come back. Nextdoor has not reponded to any of my messages to them.
 
 **I denounce, in the strongest possible terms, my neighbor's passive-aggressive actions, including her repeated attempts over the years at defaming me, online, and offline, and her most recent, blatant attempt (screenshots below) to turn my own neighborhood against me in an online witch hunt. I also denounce, in the strongest possible terms, her negative characterizations of me, that she has spread around my immediate neighborhood, and my entire community.**
 
