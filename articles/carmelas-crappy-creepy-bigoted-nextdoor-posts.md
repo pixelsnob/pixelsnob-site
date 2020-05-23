@@ -21,7 +21,7 @@ I hope everyone involved in this mess is completely ashamed of how they have beh
 
 I'm completely disgusted by all of this, and I hope all of these passive-aggressive people in my community get actual, professional help with their anger issues, so that we can go back to some level of peace and respect that seems to have completely disappeared.
 
-**Trigger warning. None of this fucking trash is worth reading anyway.**
+<strong style="color:red;">Trigger warning. None of this fucking trash is worth reading anyway.</strong>
 
 <img src="../assets/images/carmelas-nasty-post-clipped.jpg"/><br/>
 <hr/>
