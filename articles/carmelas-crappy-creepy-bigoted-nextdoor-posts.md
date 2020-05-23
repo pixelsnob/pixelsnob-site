@@ -23,8 +23,6 @@ I'm completely disgusted by all of this, and I hope all of these passive-aggress
 
 **Trigger warning.**
 
-...
-
 <strong style="color:red !important">None of this fucking trash is worth reading anyway.</strong>
 
 <img src="../assets/images/carmelas-nasty-post-clipped.jpg"/><br/>
