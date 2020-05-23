@@ -11,7 +11,7 @@ On May 19, 2020, my next-door neighbor decided to air a years-long feud with me 
 
 Below are some of the toxic examples of the nasty, smelly, rotten garbage that people decided to spew at me that evening.
 
-It is amazing how these neighbors, some of whom are supposed "respected" professionals in their careers, think that it is completely acceptable to go behind someone's back to defame them, then gather other random internet trolls to attack them and single them out, and then have the nerve to sit back and completely enjoy the trash fire that they helped to create.
+It is amazing to me how these neighbors, some of whom are supposed "respected" professionals in their careers, think that it is completely acceptable to go behind someone's back to defame them, then gather other random internet trolls to attack them and single them out, and then have the nerve to sit back and completely enjoy the trash fire that they helped to create.
 
 **Absolute crap.**
 
