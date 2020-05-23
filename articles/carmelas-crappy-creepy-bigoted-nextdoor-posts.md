@@ -5,7 +5,7 @@ description: Carmela Panza, Nextdoor La Habra Bully, Bigot, and Internet Troll; 
 
 May 22, 2020
 
-On May 19, 2020, my next-door neighbor decided to air a years-long feud with me behind my back on the <a href="https://nextdoor.com/" target="_blank">Nextdoor</a> internet forum in the "Crime and Safety" category, where several trolls and death-wishers piled on with aggressive comments after I tried to defend myself. Nextdoor finally removed the entire thread after several people, including myself, complained to admins. But by then, the post had been seen in 28 neighborhoods, and had been up for almost a full 24 hours.
+On May 19, 2020, my next-door neighbor decided to air a years-long feud with me behind my back on the <a href="https://nextdoor.com/" target="_blank">Nextdoor</a> internet forum in the "Crime and Safety" category, where several trolls and death-wishers piled on with aggressive comments after I tried to defend myself. Nextdoor finally removed the entire thread after several people, including myself, complained to site administrators. But by then, the post had been seen in 28 neighborhoods, and had been up for almost a full 24 hours.
 
 I'm not sure if the posts will stay down, because Nextdoor doesn't write me back at all.
 
