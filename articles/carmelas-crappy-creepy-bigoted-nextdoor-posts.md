@@ -19,7 +19,7 @@ It is amazing to me how these neighbors, some of whom are supposedly "respected"
 
 Everyone involved in this mess should be completely ashamed of how they have behaved. I pray that they do not have families, although I know that some of them do, because it is sad and pathetic how people like this tend to pass on their poison, and their judgments, right on to their own kids, ruining their lives, and the lives of other people.
 
-I'm completely disgusted by all of this, and I hope all of these passive-aggressive people in my community get actual, professional help with their anger issues, so that we can go back to some level of peace and respect that seems to have completely disappeared.
+I hope all of these passive-aggressive, bitter people in my community get actual, professional help with their anger issues, so that we can go back to some level of peace and respect that seems to have completely disappeared.
 
 **Trigger warning.**
 
