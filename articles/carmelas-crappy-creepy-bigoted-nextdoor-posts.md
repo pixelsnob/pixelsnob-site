@@ -15,7 +15,7 @@ Below are some of the toxic examples of the nasty, smelly, rotten garbage that p
 
 It is amazing to me how these neighbors, some of whom are supposedly "respected" professionals in their careers, think that it is completely acceptable to go behind someone's back to defame them, and then have the nerve to sit back and encourage other people to join in, even after people bring up death and violence.
 
-**It's absolute crap.**
+**It's total crap.**
 
 Everyone involved in this mess should be completely ashamed of how they have behaved. I pray that they do not have families, although I know that some of them do, because it is sad and pathetic how people like this tend to pass on their poison, and their judgments, right on to their own kids, ruining their lives, and the lives of other people.
 
