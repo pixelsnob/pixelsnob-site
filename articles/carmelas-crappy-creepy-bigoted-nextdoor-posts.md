@@ -13,7 +13,7 @@ I'm not sure if the posts will stay down, because Nextdoor doesn't write me back
 
 Below are some of the toxic examples of the nasty, smelly, rotten garbage that people decided to spew at me that evening.
 
-It is amazing to me how these neighbors, some of whom are supposedly "respected" professionals in their careers, think that it is completely acceptable to go behind someone's back to defame them, and then have the nerve to sit back and encourage other people to join in.
+It is amazing to me how these neighbors, some of whom are supposedly "respected" professionals in their careers, think that it is completely acceptable to go behind someone's back to defame them, and then have the nerve to sit back and encourage other people to join in, even when it gets to the point of death and violence.
 
 **It's absolute crap.**
 
