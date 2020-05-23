@@ -10,7 +10,7 @@ If you are hiring, please <a href="/articles/luis-a-echeverria-resume">read my r
 
 ## Recent Articles
 
-- <a href="../articles/carmelas-crappy-creepy-bigoted-nextdoor-posts">Nextdoor: A Reeking, Online Cesspool of Bullies, Trolls, and Vigiliantes</a>
+- <a href="../articles/carmelas-crappy-creepy-bigoted-nextdoor-posts">Nextdoor: Reeking, Online Cesspool of Bullies, Trolls, and Vigiliantes</a>
 
 ## Work Samples
 
