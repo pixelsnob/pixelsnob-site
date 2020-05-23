@@ -1,6 +1,6 @@
 ---
 title: Carmela's Crappy, Creepy, "Nextdoor" Internet Troll Posts
-description: Carmela Panza, Nextdoor La Habra Bully, Bigot, and Internet Troll; Nextdoor Bullies; Jeniffer Porras, Old-Man Hating La Habra Internet Troll and Death-Wisher; Deandra Montiel, La Habra Passive-Aggressive Internet Troll
+description: Carmela Panza, Nextdoor La Habra Bully, Bigot, and Internet Troll; Nextdoor Bullying; Nextdoor Bullies; Jeniffer Porras, Old-Man Hating La Habra Internet Troll and Death-Wisher; Deandra Montiel, La Habra Passive-Aggressive Internet Troll; Defamation of Character
 ---
 
 May 22, 2020
