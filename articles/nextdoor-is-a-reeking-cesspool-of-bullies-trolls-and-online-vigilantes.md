@@ -3,6 +3,7 @@ title: Nextdoor.com&#58; Reeking Cesspool of Bullies, Trolls, and Online Vigilan
 description: Carmela Panza, Nextdoor La Habra Bully, Bigot, and Internet Troll; Nextdoor Bullying; Nextdoor Bullies; Jeniffer Porras, Old-Man Hating La Habra Internet Troll and Death-Wisher; Defamation of Character
 ---
 
+Luis A. Echeverria
 May 22, 2020
 
 On May 19, 2020, my next-door neighbor decided to air a years-long feud between us on the <a href="https://nextdoor.com/" target="_blank">Nextdoor</a> internet forum in the "Crime and Safety" category, where several trolls and death-wishers piled on with aggressive comments after I tried to defend myself. Nextdoor finally removed the entire thread after a couple of neighbors and I complained to site administrators. But by then, the post had been seen in 28 neighborhoods, and had been up for almost a full 24 hours.
