@@ -10,7 +10,6 @@ body {
   @media (max-width: $breakpoint-md) {
     padding: 12px;
   }
-  //border: 1px solid red;
   &.no-scroll {
     overflow: hidden;
   }
@@ -68,8 +67,10 @@ header .site-nav {
   margin-top: 40px; 
 }
 
-header h1 a:link, a:active, a:visited {
-  color: #fff; 
+header h1 {
+  a:link, a:active, a:visited {
+    color: #fff;
+  }
 }
 // header {
 //   text-align: center;
