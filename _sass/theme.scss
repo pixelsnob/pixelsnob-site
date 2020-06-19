@@ -68,7 +68,7 @@ header .site-nav {
   margin-top: 40px; 
 }
 
-header h1 a:link {
+header h1 a:link, a:active, a:visited {
   color: #fff; 
 }
 // header {
