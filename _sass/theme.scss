@@ -48,10 +48,10 @@ a {
   text-decoration: none;
   &:link, &:hover, &:active, &:visited {
     font-weight: bold;
-    color: #eb4034;
+    color: /*#eb4034*/ #f48061;
   }
   &:hover {
-    color: #f48061;
+    /*color: #f48061;*/
     text-decoration: underline;
   }
 }
