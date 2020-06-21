@@ -1,7 +1,0 @@
-<ul>
-  {% for page in site.pages %}
-    {% unless page.exclude %}
-      <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-    {% endunless %}
-  {% endfor %}
-</ul>
