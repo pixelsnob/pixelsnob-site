@@ -14,7 +14,7 @@ If you are hiring, please <a href="/articles/luis-a-echeverria-resume">read my r
 
 ## Work Samples
 
-- <a href="https://www.lapercussionrentals.com/" target="_blank">Los Angeles Percussion Rentals</a>
+- <a href="https://github.com/pixelsnob" target="_blank">My GitHub Repositories</a>
 - <a href="https://friendsofosorniopark.org/" target="_blank">Friends of Osornio Park</a>
 - <a href="https://www.the-beach-house.com/menu/" target="_blank">Beach House Restaurant, Hawaii</a> (with <a href="https://corbinbrooks.com/">Corbin & Brooks</a>)
 
