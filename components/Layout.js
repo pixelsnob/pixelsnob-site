@@ -11,21 +11,13 @@ export default props => (
             </span>
           </h1>
         </header>
-        {/* {% unless page.exclude %}
-          <h2>{{ page.title }}</h2>
-        {% endunless %}
-        <div class="site-content">
-          {{ content }}
-        </div> */}
+        
         <div className="main-content">{props.children}</div>
       </section>
       <footer>
         
       </footer>
     </div>
-    
-    {/* <style jsx>{`
-      
-    `}</style> */}
+
   </> 
 )
