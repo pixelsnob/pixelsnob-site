@@ -1,6 +1,6 @@
 
 const withPlugins = require('next-compose-plugins');
-//const optimizedImages = require('next-optimized-images');
+const optimizedImages = require('next-optimized-images');
 //const withSass = require('@zeit/next-sass');
 
 const env = {};
@@ -14,15 +14,16 @@ const env = {};
 // }
 
 module.exports = withPlugins([
-  // [
-  //   optimizedImages, {
-  //     handleImages: [ 'jpg' ],
-  //     optimizeImagesInDev: false,
-  //     mozjpeg: {
-  //       quality: 62,
-  //     }
-  //   }
-  // ],
+  [
+    optimizedImages, {
+      handleImages: [ 'jpg' ],
+      optimizeImagesInDev: false,
+      mozjpeg: {
+        quality: 80,
+      }
+    }
+  ]
+  //{ distDir: './build' }
   //withSass
   // { env }
 ]);

@@ -1,13 +1,22 @@
+
 import Layout from '../../components/Layout';
+import Head from '../../components/Head';
+import ImageContainer from '../../components/ImageContainer';
 
 export default () => (
   <Layout>
-    
+
+    <Head>
+      <title key="site-title">Nextdoor.com: Reeking Cesspool of Bullies, Trolls, and Online Vigilantes | Luis A. Echeverria | pixelsnob.com</title>
+      <meta name="description" content={`On nextdoor.com, being a biased neighborhood bully and a racist troll is a paid position: they're called 'leads'.`}/>
+    </Head>
+
+    <h2>Nextdoor.com: Reeking Cesspool of Bullies, Trolls, and Online Vigilantes</h2>
     <p>Luis A. Echeverria</p>
     <p>May 22, 2020</p>
-    
+
     {/* link to nextdoor complaints! */}
-    <p>On May 19, 2020, my next-door neighbor decided to air a years-long feud between us on the <a href="https://nextdoor.com/" target="_blank">Nextdoor</a> internet forum in the "Crime and Safety" category, where several trolls and death-wishers piled on with aggressive comments after I tried to defend myself from her lies. Nextdoor finally removed the entire thread after a couple of neighbors and I complained to site administrators. But by then, the post had been seen in 28 neighborhoods, and had been up for almost a full 24 hours.</p>
+    <p>On May 19, 2020, my next-door neighbor decided to air a years-long feud between us on the <a href="https://www.bbb.org/us/ca/san-francisco/profile/internet-service/nextdoorcom-inc-1116-447229/complaints" target="_blank">Nextdoor</a> internet forum in the "Crime and Safety" category, where several trolls and death-wishers piled on with aggressive comments after I tried to defend myself from her lies. Nextdoor finally removed the entire thread after a couple of neighbors and I complained to site administrators. But by then, the post had been seen in 28 neighborhoods, and had been up for almost a full 24 hours.</p>
 
     <p>I'm not sure if the posts will stay down, because Nextdoor doesn't write me back at all.</p>
 
@@ -24,8 +33,40 @@ export default () => (
     <p>I hope all of these passive-aggressive, bitter people in my community get actual, professional help with their anger issues, so that we can go back to some level of peace and respect that seems to have completely disappeared.</p>
 
     <p>
-      <strong>Trigger warning:</strong><br/>
-      <strong style={{ color: "red !important"}}>None of this fucking trash is worth reading anyway.</strong>
+      <strong>Trigger warning.</strong>
     </p>
+    <p>
+      <strong style={{ color: "red !important" }}>None of this fucking trash is worth reading anyway.</strong>
+    </p>
+
+    <ul className="unindented-list">
+      <li>
+        <ImageContainer src="carmelas-nasty-post-clipped.jpg" caption=""/>
+      </li>
+      <li>
+        <ImageContainer src="jeniffer-porras-aggressive-nasty-ignorant-internet-troll-1.jpg" caption=""/>
+      </li>
+      <li>
+        <ImageContainer src="jeniffer-porras-disgusting-death-wishing-internet-bigot.jpg" caption=""/>
+      </li>
+      <li>
+        <ImageContainer src="trolls-who-celebrate-old-men-dying-in-la-habra-california-90631.jpg" caption=""/>
+      </li>
+      <li>
+        <ImageContainer src="deandra-montiel-passive-aggressive-internet-troll-1.jpg" caption=""/>
+      </li>
+      <li>
+        <ImageContainer src="carmela-blames-everyone-for-her-burglary.jpg" caption=""/>
+      </li>
+      <li>
+        <ImageContainer src="carmela-creepy-neighbor-schtick-2018.jpg" caption=""/>
+      </li>
+      <li>
+        <ImageContainer src="jonathan-leon-judgmental-internet-commenter.jpg" caption=""/>
+      </li>
+      <li>
+        <ImageContainer src="carmela-panza-racist-nextdoor-troll.jpg" caption=""/>
+      </li>
+    </ul>
   </Layout>
 );

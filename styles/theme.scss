@@ -2,7 +2,7 @@
 
 body {
   background-color: black;
-  font: 14px/1.5 "Noto Sans", Helvetica, Arial, sans-serif;
+  font: 14px/1.5 "noto_sans_regular", Helvetica, Arial, sans-serif;
   color: #fff;
   font-weight: 400;
   position: relative;
@@ -15,6 +15,7 @@ body {
   &.no-scroll {
     overflow: hidden;
   }
+  line-height: 1.65;
 }
 
 p,
@@ -23,22 +24,30 @@ div {
   font-size: 1.4rem;
 }
 
+strong {
+  font-family: "noto_sans_bold";
+}
+
 h1 {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
 }
 
 h2 {
-  font-size: 1.4rem;
+  font-size: 1.7rem;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 h4 {
   font-size: 1.2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "noto_sans_bold";
 }
 
 a {
@@ -49,9 +58,18 @@ a {
     font-weight: bold;
     color: #fff;
   }
-  &:hover {
-    text-decoration: underline;
+  // &:hover {
+  //   text-decoration: underline;
+  // }
+  &[target="_blank"]::after {
+    content: "↗";
+    text-decoration: none !important;
+    //content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+    margin: 0 3px 0 5px;
+    display: inline-block;
+    font-size: 1rem;
   }
+  font-family: "noto_sans_bold";
 }
 
 hr {
@@ -67,7 +85,7 @@ img {
 // }
 
 .main-header {
-  padding-bottom: 8vh;
+  padding-bottom: 25px;
 }
 
 .main-container {
@@ -88,9 +106,13 @@ img {
   margin: 0 auto;
 }
 
-// .main-content {
-//   // border: 1px solid green;
-// }
+.unindented-list {
+  padding: 0;
+  li {
+    list-style-type: none;
+    margin-bottom: 25px;
+  }
+}
 
 .tags-list {
   padding: 0;
@@ -103,7 +125,6 @@ img {
   letter-spacing: 0.05rem;
   text-transform: uppercase;
   line-height: 1.5;
-  // bord er: 1px solid #ccc;
   padding: 4px 7px;
   margin-right: 2px;
   margin-bottom: 4px;
@@ -167,7 +188,7 @@ img {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation: rainbow-animation 6s ease-in-out infinite;
+    animation: rainbow-animation 10s ease-in-out infinite;
     background-size: 400% 100%;
   }
 }
