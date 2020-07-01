@@ -8,7 +8,9 @@
     "@types/node": "^14.0.13",
     "@types/react": "^16.9.38",
     "@zeit/next-sass": "^1.0.1",
+    "googleapis": "^52.1.0",
     "imagemin-mozjpeg": "^9.0.0",
+    "isomorphic-fetch": "^2.2.1",
     "next": "^9.4.4",
     "next-compose-plugins": "^2.2.0",
     "next-optimized-images": "^2.6.1",
@@ -22,8 +24,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next -p 3002",
-    "build": "next build && next export"
+    "dev": "./node_modules/next/dist/bin/next -p 3002",
+    "deploy": "./node_modules/next/dist/bin/next build && ./node_modules/next/dist/bin/next export"
   },
   "repository": {
     "type": "git",

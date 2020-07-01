@@ -7,3 +7,4 @@ tmp
 .next
 _old
 out/
+npm-debug.log
